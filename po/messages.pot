@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property) 
-msgid "Sidux HD-Installation"
+msgid "sidux HD-Installation"
 msgstr ""
 
 #: install-gui.glade:78(property) 
@@ -18,7 +18,7 @@ msgid "exit"
 msgstr ""
 
 #: install-gui.glade:275(property) 
-msgid "Welcome to the Sidux HD-Installation"
+msgid "Welcome to the sidux HD-Installation"
 msgstr ""
 
 #: install-gui.glade:425(property) 
@@ -27,12 +27,12 @@ msgid "Note that this version is still an very early version and under heavy dev
 msgstr ""
 
 #: install-gui.glade:452(property) 
-msgid "This application will install Sidux to your harddisk."
+msgid "This application will install sidux to your harddisk."
 msgstr ""
 
 #: install-gui.glade:505(property) 
-msgid "If you need any help with the installation visit the Sidux-Website, -Wiki, -Forum or -Chat!\n\n"
-"Sidux-Website: http://sidux.com"
+msgid "If you need any help with the installation visit the sidux-Website, -Wiki, -Forum or -Chat!\n\n"
+"sidux-Website: http://sidux.com"
 msgstr ""
 
 #: install-gui.glade:537(property) 
@@ -154,7 +154,7 @@ msgid "Network"
 msgstr ""
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the Sidux-Installation.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
 "If everything is correct for you, begin the installation by pressing \"Begin installation\"."
 msgstr ""
@@ -165,7 +165,7 @@ msgid "Save configuration\n"
 msgstr ""
 
 #: install-gui.glade:1821(property) 
-msgid "Start Sidux-Installer-Script\n"
+msgid "Start sidux-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
 msgstr ""

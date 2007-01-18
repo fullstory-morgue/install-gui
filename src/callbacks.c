@@ -15,7 +15,7 @@
 
 #define FILENAME ".knofig"
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
-#define INSTALL_SH "knx-installer --non-interactive &"
+#define INSTALL_SH "knx-installer nonInteractive &"
 #define INSTALL_SH_WITHOUT_CONFIG "knx-installer &"
 
 FILE* fp;
@@ -502,7 +502,7 @@ on_button_install_clicked              (GtkButton       *button,
    radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton3"));
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
      /* ======================================================== *
-      *          Start Sidux-Installer-Script                    *
+      *          Start sidux-Installer-Script                    *
       *          without configuration                           *
       *         (this configuration will be lost)                *
       * ======================================================== */
@@ -783,7 +783,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       //awk '/^\/dev\//{print $1}' /proc/swaps
       strcpy(systemcall, "sed -ie \"s#__swapchoices__#$(awk '/^\\/dev\\//{print $1}' /proc/swaps | head -1)#\" $HOME/");
       strcat(systemcall, FILENAME);
-      printf("%s\n", systemcall);
+      //printf("%s\n", systemcall);
       system(systemcall);
 
      /* ======================================================== *

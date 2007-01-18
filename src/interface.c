@@ -147,7 +147,7 @@ create_window1 (void)
   tooltips = gtk_tooltips_new ();
 
   window1 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (window1), _("Sidux HD-Installation"));
+  gtk_window_set_title (GTK_WINDOW (window1), _("sidux HD-Installation"));
   window1_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
   if (window1_icon_pixbuf)
     {
@@ -223,7 +223,7 @@ create_window1 (void)
   gtk_widget_show (label12);
   gtk_box_pack_start (GTK_BOX (hbox4), label12, FALSE, FALSE, 0);
 
-  label_wellcome = gtk_label_new (_("Welcome to the Sidux HD-Installation"));
+  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
   gtk_widget_show (label_wellcome);
   gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
   gtk_widget_set_size_request (label_wellcome, 503, 39);
@@ -268,7 +268,7 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed2), vseparator2, 640, 24);
   gtk_widget_set_size_request (vseparator2, 16, 328);
 
-  label_wellcome_install = gtk_label_new (_("This application will install Sidux to your harddisk."));
+  label_wellcome_install = gtk_label_new (_("This application will install sidux to your harddisk."));
   gtk_widget_show (label_wellcome_install);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_install, 32, 32);
   gtk_widget_set_size_request (label_wellcome_install, 608, 48);
@@ -300,7 +300,7 @@ create_window1 (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
 
-  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation visit the Sidux-Website, -Wiki, -Forum or -Chat!\n\nSidux-Website: http://sidux.com"));
+  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation visit the sidux-Website, -Wiki, -Forum or -Chat!\n\nsidux-Website: http://sidux.com"));
   gtk_widget_show (label_wellcome_2);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_2, 32, 224);
   gtk_widget_set_size_request (label_wellcome_2, 608, 96);
@@ -704,7 +704,7 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_force, 328, 136);
   gtk_widget_set_size_request (checkbutton_force, 232, 56);
 
-  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start Sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
+  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
   gtk_widget_show (radiobutton3);
   gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
   gtk_widget_set_size_request (radiobutton3, 376, 56);
@@ -718,7 +718,7 @@ create_window1 (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
   radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
 
-  label33 = gtk_label_new (_("You provided all Information neccessary to start the Sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, begin the installation by pressing \"Begin installation\"."));
+  label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, begin the installation by pressing \"Begin installation\"."));
   gtk_widget_show (label33);
   gtk_fixed_put (GTK_FIXED (fixed7), label33, 16, 8);
   gtk_widget_set_size_request (label33, 640, 88);

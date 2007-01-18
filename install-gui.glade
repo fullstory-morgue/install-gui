@@ -5,7 +5,7 @@
 
 <widget class="GtkWindow" id="window1">
   <property name="visible">True</property>
-  <property name="title" translatable="yes">Sidux HD-Installation</property>
+  <property name="title" translatable="yes">sidux HD-Installation</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_NONE</property>
   <property name="modal">False</property>
@@ -273,7 +273,7 @@
 	  <property name="width_request">503</property>
 	  <property name="height_request">39</property>
 	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Welcome to the Sidux HD-Installation</property>
+	  <property name="label" translatable="yes">Welcome to the sidux HD-Installation</property>
 	  <property name="use_underline">False</property>
 	  <property name="use_markup">False</property>
 	  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -393,7 +393,7 @@
 		  <property name="width_request">608</property>
 		  <property name="height_request">48</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">This application will install Sidux to your harddisk.</property>
+		  <property name="label" translatable="yes">This application will install sidux to your harddisk.</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -503,9 +503,9 @@ The author takes no responsibility for data loss or hardware damage.</property>
 		  <property name="width_request">608</property>
 		  <property name="height_request">96</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">If you need any help with the installation visit the Sidux-Website, -Wiki, -Forum or -Chat!
+		  <property name="label" translatable="yes">If you need any help with the installation visit the sidux-Website, -Wiki, -Forum or -Chat!
 
-Sidux-Website: http://sidux.com</property>
+sidux-Website: http://sidux.com</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -1889,7 +1889,7 @@ and start installation</property>
 		  <property name="height_request">56</property>
 		  <property name="visible">True</property>
 		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Start Sidux-Installer-Script
+		  <property name="label" translatable="yes">Start sidux-Installer-Script
 without configuration
 (this configuration will be lost)</property>
 		  <property name="use_underline">True</property>
@@ -1933,7 +1933,7 @@ only (~/.knofig)</property>
 		  <property name="width_request">640</property>
 		  <property name="height_request">88</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">You provided all Information neccessary to start the Sidux-Installation.
+		  <property name="label" translatable="yes">You provided all Information neccessary to start the sidux-Installation.
 
 You can check or change your Options once again by pressing the &quot;Prev&quot; Button.
 
