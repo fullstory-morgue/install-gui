@@ -1,7 +1,8 @@
 Source: install-gui
-Section: unknown
+Section: admin
 Priority: extra
 Maintainer: Horst Tritremmel <peter_weber69@gmx.at>
+Uploaders: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev, libglade2-dev
 Standards-Version: 3.7.2
 
@@ -9,4 +10,5 @@ Package: install-gui
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, knx-installer, scanpartitions, rebuildfstab
 Description: sidux install-gui for knx-installer
- This is an sidux install-gui who makes it easy to configure the config file (~/.knofig) and start the sidux-installer script
+ This is an sidux install-gui who makes it easy to configure the config file
+ (~/.knofig) and start the sidux-installer script.

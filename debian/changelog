@@ -1,8 +1,13 @@
-install-gui (001-1) unstable; urgency=low
+install-gui (0.0.1) unstable; urgency=low
 
+  [ Joaquim Boura ]
   * Initial release
   * use sidux instead of capitalized one
   * changed the non interactive call of knx-installer
 
- -- Joaquim Boura <x-un-i@sidux.com>  Thu, 18 Jan 2007 22:19:10 +0100
+  [ Stefan Lippers-Hollmann ]
+  * initial round of debian/* rework.
+  * fix serious lintian errors.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 18 Jan 2007 23:16:56 +0100
 
