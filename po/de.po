@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2007-01-18 10:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Horst Tritremmel <peter_weber69@gmx.at>\n"
+"Language-Team: LANGUAGE <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install-gui.glade:8(property) 
+msgid "Sidux HD-Installation"
+msgstr "Sidux HD-Installation"
+
+#: install-gui.glade:78(property) 
+msgid "exit"
+msgstr "Ende"
+
+#: install-gui.glade:275(property) 
+msgid "Welcome to the Sidux HD-Installation"
+msgstr "Willkommen zur Sidux HD-Installation"
+
+#: install-gui.glade:425(property) 
+msgid "Note that this version is still an very early version and under heavy development. \n"
+"The author takes no responsibility for data loss or hardware damage."
+msgstr "Bitte beachten Sie, dass diese Version noch eine sehr frühe \n"
+"und noch in starker Entwicklung befindliche Version ist. \n"
+"Der Autor übernimmt keinerlei Garantie!\n"
+"Das Verwenden geschieht auf eigene Verantwortung!"
+
+#: install-gui.glade:452(property) 
+msgid "This application will install Sidux to your harddisk."
+msgstr "Diese Applikation installiert Sidux auf ihre Festplatte."
+
+#: install-gui.glade:505(property) 
+msgid "If you need any help with the installation visit the Sidux-Website, -Wiki, -Forum or -Chat!\n\n"
+"Sidux-Website: http://sidux.com"
+msgstr "Wenn sie Hilfe benötigen besuchen Sie die Sidux-Website, -Wiki, -Forum or -Chat!\n\n"
+"Sidux-Website: http://sidux.com"
+
+#: install-gui.glade:537(property) 
+msgid "Wellcome"
+msgstr "Willkommen"
+
+#: install-gui.glade:589(property) 
+msgid "possible are:\n"
+"========\n"
+"/bin\n"
+"/boot\n"
+"/etc\n"
+"/home\n"
+"/lib\n"
+"/opt\n"
+"/root\n"
+"/sbin\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+msgstr "möglich sind:\n"
+"========\n"
+"/bin\n"
+"/boot\n"
+"/etc\n"
+"/home\n"
+"/lib\n"
+"/opt\n"
+"/root\n"
+"/sbin\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+
+#: install-gui.glade:624(property) 
+msgid "!!!!!! be carefull !!!!!!!\n"
+"Do it, if you don't have a linux partition.\n"
+"Read the Manual before. (see the Manual Button on the Desktop)"
+msgstr "!!!!!! ACHTUNG !!!!!!!\n"
+"Machen sie das wenn sie keine Linux Partitionen haben.\n"
+"Vorher Beschreibung lesen. (siehe Manual Button auf dem Desktop)"
+
+#: install-gui.glade:672(property) 
+msgid "Start Part.- manager"
+msgstr "Start Part.- manager"
+
+#: install-gui.glade:710(property) 
+msgid "Root-Partition"
+msgstr "Root-Partition"
+
+#: install-gui.glade:736(property) 
+msgid "Mountpoints of other Partitions"
+msgstr "Mountpoints anderer Partitionen"
+
+#: install-gui.glade:762(property) 
+msgid "Example:\n"
+"------------\n"
+"A seperate\n"
+"home-partition:\n"
+"/home"
+msgstr "Beispiel:\n"
+"------------\n"
+"Eine seperate\n"
+"Home-Partition:\n"
+"/home"
+
+#: install-gui.glade:810(property) 
+msgid "Set mountpoints of other Partitions\n"
+"(will not be formatted automatically)"
+msgstr "Mountpoints anderer Partitionen festlegen\n"
+"(werden nicht automatisch formatiert)"
+
+#: install-gui.glade:847(property) 
+msgid "format with"
+msgstr "formatieren mit"
+
+#: install-gui.glade:870(property) 
+msgid "Partitioning"
+msgstr "Partitionieren"
+
+#: install-gui.glade:912(property) 
+msgid "create a bootdisk"
+msgstr "Bootdisk erstellen"
+
+#: install-gui.glade:931(property) 
+msgid "Installation-place"
+msgstr "Installations-Platz"
+
+#: install-gui.glade:957(property) 
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+"Installation-place: MBR (Master Boot Record) or root-partition"
+msgstr "Bootmanager: Ein Bootmanager ermöglicht es, dass man beim Booten\n\n"
+"auswählen kann welches Betriebssystem gestartet werden soll.\n\n"
+"Installationsort: MBR (Master Boot Record) oder Root-Partition"
+
+#: install-gui.glade:1033(property) 
+msgid "Bootmanager"
+msgstr "Bootmanager"
+
+#: install-gui.glade:1280(property) 
+msgid "Root-password:"
+msgstr "Root-Passwort:"
+
+#: install-gui.glade:1306(property) 
+msgid "Root-password again:"
+msgstr "Root-Passwort wiederholen:"
+
+#: install-gui.glade:1332(property) 
+msgid "Realname:"
+msgstr "Echter Name:"
+
+#: install-gui.glade:1358(property) 
+msgid "Password:"
+msgstr "Passwort:"
+
+#: install-gui.glade:1384(property) 
+msgid "Password again:"
+msgstr "Passwort wiederholen:"
+
+#: install-gui.glade:1410(property) 
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: install-gui.glade:1481(property) 
+msgid "Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+"Important: All passwords have to be between 6 and 20 characters long!"
+msgstr "Root-Passwort: Dieses Passwort wird für den Administrator-Zugangverwendet.\n"
+"Merken Sie Sich dieses Passwort deswegen gut!\n\n"
+"Benutzername: Der Benutzername sollte nur aus Kleinbuchstaben (und Zahlen) bestehen.\n"
+"Hinweis: Alle Passwörter müssen zwischen 6 und 20 Zeichen lang sein!"
+
+#: install-gui.glade:1515(property) 
+msgid "User"
+msgstr "Benutzer"
+
+#: install-gui.glade:1564(property) 
+msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
+msgstr "Rechnername: Der Rechnername sollte nur aus Buchstaben (und Zahlen)\n\n"
+"bestehen und darf nicht mit einer Zahl beginnen"
+
+#: install-gui.glade:1680(property) 
+msgid "Network"
+msgstr "Netzwerk"
+
+#: install-gui.glade:1709(property) 
+msgid "You provided all Information neccessary to start the Sidux-Installation.\n\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+msgstr "Es sind alle notwendigen Daten vorhanden um die Kanotix-Installation zu starten.\n\n"
+"Sie können die Einstellungen nochmal Überpruefen, indem Sie den Button \"Zurück\" betätigen.\n\n"
+"Wenn alles in Ordnung ist können Sie die Installation mit dem Button \"Installation starten\" beginnen."
+
+#: install-gui.glade:1800(property) 
+msgid "Save configuration\n"
+"only (~/.knofig)"
+msgstr "Nur die Konfiguration\n"
+"speichern (~/.knofig)"
+
+#: install-gui.glade:1821(property) 
+msgid "Start Sidux-Installer-Script\n"
+"without configuration\n"
+"(this configuration will be lost)"
+msgstr "Sidux-Install-Script\n"
+"ohne Konfiguration starten\n"
+"(dadurch gehen diese Einstellungen verloren)"
+
+#: install-gui.glade:1844(property) 
+msgid "Save configuration\n"
+"and start installation"
+msgstr "Konfiguration speichern\n"
+"und Installation starten"
+
+#: install-gui.glade:1866(property) 
+msgid "Force Installation\n"
+"(Ignore RAM-/Partition-Check, etc.)"
+msgstr "Installation erzwingen\n"
+"(Keine Prüfung durchführen)"
+
+#: install-gui.glade:1929(property) 
+msgid "Begin Installation"
+msgstr "Installation starten"
+
+#: install-gui.glade:1970(property) 
+msgid "Installation"
+msgstr "Installation"
+
+#: install-gui.glade:1980(property) 
+msgid "Next"
+msgstr "Vor"
+
+#: install-gui.glade:1990(property) 
+msgid "Prev"
+msgstr "Zurück"
+

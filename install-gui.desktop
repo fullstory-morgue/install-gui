@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=install-gui
+Exec=su-me /usr/bin/install-gui
+Icon=kmenu
+Type=Application
+Comment=Install sidux to hd
