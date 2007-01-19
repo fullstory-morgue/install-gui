@@ -1,4 +1,4 @@
-install-gui (0.0.4) UNRELEASED; urgency=low
+install-gui (0.0.4) unstable; urgency=low
 
   * uncomment printf call 
 
