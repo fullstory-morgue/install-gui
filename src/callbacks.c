@@ -764,19 +764,25 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       * ==================================================================== */
 
       //__userpass_crypt__
-      strcpy(systemcall, "sed -ie \"s#__userpass_crypt__#$(mkpasswd --hash=md5 \"");
+      strcpy(systemcall, "sed -ie \"s%__userpass_crypt__%$(mkpasswd --hash=md5 \"");
       strcat(systemcall, pw);
-      strcat(systemcall, "\")#\" $HOME/");
+      strcat(systemcall, "\")%\" $HOME/");
       strcat(systemcall, FILENAME);
       //printf("%s\n", systemcall);
       system(systemcall);
 
       //__rootpass_crypt__
-      strcpy(systemcall, "sed -ie \"s#__rootpass_crypt__#$(mkpasswd --hash=md5 \"");
+      strcpy(systemcall, "sed -ie \"s%__rootpass_crypt__%$(mkpasswd --hash=md5 \"");
       strcat(systemcall, rootpw);
-      strcat(systemcall, "\")#\" $HOME/");
+      strcat(systemcall, "\")%\" $HOME/");
       strcat(systemcall, FILENAME);
       //printf("%s\n", systemcall);
+      system(systemcall);
+
+      //  change $ to \$
+      strcpy(systemcall, "sed -ie 's%\\$%\\\\\\$%g' $HOME/");
+      strcat(systemcall, FILENAME);
+      printf("%s\n", systemcall);
       system(systemcall);
 
       //__swapchoices__
