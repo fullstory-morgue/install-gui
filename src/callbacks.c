@@ -15,7 +15,7 @@
 
 #define FILENAME ".knofig"
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
-#define INSTALL_SH "knx-installer nonInteractive &"
+#define INSTALL_SH "knx-installer installer &"
 #define INSTALL_SH_WITHOUT_CONFIG "knx-installer &"
 
 FILE* fp;
