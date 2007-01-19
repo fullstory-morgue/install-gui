@@ -1,6 +1,12 @@
+install-gui (0.0.4) UNRELEASED; urgency=low
+
+  * uncomment printf call 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 19 Jan 2007 13:15:08 +0100
+
 install-gui (0.0.3) UNRELEASED; urgency=low
 
-  * hopefulle fixed the passwort crypt problem 
+  * hopefully fixed the passwort crypt problem 
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 19 Jan 2007 13:08:17 +0100
 

@@ -782,7 +782,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       //  change $ to \$
       strcpy(systemcall, "sed -ie 's%\\$%\\\\\\$%g' $HOME/");
       strcat(systemcall, FILENAME);
-      printf("%s\n", systemcall);
+      //printf("%s\n", systemcall);
       system(systemcall);
 
       //__swapchoices__
