@@ -1,4 +1,4 @@
-install-gui (0.0.6) UNRELEASED; urgency=low
+install-gui (0.0.6) unstable; urgency=low
 
   * change knx-installer option nonInteractive to installer 
 
