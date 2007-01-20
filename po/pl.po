@@ -1,0 +1,256 @@
+# translation of messages.po to
+msgid ""
+msgstr ""
+"Project-Id-Version: messages\n"
+"POT-Creation-Date: 2007-01-18 10:07+0000\n"
+"PO-Revision-Date: 2007-01-19 00:19+0100\n"
+"Last-Translator: maslot\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: install-gui.glade:8(property)
+msgid "sidux HD-Installation"
+msgstr "sidux - instalacja systemu na dysku twardym"
+
+#: install-gui.glade:78(property)
+msgid "exit"
+msgstr "koniec"
+
+#: install-gui.glade:275(property)
+msgid "Welcome to the sidux HD-Installation"
+msgstr "Witamy w instalatorze systemu sidux"
+
+#: install-gui.glade:425(property)
+msgid ""
+"Note that this version is still a very early version and under heavy development. \n"
+"The author takes no responsibility for data loss or hardware damage."
+msgstr ""
+"Weź pod uwagę, że program ten jest we wczesnej fazie rozwoju i może zawierać błędy. \n"
+"Autor nie bierze odpowiedzialności za utratę danych i uszkodzenie sprzętu."
+
+#: install-gui.glade:452(property)
+msgid "This application will install sidux to your harddisk."
+msgstr "Program ten zainstaluje system sidux na  twardy dysk."
+
+#: install-gui.glade:505(property)
+msgid ""
+"If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
+"sidux-website: http://sidux.com"
+msgstr ""
+"Jeśli potrzebujesz pomocy podczas instalacji, odwiedź stronę internetową siduksa, Wiki lub Chat!\n\n"
+"Strona internetowa siduksa: http://sidux.com "
+
+#: install-gui.glade:537(property)
+msgid "Welcome"
+msgstr "Witamy"
+
+#: install-gui.glade:589(property)
+msgid ""
+"options are:\n"
+"========\n"
+"/bin\n"
+"/boot\n"
+"/etc\n"
+"/home\n"
+"/lib\n"
+"/opt\n"
+"/root\n"
+"/sbin\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+msgstr ""
+"możliwości: \n"
+"========\n"
+"/bin\n"
+"/boot\n"
+"/etc\n"
+"/home\n"
+"/lib\n"
+"/opt\n"
+"/root\n"
+"/sbin\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+
+#: install-gui.glade:624(property)
+msgid ""
+"!!!!!! be careful !!!!!!!\n"
+"Do it, if you don't have a linux partition.\n"
+"Read the Manual before. (see the Manual Button on the Desktop)"
+msgstr ""
+"!!!!!! uważaj !!!!!!!\n"
+"Zrób to, jeżeli jeśli nie masz partycji linuksowych. \n"
+"Przeczytaj wcześniej Instrukcję (patrz: przycisk Manual na pulpicie) "
+
+#: install-gui.glade:672(property)
+msgid "Start Part.- manager"
+msgstr "Uruchom managera partycji"
+
+#: install-gui.glade:710(property)
+msgid "Root-Partition"
+msgstr "Partycja główna \"/\""
+
+#: install-gui.glade:736(property)
+msgid "Mountpoints of other Partitions"
+msgstr "Miejsca montowania innych partycji"
+
+#: install-gui.glade:762(property)
+msgid ""
+"Example:\n"
+"------------\n"
+"A seperate\n"
+"home-partition:\n"
+"/home"
+msgstr ""
+"Przykład:\n"
+"------------\n"
+"Oddzielna\n"
+"partycja domowa:\n"
+"/home"
+
+#: install-gui.glade:810(property)
+msgid ""
+"Set mountpoints of other Partitions\n"
+"(will not be formatted automatically)"
+msgstr ""
+"Ustaw miejsca montowania innych partycji\n"
+"(nie będą automatycznie formatowane)"
+
+#: install-gui.glade:847(property)
+msgid "format with"
+msgstr "formatuj używając"
+
+#: install-gui.glade:870(property)
+msgid "Partitioning"
+msgstr "Partycjonowanie"
+
+#: install-gui.glade:912(property)
+msgid "create a bootdisk"
+msgstr "Utwórz dysk startowy"
+
+#: install-gui.glade:931(property)
+msgid "Installation-target"
+msgstr "Miejsce instalacji"
+
+#: install-gui.glade:957(property)
+msgid ""
+"Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+"Installation-target: MBR (Master Boot Record) or root-partition"
+msgstr ""
+"Manager uruchamiania: umożliwia wybór systemu operacyjnego podczas startu komputera.\n\n"
+"Miejsce instalacji: MBR (Master Boot Record) lub partycja główna"
+
+#: install-gui.glade:1033(property)
+msgid "Bootmanager"
+msgstr "Manager uruchamiania"
+
+#: install-gui.glade:1280(property)
+msgid "Root-password:"
+msgstr "Hasło roota:"
+
+#: install-gui.glade:1306(property)
+msgid "Root-password again:"
+msgstr "Hasło roota (ponownie):"
+
+#: install-gui.glade:1332(property)
+msgid "Realname:"
+msgstr "Nazwa:"
+
+#: install-gui.glade:1358(property)
+msgid "Password:"
+msgstr "Hasło:"
+
+#: install-gui.glade:1384(property)
+msgid "Password again:"
+msgstr "Hasło (ponownie):"
+
+#: install-gui.glade:1410(property)
+msgid "Username:"
+msgstr "Nazwa użytkownika:"
+
+#: install-gui.glade:1481(property)
+msgid ""
+"Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+"Important: All passwords have to be between 6 and 20 characters long!"
+msgstr ""
+"Hasło roota: to hasło będzie używane przez administratora. Zapamiętaj je!\n\n "
+"Nazwa użytkownika: powinna składać się tylko z małych liter (i cyfr).\n\n "
+"Ważne: wszystkie hasła powinny mieć długość od 6 do 20 znaków!"
+
+#: install-gui.glade:1515(property)
+msgid "User"
+msgstr "Użytkownik"
+
+#: install-gui.glade:1564(property)
+msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
+msgstr "Nazwa hosta: powinna sładać się tylko z liter (i cyfr) i nie może zaczynać się cyfrą. "
+
+#: install-gui.glade:1680(property)
+msgid "Network"
+msgstr "Sieć"
+
+#: install-gui.glade:1709(property)
+msgid ""
+"You provided all Information neccessary to start the sidux-Installation.\n\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+msgstr ""
+"Podałeś wszystkie niezbędne dane, aby rozpocząć instalację systemu sidux. Możesz sprawdzić lub zmienić wybrane opcje poprzez kliknięcie przycisku \"Poprzedni\".\n\n"
+"Jeśli wybrane opcje są poprawne, rozpocznij instalację klikając \"Rozpocznij instalację\"."
+
+#: install-gui.glade:1800(property)
+msgid ""
+"Save configuration\n"
+"only (~/.knofig)"
+msgstr ""
+"Zachowaj tylko \n"
+"ustawienia (~/.knofig)"
+
+#: install-gui.glade:1821(property)
+msgid ""
+"Start sidux-Installer-Script\n"
+"without configuration\n"
+"(this configuration will be lost)"
+msgstr ""
+"Uruchom sidux-Installer-Script\n"
+"bez konfiguracji\n"
+"(te ustawienia zostaną utracone)"
+
+#: install-gui.glade:1844(property)
+msgid ""
+"Save configuration\n"
+"and start installation"
+msgstr ""
+"Zachowaj ustawienia \n"
+"i rozpocznij instalację"
+
+#: install-gui.glade:1866(property)
+msgid ""
+"Force Installation\n"
+"(Ignore RAM-/Partition-Check, etc.)"
+msgstr ""
+"Wymuś instalację\n"
+"(Ignoruj sprawdzenie RAM-u, partycji itp.)"
+
+#: install-gui.glade:1929(property)
+msgid "Begin Installation"
+msgstr "Rozpocznij instalację"
+
+#: install-gui.glade:1970(property)
+msgid "Installation"
+msgstr "Instalacja"
+
+#: install-gui.glade:1980(property)
+msgid "Next"
+msgstr "Następny"
+
+#: install-gui.glade:1990(property)
+msgid "Prev"
+msgstr "Poprzedni"
+

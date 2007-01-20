@@ -22,7 +22,7 @@ msgid "Welcome to the sidux HD-Installation"
 msgstr ""
 
 #: install-gui.glade:425(property) 
-msgid "Note that this version is still an very early version and under heavy development. \n"
+msgid "Note that this version is still a very early version and under heavy development. \n"
 "The author takes no responsibility for data loss or hardware damage."
 msgstr ""
 
@@ -31,16 +31,16 @@ msgid "This application will install sidux to your harddisk."
 msgstr ""
 
 #: install-gui.glade:505(property) 
-msgid "If you need any help with the installation visit the sidux-Website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-Website: http://sidux.com"
+msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
+"sidux-website: http://sidux.com"
 msgstr ""
 
 #: install-gui.glade:537(property) 
-msgid "Wellcome"
+msgid "Welcome"
 msgstr ""
 
 #: install-gui.glade:589(property) 
-msgid "possible are:\n"
+msgid "options are:\n"
 "========\n"
 "/bin\n"
 "/boot\n"
@@ -56,7 +56,7 @@ msgid "possible are:\n"
 msgstr ""
 
 #: install-gui.glade:624(property) 
-msgid "!!!!!! be carefull !!!!!!!\n"
+msgid "!!!!!! be careful !!!!!!!\n"
 "Do it, if you don't have a linux partition.\n"
 "Read the Manual before. (see the Manual Button on the Desktop)"
 msgstr ""
@@ -99,12 +99,12 @@ msgid "create a bootdisk"
 msgstr ""
 
 #: install-gui.glade:931(property) 
-msgid "Installation-place"
-msgstr "Installations-Platz"
+msgid "Installation-target"
+msgstr ""
 
 #: install-gui.glade:957(property) 
 msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
-"Installation-place: MBR (Master Boot Record) or root-partition"
+"Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr ""
 
 #: install-gui.glade:1033(property) 

@@ -48,7 +48,6 @@ create_window1 (void)
   GtkWidget *image7;
   GtkWidget *label12;
   GtkWidget *label_wellcome;
-  GtkWidget *image1;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -60,30 +59,29 @@ create_window1 (void)
   GtkWidget *label30;
   GtkWidget *hseparator3;
   GtkWidget *image2;
-  GtkWidget *label_wellcome_red;
   GtkWidget *label_wellcome_2;
+  GtkWidget *label_wellcome_red;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *hseparator1;
   GtkWidget *label7;
   GtkWidget *label8;
   GtkWidget *checkbutton_mountpoints;
+  GtkWidget *checkbutton_format_with;
+  GtkWidget *rootpartcombo;
+  GtkWidget *scrolledwindow1;
+  GtkWidget *treeview1;
+  GtkWidget *label35;
   GtkWidget *button_gparted;
   GtkWidget *alignment1;
   GtkWidget *hbox1;
   GtkWidget *image4;
   GtkWidget *label9;
   GtkWidget *format_combo;
-  GtkWidget *checkbutton_format_with;
-  GtkWidget *rootpartcombo;
-  GtkWidget *scrolledwindow1;
-  GtkWidget *treeview1;
-  GtkWidget *label35;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *hseparator4;
   GtkWidget *checkbutton_bootdisk;
-  GtkWidget *label15;
   GtkWidget *hseparator9;
   GtkWidget *vseparator3;
   GtkWidget *vseparator4;
@@ -91,6 +89,7 @@ create_window1 (void)
   GtkWidget *label14;
   GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
+  GtkWidget *label15;
   GtkWidget *label13;
   GtkWidget *label3;
   GtkWidget *fixed5;
@@ -142,6 +141,7 @@ create_window1 (void)
   GtkWidget *radiobutton2;
   GtkWidget *label33;
   GtkWidget *label6;
+  GtkWidget *image1;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -229,11 +229,6 @@ create_window1 (void)
   gtk_widget_set_size_request (label_wellcome, 503, 39);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
 
-  image1 = create_pixmap (window1, "sidux-inst.png");
-  gtk_widget_show (image1);
-  gtk_fixed_put (GTK_FIXED (fixed1), image1, 496, 2);
-  gtk_widget_set_size_request (image1, 127, 39);
-
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
   gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 9, 56);
@@ -292,15 +287,7 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed2), image2, 32, 112);
   gtk_widget_set_size_request (image2, 32, 48);
 
-  label_wellcome_red = gtk_label_new (_("Note that this version is still an very early version and under heavy development. \nThe author takes no responsibility for data loss or hardware damage."));
-  gtk_widget_show (label_wellcome_red);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
-  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
-  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
-
-  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation visit the sidux-Website, -Wiki, -Forum or -Chat!\n\nsidux-Website: http://sidux.com"));
+  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\nsidux-website: http://sidux.com"));
   gtk_widget_show (label_wellcome_2);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_2, 32, 224);
   gtk_widget_set_size_request (label_wellcome_2, 608, 96);
@@ -308,7 +295,15 @@ create_window1 (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
 
-  label1 = gtk_label_new (_("Wellcome"));
+  label_wellcome_red = gtk_label_new (_("Note that this version is still a very early version and under heavy development. \nThe author takes no responsibility for data loss or hardware damage."));
+  gtk_widget_show (label_wellcome_red);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
+  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
+  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
+
+  label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), label1);
 
@@ -339,33 +334,6 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 144, 112);
   gtk_widget_set_size_request (checkbutton_mountpoints, 496, 48);
 
-  button_gparted = gtk_button_new ();
-  gtk_widget_show (button_gparted);
-  gtk_fixed_put (GTK_FIXED (fixed3), button_gparted, 8, 31);
-  gtk_widget_set_size_request (button_gparted, 120, 41);
-  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be carefull !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
-
-  alignment1 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment1);
-  gtk_container_add (GTK_CONTAINER (button_gparted), alignment1);
-
-  hbox1 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox1);
-  gtk_container_add (GTK_CONTAINER (alignment1), hbox1);
-
-  image4 = gtk_image_new_from_stock ("gtk-harddisk", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image4);
-  gtk_box_pack_start (GTK_BOX (hbox1), image4, FALSE, FALSE, 0);
-
-  label9 = gtk_label_new_with_mnemonic (_("Start Part.-\nmanager"));
-  gtk_widget_show (label9);
-  gtk_box_pack_start (GTK_BOX (hbox1), label9, FALSE, FALSE, 0);
-
-  format_combo = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (format_combo);
-  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 264, 56);
-  gtk_widget_set_size_request (format_combo, 176, 24);
-
   checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
   gtk_widget_show (checkbutton_format_with);
   gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 144, 56);
@@ -386,7 +354,7 @@ create_window1 (void)
   gtk_widget_show (treeview1);
   gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
   gtk_widget_set_size_request (treeview1, 248, 136);
-  gtk_tooltips_set_tip (tooltips, treeview1, _("possible are:\n========\n/bin\n/boot\n/etc\n/home\n/lib\n/opt\n/root\n/sbin\n/tmp\n/usr\n/var"), NULL);
+  gtk_tooltips_set_tip (tooltips, treeview1, _("options are:\n========\n/bin\n/boot\n/etc\n/home\n/lib\n/opt\n/root\n/sbin\n/tmp\n/usr\n/var"), NULL);
   gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
 
   label35 = gtk_label_new (_("Example:\n------------\nA seperate\nhome-partition:\n/home"));
@@ -395,6 +363,33 @@ create_window1 (void)
   gtk_widget_set_size_request (label35, 128, 128);
   gtk_label_set_line_wrap (GTK_LABEL (label35), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label35), 0, 0);
+
+  button_gparted = gtk_button_new ();
+  gtk_widget_show (button_gparted);
+  gtk_fixed_put (GTK_FIXED (fixed3), button_gparted, 8, 31);
+  gtk_widget_set_size_request (button_gparted, 120, 41);
+  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
+
+  alignment1 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment1);
+  gtk_container_add (GTK_CONTAINER (button_gparted), alignment1);
+
+  hbox1 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox1);
+  gtk_container_add (GTK_CONTAINER (alignment1), hbox1);
+
+  image4 = gtk_image_new_from_stock ("gtk-harddisk", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image4);
+  gtk_box_pack_start (GTK_BOX (hbox1), image4, FALSE, FALSE, 0);
+
+  label9 = gtk_label_new_with_mnemonic (_("Start Part.-\nmanager"));
+  gtk_widget_show (label9);
+  gtk_box_pack_start (GTK_BOX (hbox1), label9, FALSE, FALSE, 0);
+
+  format_combo = gtk_combo_box_entry_new_text ();
+  gtk_widget_show (format_combo);
+  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 472, 56);
+  gtk_widget_set_size_request (format_combo, 176, 24);
 
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
@@ -413,12 +408,6 @@ create_window1 (void)
   gtk_widget_show (checkbutton_bootdisk);
   gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 280, 256);
   gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
-
-  label15 = gtk_label_new (_("Installation-place"));
-  gtk_widget_show (label15);
-  gtk_fixed_put (GTK_FIXED (fixed4), label15, 144, 224);
-  gtk_widget_set_size_request (label15, 128, 24);
-  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
 
   hseparator9 = gtk_hseparator_new ();
   gtk_widget_show (hseparator9);
@@ -456,7 +445,13 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 280, 224);
   gtk_widget_set_size_request (combobox_installplace, 183, 25);
 
-  label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-place: MBR (Master Boot Record) or root-partition"));
+  label15 = gtk_label_new (_("Installation-target"));
+  gtk_widget_show (label15);
+  gtk_fixed_put (GTK_FIXED (fixed4), label15, 144, 224);
+  gtk_widget_set_size_request (label15, 128, 24);
+  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
+
+  label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
   gtk_widget_show (label13);
   gtk_fixed_put (GTK_FIXED (fixed4), label13, 8, 8);
   gtk_widget_set_size_request (label13, 656, 96);
@@ -489,38 +484,38 @@ create_window1 (void)
 
   entry_rootpw = gtk_entry_new ();
   gtk_widget_show (entry_rootpw);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw, 168, 0);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw, 184, 0);
   gtk_widget_set_size_request (entry_rootpw, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_rootpw), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_rootpw), FALSE);
 
   entry_rootpw_again = gtk_entry_new ();
   gtk_widget_show (entry_rootpw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw_again, 168, 32);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw_again, 184, 32);
   gtk_widget_set_size_request (entry_rootpw_again, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_rootpw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_rootpw_again), FALSE);
 
   entry_realname = gtk_entry_new ();
   gtk_widget_show (entry_realname);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_realname, 168, 88);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_realname, 184, 88);
   gtk_widget_set_size_request (entry_realname, 216, 24);
 
   entry_username = gtk_entry_new ();
   gtk_widget_show (entry_username);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_username, 168, 120);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_username, 184, 120);
   gtk_widget_set_size_request (entry_username, 216, 24);
 
   entry_pw = gtk_entry_new ();
   gtk_widget_show (entry_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw, 168, 160);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw, 184, 160);
   gtk_widget_set_size_request (entry_pw, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw), FALSE);
 
   entry_pw_again = gtk_entry_new ();
   gtk_widget_show (entry_pw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw_again, 168, 192);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw_again, 184, 192);
   gtk_widget_set_size_request (entry_pw_again, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw_again), FALSE);
@@ -730,6 +725,11 @@ create_window1 (void)
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
 
+  image1 = create_pixmap (window1, "sidux-inst.png");
+  gtk_widget_show (image1);
+  gtk_fixed_put (GTK_FIXED (fixed1), image1, 560, 2);
+  gtk_widget_set_size_request (image1, 127, 39);
+
   g_signal_connect ((gpointer) window1, "configure_event",
                     G_CALLBACK (on_window1_configure_event),
                     NULL);
@@ -751,6 +751,9 @@ create_window1 (void)
   g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),
                     NULL);
+  g_signal_connect ((gpointer) rootpartcombo, "changed",
+                    G_CALLBACK (on_rootpartcombo_changed),
+                    NULL);
   g_signal_connect ((gpointer) button_gparted, "clicked",
                     G_CALLBACK (on_button_gparted_clicked),
                     NULL);
@@ -759,9 +762,6 @@ create_window1 (void)
                     NULL);
   g_signal_connect ((gpointer) button_gparted, "pressed",
                     G_CALLBACK (on_button_gparted_pressed),
-                    NULL);
-  g_signal_connect ((gpointer) rootpartcombo, "changed",
-                    G_CALLBACK (on_rootpartcombo_changed),
                     NULL);
   g_signal_connect ((gpointer) button_install, "clicked",
                     G_CALLBACK (on_button_install_clicked),
@@ -786,7 +786,6 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, image7, "image7");
   GLADE_HOOKUP_OBJECT (window1, label12, "label12");
   GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
-  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
   GLADE_HOOKUP_OBJECT (window1, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window1, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window1, hseparator2, "hseparator2");
@@ -798,30 +797,29 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, label30, "label30");
   GLADE_HOOKUP_OBJECT (window1, hseparator3, "hseparator3");
   GLADE_HOOKUP_OBJECT (window1, image2, "image2");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window1, label_wellcome_2, "label_wellcome_2");
+  GLADE_HOOKUP_OBJECT (window1, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window1, label1, "label1");
   GLADE_HOOKUP_OBJECT (window1, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window1, hseparator1, "hseparator1");
   GLADE_HOOKUP_OBJECT (window1, label7, "label7");
   GLADE_HOOKUP_OBJECT (window1, label8, "label8");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_mountpoints, "checkbutton_mountpoints");
+  GLADE_HOOKUP_OBJECT (window1, checkbutton_format_with, "checkbutton_format_with");
+  GLADE_HOOKUP_OBJECT (window1, rootpartcombo, "rootpartcombo");
+  GLADE_HOOKUP_OBJECT (window1, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (window1, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (window1, label35, "label35");
   GLADE_HOOKUP_OBJECT (window1, button_gparted, "button_gparted");
   GLADE_HOOKUP_OBJECT (window1, alignment1, "alignment1");
   GLADE_HOOKUP_OBJECT (window1, hbox1, "hbox1");
   GLADE_HOOKUP_OBJECT (window1, image4, "image4");
   GLADE_HOOKUP_OBJECT (window1, label9, "label9");
   GLADE_HOOKUP_OBJECT (window1, format_combo, "format_combo");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_format_with, "checkbutton_format_with");
-  GLADE_HOOKUP_OBJECT (window1, rootpartcombo, "rootpartcombo");
-  GLADE_HOOKUP_OBJECT (window1, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (window1, treeview1, "treeview1");
-  GLADE_HOOKUP_OBJECT (window1, label35, "label35");
   GLADE_HOOKUP_OBJECT (window1, label2, "label2");
   GLADE_HOOKUP_OBJECT (window1, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window1, hseparator4, "hseparator4");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_bootdisk, "checkbutton_bootdisk");
-  GLADE_HOOKUP_OBJECT (window1, label15, "label15");
   GLADE_HOOKUP_OBJECT (window1, hseparator9, "hseparator9");
   GLADE_HOOKUP_OBJECT (window1, vseparator3, "vseparator3");
   GLADE_HOOKUP_OBJECT (window1, vseparator4, "vseparator4");
@@ -829,6 +827,7 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, label14, "label14");
   GLADE_HOOKUP_OBJECT (window1, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window1, combobox_installplace, "combobox_installplace");
+  GLADE_HOOKUP_OBJECT (window1, label15, "label15");
   GLADE_HOOKUP_OBJECT (window1, label13, "label13");
   GLADE_HOOKUP_OBJECT (window1, label3, "label3");
   GLADE_HOOKUP_OBJECT (window1, fixed5, "fixed5");
@@ -879,6 +878,7 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window1, label33, "label33");
   GLADE_HOOKUP_OBJECT (window1, label6, "label6");
+  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
   GLADE_HOOKUP_OBJECT_NO_REF (window1, tooltips, "tooltips");
 
   return window1;

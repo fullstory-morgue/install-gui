@@ -1,0 +1,273 @@
+# translation of ru.po to russisch
+msgid ""
+msgstr ""
+"Project-Id-Version: ru\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2007-01-20 01:39+0100\n"
+"Last-Translator: Roland Engert <roen at sidux dot com>\n"
+"Language-Team: russisch <roen@sidux.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: install-gui.glade:8(property)
+msgid "sidux HD-Installation"
+msgstr "установка sidux на жесткий диск"
+
+#: install-gui.glade:78(property)
+msgid "exit"
+msgstr "выход"
+
+#: install-gui.glade:275(property)
+msgid "Welcome to the sidux HD-Installation"
+msgstr "Добро пожаловать в установку sidux на жёсткий диск"
+
+#: install-gui.glade:425(property)
+msgid ""
+"Note that this version is still a very early version and under heavy development. \n"
+"The author takes no responsibility for data loss or hardware damage."
+msgstr ""
+"Отметьте, что эта версия еще очень ранняя версия и дальше  развивается.\n"
+"Автор снимает с себя всякую ответственность за потерю данных или повреждение аппаратных средств."
+
+#: install-gui.glade:452(property)
+msgid "This application will install sidux to your harddisk."
+msgstr "приложение устанавливает sidux на жесткий диск."
+
+#: install-gui.glade:505(property)
+msgid ""
+"If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n"
+"\n"
+"sidux-website: http://sidux.com"
+msgstr ""
+"Если Вам нужна помощь, посетите sidux-вебстраницу, -вики, -форум или -чат!\n"
+"\n"
+"sidux-вебстраница http://sidux.com"
+
+#: install-gui.glade:537(property)
+msgid "Welcome"
+msgstr " Добро пожаловать"
+
+#: install-gui.glade:589(property)
+msgid ""
+"options are:\n"
+"========\n"
+"/bin\n"
+"/boot\n"
+"/etc\n"
+"/home\n"
+"/lib\n"
+"/opt\n"
+"/root\n"
+"/sbin\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+msgstr ""
+"возможные точки монтирования:\n"
+"========\n"
+"/bin\n"
+"/boot\n"
+"/etc\n"
+"/home\n"
+"/lib\n"
+"/opt\n"
+"/root\n"
+"/sbin\n"
+"/tmp\n"
+"/usr\n"
+"/var "
+
+#: install-gui.glade:624(property)
+msgid ""
+"!!!!!! be careful !!!!!!!\n"
+"Do it, if you don't have a linux partition.\n"
+"Read the Manual before. (see the Manual Button on the Desktop)"
+msgstr ""
+"!!!!!! Осторожно !!!!!!!\n"
+" Делаете, если нет никакого раздел Linux на жестком диске.\n"
+"Необходимо заранее прочитать руководство. (см. кнопку руководства на рабочем столе)"
+
+#: install-gui.glade:672(property)
+msgid "Start Part.- manager"
+msgstr "запуска менеджера разделения"
+
+#: install-gui.glade:710(property)
+msgid "Root-Partition"
+msgstr "корневой раздел"
+
+#: install-gui.glade:736(property)
+msgid "Mountpoints of other Partitions"
+msgstr "точки монтирования других разделов"
+
+#: install-gui.glade:762(property)
+msgid ""
+"Example:\n"
+"------------\n"
+"A seperate\n"
+"home-partition:\n"
+"/home"
+msgstr ""
+"на пример:\n"
+"------------\n"
+"одиночный\n"
+"раздел пользователя:\n"
+"/home"
+
+#: install-gui.glade:810(property)
+msgid ""
+"Set mountpoints of other Partitions\n"
+"(will not be formatted automatically)"
+msgstr ""
+"указать точки монтирования других разделов\n"
+"(отформатировать не автоматически),"
+
+#: install-gui.glade:847(property)
+msgid "format with"
+msgstr "форматировать с"
+
+#: install-gui.glade:870(property)
+msgid "Partitioning"
+msgstr "создание разделения"
+
+#: install-gui.glade:912(property)
+msgid "create a bootdisk"
+msgstr "создать загрузочную дискету"
+
+#: install-gui.glade:931(property)
+msgid "Installation-target"
+msgstr "место инсталляции"
+
+#: install-gui.glade:957(property)
+msgid ""
+"Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
+"\n"
+"Installation-target: MBR (Master Boot Record) or root-partition"
+msgstr ""
+"менеджер загрузчика: менеджер загрузчика позволяет выбирать ту основную операционную систему, которую хотят загрузить при запуске компа.\n"
+"\n"
+" Инсталляционное место: MBR (Главная загрузочная запись) или корневой раздел"
+
+#: install-gui.glade:1033(property)
+msgid "Bootmanager"
+msgstr "менеджер загрузчика"
+
+#: install-gui.glade:1280(property)
+msgid "Root-password:"
+msgstr "пароль администратора:"
+
+#: install-gui.glade:1306(property)
+msgid "Root-password again:"
+msgstr "еще раз пароль администратора:"
+
+#: install-gui.glade:1332(property)
+msgid "Realname:"
+msgstr "настоящее имя:"
+
+#: install-gui.glade:1358(property)
+msgid "Password:"
+msgstr "пароль:"
+
+#: install-gui.glade:1384(property)
+msgid "Password again:"
+msgstr "еще раз пароль:"
+
+#: install-gui.glade:1410(property)
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#: install-gui.glade:1481(property)
+msgid ""
+"Root-password: This password will be used for the administrator. So keep it in mind!\n"
+"\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
+"\n"
+"Important: All passwords have to be between 6 and 20 characters long!"
+msgstr ""
+"пароль root: Этот пароль используется для администратора. Сохранить в памяти!\n"
+"\n"
+"Имя пользователя: имя пользователя должно только состоять из маленьких букв (и чисел).\n"
+"\n"
+"Важно: Длина всех паролей должна быть между 6 и 20 знаков!"
+
+#: install-gui.glade:1515(property)
+msgid "User"
+msgstr "пользователь"
+
+#: install-gui.glade:1564(property)
+msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
+msgstr "Имя хоста: имя хоста должно состоять из букв (и чисел) и не должно начаться с числом."
+
+#: install-gui.glade:1680(property)
+msgid "Network"
+msgstr "локальная сеть"
+
+#: install-gui.glade:1709(property)
+msgid ""
+"You provided all Information neccessary to start the sidux-Installation.\n"
+"\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
+"\n"
+"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+msgstr ""
+"Все необходимые данные в системе, можно запустить установку sidux.\n"
+"\n"
+"Проверить данные или изменить опции еще раз при нажатием кнопку \"назад \".\n"
+"\n"
+"Если все правильно, начинать инсталляцию, нажимая кнопку \"Запуск установки \"."
+
+#: install-gui.glade:1800(property)
+msgid ""
+"Save configuration\n"
+"only (~/.knofig)"
+msgstr ""
+"записать конфигурацию\n"
+"только (/.knofig)"
+
+#: install-gui.glade:1821(property)
+msgid ""
+"Start sidux-Installer-Script\n"
+"without configuration\n"
+"(this configuration will be lost)"
+msgstr ""
+"запустить скрипт инсталляции\n"
+"без конфигурации\n"
+"(конфигурация не записаться)"
+
+#: install-gui.glade:1844(property)
+msgid ""
+"Save configuration\n"
+"and start installation"
+msgstr ""
+"Записать конфигурацию\n"
+"и запустить установку"
+
+#: install-gui.glade:1866(property)
+msgid ""
+"Force Installation\n"
+"(Ignore RAM-/Partition-Check, etc.)"
+msgstr ""
+"Форсировать установку\n"
+"(игнорировать проверку оперативной памяти и разделений и т.д.)"
+
+#: install-gui.glade:1929(property)
+msgid "Begin Installation"
+msgstr "начать установку"
+
+#: install-gui.glade:1970(property)
+msgid "Installation"
+msgstr "установка"
+
+#: install-gui.glade:1980(property)
+msgid "Next"
+msgstr "вперёд"
+
+#: install-gui.glade:1990(property)
+msgid "Prev"
+msgstr "назад"
+
