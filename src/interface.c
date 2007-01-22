@@ -30,7 +30,6 @@ GtkWidget*
 create_window1 (void)
 {
   GtkWidget *window1;
-  GdkPixbuf *window1_icon_pixbuf;
   GtkWidget *fixed1;
   GtkWidget *exit;
   GtkWidget *alignment2;
@@ -47,8 +46,6 @@ create_window1 (void)
   GtkWidget *hbox4;
   GtkWidget *image7;
   GtkWidget *label12;
-  GtkWidget *label_wellcome;
-  GtkWidget *image1;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -138,6 +135,8 @@ create_window1 (void)
   GtkWidget *radiobutton2;
   GtkWidget *label33;
   GtkWidget *label6;
+  GtkWidget *image1;
+  GtkWidget *label_wellcome;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -145,12 +144,6 @@ create_window1 (void)
   window1 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window1), _("sidux HD-Installation"));
   gtk_window_set_resizable (GTK_WINDOW (window1), FALSE);
-  window1_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
-  if (window1_icon_pixbuf)
-    {
-      gtk_window_set_icon (GTK_WINDOW (window1), window1_icon_pixbuf);
-      gdk_pixbuf_unref (window1_icon_pixbuf);
-    }
 
   fixed1 = gtk_fixed_new ();
   gtk_widget_show (fixed1);
@@ -219,17 +212,6 @@ create_window1 (void)
   label12 = gtk_label_new_with_mnemonic (_("Next"));
   gtk_widget_show (label12);
   gtk_box_pack_start (GTK_BOX (hbox4), label12, FALSE, FALSE, 0);
-
-  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
-  gtk_widget_show (label_wellcome);
-  gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
-  gtk_widget_set_size_request (label_wellcome, 503, 39);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
-
-  image1 = create_pixmap (window1, "sidux-inst.png");
-  gtk_widget_show (image1);
-  gtk_fixed_put (GTK_FIXED (fixed1), image1, 560, 2);
-  gtk_widget_set_size_request (image1, 127, 39);
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
@@ -711,6 +693,16 @@ create_window1 (void)
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
 
+  image1 = create_pixmap (window1, "install-gui-title.png");
+  gtk_widget_show (image1);
+  gtk_fixed_put (GTK_FIXED (fixed1), image1, 420, 2);
+  gtk_widget_set_size_request (image1, 250, 39);
+
+  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
+  gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
+  gtk_widget_set_size_request (label_wellcome, 369, 41);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
+
   g_signal_connect ((gpointer) window1, "configure_event",
                     G_CALLBACK (on_window1_configure_event),
                     NULL);
@@ -766,8 +758,6 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, hbox4, "hbox4");
   GLADE_HOOKUP_OBJECT (window1, image7, "image7");
   GLADE_HOOKUP_OBJECT (window1, label12, "label12");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
-  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
   GLADE_HOOKUP_OBJECT (window1, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window1, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window1, hseparator2, "hseparator2");
@@ -856,6 +846,8 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window1, label33, "label33");
   GLADE_HOOKUP_OBJECT (window1, label6, "label6");
+  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
+  GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT_NO_REF (window1, tooltips, "tooltips");
 
   return window1;
