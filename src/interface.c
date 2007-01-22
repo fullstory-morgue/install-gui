@@ -30,6 +30,7 @@ GtkWidget*
 create_window1 (void)
 {
   GtkWidget *window1;
+  GdkPixbuf *window1_icon_pixbuf;
   GtkWidget *fixed1;
   GtkWidget *exit;
   GtkWidget *alignment2;
@@ -144,6 +145,12 @@ create_window1 (void)
   window1 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window1), _("sidux HD-Installation"));
   gtk_window_set_resizable (GTK_WINDOW (window1), FALSE);
+  window1_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  if (window1_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (window1), window1_icon_pixbuf);
+      gdk_pixbuf_unref (window1_icon_pixbuf);
+    }
 
   fixed1 = gtk_fixed_new ();
   gtk_widget_show (fixed1);
