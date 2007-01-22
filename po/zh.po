@@ -3,45 +3,43 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2007-01-18 10:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Horst Tritremmel <peter_weber69@gmx.at>\n"
-"Language-Team: LANGUAGE <de@li.org>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property) 
 msgid "sidux HD-Installation"
-msgstr "sidux HD-Installation"
+msgstr "sidux 硬盘安装程序"
 
 #: install-gui.glade:78(property) 
 msgid "exit"
-msgstr "Ende"
+msgstr "退出"
 
 #: install-gui.glade:275(property) 
 msgid "Welcome to the sidux HD-Installation"
-msgstr "Willkommen zur sidux HD-Installation"
+msgstr "欢迎使用 sidux 的硬盘安装程序"
 
 #: install-gui.glade:425(property) 
 msgid "Note that this version is still a very early version and under heavy development. \n"
 "The author takes no responsibility for data loss or hardware damage."
-msgstr "Bitte beachten Sie, dass diese Version noch eine sehr frühe \n"
-"und noch in starker Entwicklung befindliche Version ist. \n"
-"Der Autor übernimmt keinerlei Garantie!\n"
-"Das Verwenden geschieht auf eigene Verantwortung!"
+msgstr "请注意该版本仍处于开发阶段，\n"
+"作者不对可能造成的数据丢失和硬件损坏负责！"
 
 #: install-gui.glade:452(property) 
 msgid "This application will install sidux to your harddisk."
-msgstr "Diese Applikation installiert sidux auf ihre Festplatte."
+msgstr "该程序将安装 sidux 到您的硬盘."
 
 #: install-gui.glade:505(property) 
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
 "sidux-website: http://sidux.com"
-msgstr "Wenn sie Hilfe benötigen besuchen Sie die sidux-Website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-Website: http://sidux.com"
+msgstr "如您需要关于安装的帮助请访问 sidux的网站、维基、论坛或者聊天室！\n\n"
+"sidux 的网站: http://sidux.com"
 
 #: install-gui.glade:537(property) 
 msgid "Welcome"
-msgstr "Willkommen"
+msgstr "欢迎"
 
 #: install-gui.glade:589(property) 
 msgid "options are:\n"
@@ -57,7 +55,7 @@ msgid "options are:\n"
 "/tmp\n"
 "/usr\n"
 "/var"
-msgstr "Optionen:\n"
+msgstr "可能是:\n"
 "========\n"
 "/bin\n"
 "/boot\n"
@@ -75,21 +73,23 @@ msgstr "Optionen:\n"
 msgid "!!!!!! be careful !!!!!!!\n"
 "Do it, if you don't have a linux partition.\n"
 "Read the Manual before. (see the Manual Button on the Desktop)"
-msgstr "!!!!!! ACHTUNG !!!!!!!\n"
-"Machen sie das wenn sie keine Linux Partitionen haben.\n"
-"Vorher Beschreibung lesen. (siehe Manual Button auf dem Desktop)"
+msgstr "!!!!!! 敬请注意 !!!!!!!\n"
+"如果您没有一个 Linux 分区请执行该项.\n"
+"请事先阅读安装手册，(点击桌面上的手册按钮)"
 
 #: install-gui.glade:672(property) 
-msgid "Start Part.- manager"
-msgstr "Start Part.- manager"
+msgid "Start Part.-\n"
+"manager"
+msgstr "开始硬盘分区管理\n"
+" "
 
 #: install-gui.glade:710(property) 
 msgid "Root-Partition"
-msgstr "Root-Partition"
+msgstr "根分区"
 
 #: install-gui.glade:736(property) 
 msgid "Mountpoints of other Partitions"
-msgstr "Mountpoints anderer Partitionen"
+msgstr "其他分区的挂载点"
 
 #: install-gui.glade:762(property) 
 msgid "Example:\n"
@@ -97,138 +97,137 @@ msgid "Example:\n"
 "A seperate\n"
 "home-partition:\n"
 "/home"
-msgstr "Beispiel:\n"
+msgstr "例如:\n"
 "------------\n"
-"Eine seperate\n"
-"Home-Partition:\n"
+"一个单独的\n"
+"用户分区:\n"
 "/home"
 
 #: install-gui.glade:810(property) 
 msgid "Set mountpoints of other Partitions\n"
 "(will not be formatted automatically)"
-msgstr "Mountpoints anderer Partitionen festlegen\n"
-"(werden nicht automatisch formatiert)"
+msgstr "设置其他分区的挂载点\n"
+"(它们不会被自动格式化)"
 
 #: install-gui.glade:847(property) 
 msgid "format with"
-msgstr "formatieren mit"
+msgstr "格式化成"
 
 #: install-gui.glade:870(property) 
 msgid "Partitioning"
-msgstr "Partitionieren"
+msgstr "分区"
 
 #: install-gui.glade:912(property) 
 msgid "create a bootdisk"
-msgstr "Bootdisk erstellen"
+msgstr "创建启动盘"
 
 #: install-gui.glade:931(property) 
 msgid "Installation-target"
-msgstr "Installations-Ziel"
+msgstr "安装路径"
 
 #: install-gui.glade:957(property) 
 msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "Bootmanager: Ein Bootmanager ermöglicht es, dass man beim Booten\n\n"
-"auswählen kann welches Betriebssystem gestartet werden soll.\n\n"
-"Installationsort: MBR (Master Boot Record) oder Root-Partition"
+msgstr "启动管理器: 您可以利用启动管理器在开机时选择要进入的操作系统. \n\n"
+"安装位置包括: MBR (主引导记录) 或者 根分区"
 
 #: install-gui.glade:1033(property) 
 msgid "Bootmanager"
-msgstr "Bootmanager"
+msgstr "启动管理器"
 
 #: install-gui.glade:1280(property) 
 msgid "Root-password:"
-msgstr "Root-Passwort:"
+msgstr "管理员密码:"
 
 #: install-gui.glade:1306(property) 
 msgid "Root-password again:"
-msgstr "Root-Passwort wiederholen:"
+msgstr "再输一遍管理员密码:"
 
 #: install-gui.glade:1332(property) 
 msgid "Realname:"
-msgstr "Echter Name:"
+msgstr "真实姓名"
 
 #: install-gui.glade:1358(property) 
 msgid "Password:"
-msgstr "Passwort:"
+msgstr "密码"
 
 #: install-gui.glade:1384(property) 
 msgid "Password again:"
-msgstr "Passwort wiederholen:"
+msgstr "再输一遍密码:"
 
 #: install-gui.glade:1410(property) 
 msgid "Username:"
-msgstr "Benutzername:"
+msgstr "用户名"
 
 #: install-gui.glade:1481(property) 
 msgid "Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
 "Username: The username should consist of lower case letters (and numbers) only.\n\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "Root-Passwort: Dieses Passwort wird für den Administrator-Zugangverwendet.\n"
-"Merken Sie Sich dieses Passwort deswegen gut!\n\n"
-"Benutzername: Der Benutzername sollte nur aus Kleinbuchstaben (und Zahlen) bestehen.\n"
-"Hinweis: Alle Passwörter müssen zwischen 6 und 20 Zeichen lang sein!"
+msgstr "管理员密码: 这个密码将被用于系统管理，请牢记！\n\n"
+"用户名: 该名字只能由小写字母(数字)组成.\n\n"
+"敬请注意: 所有的密码长度必须在 6-20 位之间！"
 
 #: install-gui.glade:1515(property) 
 msgid "User"
-msgstr "Benutzer"
+msgstr "用户"
 
 #: install-gui.glade:1564(property) 
 msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
-msgstr "Rechnername: Der Rechnername sollte nur aus Buchstaben (und Zahlen)\n\n"
-"bestehen und darf nicht mit einer Zahl beginnen"
+msgstr "主机名: 主机名只能由字母(数字)组成，而且不能以数字开头."
 
 #: install-gui.glade:1680(property) 
 msgid "Network"
-msgstr "Netzwerk"
+msgstr "网络"
 
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
 "If everything is correct for you, begin the installation by pressing \"Begin installation\"."
-msgstr "Es sind alle notwendigen Daten vorhanden um die Kanotix-Installation zu starten.\n\n"
-"Sie können die Einstellungen nochmal Überpruefen, indem Sie den Button \"Zurück\" betätigen.\n\n"
-"Wenn alles in Ordnung ist können Sie die Installation mit dem Button \"Installation starten\" beginnen."
+msgstr "您需要提供必要的信息以开始 sidux 的安装程序.\n\n"
+"您可以通过按\"上一步\"的改变您的选择.\n\n"
+"如果一切正常，您可以按下\"开始安装\"来开始安装."
 
 #: install-gui.glade:1800(property) 
 msgid "Save configuration\n"
 "only (~/.knofig)"
-msgstr "Nur die Konfiguration\n"
-"speichern (~/.knofig)"
+msgstr "保存设置\n"
+"仅仅是 (~/.knofig)"
 
 #: install-gui.glade:1821(property) 
 msgid "Start sidux-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "sidux-Install-Script\n"
-"ohne Konfiguration starten\n"
-"(dadurch gehen diese Einstellungen verloren)"
+msgstr "开始 sidux 的安装脚本\n"
+"不要设置\n"
+"(该设置将丢弃)"
 
 #: install-gui.glade:1844(property) 
 msgid "Save configuration\n"
 "and start installation"
-msgstr "Konfiguration speichern\n"
-"und Installation starten"
+msgstr "保存设置\n"
+"并开始安装"
 
 #: install-gui.glade:1866(property) 
 msgid "Force Installation\n"
 "(Ignore RAM-/Partition-Check, etc.)"
-msgstr "Installation erzwingen\n"
-"(Keine Prüfung durchführen)"
+msgstr "强制安装\n"
+"(忽略内存和分区检测等)"
 
 #: install-gui.glade:1929(property) 
 msgid "Begin Installation"
-msgstr "Installation starten"
+msgstr "开始安装"
 
 #: install-gui.glade:1970(property) 
 msgid "Installation"
-msgstr "Installation"
+msgstr "安装"
 
 #: install-gui.glade:1980(property) 
 msgid "Next"
-msgstr "Vor"
+msgstr "下一步"
 
 #: install-gui.glade:1990(property) 
 msgid "Prev"
-msgstr "Zurück"
+msgstr "上一步"
+
+
 

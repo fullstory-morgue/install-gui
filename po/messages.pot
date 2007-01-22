@@ -62,7 +62,8 @@ msgid "!!!!!! be careful !!!!!!!\n"
 msgstr ""
 
 #: install-gui.glade:672(property) 
-msgid "Start Part.- manager"
+msgid "Start Part.-\n"
+"manager"
 msgstr ""
 
 #: install-gui.glade:710(property) 

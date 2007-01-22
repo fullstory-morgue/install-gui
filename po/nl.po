@@ -78,8 +78,10 @@ msgstr "!!!!!! wees voorzichtig !!!!!!\n"
 "Lees de gebruiksaanwijzing van tevoren. (zie daarvoor de 'manual button' op het bureaublad)"
 
 #: install-gui.glade:672(property) 
-msgid "Start Part.- manager"
-msgstr "Start de partition manager"
+msgid "Start Part.-\n"
+"manager"
+msgstr "Start de \n"
+"partition manager"
 
 #: install-gui.glade:710(property) 
 msgid "Root-Partition"
@@ -183,6 +185,7 @@ msgid "You provided all Information neccessary to start the sidux-Installation.\
 "If everything is correct for you, begin the installation by pressing \"Begin installation\"."
 msgstr "Je hebt alle informatie ingevoerd die nodig is om de installatie van sidux te beginnen.\n\n"
 "Je kunt je opties controleren of veranderen door op de \"Prev\" knop te klikken. \n\n"
+"If everything is correct for you, begin the installation by pressing \"Begin de installatie\"."
 
 #: install-gui.glade:1800(property) 
 msgid "Save configuration\n"
@@ -196,7 +199,7 @@ msgid "Start sidux-Installer-Script\n"
 "(this configuration will be lost)"
 msgstr "Start het sidux-installatie-script op\n"
 "zonder configuratie\n"
-"(deze configuratie wordt verwijderd\n"
+"(deze configuratie wordt verwijderd"
 
 #: install-gui.glade:1844(property) 
 msgid "Save configuration\n"

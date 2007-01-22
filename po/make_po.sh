@@ -1,5 +1,4 @@
 #!/bin/bash
-# make_po.sh - written by Andreas Loibl <andreas@andreas-loibl.de>
 PO_NAME=$1
 cd po
 for i in *.po;

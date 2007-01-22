@@ -19,7 +19,7 @@ msgstr "afslut"
 
 #: install-gui.glade:275(property) 
 msgid "Welcome to the sidux HD-Installation"
-msgstr "Velkommen til Sidux HD-Installation"
+msgstr "Velkommen til sidux HD-Installation"
 
 #: install-gui.glade:425(property) 
 msgid "Note that this version is still a very early version and under heavy development. \n"
@@ -29,13 +29,13 @@ msgstr "Bemærk at dette er en tidlig version, der stadig er under udvikling. \n
 
 #: install-gui.glade:452(property) 
 msgid "This application will install sidux to your harddisk."
-msgstr "Dette program installerer Sidux til din harddisk."
+msgstr "Dette program installerer sidux til din harddisk."
 
 #: install-gui.glade:505(property) 
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
 "sidux-website: http://sidux.com"
-msgstr "Hvis du har brug for hjælp med installationen så besøg Sidux-hjemmesiden, -Wiki, -Forum eller -Chat\n\n"
-"Sidux-Hjemmeside: http://sidux.com"
+msgstr "Hvis du har brug for hjælp med installationen så besøg sidux-hjemmesiden, -Wiki, -Forum eller -Chat\n\n"
+"sidux-Hjemmeside: http://sidux.com"
 
 #: install-gui.glade:537(property) 
 msgid "Welcome"
@@ -78,8 +78,10 @@ msgstr "!!!!!! Forsigtig !!!!!!!\n"
 "Læs manualen først. (se manual knappen på skrivebordet)"
 
 #: install-gui.glade:672(property) 
-msgid "Start Part.- manager"
-msgstr "Start Part.- manager"
+msgid "Start\n"
+"Part.- manager"
+msgstr "Start\n"
+"Part.- manager"
 
 #: install-gui.glade:710(property) 
 msgid "Root-Partition"
@@ -195,7 +197,7 @@ msgstr "Gem configuration\n"
 msgid "Start sidux-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "Start Sidux-Installer-Script\n"
+msgstr "Start sidux-Installer-Script\n"
 "uden configuration\n"
 "(denne konfiguration vil blive tabt)"
 
