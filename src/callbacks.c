@@ -22,7 +22,8 @@ FILE* fp;
 char scanparttmp[80];
 char systemcallstr[100];
 char mountpoints_config[512];
-int  do_it_at_first_time = 0, counter;
+char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
+int  do_it_at_first_time = 0, counter, leaved_user_page;
 
 enum
 {
@@ -181,6 +182,118 @@ void read_partitions(GtkComboBox     *combobox)
    }
 }
 
+
+int
+password_check(GtkWidget     *button) 
+{
+
+      GtkWidget *entry, *mainW, *dialog;
+
+      // Root Password check
+      entry = lookup_widget(GTK_WIDGET(button), "entry_rootpw");
+      strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+      entry = lookup_widget(GTK_WIDGET(button), "entry_rootpw_again");
+      strcpy(rootpw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+
+      //  Message Dialog Root Password different
+      if( strcmp( rootpw, rootpw_a ) != 0 ) {
+          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s", "Root-Password different!", "go back" );
+          gtk_dialog_run (GTK_DIALOG (dialog));
+          gtk_widget_destroy (dialog);
+
+          return 0;
+      }
+
+      //  Message Dialog Root Password to short
+      if( strlen( rootpw ) < 6 ) {
+          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s", "Root-Password to short!", "go back" );
+          gtk_dialog_run (GTK_DIALOG (dialog));
+          gtk_widget_destroy (dialog);
+          return 0;
+      }
+
+
+      //  Message Dialog RealName empty
+      entry = lookup_widget(GTK_WIDGET(button), "entry_realname");
+      strcpy(nname, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+      if( strlen( nname ) < 1 ) {
+          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s", "Realname empty!", "go back" );
+          gtk_dialog_run (GTK_DIALOG (dialog));
+          gtk_widget_destroy (dialog);
+          return 0;
+      }
+
+
+      //  Message Dialog UserName empty
+      entry = lookup_widget(GTK_WIDGET(button), "entry_username");
+      strcpy(uname, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+      if( strlen( uname ) < 1 ) {
+          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s", "Username empty!", "go back" );
+          gtk_dialog_run (GTK_DIALOG (dialog));
+          gtk_widget_destroy (dialog);
+          return 0;
+      }
+
+      // Password check
+      entry = lookup_widget(GTK_WIDGET(button), "entry_pw");
+      strcpy(pw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+      entry = lookup_widget(GTK_WIDGET(button), "entry_pw_again");
+      strcpy(pw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+
+      //  Message Dialog Password different
+      if( strcmp( pw, pw_a ) != 0 ) {
+          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s", "Password different!", "go back" );
+          gtk_dialog_run (GTK_DIALOG (dialog));
+          gtk_widget_destroy (dialog);
+          return 0;
+      }
+
+      //  Message Dialog Password to short
+      if( strlen( pw ) < 6 ) {
+          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s", "Password to short!", "go back" );
+          gtk_dialog_run (GTK_DIALOG (dialog));
+          gtk_widget_destroy (dialog);
+          return 0;
+      }
+
+   return 1;
+}
 
 gboolean
 on_window1_configure_event             (GtkWidget       *widget,
@@ -493,8 +606,7 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton, *checkbutton;
-   GtkWidget *entry, *mainW, *dialog;
-   char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], systemcall[80];
+   char systemcall[256];
    FILE *stream;
 
 
@@ -516,108 +628,9 @@ on_button_install_clicked              (GtkButton       *button,
    }
    else {
 
-      // Root Password check
-      entry = lookup_widget(GTK_WIDGET(button), "entry_rootpw");
-      strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
-
-      entry = lookup_widget(GTK_WIDGET(button), "entry_rootpw_again");
-      strcpy(rootpw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
-
-
-      //  Message Dialog Root Password different
-      if( strcmp( rootpw, rootpw_a ) != 0 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
-          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s", "Root-Password different!" );
-          gtk_dialog_run (GTK_DIALOG (dialog));
-          gtk_widget_destroy (dialog);
-
-          return;
-      }
-
-      //  Message Dialog Root Password to short
-      if( strlen( rootpw ) < 6 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
-          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s", "Root-Password to short!" );
-          gtk_dialog_run (GTK_DIALOG (dialog));
-          gtk_widget_destroy (dialog);
-          return;
-      }
-
-
-      //  Message Dialog RealName empty
-      entry = lookup_widget(GTK_WIDGET(button), "entry_realname");
-      strcpy(nname, gtk_entry_get_text(GTK_ENTRY(entry)));
-
-      if( strlen( nname ) < 1 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
-          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s", "Realname empty!" );
-          gtk_dialog_run (GTK_DIALOG (dialog));
-          gtk_widget_destroy (dialog);
-          return;
-      }
-
-
-      //  Message Dialog UserName empty
-      entry = lookup_widget(GTK_WIDGET(button), "entry_username");
-      strcpy(uname, gtk_entry_get_text(GTK_ENTRY(entry)));
-
-      if( strlen( uname ) < 1 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
-          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s", "Username empty!" );
-          gtk_dialog_run (GTK_DIALOG (dialog));
-          gtk_widget_destroy (dialog);
-          return;
-      }
-
-      // Password check
-      entry = lookup_widget(GTK_WIDGET(button), "entry_pw");
-      strcpy(pw, gtk_entry_get_text(GTK_ENTRY(entry)));
-
-      entry = lookup_widget(GTK_WIDGET(button), "entry_pw_again");
-      strcpy(pw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
-
-
-      //  Message Dialog Password different
-      if( strcmp( pw, pw_a ) != 0 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
-          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s", "Password different!" );
-          gtk_dialog_run (GTK_DIALOG (dialog));
-          gtk_widget_destroy (dialog);
-          return;
-      }
-
-      //  Message Dialog Password to short
-      if( strlen( pw ) < 6 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
-          dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s", "Password to short!" );
-          gtk_dialog_run (GTK_DIALOG (dialog));
-          gtk_widget_destroy (dialog);
-          return;
-      }
+      //password_check
+      if( password_check(GTK_WIDGET (button)) < 1 )
+           return;
 
 
       // read the treeview1 (mountpoint) list
@@ -815,11 +828,19 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
                                         guint            page_num,
                                         gpointer         user_data)
 {
+
+   int password_failed;
+   //int leaved_page;
+
+   GtkWidget *notebook1;
+
+   notebook1 = lookup_widget (GTK_WIDGET (notebook), "notebook1");
+
      /* ==================================================================== *
       *          Hide the Next Button if Page Install is selected            *
       * ==================================================================== */
 
-      GtkWidget *button_next = lookup_widget(GTK_WIDGET(notebook),"next");
+      GtkWidget *button_next = lookup_widget(GTK_WIDGET (notebook),"next");
 
       if( page_num < 5 )
           gtk_widget_show ( GTK_WIDGET (button_next) );
@@ -827,5 +848,28 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
           gtk_widget_hide ( GTK_WIDGET (button_next) );
 
 
+     /* ==================================================================== *
+      *                            password_check                            *
+      * ==================================================================== */
+      if(page_num == 3) {
+            leaved_user_page = 1;
+      }
+
+      if(page_num != 3 && leaved_user_page == 1) {
+          password_failed = password_check(GTK_WIDGET (notebook));
+          leaved_user_page = 0;
+      }
+
+/*      if( password_failed == 0 ) {
+          leaved_page = page_num;
+
+          if( leaved_page != 3 ) {
+             // g_signal_connect ((gpointer) notebook, "switch-page",
+             //       G_CALLBACK (on_prev_clicked),
+             //       NULL); 
+             gtk_notebook_set_current_page   (GTK_WIDGET (notebook), 3);
+             gtk_notebook_prev_page ( GTK_NOTEBOOK(notebook1) );
+          }
+       }  */
 }
 
