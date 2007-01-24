@@ -1,8 +1,9 @@
-install-gui (0.0.15) UNRELEASED; urgency=low
+install-gui (0.0.15) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * start /usr/sbin/sidux-installer instead of install-gui directly, we need
+    to stop kded.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 23 Jan 2007 00:53:37 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 24 Jan 2007 14:22:59 +0100
 
 install-gui (0.0.14) unstable; urgency=low
 
