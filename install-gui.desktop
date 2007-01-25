@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=install-gui
+Name=sidux-installer
 Exec=su-me /usr/sbin/sidux-installer
 Icon=kmenu
 Type=Application
