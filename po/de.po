@@ -186,7 +186,7 @@ msgstr "Netzwerk"
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
 "If everything is correct for you, begin the installation by pressing \"Begin installation\"."
-msgstr "Es sind alle notwendigen Daten vorhanden um die Kanotix-Installation zu starten.\n\n"
+msgstr "Es sind alle notwendigen Daten vorhanden, um die sidux-Installation zu starten.\n\n"
 "Sie können die Einstellungen nochmal Überpruefen, indem Sie den Button \"Zurück\" betätigen.\n\n"
 "Wenn alles in Ordnung ist können Sie die Installation mit dem Button \"Installation starten\" beginnen."
 
