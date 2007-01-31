@@ -2,6 +2,6 @@
 Encoding=UTF-8
 Name=sidux-installer
 Exec=su-me /usr/sbin/sidux-installer
-Icon=kmenu
+Icon=/usr/share/pixmaps/sidux-inst-conf.png
 Type=Application
 Comment=Install sidux to hd
