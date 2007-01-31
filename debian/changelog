@@ -1,4 +1,4 @@
-install-gui (0.0.21) UNRELEASED; urgency=low
+install-gui (0.0.21) unstable; urgency=low
 
   * desktop symbol changed 
 
