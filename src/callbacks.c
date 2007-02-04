@@ -33,6 +33,60 @@ enum
 } ;
 
 
+void
+is_the_device_a_usbdevice (GtkComboBox     *combobox)
+{
+   // is the selected install device a usb device, then only grub to partition
+
+   char device[80];
+   char *entry1, *entry2;
+
+   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
+   entry1 = strtok(hd_choice, "/");
+   entry2 = strtok(NULL, "/");
+
+   strcpy(device, "/sys/block/");
+   strncat(device, entry2, 3);
+   strcat(device, "/dev");
+
+   //printf("%s\n", device);
+
+   fp=fopen(device, "r");
+   if( fp == NULL ) {
+       printf("error file open\n");
+   }
+   else {
+
+       // clear the combo_box before
+       GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
+       gtk_list_store_clear(GTK_LIST_STORE(model));
+
+       // appand to combo_box
+       fseek( fp, 0L, SEEK_SET );
+       fscanf(fp, "%s", device);
+
+
+       entry1 = strtok(device, ":");
+       entry2 = strtok(NULL, ":");
+
+     /* ============================================================= *
+      *                   fill the combobox_installplace              *
+      * ============================================================= */
+      if( strcmp(entry1, "8") == 0 &&
+          strcmp(entry2, "0") != 0 ) {
+           // usb device found
+           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+      }
+      else {
+           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
+           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+      }
+      gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
+      fclose(fp);
+   }
+}
+
+
 void cell_edit_cb(GtkCellRendererText *cell,
                   const gchar *path_string,
                   const gchar *new_text,
@@ -386,10 +440,7 @@ on_window1_configure_event             (GtkWidget       *widget,
    *                   fill the combobox_installplace              *
    * ============================================================= */
    GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (widget), "combobox_installplace");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_installplace), "mbr");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_installplace), "partition");
-
-   gtk_combo_box_set_active( GTK_COMBO_BOX(combobox_installplace),0);
+   is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
 
 
   /* ============================================================= *
@@ -437,6 +488,11 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
 
    rootpartcombo = lookup_widget (GTK_WIDGET (combobox), "rootpartcombo");
    //rootpart = gtk_combo_box_get_active_text(GTK_COMBO_BOX (rootpartcombo));
+
+
+   // fill the combobox_installplace
+   GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
+   is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
 
    // change also the  / (rootpartition) entry in the treeview, set the treeview new
    g_signal_connect ((gpointer) rootpartcombo, "changed",

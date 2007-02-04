@@ -1,3 +1,9 @@
+install-gui (0.0.25) UNRELEASED; urgency=low
+
+  * add usb device check, grub only in partition 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Sun,  4 Feb 2007 22:04:53 +0100
+
 install-gui (0.0.24) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
