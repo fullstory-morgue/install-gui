@@ -471,6 +471,13 @@ on_window1_configure_event             (GtkWidget       *widget,
    font_desc = pango_font_description_from_string ("12");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_metapackages");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
  }
 
  return FALSE;
@@ -815,14 +822,25 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
              fprintf( stream, "no'\n");
          }
 
-       fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n", 
+       fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s", 
 "# Where the Boot-Loader will be installed",
 "# Possible are: mbr|partition",
 "# Default value is: mbr",
 "BOOT_WHERE='",
 gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_installplace"))),
 "AUTOLOGIN_MODULE='configured'",
-"INSTALL_READY='yes'");
+"INSTALL_READY='yes'",
+"# Install aditional metapackages. Default value is: yes",
+"INSTALL_META='"
+         );
+
+         checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_metapackages"));
+         if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
+             fprintf( stream, "yes'\n");
+         }
+         else {
+             fprintf( stream, "no'\n");
+         }
 
         fclose( stream );
       }
@@ -916,16 +934,5 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
           leaved_user_page = 0;
       }
 
-/*      if( password_failed == 0 ) {
-          leaved_page = page_num;
-
-          if( leaved_page != 3 ) {
-             // g_signal_connect ((gpointer) notebook, "switch-page",
-             //       G_CALLBACK (on_prev_clicked),
-             //       NULL); 
-             gtk_notebook_set_current_page   (GTK_WIDGET (notebook), 3);
-             gtk_notebook_prev_page ( GTK_NOTEBOOK(notebook1) );
-          }
-       }  */
 }
 

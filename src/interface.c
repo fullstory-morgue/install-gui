@@ -131,10 +131,11 @@ create_window1 (void)
   GtkWidget *label34;
   GtkWidget *radiobutton1;
   GSList *radiobutton1_group = NULL;
-  GtkWidget *checkbutton_force;
   GtkWidget *radiobutton3;
-  GtkWidget *radiobutton2;
   GtkWidget *label33;
+  GtkWidget *radiobutton2;
+  GtkWidget *checkbutton_force;
+  GtkWidget *checkbutton_metapackages;
   GtkWidget *label6;
   GtkWidget *image1;
   GtkWidget *label_wellcome;
@@ -669,24 +670,12 @@ create_window1 (void)
   radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton1), TRUE);
 
-  checkbutton_force = gtk_check_button_new_with_mnemonic (_("Force Installation\n(Ignore RAM-/Partition-Check, etc.)"));
-  gtk_widget_show (checkbutton_force);
-  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_force, 328, 136);
-  gtk_widget_set_size_request (checkbutton_force, 232, 56);
-
   radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
   gtk_widget_show (radiobutton3);
   gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
   gtk_widget_set_size_request (radiobutton3, 376, 56);
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
   radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
-
-  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nonly (~/.knofig)"));
-  gtk_widget_show (radiobutton2);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton2, 120, 184);
-  gtk_widget_set_size_request (radiobutton2, 368, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
 
   label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, begin the installation by pressing \"Begin installation\"."));
   gtk_widget_show (label33);
@@ -695,6 +684,24 @@ create_window1 (void)
   gtk_label_set_justify (GTK_LABEL (label33), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label33), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label33), 0, 0.5);
+
+  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nonly (~/.knofig)"));
+  gtk_widget_show (radiobutton2);
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton2, 120, 184);
+  gtk_widget_set_size_request (radiobutton2, 208, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
+  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
+
+  checkbutton_force = gtk_check_button_new_with_mnemonic (_("Force Installation\n(Ignore RAM-/Partition-Check, etc.)"));
+  gtk_widget_show (checkbutton_force);
+  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_force, 328, 136);
+  gtk_widget_set_size_request (checkbutton_force, 232, 56);
+
+  checkbutton_metapackages = gtk_check_button_new_with_mnemonic (_("Install additional\nMetapackages"));
+  gtk_widget_show (checkbutton_metapackages);
+  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 328, 184);
+  gtk_widget_set_size_request (checkbutton_metapackages, 232, 56);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_metapackages), TRUE);
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
@@ -848,10 +855,11 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, image8, "image8");
   GLADE_HOOKUP_OBJECT (window1, label34, "label34");
   GLADE_HOOKUP_OBJECT (window1, radiobutton1, "radiobutton1");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_force, "checkbutton_force");
   GLADE_HOOKUP_OBJECT (window1, radiobutton3, "radiobutton3");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window1, label33, "label33");
+  GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
+  GLADE_HOOKUP_OBJECT (window1, checkbutton_force, "checkbutton_force");
+  GLADE_HOOKUP_OBJECT (window1, checkbutton_metapackages, "checkbutton_metapackages");
   GLADE_HOOKUP_OBJECT (window1, label6, "label6");
   GLADE_HOOKUP_OBJECT (window1, image1, "image1");
   GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
