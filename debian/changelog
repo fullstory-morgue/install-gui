@@ -1,3 +1,9 @@
+install-gui (0.0.27) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  6 Feb 2007 17:00:33 +0100
+
 install-gui (0.0.26) unstable; urgency=low
 
   * add install metapackages 
