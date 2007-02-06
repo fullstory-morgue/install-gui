@@ -42,8 +42,10 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
    char *entry1, *entry2;
 
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
-   entry1 = strtok(hd_choice, "/");
-   entry2 = strtok(NULL, "/");
+   if( strlen(hd_choice) > 0 ) { 
+       entry1 = strtok(hd_choice, "/");
+       entry2 = strtok(NULL, "/");
+   }
 
    strcpy(device, "/sys/block/");
    strncat(device, entry2, 3);
@@ -357,6 +359,14 @@ on_window1_configure_event             (GtkWidget       *widget,
  if( do_it_at_first_time < 1 ) {
 
    do_it_at_first_time = 1;  // only at start
+
+
+   // root check
+/*   if (!getenv("UID") || getenv("UID") > 0 ) {
+     printf("only root can do this\n");
+     gtk_main_quit();
+   }  */
+
 
   /* ==================================================
    * activate mount point of other partitions treeviev

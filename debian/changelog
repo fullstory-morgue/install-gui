@@ -1,3 +1,9 @@
+install-gui (0.0.28) UNRELEASED; urgency=low
+
+  * non root bug fix 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Tue,  6 Feb 2007 23:06:49 +0100
+
 install-gui (0.0.27) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
