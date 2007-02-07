@@ -19,13 +19,13 @@ msgstr "Quitter"
 
 #: install-gui.glade:275(property) 
 msgid "Welcome to the sidux HD-Installation"
-msgstr "Bienvenue �l'installation de sidux"
+msgstr "Bienvenue á l'installation de sidux"
 
 #: install-gui.glade:425(property) 
 msgid "Note that this version is still a very early version and under heavy development. \n"
 "The author takes no responsibility for data loss or hardware damage."
-msgstr "Cette version se trouve encore dans une phase de d�eloppement beta.\n"
-"L'auteur de ce programme n'est pas responsable pour une �entuelle perte de donn�s ou d�auts hardware."
+msgstr "Cette version se trouve encore dans une phase de développement beta.\n"
+"L'auteur de ce programme n'est pas responsable pour une éventuelle perte de données ou fauts hardware."
 
 #: install-gui.glade:452(property) 
 msgid "This application will install sidux to your harddisk."
@@ -106,8 +106,8 @@ msgstr "Exemple:\n"
 #: install-gui.glade:810(property) 
 msgid "Set mountpoints of other Partitions\n"
 "(will not be formatted automatically)"
-msgstr "S�ecter les points de montage pour les autres partitions\n"
-"(ne seront pas format�s automatiquement)"
+msgstr "Sélecter les points de montage pour les autres partitions\n"
+"(ne seront pas formatées automatiquement)"
 
 #: install-gui.glade:847(property) 
 msgid "format with"
@@ -119,7 +119,7 @@ msgstr "Partitioning"
 
 #: install-gui.glade:912(property) 
 msgid "create a bootdisk"
-msgstr "cr�r disquette de d�arrage"
+msgstr "créer disquette de démarrage"
 
 #: install-gui.glade:931(property) 
 msgid "Installation-target"
@@ -128,8 +128,8 @@ msgstr "Place d'installation"
 #: install-gui.glade:957(property) 
 msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "Bootmanager: Un bootmanager vous donne la possibilit�de choisir le syst�e\n"
-"d'exploitation que vous voulez lancer au d�arrage.\n\n"
+msgstr "Bootmanager: Un bootmanager vous donne la possibilité de choisir le systẽme\n"
+"d'exploitation que vous voulez lancer au démarrage.\n\n"
 "Place d'installation: MBR (Master Boot Record) ou partition root"
 
 #: install-gui.glade:1033(property) 
@@ -142,11 +142,11 @@ msgstr "Mot de passe pour root"
 
 #: install-gui.glade:1306(property) 
 msgid "Root-password again:"
-msgstr "Mot de passe pour root (r��ez-le)"
+msgstr "Mot de passe pour root (répétez-le)"
 
 #: install-gui.glade:1332(property) 
 msgid "Realname:"
-msgstr "Nom r�l"
+msgstr "Nom réel"
 
 #: install-gui.glade:1358(property) 
 msgid "Password:"
@@ -154,7 +154,7 @@ msgstr "Mot de passe"
 
 #: install-gui.glade:1384(property) 
 msgid "Password again:"
-msgstr "Mot de passe (r��ez-le)"
+msgstr "Mot de passe (répétez-le)"
 
 #: install-gui.glade:1410(property) 
 msgid "Username:"
@@ -164,9 +164,9 @@ msgstr "Nom de l'utilisateur"
 msgid "Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
 "Username: The username should consist of lower case letters (and numbers) only.\n\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "Mot de passe root: Ce mot de passe sera utilis�pour l'administrateur. Ne l'oubliez pas!\n\n"
-"Nom de l'utilisateur: Compos�de lettres minuscules et de chiffres seulement.\n\n"
-"Important: La longueur de tous les mots de passe doit de situer entre 6 et 20 caract�es!"
+msgstr "Mot de passe root: Ce mot de passe sera utilisé pour l'administrateur. Ne l'oubliez pas!\n\n"
+"Nom de l'utilisateur: Composé de lettres minuscules et de chiffres seulement.\n\n"
+"Important: La longueur de tous les mots de passe doit de situer entre 6 et 20 caractéres!"
 
 #: install-gui.glade:1515(property) 
 msgid "User"
@@ -174,18 +174,18 @@ msgstr "Utilisateur"
 
 #: install-gui.glade:1564(property) 
 msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
-msgstr "Nom de domaine: Compos�de lettres minuscules et de chiffres seulement. Ne peut pas commencer avec un chiffre."
+msgstr "Nom de domaine: Composé de lettres minuscules et de chiffres seulement. Ne peut pas commencer avec un chiffre."
 
 #: install-gui.glade:1680(property) 
 msgid "Network"
-msgstr "R�eau"
+msgstr "Réseau"
 
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
 "If everything is correct for you, begin the installation by pressing \"Begin installation\"."
-msgstr "Vous avez fourni toutes les informations n�essaires pour pouvoir d�arrer l'installation.\n\n"
-"Vous pouvez contr�er ou changer les options en cliquant sur le bouton \"Pr��ant\".\n\n"
+msgstr "Vous avez fourni toutes les informations nécessaires pour pouvoir démarrer l'installation.\n\n"
+"Vous pouvez contrõler ou changer les options en cliquant sur le bouton \"Précédent\".\n\n"
 "Si toutes les informations sont correctes, lancez l'installation en cliquant sur \"Begin Installation\"."
 
 #: install-gui.glade:1800(property) 
@@ -212,7 +212,7 @@ msgstr "Sauvegarder configuration\n"
 msgid "Force Installation\n"
 "(Ignore RAM-/Partition-Check, etc.)"
 msgstr "Forcez l'installation\n"
-"(ignorer v�ifier RAM/partitions etc.)"
+"(ignore vérifier RAM/partitions etc.)"
 
 #: install-gui.glade:1929(property) 
 msgid "Begin Installation"
@@ -228,7 +228,7 @@ msgstr "Suivant"
 
 #: install-gui.glade:1990(property) 
 msgid "Prev"
-msgstr "Pr��ant"
+msgstr "Précédent"
 
 
 
