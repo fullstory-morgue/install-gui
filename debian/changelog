@@ -10,12 +10,6 @@ install-gui (0.0.31) unstable; urgency=low
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Thu,  8 Feb 2007 09:57:36 +0100
 
-install-gui (0.0.30) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  8 Feb 2007 01:37:21 +0100
-
 install-gui (0.0.29) unstable; urgency=low
 
   * several localization updates, thanks to x-un-i.
