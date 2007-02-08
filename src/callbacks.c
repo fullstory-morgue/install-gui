@@ -361,13 +361,6 @@ on_window1_configure_event             (GtkWidget       *widget,
    do_it_at_first_time = 1;  // only at start
 
 
-   // root check
-   if (!getenv("USER") || strncmp( getenv("USER"), "root", 4 ) != 0 ) {
-     printf("only root can do this\n");
-     gtk_main_quit();
-   }
-
-
   /* ==================================================
    * activate mount point of other partitions treeviev
    * ================================================== */

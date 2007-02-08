@@ -8,6 +8,9 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #include "interface.h"
 #include "support.h"
@@ -33,10 +36,20 @@ main (int argc, char *argv[])
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  window1 = create_window1 ();
-  gtk_widget_show (window1);
 
-  gtk_main ();
-  return 0;
+   // root check
+   if (!getenv("USER") || strncmp( getenv("USER"), "root", 4 ) != 0 ) {
+     printf("only root can do this\n");
+     GtkWidget* dialog_no_root = create_dialog_no_root ();
+     gtk_widget_show (dialog_no_root);
+   }
+   else {
+     window1 = create_window1 ();
+     gtk_widget_show (window1);
+   }
+
+   gtk_main ();
+
+   return 0;
 }
 

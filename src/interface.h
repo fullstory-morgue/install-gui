@@ -3,3 +3,4 @@
  */
 
 GtkWidget* create_window1 (void);
+GtkWidget* create_dialog_no_root (void);

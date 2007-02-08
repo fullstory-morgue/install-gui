@@ -868,3 +868,70 @@ create_window1 (void)
   return window1;
 }
 
+GtkWidget*
+create_dialog_no_root (void)
+{
+  GtkWidget *dialog_no_root;
+  GdkPixbuf *dialog_no_root_icon_pixbuf;
+  GtkWidget *dialog_vbox1;
+  GtkWidget *fixed9;
+  GtkWidget *label36;
+  GtkWidget *image9;
+  GtkWidget *dialog_action_area1;
+  GtkWidget *closebutton1;
+
+  dialog_no_root = gtk_dialog_new ();
+  gtk_window_set_title (GTK_WINDOW (dialog_no_root), _("only root"));
+  dialog_no_root_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  if (dialog_no_root_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (dialog_no_root), dialog_no_root_icon_pixbuf);
+      gdk_pixbuf_unref (dialog_no_root_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (dialog_no_root), GDK_WINDOW_TYPE_HINT_DIALOG);
+
+  dialog_vbox1 = GTK_DIALOG (dialog_no_root)->vbox;
+  gtk_widget_show (dialog_vbox1);
+
+  fixed9 = gtk_fixed_new ();
+  gtk_widget_show (fixed9);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox1), fixed9, TRUE, TRUE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (fixed9), 5);
+
+  label36 = gtk_label_new (_("Only root can start the installer:\nThe Installer is started from the Kmenu>sidux>sidux-installer"));
+  gtk_widget_show (label36);
+  gtk_fixed_put (GTK_FIXED (fixed9), label36, 8, 8);
+  gtk_widget_set_size_request (label36, 432, 48);
+  gtk_label_set_justify (GTK_LABEL (label36), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label36), 0, 0);
+
+  image9 = create_pixmap (dialog_no_root, "install-no-root.png");
+  gtk_widget_show (image9);
+  gtk_fixed_put (GTK_FIXED (fixed9), image9, 40, 48);
+  gtk_widget_set_size_request (image9, 280, 136);
+
+  dialog_action_area1 = GTK_DIALOG (dialog_no_root)->action_area;
+  gtk_widget_show (dialog_action_area1);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
+
+  closebutton1 = gtk_button_new_from_stock ("gtk-close");
+  gtk_widget_show (closebutton1);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dialog_no_root), closebutton1, GTK_RESPONSE_CLOSE);
+  GTK_WIDGET_SET_FLAGS (closebutton1, GTK_CAN_DEFAULT);
+
+  g_signal_connect ((gpointer) closebutton1, "clicked",
+                    G_CALLBACK (gtk_main_quit),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_no_root, dialog_no_root, "dialog_no_root");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_no_root, dialog_vbox1, "dialog_vbox1");
+  GLADE_HOOKUP_OBJECT (dialog_no_root, fixed9, "fixed9");
+  GLADE_HOOKUP_OBJECT (dialog_no_root, label36, "label36");
+  GLADE_HOOKUP_OBJECT (dialog_no_root, image9, "image9");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_no_root, dialog_action_area1, "dialog_action_area1");
+  GLADE_HOOKUP_OBJECT (dialog_no_root, closebutton1, "closebutton1");
+
+  return dialog_no_root;
+}
+
