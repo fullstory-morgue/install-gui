@@ -362,10 +362,10 @@ on_window1_configure_event             (GtkWidget       *widget,
 
 
    // root check
-/*   if (!getenv("UID") || getenv("UID") > 0 ) {
+   if (!getenv("USER") || strncmp( getenv("USER"), "root", 4 ) != 0 ) {
      printf("only root can do this\n");
      gtk_main_quit();
-   }  */
+   }
 
 
   /* ==================================================
