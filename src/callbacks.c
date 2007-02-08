@@ -13,7 +13,7 @@
 #include "support.h"
 
 
-#define FILENAME ".knofig"
+#define FILENAME ".sidconf"
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && knx-installer installer &"
 #define INSTALL_SH_WITHOUT_CONFIG "knx-installer &"
@@ -850,7 +850,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
 
 
      /* ==================================================================== *
-      * change the __.......__ entries in the .knofig file with system calls *
+      * change the __.......__ entries in the .sidconf file with system calls *
       * ==================================================================== */
 
       //__userpass_crypt__

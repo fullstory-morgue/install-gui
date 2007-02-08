@@ -1,3 +1,9 @@
+install-gui (0.0.34) UNRELEASED; urgency=low
+
+  * changed config file name 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Thu,  8 Feb 2007 20:43:24 +0100
+
 install-gui (0.0.33) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
