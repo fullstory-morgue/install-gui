@@ -1,4 +1,4 @@
-install-gui (0.0.31) UNRELEASED; urgency=low
+install-gui (0.0.31) unstable; urgency=low
 
   * root user check added 
 
