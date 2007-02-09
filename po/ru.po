@@ -200,9 +200,9 @@ msgstr ""
 
 #: install-gui.glade:1800(property)
 msgid "Save configuration\n"
-"only (~/.knofig)"
+"only (~/.sidconf)"
 msgstr "записать конфигурацию\n"
-"только (/.knofig)"
+"только (/.sidconf)"
 
 #: install-gui.glade:1821(property)
 msgid "Start sidux-Installer-Script\n"

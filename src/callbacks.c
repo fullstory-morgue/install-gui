@@ -939,3 +939,47 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
 
 }
 
+
+void
+on_radiobutton1_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+   // Installation
+
+  GtkWidget* label_install_button = lookup_widget( GTK_WIDGET(togglebutton), "label_install_button" );
+
+  GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton1");
+  if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+      gtk_label_set_text( GTK_LABEL ( label_install_button ), "Installation" );
+  }
+}
+
+
+void
+on_radiobutton2_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+   // save .sidconf
+
+  GtkWidget* label_install_button = lookup_widget( GTK_WIDGET(togglebutton), "label_install_button" );
+
+  GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton2");
+  if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+      gtk_label_set_text( GTK_LABEL ( label_install_button ), "Save" );
+  }
+}
+
+
+void
+on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+   // start knx-installer witout .sidconf
+  GtkWidget* label_install_button = lookup_widget( GTK_WIDGET(togglebutton), "label_install_button" );
+
+  GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton3");
+  if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+      gtk_label_set_text( GTK_LABEL ( label_install_button ), "Start" );
+  }
+}
+

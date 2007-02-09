@@ -110,3 +110,19 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
                                         GtkNotebookPage *page,
                                         guint            page_num,
                                         gpointer         user_data);
+
+void
+on_radiobutton1_group_changed          (GtkRadioButton  *radiobutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton1_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton2_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+
+void
+on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);

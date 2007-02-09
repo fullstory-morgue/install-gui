@@ -194,9 +194,9 @@ msgstr "Podałeś wszystkie niezbędne dane, aby rozpocząć instalację systemu
 
 #: install-gui.glade:1800(property)
 msgid "Save configuration\n"
-"only (~/.knofig)"
+"only (~/.sidconf)"
 msgstr "Zachowaj tylko \n"
-"ustawienia (~/.knofig)"
+"ustawienia (~/.sidconf)"
 
 #: install-gui.glade:1821(property)
 msgid "Start sidux-Installer-Script\n"

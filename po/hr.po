@@ -189,9 +189,9 @@ msgstr "Upisali ste sve informacije koje su potrebne za start sidux-installacije
 
 #: install-gui.glade:1800(property)
 msgid "Save configuration\n"
-"only (~/.knofig)"
+"only (~/.sidconf)"
 msgstr "Spremi configuraciju\n"
-"only (~/.knofig)"
+"only (~/.sidconf)"
 
 #: install-gui.glade:1821(property)
 msgid "Start sidux-Installer-Script\n"

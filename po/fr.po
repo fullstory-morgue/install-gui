@@ -190,9 +190,9 @@ msgstr "Vous avez fourni toutes les informations nécessaires pour pouvoir déma
 
 #: install-gui.glade:1800(property) 
 msgid "Save configuration\n"
-"only (~/.knofig)"
+"only (~/.sidconf)"
 msgstr "Sauvegarder configuration\n"
-"seulement (~/.knofig)"
+"seulement (~/.sidconf)"
 
 #: install-gui.glade:1821(property) 
 msgid "Start sidux-Installer-Script\n"

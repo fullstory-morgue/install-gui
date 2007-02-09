@@ -11,4 +11,4 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, knx-installer, scanpartitions, rebuildfstab, install-meta
 Description: sidux install-gui for knx-installer
  This is an sidux install-gui who makes it easy to configure the config file
- (~/.knofig) and start the sidux-installer script.
+ (~/.sidconf) and start the sidux-installer script.

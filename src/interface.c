@@ -123,19 +123,19 @@ create_window1 (void)
   GtkWidget *vseparator8;
   GtkWidget *vseparator7;
   GtkWidget *hseparator15;
-  GtkWidget *hseparator16;
   GtkWidget *button_install;
   GtkWidget *alignment6;
   GtkWidget *hbox5;
   GtkWidget *image8;
-  GtkWidget *label34;
-  GtkWidget *radiobutton1;
-  GSList *radiobutton1_group = NULL;
-  GtkWidget *radiobutton3;
+  GtkWidget *label_install_button;
   GtkWidget *label33;
-  GtkWidget *radiobutton2;
   GtkWidget *checkbutton_force;
   GtkWidget *checkbutton_metapackages;
+  GtkWidget *hseparator16;
+  GtkWidget *radiobutton1;
+  GSList *radiobutton1_group = NULL;
+  GtkWidget *radiobutton2;
+  GtkWidget *radiobutton3;
   GtkWidget *label6;
   GtkWidget *image1;
   GtkWidget *label_wellcome;
@@ -636,11 +636,6 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed7), hseparator15, 96, 128);
   gtk_widget_set_size_request (hseparator15, 472, 16);
 
-  hseparator16 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator16);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator16, 96, 288);
-  gtk_widget_set_size_request (hseparator16, 472, 16);
-
   button_install = gtk_button_new ();
   gtk_widget_show (button_install);
   gtk_fixed_put (GTK_FIXED (fixed7), button_install, 416, 320);
@@ -658,24 +653,9 @@ create_window1 (void)
   gtk_widget_show (image8);
   gtk_box_pack_start (GTK_BOX (hbox5), image8, FALSE, FALSE, 0);
 
-  label34 = gtk_label_new_with_mnemonic (_("Begin Installation"));
-  gtk_widget_show (label34);
-  gtk_box_pack_start (GTK_BOX (hbox5), label34, FALSE, FALSE, 0);
-
-  radiobutton1 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nand start installation"));
-  gtk_widget_show (radiobutton1);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton1, 120, 136);
-  gtk_widget_set_size_request (radiobutton1, 208, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton1), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton1), TRUE);
-
-  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
-  gtk_widget_show (radiobutton3);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
-  gtk_widget_set_size_request (radiobutton3, 376, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
+  label_install_button = gtk_label_new_with_mnemonic (_("Begin Installation"));
+  gtk_widget_show (label_install_button);
+  gtk_box_pack_start (GTK_BOX (hbox5), label_install_button, FALSE, FALSE, 0);
 
   label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, begin the installation by pressing \"Begin installation\"."));
   gtk_widget_show (label33);
@@ -684,13 +664,6 @@ create_window1 (void)
   gtk_label_set_justify (GTK_LABEL (label33), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label33), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label33), 0, 0.5);
-
-  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nonly (~/.knofig)"));
-  gtk_widget_show (radiobutton2);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton2, 120, 184);
-  gtk_widget_set_size_request (radiobutton2, 208, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
 
   checkbutton_force = gtk_check_button_new_with_mnemonic (_("Force Installation\n(Ignore RAM-/Partition-Check, etc.)"));
   gtk_widget_show (checkbutton_force);
@@ -702,6 +675,33 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 328, 184);
   gtk_widget_set_size_request (checkbutton_metapackages, 232, 56);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_metapackages), TRUE);
+
+  hseparator16 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator16);
+  gtk_fixed_put (GTK_FIXED (fixed7), hseparator16, 96, 288);
+  gtk_widget_set_size_request (hseparator16, 472, 16);
+
+  radiobutton1 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nand start installation"));
+  gtk_widget_show (radiobutton1);
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton1, 120, 136);
+  gtk_widget_set_size_request (radiobutton1, 208, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton1), radiobutton1_group);
+  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton1), TRUE);
+
+  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nonly (~/.sidconf)"));
+  gtk_widget_show (radiobutton2);
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton2, 120, 184);
+  gtk_widget_set_size_request (radiobutton2, 208, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
+  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
+
+  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
+  gtk_widget_show (radiobutton3);
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
+  gtk_widget_set_size_request (radiobutton3, 376, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
+  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
@@ -752,6 +752,15 @@ create_window1 (void)
                     NULL);
   g_signal_connect ((gpointer) button_install, "clicked",
                     G_CALLBACK (on_button_install_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton1, "toggled",
+                    G_CALLBACK (on_radiobutton1_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton2, "toggled",
+                    G_CALLBACK (on_radiobutton2_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton3, "toggled",
+                    G_CALLBACK (on_radiobutton3_toggled),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -848,18 +857,18 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, vseparator8, "vseparator8");
   GLADE_HOOKUP_OBJECT (window1, vseparator7, "vseparator7");
   GLADE_HOOKUP_OBJECT (window1, hseparator15, "hseparator15");
-  GLADE_HOOKUP_OBJECT (window1, hseparator16, "hseparator16");
   GLADE_HOOKUP_OBJECT (window1, button_install, "button_install");
   GLADE_HOOKUP_OBJECT (window1, alignment6, "alignment6");
   GLADE_HOOKUP_OBJECT (window1, hbox5, "hbox5");
   GLADE_HOOKUP_OBJECT (window1, image8, "image8");
-  GLADE_HOOKUP_OBJECT (window1, label34, "label34");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton1, "radiobutton1");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton3, "radiobutton3");
+  GLADE_HOOKUP_OBJECT (window1, label_install_button, "label_install_button");
   GLADE_HOOKUP_OBJECT (window1, label33, "label33");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_force, "checkbutton_force");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_metapackages, "checkbutton_metapackages");
+  GLADE_HOOKUP_OBJECT (window1, hseparator16, "hseparator16");
+  GLADE_HOOKUP_OBJECT (window1, radiobutton1, "radiobutton1");
+  GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
+  GLADE_HOOKUP_OBJECT (window1, radiobutton3, "radiobutton3");
   GLADE_HOOKUP_OBJECT (window1, label6, "label6");
   GLADE_HOOKUP_OBJECT (window1, image1, "image1");
   GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");

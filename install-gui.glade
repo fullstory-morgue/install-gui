@@ -1645,18 +1645,6 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkHSeparator" id="hseparator16">
-		  <property name="width_request">472</property>
-		  <property name="height_request">16</property>
-		  <property name="visible">True</property>
-		</widget>
-		<packing>
-		  <property name="x">96</property>
-		  <property name="y">288</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkButton" id="button_install">
 		  <property name="width_request">152</property>
 		  <property name="height_request">34</property>
@@ -1702,7 +1690,7 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 			  </child>
 
 			  <child>
-			    <widget class="GtkLabel" id="label34">
+			    <widget class="GtkLabel" id="label_install_button">
 			      <property name="visible">True</property>
 			      <property name="label" translatable="yes">Begin Installation</property>
 			      <property name="use_underline">True</property>
@@ -1737,50 +1725,6 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkRadioButton" id="radiobutton1">
-		  <property name="width_request">208</property>
-		  <property name="height_request">56</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Save configuration
-and start installation</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <property name="active">True</property>
-		  <property name="inconsistent">False</property>
-		  <property name="draw_indicator">True</property>
-		</widget>
-		<packing>
-		  <property name="x">120</property>
-		  <property name="y">136</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkRadioButton" id="radiobutton3">
-		  <property name="width_request">376</property>
-		  <property name="height_request">56</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Start sidux-Installer-Script
-without configuration
-(this configuration will be lost)</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <property name="active">False</property>
-		  <property name="inconsistent">False</property>
-		  <property name="draw_indicator">True</property>
-		  <property name="group">radiobutton1</property>
-		</widget>
-		<packing>
-		  <property name="x">120</property>
-		  <property name="y">232</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkLabel" id="label33">
 		  <property name="width_request">640</property>
 		  <property name="height_request">88</property>
@@ -1807,28 +1751,6 @@ If everything is correct for you, begin the installation by pressing &quot;Begin
 		<packing>
 		  <property name="x">16</property>
 		  <property name="y">8</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkRadioButton" id="radiobutton2">
-		  <property name="width_request">208</property>
-		  <property name="height_request">56</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Save configuration
-only (~/.knofig)</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <property name="active">False</property>
-		  <property name="inconsistent">False</property>
-		  <property name="draw_indicator">True</property>
-		  <property name="group">radiobutton1</property>
-		</widget>
-		<packing>
-		  <property name="x">120</property>
-		  <property name="y">184</property>
 		</packing>
 	      </child>
 
@@ -1871,6 +1793,87 @@ Metapackages</property>
 		<packing>
 		  <property name="x">328</property>
 		  <property name="y">184</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkHSeparator" id="hseparator16">
+		  <property name="width_request">472</property>
+		  <property name="height_request">16</property>
+		  <property name="visible">True</property>
+		</widget>
+		<packing>
+		  <property name="x">96</property>
+		  <property name="y">288</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkRadioButton" id="radiobutton1">
+		  <property name="width_request">208</property>
+		  <property name="height_request">56</property>
+		  <property name="visible">True</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Save configuration
+and start installation</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <property name="active">True</property>
+		  <property name="inconsistent">False</property>
+		  <property name="draw_indicator">True</property>
+		  <signal name="toggled" handler="on_radiobutton1_toggled" last_modification_time="Fri, 09 Feb 2007 08:12:05 GMT"/>
+		</widget>
+		<packing>
+		  <property name="x">120</property>
+		  <property name="y">136</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkRadioButton" id="radiobutton2">
+		  <property name="width_request">208</property>
+		  <property name="height_request">56</property>
+		  <property name="visible">True</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Save configuration
+only (~/.sidconf)</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <property name="active">False</property>
+		  <property name="inconsistent">False</property>
+		  <property name="draw_indicator">True</property>
+		  <property name="group">radiobutton1</property>
+		  <signal name="toggled" handler="on_radiobutton2_toggled" last_modification_time="Fri, 09 Feb 2007 08:13:54 GMT"/>
+		</widget>
+		<packing>
+		  <property name="x">120</property>
+		  <property name="y">184</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkRadioButton" id="radiobutton3">
+		  <property name="width_request">376</property>
+		  <property name="height_request">56</property>
+		  <property name="visible">True</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Start sidux-Installer-Script
+without configuration
+(this configuration will be lost)</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <property name="active">False</property>
+		  <property name="inconsistent">False</property>
+		  <property name="draw_indicator">True</property>
+		  <property name="group">radiobutton1</property>
+		  <signal name="toggled" handler="on_radiobutton3_toggled" last_modification_time="Fri, 09 Feb 2007 08:14:03 GMT"/>
+		</widget>
+		<packing>
+		  <property name="x">120</property>
+		  <property name="y">232</property>
 		</packing>
 	      </child>
 	    </widget>

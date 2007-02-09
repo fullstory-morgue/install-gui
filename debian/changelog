@@ -1,3 +1,9 @@
+install-gui (0.0.35) UNRELEASED; urgency=low
+
+  * changed config file name in glade document
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Fri,  9 Feb 2007 10:35:24 +0100
+
 install-gui (0.0.34) UNRELEASED; urgency=low
 
   * changed config file name 

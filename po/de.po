@@ -192,9 +192,9 @@ msgstr "Es sind alle notwendigen Daten vorhanden, um die sidux-Installation zu s
 
 #: install-gui.glade:1800(property) 
 msgid "Save configuration\n"
-"only (~/.knofig)"
+"only (~/.sidconf)"
 msgstr "Nur die Konfiguration\n"
-"speichern (~/.knofig)"
+"speichern (~/.sidconf)"
 
 #: install-gui.glade:1821(property) 
 msgid "Start sidux-Installer-Script\n"
