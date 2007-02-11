@@ -1,8 +1,9 @@
 install-gui (0.0.35) UNRELEASED; urgency=low
 
   * changed config file name in glade document
+  * fr fixed thks to LjanA
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri,  9 Feb 2007 10:35:24 +0100
+ -- Joaquim Boura <x-un-i@sidux.com>  Sun, 11 Feb 2007 19:22:34 +0100
 
 install-gui (0.0.34) UNRELEASED; urgency=low
 
