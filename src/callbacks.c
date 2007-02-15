@@ -116,14 +116,10 @@ void cell_edit_cb(GtkCellRendererText *cell,
 
   if( strcmp(old_text, "/") != 0  &&      // not change the root partition in the treeview
       ( strcmp(new_text, "") == 0  ||
-        strcmp(new_text, "/bin") == 0  ||
         strcmp(new_text, "/boot") == 0 ||
-        strcmp(new_text, "/etc") == 0  ||
         strcmp(new_text, "/home") == 0 ||
-        strcmp(new_text, "/lib") == 0  ||
         strcmp(new_text, "/opt") == 0  ||
         strcmp(new_text, "/root") == 0 ||
-        strcmp(new_text, "/sbin") == 0 ||
         strcmp(new_text, "/tmp") == 0  ||
         strcmp(new_text, "/usr") == 0  ||
         strcmp(new_text, "/var") == 0 )
@@ -630,7 +626,20 @@ void
 on_button_gparted_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
+   system("gparted");
+   printf("%s\n", "rebuildfstab");
+   system("rebuildfstab");  // rebuild the fstab
 
+   /* remove the tempfile */
+   unlink(scanparttmp);
+
+   // rebuild the partitions in rootpartcombo and treeview1
+   GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
+   read_partitions( GTK_COMBO_BOX (rootpartcombo) );
+
+   // show the main window after gparted has done
+   //GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
+   //gtk_widget_show ( GTK_WIDGET (window1) );
 }
 
 
@@ -647,20 +656,7 @@ void
 on_button_gparted_released             (GtkButton       *button,
                                         gpointer         user_data)
 {
-   system("gparted");
-   printf("%s\n", "rebuildfstab");
-   system("rebuildfstab");  // rebuild the fstab
 
-   /* remove the tempfile */
-   unlink(scanparttmp);
-
-   // rebuild the partitions in rootpartcombo and treeview1
-   GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
-   read_partitions( GTK_COMBO_BOX (rootpartcombo) );
-
-   // show the main window after gparted has done
-   GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
-   gtk_widget_show ( GTK_WIDGET (window1) );
 }
 
 

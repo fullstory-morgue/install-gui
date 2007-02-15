@@ -269,6 +269,48 @@
       </child>
 
       <child>
+	<widget class="GtkImage" id="image1">
+	  <property name="width_request">250</property>
+	  <property name="height_request">39</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">install-gui-title.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">420</property>
+	  <property name="y">2</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_wellcome">
+	  <property name="width_request">369</property>
+	  <property name="height_request">41</property>
+	  <property name="label" translatable="yes">Welcome to the sidux HD-Installation</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0.300000011921</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">32</property>
+	  <property name="y">8</property>
+	</packing>
+      </child>
+
+      <child>
 	<widget class="GtkNotebook" id="notebook1">
 	  <property name="width_request">678</property>
 	  <property name="height_request">407</property>
@@ -606,30 +648,6 @@ The author takes no responsibility for data loss or hardware damage.</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkButton" id="button_gparted">
-		  <property name="width_request">144</property>
-		  <property name="height_request">41</property>
-		  <property name="visible">True</property>
-		  <property name="tooltip" translatable="yes">!!!!!! be careful !!!!!!!
-Do it, if you don't have a linux partition.
-Read the Manual before. (see the Manual Button on the Desktop)</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Start Part.-
-manager</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <signal name="clicked" handler="on_button_gparted_clicked" last_modification_time="Tue, 16 Jan 2007 07:36:29 GMT"/>
-		  <signal name="released" handler="on_button_gparted_released" last_modification_time="Tue, 16 Jan 2007 09:44:30 GMT"/>
-		  <signal name="pressed" handler="on_button_gparted_pressed" last_modification_time="Tue, 16 Jan 2007 09:52:35 GMT"/>
-		</widget>
-		<packing>
-		  <property name="x">8</property>
-		  <property name="y">31</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkCheckButton" id="checkbutton_mountpoints">
 		  <property name="width_request">496</property>
 		  <property name="height_request">48</property>
@@ -669,14 +687,10 @@ manager</property>
 		      <property name="visible">True</property>
 		      <property name="tooltip" translatable="yes">options are:
 ========
-/bin
 /boot
-/etc
 /home
-/lib
 /opt
 /root
-/sbin
 /tmp
 /usr
 /var</property>
@@ -750,6 +764,28 @@ home-partition:
 		<packing>
 		  <property name="x">8</property>
 		  <property name="y">216</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkButton" id="button_gparted">
+		  <property name="width_request">144</property>
+		  <property name="height_request">41</property>
+		  <property name="visible">True</property>
+		  <property name="tooltip" translatable="yes">!!!!!! be careful !!!!!!!
+Do it, if you don't have a linux partition.
+Read the Manual before. (see the Manual Button on the Desktop)</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Start Part.-
+manager</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <signal name="clicked" handler="on_button_gparted_clicked" last_modification_time="Tue, 16 Jan 2007 07:36:29 GMT"/>
+		</widget>
+		<packing>
+		  <property name="x">8</property>
+		  <property name="y">31</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -1645,86 +1681,6 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkButton" id="button_install">
-		  <property name="width_request">152</property>
-		  <property name="height_request">34</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <signal name="clicked" handler="on_button_install_clicked" last_modification_time="Tue, 16 Jan 2007 12:34:27 GMT"/>
-
-		  <child>
-		    <widget class="GtkAlignment" id="alignment6">
-		      <property name="visible">True</property>
-		      <property name="xalign">0.5</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xscale">0</property>
-		      <property name="yscale">0</property>
-		      <property name="top_padding">0</property>
-		      <property name="bottom_padding">0</property>
-		      <property name="left_padding">0</property>
-		      <property name="right_padding">0</property>
-
-		      <child>
-			<widget class="GtkHBox" id="hbox5">
-			  <property name="visible">True</property>
-			  <property name="homogeneous">False</property>
-			  <property name="spacing">2</property>
-
-			  <child>
-			    <widget class="GtkImage" id="image8">
-			      <property name="visible">True</property>
-			      <property name="stock">gtk-execute</property>
-			      <property name="icon_size">4</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			    </widget>
-			    <packing>
-			      <property name="padding">0</property>
-			      <property name="expand">False</property>
-			      <property name="fill">False</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkLabel" id="label_install_button">
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">Begin Installation</property>
-			      <property name="use_underline">True</property>
-			      <property name="use_markup">False</property>
-			      <property name="justify">GTK_JUSTIFY_LEFT</property>
-			      <property name="wrap">False</property>
-			      <property name="selectable">False</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-			      <property name="width_chars">-1</property>
-			      <property name="single_line_mode">False</property>
-			      <property name="angle">0</property>
-			    </widget>
-			    <packing>
-			      <property name="padding">0</property>
-			      <property name="expand">False</property>
-			      <property name="fill">False</property>
-			    </packing>
-			  </child>
-			</widget>
-		      </child>
-		    </widget>
-		  </child>
-		</widget>
-		<packing>
-		  <property name="x">416</property>
-		  <property name="y">320</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkLabel" id="label33">
 		  <property name="width_request">640</property>
 		  <property name="height_request">88</property>
@@ -1876,6 +1832,86 @@ without configuration
 		  <property name="y">232</property>
 		</packing>
 	      </child>
+
+	      <child>
+		<widget class="GtkButton" id="button_install">
+		  <property name="width_request">152</property>
+		  <property name="height_request">34</property>
+		  <property name="visible">True</property>
+		  <property name="can_focus">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <signal name="clicked" handler="on_button_install_clicked" last_modification_time="Tue, 16 Jan 2007 12:34:27 GMT"/>
+
+		  <child>
+		    <widget class="GtkAlignment" id="alignment6">
+		      <property name="visible">True</property>
+		      <property name="xalign">0.5</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xscale">0</property>
+		      <property name="yscale">0</property>
+		      <property name="top_padding">0</property>
+		      <property name="bottom_padding">0</property>
+		      <property name="left_padding">0</property>
+		      <property name="right_padding">0</property>
+
+		      <child>
+			<widget class="GtkHBox" id="hbox5">
+			  <property name="visible">True</property>
+			  <property name="homogeneous">False</property>
+			  <property name="spacing">2</property>
+
+			  <child>
+			    <widget class="GtkImage" id="image8">
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-execute</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="padding">0</property>
+			      <property name="expand">False</property>
+			      <property name="fill">False</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkLabel" id="label_install_button">
+			      <property name="visible">True</property>
+			      <property name="label" translatable="yes">Begin Installation</property>
+			      <property name="use_underline">True</property>
+			      <property name="use_markup">False</property>
+			      <property name="justify">GTK_JUSTIFY_LEFT</property>
+			      <property name="wrap">False</property>
+			      <property name="selectable">False</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+			      <property name="width_chars">-1</property>
+			      <property name="single_line_mode">False</property>
+			      <property name="angle">0</property>
+			    </widget>
+			    <packing>
+			      <property name="padding">0</property>
+			      <property name="expand">False</property>
+			      <property name="fill">False</property>
+			    </packing>
+			  </child>
+			</widget>
+		      </child>
+		    </widget>
+		  </child>
+		</widget>
+		<packing>
+		  <property name="x">416</property>
+		  <property name="y">320</property>
+		</packing>
+	      </child>
 	    </widget>
 	    <packing>
 	      <property name="tab_expand">False</property>
@@ -1909,48 +1945,6 @@ without configuration
 	<packing>
 	  <property name="x">9</property>
 	  <property name="y">56</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image1">
-	  <property name="width_request">250</property>
-	  <property name="height_request">39</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">install-gui-title.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">420</property>
-	  <property name="y">2</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label_wellcome">
-	  <property name="width_request">369</property>
-	  <property name="height_request">41</property>
-	  <property name="label" translatable="yes">Welcome to the sidux HD-Installation</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0.300000011921</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">32</property>
-	  <property name="y">8</property>
 	</packing>
       </child>
     </widget>

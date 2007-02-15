@@ -47,6 +47,8 @@ create_window1 (void)
   GtkWidget *hbox4;
   GtkWidget *image7;
   GtkWidget *label12;
+  GtkWidget *image1;
+  GtkWidget *label_wellcome;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -67,12 +69,12 @@ create_window1 (void)
   GtkWidget *label7;
   GtkWidget *checkbutton_format_with;
   GtkWidget *hseparator1;
-  GtkWidget *button_gparted;
   GtkWidget *checkbutton_mountpoints;
   GtkWidget *scrolledwindow1;
   GtkWidget *treeview1;
   GtkWidget *label8;
   GtkWidget *label35;
+  GtkWidget *button_gparted;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *hseparator4;
@@ -123,11 +125,6 @@ create_window1 (void)
   GtkWidget *vseparator8;
   GtkWidget *vseparator7;
   GtkWidget *hseparator15;
-  GtkWidget *button_install;
-  GtkWidget *alignment6;
-  GtkWidget *hbox5;
-  GtkWidget *image8;
-  GtkWidget *label_install_button;
   GtkWidget *label33;
   GtkWidget *checkbutton_force;
   GtkWidget *checkbutton_metapackages;
@@ -136,9 +133,12 @@ create_window1 (void)
   GSList *radiobutton1_group = NULL;
   GtkWidget *radiobutton2;
   GtkWidget *radiobutton3;
+  GtkWidget *button_install;
+  GtkWidget *alignment6;
+  GtkWidget *hbox5;
+  GtkWidget *image8;
+  GtkWidget *label_install_button;
   GtkWidget *label6;
-  GtkWidget *image1;
-  GtkWidget *label_wellcome;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -220,6 +220,16 @@ create_window1 (void)
   label12 = gtk_label_new_with_mnemonic (_("Next"));
   gtk_widget_show (label12);
   gtk_box_pack_start (GTK_BOX (hbox4), label12, FALSE, FALSE, 0);
+
+  image1 = create_pixmap (window1, "install-gui-title.png");
+  gtk_widget_show (image1);
+  gtk_fixed_put (GTK_FIXED (fixed1), image1, 420, 2);
+  gtk_widget_set_size_request (image1, 250, 39);
+
+  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
+  gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
+  gtk_widget_set_size_request (label_wellcome, 369, 41);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
@@ -330,12 +340,6 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed3), hseparator1, 8, 88);
   gtk_widget_set_size_request (hseparator1, 656, 16);
 
-  button_gparted = gtk_button_new_with_mnemonic (_("Start Part.-\nmanager"));
-  gtk_widget_show (button_gparted);
-  gtk_fixed_put (GTK_FIXED (fixed3), button_gparted, 8, 31);
-  gtk_widget_set_size_request (button_gparted, 144, 41);
-  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
-
   checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
   gtk_widget_show (checkbutton_mountpoints);
   gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 160, 112);
@@ -350,7 +354,7 @@ create_window1 (void)
   gtk_widget_show (treeview1);
   gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
   gtk_widget_set_size_request (treeview1, 248, 136);
-  gtk_tooltips_set_tip (tooltips, treeview1, _("options are:\n========\n/bin\n/boot\n/etc\n/home\n/lib\n/opt\n/root\n/sbin\n/tmp\n/usr\n/var"), NULL);
+  gtk_tooltips_set_tip (tooltips, treeview1, _("options are:\n========\n/boot\n/home\n/opt\n/root\n/tmp\n/usr\n/var"), NULL);
   gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
 
   label8 = gtk_label_new (_("Mountpoints of other Partitions"));
@@ -366,6 +370,12 @@ create_window1 (void)
   gtk_widget_set_size_request (label35, 144, 128);
   gtk_label_set_line_wrap (GTK_LABEL (label35), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label35), 0, 0);
+
+  button_gparted = gtk_button_new_with_mnemonic (_("Start Part.-\nmanager"));
+  gtk_widget_show (button_gparted);
+  gtk_fixed_put (GTK_FIXED (fixed3), button_gparted, 8, 31);
+  gtk_widget_set_size_request (button_gparted, 144, 41);
+  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
 
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
@@ -636,27 +646,6 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed7), hseparator15, 96, 128);
   gtk_widget_set_size_request (hseparator15, 472, 16);
 
-  button_install = gtk_button_new ();
-  gtk_widget_show (button_install);
-  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 416, 320);
-  gtk_widget_set_size_request (button_install, 152, 34);
-
-  alignment6 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment6);
-  gtk_container_add (GTK_CONTAINER (button_install), alignment6);
-
-  hbox5 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox5);
-  gtk_container_add (GTK_CONTAINER (alignment6), hbox5);
-
-  image8 = gtk_image_new_from_stock ("gtk-execute", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image8);
-  gtk_box_pack_start (GTK_BOX (hbox5), image8, FALSE, FALSE, 0);
-
-  label_install_button = gtk_label_new_with_mnemonic (_("Begin Installation"));
-  gtk_widget_show (label_install_button);
-  gtk_box_pack_start (GTK_BOX (hbox5), label_install_button, FALSE, FALSE, 0);
-
   label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, begin the installation by pressing \"Begin installation\"."));
   gtk_widget_show (label33);
   gtk_fixed_put (GTK_FIXED (fixed7), label33, 16, 8);
@@ -703,19 +692,30 @@ create_window1 (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
   radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
 
+  button_install = gtk_button_new ();
+  gtk_widget_show (button_install);
+  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 416, 320);
+  gtk_widget_set_size_request (button_install, 152, 34);
+
+  alignment6 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment6);
+  gtk_container_add (GTK_CONTAINER (button_install), alignment6);
+
+  hbox5 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox5);
+  gtk_container_add (GTK_CONTAINER (alignment6), hbox5);
+
+  image8 = gtk_image_new_from_stock ("gtk-execute", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image8);
+  gtk_box_pack_start (GTK_BOX (hbox5), image8, FALSE, FALSE, 0);
+
+  label_install_button = gtk_label_new_with_mnemonic (_("Begin Installation"));
+  gtk_widget_show (label_install_button);
+  gtk_box_pack_start (GTK_BOX (hbox5), label_install_button, FALSE, FALSE, 0);
+
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
-
-  image1 = create_pixmap (window1, "install-gui-title.png");
-  gtk_widget_show (image1);
-  gtk_fixed_put (GTK_FIXED (fixed1), image1, 420, 2);
-  gtk_widget_set_size_request (image1, 250, 39);
-
-  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
-  gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
-  gtk_widget_set_size_request (label_wellcome, 369, 41);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
 
   g_signal_connect ((gpointer) window1, "configure_event",
                     G_CALLBACK (on_window1_configure_event),
@@ -738,20 +738,11 @@ create_window1 (void)
   g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_rootpartcombo_changed),
                     NULL);
-  g_signal_connect ((gpointer) button_gparted, "clicked",
-                    G_CALLBACK (on_button_gparted_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) button_gparted, "released",
-                    G_CALLBACK (on_button_gparted_released),
-                    NULL);
-  g_signal_connect ((gpointer) button_gparted, "pressed",
-                    G_CALLBACK (on_button_gparted_pressed),
-                    NULL);
   g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),
                     NULL);
-  g_signal_connect ((gpointer) button_install, "clicked",
-                    G_CALLBACK (on_button_install_clicked),
+  g_signal_connect ((gpointer) button_gparted, "clicked",
+                    G_CALLBACK (on_button_gparted_clicked),
                     NULL);
   g_signal_connect ((gpointer) radiobutton1, "toggled",
                     G_CALLBACK (on_radiobutton1_toggled),
@@ -761,6 +752,9 @@ create_window1 (void)
                     NULL);
   g_signal_connect ((gpointer) radiobutton3, "toggled",
                     G_CALLBACK (on_radiobutton3_toggled),
+                    NULL);
+  g_signal_connect ((gpointer) button_install, "clicked",
+                    G_CALLBACK (on_button_install_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -781,6 +775,8 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, hbox4, "hbox4");
   GLADE_HOOKUP_OBJECT (window1, image7, "image7");
   GLADE_HOOKUP_OBJECT (window1, label12, "label12");
+  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
+  GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT (window1, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window1, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window1, hseparator2, "hseparator2");
@@ -801,12 +797,12 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, label7, "label7");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_format_with, "checkbutton_format_with");
   GLADE_HOOKUP_OBJECT (window1, hseparator1, "hseparator1");
-  GLADE_HOOKUP_OBJECT (window1, button_gparted, "button_gparted");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_mountpoints, "checkbutton_mountpoints");
   GLADE_HOOKUP_OBJECT (window1, scrolledwindow1, "scrolledwindow1");
   GLADE_HOOKUP_OBJECT (window1, treeview1, "treeview1");
   GLADE_HOOKUP_OBJECT (window1, label8, "label8");
   GLADE_HOOKUP_OBJECT (window1, label35, "label35");
+  GLADE_HOOKUP_OBJECT (window1, button_gparted, "button_gparted");
   GLADE_HOOKUP_OBJECT (window1, label2, "label2");
   GLADE_HOOKUP_OBJECT (window1, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window1, hseparator4, "hseparator4");
@@ -857,11 +853,6 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, vseparator8, "vseparator8");
   GLADE_HOOKUP_OBJECT (window1, vseparator7, "vseparator7");
   GLADE_HOOKUP_OBJECT (window1, hseparator15, "hseparator15");
-  GLADE_HOOKUP_OBJECT (window1, button_install, "button_install");
-  GLADE_HOOKUP_OBJECT (window1, alignment6, "alignment6");
-  GLADE_HOOKUP_OBJECT (window1, hbox5, "hbox5");
-  GLADE_HOOKUP_OBJECT (window1, image8, "image8");
-  GLADE_HOOKUP_OBJECT (window1, label_install_button, "label_install_button");
   GLADE_HOOKUP_OBJECT (window1, label33, "label33");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_force, "checkbutton_force");
   GLADE_HOOKUP_OBJECT (window1, checkbutton_metapackages, "checkbutton_metapackages");
@@ -869,9 +860,12 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, radiobutton1, "radiobutton1");
   GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window1, radiobutton3, "radiobutton3");
+  GLADE_HOOKUP_OBJECT (window1, button_install, "button_install");
+  GLADE_HOOKUP_OBJECT (window1, alignment6, "alignment6");
+  GLADE_HOOKUP_OBJECT (window1, hbox5, "hbox5");
+  GLADE_HOOKUP_OBJECT (window1, image8, "image8");
+  GLADE_HOOKUP_OBJECT (window1, label_install_button, "label_install_button");
   GLADE_HOOKUP_OBJECT (window1, label6, "label6");
-  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT_NO_REF (window1, tooltips, "tooltips");
 
   return window1;
