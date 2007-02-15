@@ -1,16 +1,10 @@
-install-gui (0.0.35) UNRELEASED; urgency=low
+install-gui (0.0.35) unstable; urgency=low
 
-  * don't allow /bin, /sbin, /etc, /lib as mountpoints
-  * put install-gui.desktop to desktop
-  * start gparted with on_gparted_clicked instead of released
+  * don't allow /bin, /sbin, /etc, /lib as mountpoints.
+  * put install-gui.desktop to desktop.
+  * start gparted with on_gparted_clicked instead of released.
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Thu, 15 Feb 2007 09:16:08 +0100
-
-install-gui (0.0.34) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 13 Feb 2007 00:15:30 +0100
 
 install-gui (0.0.33) unstable; urgency=low
 
