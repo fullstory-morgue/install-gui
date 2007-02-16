@@ -1,3 +1,9 @@
+install-gui (0.0.39) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 16 Feb 2007 22:55:42 +0100
+
 install-gui (0.0.38) unstable; urgency=low
 
   * add label_rootpart_warning 
