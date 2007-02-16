@@ -500,6 +500,13 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
    GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
    is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
 
+   // change the label-rootpart-warning
+   //GtkWidget* label_rootpart_warning = lookup_widget( GTK_WIDGET(togglebutton), "label_rootpart_warning" );
+   //GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton3");
+   //if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rootpartcombo)) ) {
+   //    gtk_label_set_text( GTK_LABEL ( label_rootpart_warning ), "/dev" );
+   //}
+
    // change also the  / (rootpartition) entry in the treeview, set the treeview new
    g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),

@@ -1,5 +1,3 @@
 skel				etc/
 skel/Desktop/*.desktop		usr/share/applnk/sidux/
-pixmaps/sidux-inst-conf.png	usr/share/pixmaps
-pixmaps/install-gui-title.png	usr/share/pixmaps
-pixmaps/install-no-root.png	usr/share/pixmaps
+pixmaps/*.png			usr/share/pixmaps
