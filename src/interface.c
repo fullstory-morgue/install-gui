@@ -124,17 +124,17 @@ create_window1 (void)
   GSList *radiobutton1_group = NULL;
   GtkWidget *radiobutton2;
   GtkWidget *radiobutton3;
+  GtkWidget *vseparator9;
   GtkWidget *button_install;
   GtkWidget *alignment6;
   GtkWidget *hbox5;
   GtkWidget *image8;
   GtkWidget *label_install_button;
   GtkWidget *image16;
+  GtkWidget *vseparator10;
   GtkWidget *hseparator18;
   GtkWidget *hseparator17;
   GtkWidget *label37;
-  GtkWidget *vseparator9;
-  GtkWidget *vseparator10;
   GtkWidget *label_rootpart_warning;
   GtkWidget *label6;
   GtkTooltips *tooltips;
@@ -665,9 +665,14 @@ create_window1 (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
   radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
 
+  vseparator9 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator9);
+  gtk_fixed_put (GTK_FIXED (fixed7), vseparator9, 88, 320);
+  gtk_widget_set_size_request (vseparator9, 16, 32);
+
   button_install = gtk_button_new ();
   gtk_widget_show (button_install);
-  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 416, 320);
+  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 416, 318);
   gtk_widget_set_size_request (button_install, 152, 34);
 
   alignment6 = gtk_alignment_new (0.5, 0.5, 0, 0);
@@ -688,41 +693,36 @@ create_window1 (void)
 
   image16 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image16);
-  gtk_fixed_put (GTK_FIXED (fixed7), image16, 192, 320);
+  gtk_fixed_put (GTK_FIXED (fixed7), image16, 112, 320);
   gtk_widget_set_size_request (image16, 24, 32);
   gtk_misc_set_alignment (GTK_MISC (image16), 0, 0.42);
 
+  vseparator10 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator10);
+  gtk_fixed_put (GTK_FIXED (fixed7), vseparator10, 392, 320);
+  gtk_widget_set_size_request (vseparator10, 16, 32);
+
   hseparator18 = gtk_hseparator_new ();
   gtk_widget_show (hseparator18);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator18, 176, 344);
-  gtk_widget_set_size_request (hseparator18, 232, 16);
+  gtk_fixed_put (GTK_FIXED (fixed7), hseparator18, 96, 344);
+  gtk_widget_set_size_request (hseparator18, 304, 16);
 
   hseparator17 = gtk_hseparator_new ();
   gtk_widget_show (hseparator17);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator17, 176, 312);
-  gtk_widget_set_size_request (hseparator17, 232, 16);
+  gtk_fixed_put (GTK_FIXED (fixed7), hseparator17, 96, 312);
+  gtk_widget_set_size_request (hseparator17, 304, 16);
 
   label37 = gtk_label_new (_("Root-Partition"));
   gtk_widget_show (label37);
-  gtk_fixed_put (GTK_FIXED (fixed7), label37, 224, 320);
-  gtk_widget_set_size_request (label37, 184, 16);
-  gtk_misc_set_alignment (GTK_MISC (label37), 0, 0);
+  gtk_fixed_put (GTK_FIXED (fixed7), label37, 144, 320);
+  gtk_widget_set_size_request (label37, 112, 32);
+  gtk_misc_set_alignment (GTK_MISC (label37), 0, 0.52);
 
-  vseparator9 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator9);
-  gtk_fixed_put (GTK_FIXED (fixed7), vseparator9, 168, 320);
-  gtk_widget_set_size_request (vseparator9, 16, 32);
-
-  vseparator10 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator10);
-  gtk_fixed_put (GTK_FIXED (fixed7), vseparator10, 400, 320);
-  gtk_widget_set_size_request (vseparator10, 16, 32);
-
-  label_rootpart_warning = gtk_label_new ("");
+  label_rootpart_warning = gtk_label_new (_("error"));
   gtk_widget_show (label_rootpart_warning);
-  gtk_fixed_put (GTK_FIXED (fixed7), label_rootpart_warning, 224, 336);
-  gtk_widget_set_size_request (label_rootpart_warning, 184, 16);
-  gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0);
+  gtk_fixed_put (GTK_FIXED (fixed7), label_rootpart_warning, 256, 320);
+  gtk_widget_set_size_request (label_rootpart_warning, 144, 32);
+  gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
@@ -862,17 +862,17 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, radiobutton1, "radiobutton1");
   GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window1, radiobutton3, "radiobutton3");
+  GLADE_HOOKUP_OBJECT (window1, vseparator9, "vseparator9");
   GLADE_HOOKUP_OBJECT (window1, button_install, "button_install");
   GLADE_HOOKUP_OBJECT (window1, alignment6, "alignment6");
   GLADE_HOOKUP_OBJECT (window1, hbox5, "hbox5");
   GLADE_HOOKUP_OBJECT (window1, image8, "image8");
   GLADE_HOOKUP_OBJECT (window1, label_install_button, "label_install_button");
   GLADE_HOOKUP_OBJECT (window1, image16, "image16");
+  GLADE_HOOKUP_OBJECT (window1, vseparator10, "vseparator10");
   GLADE_HOOKUP_OBJECT (window1, hseparator18, "hseparator18");
   GLADE_HOOKUP_OBJECT (window1, hseparator17, "hseparator17");
   GLADE_HOOKUP_OBJECT (window1, label37, "label37");
-  GLADE_HOOKUP_OBJECT (window1, vseparator9, "vseparator9");
-  GLADE_HOOKUP_OBJECT (window1, vseparator10, "vseparator10");
   GLADE_HOOKUP_OBJECT (window1, label_rootpart_warning, "label_rootpart_warning");
   GLADE_HOOKUP_OBJECT (window1, label6, "label6");
   GLADE_HOOKUP_OBJECT_NO_REF (window1, tooltips, "tooltips");

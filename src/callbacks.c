@@ -477,6 +477,13 @@ on_window1_configure_event             (GtkWidget       *widget,
    font_desc = pango_font_description_from_string ("12");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label_rootpart_warning");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("18");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
  }
 
  return FALSE;
@@ -490,7 +497,6 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
    // if the Root-Partition Combo Box has changed
 
    GtkWidget *rootpartcombo;
-   //gchar *rootpart;
 
    rootpartcombo = lookup_widget (GTK_WIDGET (combobox), "rootpartcombo");
    //rootpart = gtk_combo_box_get_active_text(GTK_COMBO_BOX (rootpartcombo));
@@ -501,11 +507,11 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
    is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
 
    // change the label-rootpart-warning
-   //GtkWidget* label_rootpart_warning = lookup_widget( GTK_WIDGET(togglebutton), "label_rootpart_warning" );
-   //GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton3");
-   //if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(rootpartcombo)) ) {
-   //    gtk_label_set_text( GTK_LABEL ( label_rootpart_warning ), "/dev" );
-   //}
+   GtkWidget* label_rootpart_warning = lookup_widget( GTK_WIDGET( combobox ), "label_rootpart_warning" );
+   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (
+                     lookup_widget (GTK_WIDGET ( combobox ), "rootpartcombo")));
+   gtk_label_set_text( GTK_LABEL ( label_rootpart_warning ), hd_choice );
+
 
    // change also the  / (rootpartition) entry in the treeview, set the treeview new
    g_signal_connect ((gpointer) rootpartcombo, "changed",

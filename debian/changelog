@@ -1,3 +1,9 @@
+install-gui (0.0.38) UNRELEASED; urgency=low
+
+  * add label_rootpart_warning 
+
+ -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 16 Feb 2007 21:06:48 +0100
+
 install-gui (0.0.37) UNRELEASED; urgency=low
 
   * add cathbard button 
