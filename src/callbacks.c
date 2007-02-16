@@ -38,54 +38,56 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 {
    // is the selected install device a usb device, then only grub to partition
 
-   char device[80];
+   char device[80], usbdevicetmp[80];
    char *entry1, *entry2;
+   int fd, len;
 
-   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
+
+  gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
    if( strlen(hd_choice) > 0 ) { 
        entry1 = strtok(hd_choice, "/");
        entry2 = strtok(NULL, "/");
    }
 
-   strcpy(device, "/sys/block/");
-   strncat(device, entry2, 3);
-   strcat(device, "/dev");
+   strcpy(usbdevicetmp, "/tmp/usbdevice.XXXXXX");
+   fd = mkstemp(usbdevicetmp);  // make a tempfile
 
-   //printf("%s\n", device);
+   if( fd ) {
+            // create the shell system command (scanpartitions)
+           strcpy(device, "ls -l /sys/block/");
+           strncat(device, entry2, 3);
+           strcat(device, "/device | grep usb > ");
+           strcat(device, usbdevicetmp);
 
-   fp=fopen(device, "r");
-   if( fp == NULL ) {
-       printf("error file open\n");
+           system(device);
+
+   }
+   else  {
+            perror("mkstemp usb device");
+   }
+
+
+   // clear the combo_box before
+   GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
+   gtk_list_store_clear(GTK_LIST_STORE(model));
+
+
+   len = lseek(fd, 0, SEEK_END);
+
+   if( len == 0 ) {
+       // no usb device found
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
    }
    else {
-
-       // clear the combo_box before
-       GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
-       gtk_list_store_clear(GTK_LIST_STORE(model));
-
-       // appand to combo_box
-       fseek( fp, 0L, SEEK_SET );
-       fscanf(fp, "%s", device);
-
-
-       entry1 = strtok(device, ":");
-       entry2 = strtok(NULL, ":");
-
-     /* ============================================================= *
-      *                   fill the combobox_installplace              *
-      * ============================================================= */
-      if( strcmp(entry1, "8") == 0 &&
-          strcmp(entry2, "0") != 0 ) {
-           // usb device found
-           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-      }
-      else {
-           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
-           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-      }
-      gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
-      fclose(fp);
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
    }
+   gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
+   close(fd);
+
+   /* remove the tempfile */
+   unlink(usbdevicetmp);
+
 }
 
 
