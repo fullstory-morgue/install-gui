@@ -219,4 +219,8 @@ msgstr "Dalje"
 msgid "Prev"
 msgstr "Nazad"
 
+#: install-gui.glade:1578(property) 
+msgid "Install additional\n"
+"Metapackages"
+msgstr ""
 

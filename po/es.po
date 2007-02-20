@@ -196,7 +196,7 @@ msgstr "Empezar instalacion\n"
 #: install-gui.glade:1844(property) 
 msgid "Save configuration\n"
 "and start installation"
-msgstr "Gravar configuracion"
+msgstr "Gravar configuracion\n"
 "y empezar la instalacion"
 
 #: install-gui.glade:1866(property) 
@@ -221,5 +221,8 @@ msgstr "Seguir"
 msgid "Prev"
 msgstr "Regresar"
 
-
+#: install-gui.glade:1578(property) 
+msgid "Install additional\n"
+"Metapackages"
+msgstr ""
 

@@ -224,3 +224,8 @@ msgstr "Vor"
 msgid "Prev"
 msgstr "Zurück"
 
+#: install-gui.glade:1578(property) 
+msgid "Install additional\n"
+"Metapackages"
+msgstr "Zusätzliche Metapakete\n"
+"installieren"
