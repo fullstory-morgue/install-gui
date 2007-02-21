@@ -1,20 +1,14 @@
-install-gui (0.0.43) UNRELEASED; urgency=low
+install-gui (0.0.43) unstable; urgency=low
 
   * add the metapackage message to po files 
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Tue, 20 Feb 2007 21:30:56 +0100
 
-install-gui (0.0.42) UNRELEASED; urgency=low
+install-gui (0.0.42) unstable; urgency=low
 
   * new hr.po file, thx to cobra 
 
  -- Horst Tritremmel <peter_weber69@gmx.at>  Tue, 20 Feb 2007 09:00:14 +0100
-
-install-gui (0.0.41) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 18 Feb 2007 00:14:15 +0100
 
 install-gui (0.0.40) unstable; urgency=low
 
