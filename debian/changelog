@@ -1,8 +1,12 @@
 install-gui (0.0.46) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 22 Feb 2007 16:08:36 +0100
+  [ Horst Tritremmel ]
+  * add ro.po language file
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue,  6 Mar 2007 18:50:13 +0100
 
 install-gui (0.0.45) unstable; urgency=low
 
