@@ -4,44 +4,44 @@ msgstr ""
 "POT-Creation-Date: 2007-01-18 10:07+0000\n"
 "PO-Revision-Date: 2007-03-06 16:00+0200\n"
 "Last-Translator: Gabriel Palade <ladepa@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: LANGUAGE < LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: install-gui.glade:8(property) 
+#: install-gui.glade:8(property)
 msgid "sidux HD-Installation"
 msgstr "sidux-Instalarea pe Hard Disc"
 
-#: install-gui.glade:78(property) 
+#: install-gui.glade:78(property)
 msgid "exit"
 msgstr "iesire"
 
-#: install-gui.glade:275(property) 
+#: install-gui.glade:275(property)
 msgid "Welcome to the sidux HD-Installation"
 msgstr "Bine ati venit la Instalarea sidux pe Hard Disc"
 
-#: install-gui.glade:425(property) 
+#: install-gui.glade:425(property)
 msgid "Note that this version is still a very early version and under heavy development. \n"
 "The author takes no responsibility for data loss or hardware damage."
 msgstr "Retineti ca aceasta versiune este una aflata inca la inceputul sau si intr-o continua dezvoltare. \n"
 "Autorul nu-si asuma nici o responsabilitate in legatura cu pierderea de date sau distrugerea de hardware ."
 
-#: install-gui.glade:452(property) 
+#: install-gui.glade:452(property)
 msgid "This application will install sidux to your harddisk."
 msgstr "Aceasta aplicatie va instala sidux pe Hard Discul calculatorului dumneavoastra."
 
-#: install-gui.glade:505(property) 
+#: install-gui.glade:505(property)
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-website: http://sidux.com"
+"sidux-website: http://sidux.com "
 msgstr "Pentru orice ajutor in legatura cu aceasta instalare vizitati pagina web sidux, -Wiki, -Forum sau -Chat!\n\n"
-"sidux-website: http://sidux.com"
+"pagina sidux: http://sidux.com"
 
-#: install-gui.glade:537(property) 
+#: install-gui.glade:537(property)
 msgid "Welcome"
 msgstr "Bine Ati Venit"
 
-#: install-gui.glade:589(property) 
+#: install-gui.glade:589(property)
 msgid "options are:\n"
 "========\n"
 "/boot\n"
@@ -51,7 +51,7 @@ msgid "options are:\n"
 "/tmp\n"
 "/usr\n"
 "/var"
-msgstr "ptiunile sunt:\n"
+msgstr "optiunile sunt:\n"
 "========\n"
 "/boot\n"
 "/home\n"
@@ -61,7 +61,7 @@ msgstr "ptiunile sunt:\n"
 "/usr\n"
 "/var"
 
-#: install-gui.glade:624(property) 
+#: install-gui.glade:624(property)
 msgid "!!!!!! be careful !!!!!!!\n"
 "Do it, if you don't have a linux partition.\n"
 "Read the Manual before. (see the Manual Button on the Desktop)"
@@ -69,20 +69,20 @@ msgstr "!!!!!! atentie !!!!!!!\n"
 "Faceti aceasta doar daca nu aveti o partitie linux.\n"
 "Cititi Manualul intai . (butonul Manual  de pe Desktop)"
 
-#: install-gui.glade:672(property) 
+#: install-gui.glade:672(property)
 msgid "Start Part.-\n"
 "manager"
 msgstr ""
 
-#: install-gui.glade:710(property) 
+#: install-gui.glade :710(property)
 msgid "Root-Partition"
 msgstr "Partitia Root"
 
-#: install-gui.glade:736(property) 
+#: install-gui.glade:736(property)
 msgid "Mountpoints of other Partitions"
 msgstr "Punctele de montare ale celorlalte partitii"
 
-#: install-gui.glade:762(property) 
+#: install-gui.glade:762(property)
 msgid "Example:\n"
 "------------\n"
 "A seperate\n"
@@ -94,63 +94,63 @@ msgstr "Exemplu:\n"
 " home :\n"
 "/home"
 
-#: install-gui.glade:810(property) 
+#: install-gui.glade:810(property)
 msgid "Set mountpoints of other Partitions\n"
 "(will not be formatted automatically)"
 msgstr "Setarea punctelor de montare ale celorlalte partitii\n"
 "(nu vor fi formatate automat)"
 
-#: install-gui.glade:847(property) 
+#: install-gui.glade:847(property)
 msgid "format with"
 msgstr "formatati in"
 
-#: install-gui.glade:870(property) 
+#: install-gui.glade:870(property)
 msgid "Partitioning"
 msgstr "Partitionarea"
 
-#: install-gui.glade:912(property) 
+#: install-gui.glade:912(property)
 msgid "create a bootdisk"
-msgstr "crearea unui bootdisk"
+msgstr "creaza un bootdisk"
 
-#: install-gui.glade:931(property) 
+#: install-gui.glade:931(property)
 msgid "Installation-target"
 msgstr "Locul unde va fi instalat"
 
-#: install-gui.glade:957(property) 
+#: install-gui.glade:957(property)
 msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr "Bootmanager : Bootmanagerul ofera posibilitatea sa alegeti sistemul de operare pe care doriti sa-l porniti .\n\n"
 "Locul unde va fi instalat : MBR (Master Boot Record) sau partitia root"
 
-#: install-gui.glade:1033(property) 
+#: install-gui.glade:1033(property)
 msgid "Bootmanager"
 msgstr ""
 
-#: install-gui.glade:1280(property) 
+#: install-gui.glade:1280(property)
 msgid "Root-password:"
 msgstr "Parola de Root:"
 
-#: install-gui.glade:1306(property) 
+#: install-gui.glade:1306(property)
 msgid "Root-password again:"
 msgstr "Parola de Root din nou:"
 
-#: install-gui.glade:1332(property) 
+#: install-gui.glade:1332(property)
 msgid "Realname:"
 msgstr "Numele real:"
 
-#: install-gui.glade:1358(property) 
+#: install-gui.glade:1358(property)
 msgid "Password:"
 msgstr "Parola:"
 
-#: install-gui.glade:1384(property) 
+#: install-gui.glade:1384(property)
 msgid "Password again:"
 msgstr "Parola din nou:"
 
-#: install-gui.glade:1410(property) 
+#: install-gui.glade:1410(property)
 msgid "Username:"
 msgstr "Nume Utilizator:"
 
-#: install-gui.glade:1481(property) 
+#: install-gui.glade:1481(property)
 msgid "Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
 "Username: The username should consist of lower case letters (and numbers) only.\n\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
@@ -158,33 +158,33 @@ msgstr "Parola de Root: Aceasta parola va fi utilizata pentru contul de administ
 "Nume utilizator : Numele de utilizator trebuie sa contina doar litere mici (si numere) .\n\n"
 "Important : Lungimea tuturor parolelor trebuie sa fie intre 6 si 20 caractere !"
 
-#: install-gui.glade:1515(property) 
+#: install-gui.glade :1515(property)
 msgid "User"
 msgstr "Utilizator"
 
-#: install-gui.glade:1564(property) 
+#: install-gui.glade:1564(property)
 msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
 msgstr "Nume sistem : Numele sistemului  trebuie sa contina doar litere (si numere) dar sa nu inceapa cu un numar."
 
-#: install-gui.glade:1680(property) 
+#: install-gui.glade:1680(property)
 msgid "Network"
 msgstr "Retea"
 
-#: install-gui.glade:1709(property) 
+#: install-gui.glade:1709(property)
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
 "If everything is correct for you, begin the installation by pressing \"Begin installation\"."
-msgstr "ti furnizat toate informatiile necesare pentru inceperea instalarii.\n\n"
+msgstr "Ati furnizat toate informatiile necesare pentru inceperea instalarii.\n\n"
 "Puteti sa verificati inca odata sau sa schimbati optiunile dumneavoastra cu butonul \"Inapoi\" .\n\n"
 "Daca totul este corect in ceea ce va priveste incepeti instalarea apasand \"Incepe Instalarea\"."
 
-#: install-gui.glade:1800(property) 
+#: install-gui.glade:1800(property)
 msgid "Save configuration\n"
 "only (~/.sidconf)"
 msgstr "Salveaza configuratia\n"
 "doar (~/.sidconf)"
 
-#: install-gui.glade:1821(property) 
+#: install-gui.glade:1821(property)
 msgid "Start sidux-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
@@ -192,37 +192,36 @@ msgstr "Porneste scriptul de instalare sidux\n"
 "fara configuratie\n"
 "(aceasta configuratie va fi pierduta)"
 
-#: install-gui.glade:1844(property) 
+#: install-gui.glade:1844(property)
 msgid "Save configuration\n"
 "and start installation"
 msgstr "Salveaza configuratia\n"
 "si porneste instalarea"
 
-#: install-gui.glade:1866(property) 
+#: install-gui.glade:1866(property)
 msgid "Force Installation\n"
 "(Ignore RAM-/Partition-Check, etc.)"
 msgstr "Forteaza Instalarea\n"
-"(Ignora verificarea RAM-/Partition, etc.)"
+"(Ignora verificarea RAM-/Partitii, etc.)"
 
-#: install-gui.glade:1929(property) 
+#: install-gui.glade:1929(property)
 msgid "Begin Installation"
 msgstr "Incepe Instalarea"
 
-#: install-gui.glade:1970(property) 
+#: install-gui.glade:1970(property)
 msgid "Installation"
 msgstr "Instalare"
 
-#: install-gui.glade:1980(property) 
+#: install-gui.glade:1980(property)
 msgid "Next"
 msgstr "Urmatorul"
 
-#: install-gui.glade:1990(property) 
+#: install-gui.glade:1990(property)
 msgid "Prev"
 msgstr "Inapoi"
 
-#: install-gui.glade:1578(property) 
+#: install-gui.glade:1578(property)
 msgid "Install additional\n"
 "Metapackages"
 msgstr "Instaleaza Metapachete\n"
 "aditionale"
-

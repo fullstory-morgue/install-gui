@@ -5,8 +5,9 @@ install-gui (0.0.46) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * add ro.po language file
+  * ro.po bugfix 
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue,  6 Mar 2007 18:50:13 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Wed,  7 Mar 2007 21:20:17 +0100
 
 install-gui (0.0.45) unstable; urgency=low
 
