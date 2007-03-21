@@ -224,5 +224,5 @@ msgstr "Nazad"
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
-msgstr ""
-
+msgstr "Instaliranje dodatnih\n"
+"Metapaketa"

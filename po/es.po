@@ -224,5 +224,6 @@ msgstr "Regresar"
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
-msgstr ""
+msgstr "Instalar adicionales\n"
+"paquetes"
 
