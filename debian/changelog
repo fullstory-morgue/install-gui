@@ -1,9 +1,5 @@
-install-gui (0.0.48) UNRELEASED; urgency=low
+install-gui (0.0.48) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * some po file changed
   * disable KDE Autostart for gparted start 
   * update rebuildfstab call
@@ -28,12 +24,6 @@ install-gui (0.0.45) unstable; urgency=low
   * hr.po fix 
 
  -- hjt <hjt@siduxwork>  Wed, 21 Feb 2007 10:17:53 +0100
-
-install-gui (0.0.44) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 21 Feb 2007 02:26:05 +0100
 
 install-gui (0.0.43) unstable; urgency=low
 
