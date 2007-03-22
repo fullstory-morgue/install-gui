@@ -5,8 +5,10 @@ install-gui (0.0.48) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * some po file changed
+  * disable KDE Autostart for gparted start 
+  * update rebuildfstab call
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 21 Mar 2007 15:29:09 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 22 Mar 2007 17:35:29 +0100
 
 install-gui (0.0.47) unstable; urgency=low
 

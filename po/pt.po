@@ -224,5 +224,6 @@ msgstr "Atrás"
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
-msgstr ""
+msgstr "Instalação de\n"
+"pacotes adicionais"
 

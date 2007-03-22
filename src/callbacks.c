@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
@@ -23,7 +22,9 @@ char scanparttmp[80];
 char systemcallstr[100];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
-int  do_it_at_first_time = 0, counter, leaved_user_page;
+int  do_it_at_first_time = 0, counter, leaved_user_page, i = 0;;
+GtkWidget* label_changed;
+
 
 enum
 {
@@ -39,11 +40,11 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
    // is the selected install device a usb device, then only grub to partition
 
    char device[80], usbdevicetmp[80];
-   char *entry1, *entry2;
+   char *entry1, *entry2 = "";
    int fd, len;
 
 
-  gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
+   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
    if( strlen(hd_choice) > 0 ) { 
        entry1 = strtok(hd_choice, "/");
        entry2 = strtok(NULL, "/");
@@ -133,6 +134,7 @@ void cell_edit_cb(GtkCellRendererText *cell,
                 -1);
     }
 }
+
 
 gboolean
 foreach_func (GtkTreeModel *model,
@@ -637,23 +639,89 @@ on_exit_clicked                        (GtkButton       *button,
 }
 
 
+gboolean 
+rootpart_warning  ( gpointer user_data )
+{
+    //GtkWidget *rootpartcombo = lookup_widget ( GTK_WIDGET (label_changed), "rootpartcombo" );
+
+
+    if ( i == 0 ) {
+          gtk_label_set_markup ( GTK_LABEL ( label_changed ), 
+                "<span foreground=\"red\" font_desc=\"Sans Bold 12\">Root Partition changed !!!</span>" );
+
+          i = 1;
+    }
+    else {
+          gtk_label_set_text( GTK_LABEL ( label_changed ), "" );
+
+          i = 0;
+    }
+
+    return(TRUE);
+}
+
+
 void
 on_button_gparted_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
-   system("gparted");
-   printf("%s\n", "rebuildfstab");
-   system("rebuildfstab");  // rebuild the fstab
+    FILE *stream;
+
+   //while (gtk_events_pending ())
+   //       gtk_main_iteration ();
+
+
+   // hide the main window after gparted has done
+   //GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
+   //gtk_widget_hide ( GTK_WIDGET (window1) );
+
+
+  //disable kde automount
+ if (chdir("/home/sidux/.kde/share/config/") < 0) {
+         printf("failed change to /home/sidux/.kde/share/config/\n");
+  }
+  else {
+      stream = fopen( "medianotifierrc", "w+" );
+      if( stream == NULL )
+         printf( "The file medianotifierrc was not opened\n");
+      else
+      {
+         fprintf( stream, "%s\n%s\n%s\n%s\n", 
+"[Auto Actions]",
+"media/cdwriter_unmounted=#NothinAction",
+"media/hdd_unmounted=#NothinAction",
+"media/removable_unmounted=#NothinAction"
+         );
+         fclose( stream );
+      }
+   }
+
+
+
+   // get combo box
+   GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
+   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
+
+
+   //start gparted and start kde automount again
+   system("gparted; rm -f /home/sidux/.kde/share/config/medianotifierrc");
+   system("rebuildfstab --write-fstab --make-mountpoints");  // rebuild the fstab
 
    /* remove the tempfile */
    unlink(scanparttmp);
 
    // rebuild the partitions in rootpartcombo and treeview1
-   GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
    read_partitions( GTK_COMBO_BOX (rootpartcombo) );
 
+   // has the rootpartcombo changed
+   gchar *hd_choice_post = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
+   if ( strcmp(hd_choice, hd_choice_post) != 0 ) {
+          label_changed = lookup_widget( GTK_WIDGET (button), "label_changed" );
+
+          g_timeout_add( 1000, rootpart_warning, label_changed );
+   }
+
    // show the main window after gparted has done
-   //GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
    //gtk_widget_show ( GTK_WIDGET (window1) );
 }
 
@@ -662,8 +730,8 @@ void
 on_button_gparted_pressed              (GtkButton       *button,
                                         gpointer         user_data)
 {   // hide the main window and start gparted
-   GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
-   gtk_widget_hide ( GTK_WIDGET (window1) ); 
+   //GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
+   //gtk_widget_hide ( GTK_WIDGET (window1) ); 
 }
 
 

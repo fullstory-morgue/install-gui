@@ -66,6 +66,7 @@ create_window1 (void)
   GtkWidget *button_gparted;
   GtkWidget *label7;
   GtkWidget *rootpartcombo;
+  GtkWidget *label_changed;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *hseparator4;
@@ -349,6 +350,12 @@ create_window1 (void)
   gtk_widget_show (rootpartcombo);
   gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 280, 24);
   gtk_widget_set_size_request (rootpartcombo, 384, 24);
+
+  label_changed = gtk_label_new ("");
+  gtk_widget_show (label_changed);
+  gtk_fixed_put (GTK_FIXED (fixed3), label_changed, 280, 0);
+  gtk_widget_set_size_request (label_changed, 360, 24);
+  gtk_misc_set_alignment (GTK_MISC (label_changed), 0, 0.5);
 
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
@@ -805,6 +812,7 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, button_gparted, "button_gparted");
   GLADE_HOOKUP_OBJECT (window1, label7, "label7");
   GLADE_HOOKUP_OBJECT (window1, rootpartcombo, "rootpartcombo");
+  GLADE_HOOKUP_OBJECT (window1, label_changed, "label_changed");
   GLADE_HOOKUP_OBJECT (window1, label2, "label2");
   GLADE_HOOKUP_OBJECT (window1, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window1, hseparator4, "hseparator4");
@@ -894,6 +902,7 @@ create_dialog_no_root (void)
 
   dialog_no_root = gtk_dialog_new ();
   gtk_window_set_title (GTK_WINDOW (dialog_no_root), _("only root"));
+  gtk_window_set_resizable (GTK_WINDOW (dialog_no_root), FALSE);
   dialog_no_root_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
   if (dialog_no_root_icon_pixbuf)
     {
