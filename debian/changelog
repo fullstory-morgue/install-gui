@@ -1,8 +1,12 @@
 install-gui (0.0.49) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 22 Mar 2007 23:41:43 +0100
+  [ Horst Tritremmel ]
+  * start install-progressbar 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Sat, 24 Mar 2007 21:32:25 +0100
 
 install-gui (0.0.48) unstable; urgency=low
 

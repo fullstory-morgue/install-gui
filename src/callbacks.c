@@ -966,6 +966,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       * ======================================================== */
       radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
       if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+         system("install-progressbar --watch=/tmp/fifo_inst &");
          system(INSTALL_SH);
       }
 
