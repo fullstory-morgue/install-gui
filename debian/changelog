@@ -40,7 +40,7 @@ install-gui (0.0.45) unstable; urgency=low
 
   * hr.po fix 
 
- -- hjt <hjt@siduxwork>  Wed, 21 Feb 2007 10:17:53 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 21 Feb 2007 10:17:53 +0100
 
 install-gui (0.0.43) unstable; urgency=low
 
