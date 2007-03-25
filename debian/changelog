@@ -4,9 +4,10 @@ install-gui (0.0.49) UNRELEASED; urgency=low
   * NOT RELEASED YET
 
   [ Horst Tritremmel ]
-  * start install-progressbar 
+  * start install-progressbar
+  * use mkstemp to create inotify file 
 
- -- Horst Tritremmel <hjt@sidux.com>  Sat, 24 Mar 2007 21:32:25 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Sun, 25 Mar 2007 14:19:23 +0200
 
 install-gui (0.0.48) unstable; urgency=low
 

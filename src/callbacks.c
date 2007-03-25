@@ -14,7 +14,7 @@
 
 #define FILENAME ".sidconf"
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
-#define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && knx-installer installer &"
+#define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && knx-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "knx-installer &"
 
 FILE* fp;
@@ -751,9 +751,9 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton, *checkbutton;
-   char systemcall[256];
+   char systemcall[256], install_call[256], install_call_tmp[80];
    FILE *stream;
-
+   int fd;
 
 
    radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton3"));
@@ -966,9 +966,34 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       * ======================================================== */
       radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
       if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
-         system("install-progressbar --watch=/tmp/fifo_inst &");
-         system(INSTALL_SH);
-      }
+
+         strcpy( install_call_tmp, "/tmp/INSTALL_INOTIFY.XXXXXX");
+         fd = mkstemp( install_call_tmp );  // make a tempfile
+
+         if( fd ) {
+               close ( fd );
+         }
+         else {
+               strncpy( install_call_tmp, "/tmp/fifo_inst", 80 );
+               perror("mkstemp INSTALL_INOTIFY,");
+         }
+
+         // start install-progressbar
+         strncpy( install_call, "install-progressbar --watch=", 256 );
+         strncat( install_call, install_call_tmp, 256 );
+         strncat( install_call, " &", 256 );
+         printf("progressbar call: %s\n", install_call);
+         system( install_call );
+
+         // start knx-installer
+         strncpy( install_call, INSTALL_SH, 256 );
+         strncat( install_call, " ", 256 );
+         strncat( install_call, install_call_tmp, 256 );
+         strncat( install_call, " &", 256 );
+         printf("installer call: %s\n", install_call);
+         system( install_call );
+
+   }
 
 
       /* remove the tempfile */
