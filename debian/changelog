@@ -1,9 +1,5 @@
-install-gui (0.0.49) UNRELEASED; urgency=low
+install-gui (0.0.49) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * start install-progressbar
   * use mkstemp to create inotify file 
 
