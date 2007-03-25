@@ -1,9 +1,13 @@
 install-gui (0.0.49) unstable; urgency=low
 
+  [ Horst Tritremmel ]
   * start install-progressbar
-  * use mkstemp to create inotify file 
+  * use mkstemp to create inotify file
 
- -- Horst Tritremmel <hjt@sidux.com>  Sun, 25 Mar 2007 14:19:23 +0200
+  [ Stefan Lippers-Hollmann ]
+  * add install-progressbar as versioned dependency.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 25 Mar 2007 14:44:47 +0200
 
 install-gui (0.0.48) unstable; urgency=low
 
