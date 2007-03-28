@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=su-me /usr/sbin/sidux-installer
+Icon=sidux
+
+Name=sidux-installer
+Comment=Install sidux to hd
+
+Categories=sidux
