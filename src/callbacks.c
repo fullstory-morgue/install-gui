@@ -993,6 +993,8 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
          printf("installer call: %s\n", install_call);
          system( install_call );
 
+         system("sleep 1");
+
    }
 
 
