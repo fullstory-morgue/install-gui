@@ -229,3 +229,8 @@ msgid "Install additional\n"
 "Metapackages"
 msgstr "Zusätzliche Metapakete\n"
 "installieren"
+
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr "Partitionen nach Systemstart automatisch einbinden"
+

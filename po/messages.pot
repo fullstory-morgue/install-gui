@@ -198,3 +198,7 @@ msgid "Install additional\n"
 "Metapackages"
 msgstr ""
 
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr ""
+

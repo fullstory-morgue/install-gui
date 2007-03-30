@@ -482,6 +482,13 @@ on_window1_configure_event             (GtkWidget       *widget,
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
+   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_automount");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
    label = lookup_widget ( GTK_WIDGET (widget), "label_rootpart_warning");
    gdk_color_parse ("red", &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
@@ -923,6 +930,20 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
          else {
              fprintf( stream, "no'\n");
          }
+
+       fprintf( stream, "\n%s\n%s", 
+"# mount partitions on boot. Default value is: yes",
+"HD_AUTO='"
+         );
+
+         checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_automount"));
+         if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
+             fprintf( stream, "yes'\n");
+         }
+         else {
+             fprintf( stream, "no'\n");
+         }
+
 
         fclose( stream );
       }
