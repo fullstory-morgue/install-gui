@@ -224,5 +224,5 @@ msgstr "Indietro"
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
-msgstr "Install additional\n"
-"Meta-pacchetti"
+msgstr "Installa Metapacchetti\n"
+"aggiuntivi"

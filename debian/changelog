@@ -1,8 +1,13 @@
 install-gui (0.0.51) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 31 Mar 2007 04:02:25 +0200
+  [ Horst Tritremmel ]
+  * sidux icon smaller
+  * new it.po file
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 09 Apr 2007 22:23:42 +0200
 
 install-gui (0.0.50) unstable; urgency=low
 
