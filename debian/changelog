@@ -1,9 +1,5 @@
-install-gui (0.0.51) UNRELEASED; urgency=low
+install-gui (0.0.51) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * sidux icon smaller
   * new it.po file
 
