@@ -1,9 +1,5 @@
-install-gui (0.0.52) UNRELEASED; urgency=low
+install-gui (0.0.52) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * resize sidux-inst-conf.png to 48x48
 
  -- Horst Tritremmel <hjt@sidux.com>  Tue, 10 Apr 2007 16:15:16 +0200
