@@ -221,6 +221,10 @@ msgstr "Adiante"
 msgid "Prev"
 msgstr "Atrás"
 
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr "Nome da máquina"
+
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"

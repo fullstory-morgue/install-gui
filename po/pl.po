@@ -226,6 +226,10 @@ msgstr "Następny"
 msgid "Prev"
 msgstr "Poprzedni"
 
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr "Nazwa hosta:"
+
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"

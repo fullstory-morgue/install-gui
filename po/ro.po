@@ -164,7 +164,7 @@ msgstr "Utilizator"
 
 #: install-gui.glade:1564(property)
 msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
-msgstr "Nume sistem : Numele sistemului  trebuie sa contina doar litere (si numere) dar sa nu inceapa cu un numar."
+msgstr "Nume sistem: Numele sistemului  trebuie sa contina doar litere (si numere) dar sa nu inceapa cu un numar."
 
 #: install-gui.glade:1680(property)
 msgid "Network"
@@ -219,6 +219,10 @@ msgstr "Urmatorul"
 #: install-gui.glade:1990(property)
 msgid "Prev"
 msgstr "Inapoi"
+
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr "Nume sistem:"
 
 #: install-gui.glade:1578(property)
 msgid "Install additional\n"

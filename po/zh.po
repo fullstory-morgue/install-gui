@@ -221,6 +221,10 @@ msgstr "下一步"
 msgid "Prev"
 msgstr "上一步"
 
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr "主机名:"
+
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
