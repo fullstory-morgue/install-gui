@@ -1,9 +1,5 @@
-install-gui (0.0.53) UNRELEASED; urgency=low
+install-gui (0.0.53) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * add checkbox to start cupsys and ssh service 
 
  -- Horst Tritremmel <hjt@sidux.com>  Thu, 19 Apr 2007 17:21:49 +0200
