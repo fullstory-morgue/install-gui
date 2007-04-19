@@ -1,3 +1,9 @@
+install-gui (0.0.54) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 19 Apr 2007 18:04:49 +0200
+
 install-gui (0.0.53) unstable; urgency=low
 
   * add checkbox to start cupsys and ssh service 
