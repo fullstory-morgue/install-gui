@@ -106,12 +106,18 @@ create_window1 (void)
   GtkWidget *fixed6;
   GtkWidget *hostname;
   GtkWidget *hseparator11;
-  GtkWidget *vseparator6;
+  GtkWidget *label31;
   GtkWidget *hseparator12;
-  GtkWidget *label32;
   GtkWidget *vseparator5;
   GtkWidget *hseparator13;
-  GtkWidget *label31;
+  GtkWidget *vseparator6;
+  GtkWidget *label32;
+  GtkWidget *frame2;
+  GtkWidget *alignment7;
+  GtkWidget *fixed10;
+  GtkWidget *checkbutton_ssh;
+  GtkWidget *checkbutton_printsystem;
+  GtkWidget *label38;
   GtkWidget *label5;
   GtkWidget *fixed7;
   GtkWidget *hseparator14;
@@ -561,7 +567,7 @@ create_window1 (void)
 
   hostname = gtk_entry_new ();
   gtk_widget_show (hostname);
-  gtk_fixed_put (GTK_FIXED (fixed6), hostname, 264, 184);
+  gtk_fixed_put (GTK_FIXED (fixed6), hostname, 264, 160);
   gtk_widget_set_size_request (hostname, 232, 24);
   gtk_entry_set_text (GTK_ENTRY (hostname), _("siduxbox"));
 
@@ -570,32 +576,6 @@ create_window1 (void)
   gtk_fixed_put (GTK_FIXED (fixed6), hseparator11, 16, 96);
   gtk_widget_set_size_request (hseparator11, 640, 16);
 
-  vseparator6 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed6), vseparator6, 520, 168);
-  gtk_widget_set_size_request (vseparator6, 16, 128);
-
-  hseparator12 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator12);
-  gtk_fixed_put (GTK_FIXED (fixed6), hseparator12, 120, 160);
-  gtk_widget_set_size_request (hseparator12, 408, 16);
-
-  label32 = gtk_label_new (_("Hostname:"));
-  gtk_widget_show (label32);
-  gtk_fixed_put (GTK_FIXED (fixed6), label32, 144, 184);
-  gtk_widget_set_size_request (label32, 112, 24);
-  gtk_misc_set_alignment (GTK_MISC (label32), 0.04, 0.5);
-
-  vseparator5 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator5);
-  gtk_fixed_put (GTK_FIXED (fixed6), vseparator5, 112, 168);
-  gtk_widget_set_size_request (vseparator5, 16, 128);
-
-  hseparator13 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator13);
-  gtk_fixed_put (GTK_FIXED (fixed6), hseparator13, 120, 288);
-  gtk_widget_set_size_request (hseparator13, 408, 16);
-
   label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
   gtk_widget_show (label31);
   gtk_fixed_put (GTK_FIXED (fixed6), label31, 16, 8);
@@ -603,6 +583,61 @@ create_window1 (void)
   gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
+
+  hseparator12 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator12);
+  gtk_fixed_put (GTK_FIXED (fixed6), hseparator12, 120, 128);
+  gtk_widget_set_size_request (hseparator12, 408, 16);
+
+  vseparator5 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator5);
+  gtk_fixed_put (GTK_FIXED (fixed6), vseparator5, 112, 136);
+  gtk_widget_set_size_request (vseparator5, 16, 80);
+
+  hseparator13 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator13);
+  gtk_fixed_put (GTK_FIXED (fixed6), hseparator13, 120, 208);
+  gtk_widget_set_size_request (hseparator13, 408, 16);
+
+  vseparator6 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator6);
+  gtk_fixed_put (GTK_FIXED (fixed6), vseparator6, 520, 136);
+  gtk_widget_set_size_request (vseparator6, 16, 80);
+
+  label32 = gtk_label_new (_("Hostname:"));
+  gtk_widget_show (label32);
+  gtk_fixed_put (GTK_FIXED (fixed6), label32, 128, 160);
+  gtk_widget_set_size_request (label32, 128, 24);
+  gtk_misc_set_alignment (GTK_MISC (label32), 0.04, 0.5);
+
+  frame2 = gtk_frame_new (NULL);
+  gtk_widget_show (frame2);
+  gtk_fixed_put (GTK_FIXED (fixed6), frame2, 120, 232);
+  gtk_widget_set_size_request (frame2, 408, 120);
+
+  alignment7 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment7);
+  gtk_container_add (GTK_CONTAINER (frame2), alignment7);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment7), 0, 0, 12, 0);
+
+  fixed10 = gtk_fixed_new ();
+  gtk_widget_show (fixed10);
+  gtk_container_add (GTK_CONTAINER (alignment7), fixed10);
+
+  checkbutton_ssh = gtk_check_button_new_with_mnemonic (_("ssh (Secure shell client and server)"));
+  gtk_widget_show (checkbutton_ssh);
+  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_ssh, 8, 48);
+  gtk_widget_set_size_request (checkbutton_ssh, 376, 32);
+
+  checkbutton_printsystem = gtk_check_button_new_with_mnemonic (_("cupsys (Printing System)"));
+  gtk_widget_show (checkbutton_printsystem);
+  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_printsystem, 8, 16);
+  gtk_widget_set_size_request (checkbutton_printsystem, 376, 32);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_printsystem), TRUE);
+
+  label38 = gtk_label_new (_("start services"));
+  gtk_widget_show (label38);
+  gtk_frame_set_label_widget (GTK_FRAME (frame2), label38);
 
   label5 = gtk_label_new (_("Network"));
   gtk_widget_show (label5);
@@ -858,12 +893,18 @@ create_window1 (void)
   GLADE_HOOKUP_OBJECT (window1, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (window1, hostname, "hostname");
   GLADE_HOOKUP_OBJECT (window1, hseparator11, "hseparator11");
-  GLADE_HOOKUP_OBJECT (window1, vseparator6, "vseparator6");
+  GLADE_HOOKUP_OBJECT (window1, label31, "label31");
   GLADE_HOOKUP_OBJECT (window1, hseparator12, "hseparator12");
-  GLADE_HOOKUP_OBJECT (window1, label32, "label32");
   GLADE_HOOKUP_OBJECT (window1, vseparator5, "vseparator5");
   GLADE_HOOKUP_OBJECT (window1, hseparator13, "hseparator13");
-  GLADE_HOOKUP_OBJECT (window1, label31, "label31");
+  GLADE_HOOKUP_OBJECT (window1, vseparator6, "vseparator6");
+  GLADE_HOOKUP_OBJECT (window1, label32, "label32");
+  GLADE_HOOKUP_OBJECT (window1, frame2, "frame2");
+  GLADE_HOOKUP_OBJECT (window1, alignment7, "alignment7");
+  GLADE_HOOKUP_OBJECT (window1, fixed10, "fixed10");
+  GLADE_HOOKUP_OBJECT (window1, checkbutton_ssh, "checkbutton_ssh");
+  GLADE_HOOKUP_OBJECT (window1, checkbutton_printsystem, "checkbutton_printsystem");
+  GLADE_HOOKUP_OBJECT (window1, label38, "label38");
   GLADE_HOOKUP_OBJECT (window1, label5, "label5");
   GLADE_HOOKUP_OBJECT (window1, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (window1, hseparator14, "hseparator14");

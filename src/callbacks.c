@@ -758,7 +758,7 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton, *checkbutton;
-   char systemcall[256], install_call[256], install_call_tmp[80];
+   char systemcall[256], install_call[256], install_call_tmp[80], services[17];
    FILE *stream;
    int fd;
 
@@ -794,6 +794,18 @@ on_button_install_clicked              (GtkButton       *button,
       gtk_tree_model_foreach(GTK_TREE_MODEL(model), foreach_func, NULL);  // add the mountpoints to mountpoints_config
       strcat(mountpoints_config, "\'");
 
+
+      // start services
+      strncpy(services, "'kdm", 17);
+      checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_printsystem"));
+      if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
+         strncat(services, " cupsys", 17);
+      }
+      checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_ssh"));
+      if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
+         strncat(services, " ssh", 17);
+      }
+      strncat(services, "'", 17);
 
 
      /* ============================================================= *
@@ -865,7 +877,7 @@ mountpoints_config,
 
       fprintf( stream, 
 "\n%s\n%s\n%s\n%s\n%s\n%s\n\%s\n%s\n\n%s\n%s%s'\n\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s\n\n\
-%s\n%s%s'\n\n%s\n%s\n%s\n%s\n\n%s\n%s\n%s\n%s\n%s%s'\n%s\n%s\n%s\n%s", 
+%s\n%s%s'\n\n%s\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n%s%s'\n%s\n%s\n%s\n%s", 
 
 "SWAP_MODULE='configured'",
 "# If set to yes, the swap partitions will be autodetected.",
@@ -891,7 +903,8 @@ gtk_entry_get_text(GTK_ENTRY( lookup_widget(GTK_WIDGET(button), "hostname") )),
 "SERVICES_MODULE='configured'",
 "# Possible services are for now: kdm cupsys smail ssh samba",
 "# Default value is: kdm",
-"SERVICES_START='kdm cupsys'",
+"SERVICES_START=",
+services,
 "BOOT_MODULE='configured'",
 "# Chooses the Boot-Loader",
 "# Possible are: lilo|grub",
