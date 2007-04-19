@@ -796,14 +796,21 @@ on_button_install_clicked              (GtkButton       *button,
 
 
       // start services
-      strncpy(services, "'kdm", 17);
+      strncpy(services, "'", 17);
+
       checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_printsystem"));
       if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
-         strncat(services, " cupsys", 17);
+         strncat(services, "cupsys", 17);
       }
+
       checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_ssh"));
       if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
-         strncat(services, " ssh", 17);
+
+         if( strlen( services ) > 1 ) {
+             strncat(services, " ", 17);
+         }
+
+         strncat(services, "ssh", 17);
       }
       strncat(services, "'", 17);
 
@@ -901,8 +908,8 @@ uname,
 "HOST_NAME='",
 gtk_entry_get_text(GTK_ENTRY( lookup_widget(GTK_WIDGET(button), "hostname") )),
 "SERVICES_MODULE='configured'",
-"# Possible services are for now: kdm cupsys smail ssh samba",
-"# Default value is: kdm",
+"# Possible services are for now: cupsys smail ssh samba",
+"# Default value is: cupsys",
 "SERVICES_START=",
 services,
 "BOOT_MODULE='configured'",
