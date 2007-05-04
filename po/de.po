@@ -234,3 +234,15 @@ msgstr "Zusätzliche Metapakete\n"
 msgid "mount partitions on boot"
 msgstr "Partitionen nach Systemstart automatisch einbinden"
 
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (Secure shell Client und Server"
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr "cupsys (Drucker System)"
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr "Start Service"
+
