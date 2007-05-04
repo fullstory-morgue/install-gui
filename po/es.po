@@ -227,3 +227,19 @@ msgid "Install additional\n"
 msgstr "Instalar adicionales\n"
 "paquetes"
 
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr "montar particiones al arrancar"
+
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (Cliente y servidor de ssh)"
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr "cupsys (Sistema de impresoras)"
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr "iniciar servicios"
+

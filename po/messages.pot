@@ -206,3 +206,15 @@ msgstr ""
 msgid "mount partitions on boot"
 msgstr ""
 
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr ""
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr ""
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr ""
+

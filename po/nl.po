@@ -273,5 +273,17 @@ msgstr "Hostnaam:"
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"
-msgstr ""
+msgstr "koppel de partities aan tijdens het booten"
+
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (beveiligde shell client en server)"
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr "cupsys (Printer Systeem)"
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr "start services"
 
