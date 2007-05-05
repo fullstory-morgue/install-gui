@@ -1,8 +1,13 @@
 install-gui (0.0.54) unstable; urgency=low
 
+  [ Horst Tritremmel ]
   * update language files
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 04 May 2007 22:11:15 +0200
+  [ Stefan Lippers-Hollmann ]
+  * use automake on build-time to prevent constant changes of auto-generated
+    content.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 05 May 2007 02:23:15 +0200
 
 install-gui (0.0.53) unstable; urgency=low
 
