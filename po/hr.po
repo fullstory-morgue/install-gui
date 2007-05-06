@@ -229,17 +229,17 @@ msgstr "Instaliranje dodatnih\n"
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"
-msgstr ""
+msgstr "Mountati particije pri startu"
 
 #: install-gui.glade:1517(property) 
 msgid "ssh (Secure shell client and server)"
-msgstr ""
+msgstr "ssh (Secure shell klijent i poslužitelj)"
 
 #: install-gui.glade:1537(property) 
 msgid "cupsys (Printing System)"
-msgstr ""
+msgstr "cupsys (System za printanje)"
 
 #: install-gui.glade:1558(property) 
 msgid "start services"
-msgstr ""
+msgstr "Startovati servise"
 
