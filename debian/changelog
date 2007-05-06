@@ -1,3 +1,9 @@
+install-gui (0.1.2) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 May 2007 01:37:45 +0200
+
 install-gui (0.1.1) unstable; urgency=low
 
   * update ru.po and hr.po 
