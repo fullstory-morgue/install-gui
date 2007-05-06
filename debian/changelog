@@ -1,9 +1,5 @@
-install-gui (0.1.1) UNRELEASED; urgency=low
+install-gui (0.1.1) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * update ru.po and hr.po 
 
  -- Horst Tritremmel <hjt@sidux.com>  Sun, 06 May 2007 20:49:57 +0200
