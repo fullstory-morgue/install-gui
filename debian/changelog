@@ -1,9 +1,5 @@
-install-gui (0.1.4) UNRELEASED; urgency=low
+install-gui (0.1.4) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * new timezone feature
   * update language files
 
