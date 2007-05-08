@@ -434,7 +434,7 @@ on_window1_configure_event             (GtkWidget       *widget,
    * ============================================================= */
    GtkWidget *combobox_bootmanager = lookup_widget (GTK_WIDGET (widget), "combobox_bootmanager");
    gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "grub");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "lilo");
+   //gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "lilo");
 
    gtk_combo_box_set_active( GTK_COMBO_BOX(combobox_bootmanager),0);
 
@@ -914,7 +914,7 @@ gtk_entry_get_text(GTK_ENTRY( lookup_widget(GTK_WIDGET(button), "hostname") )),
 services,
 "BOOT_MODULE='configured'",
 "# Chooses the Boot-Loader",
-"# Possible are: lilo|grub",
+"# Possible are: grub",
 "# Default value is: grub",
 "BOOT_LOADER='",
 gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_bootmanager"))),

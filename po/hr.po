@@ -1,4 +1,4 @@
-""
+msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2007-01-18 10:07+0000\n"
@@ -221,25 +221,25 @@ msgstr "Dalje"
 msgid "Prev"
 msgstr "Nazad"
 
-#: install-gui.glade:1578(property) 
+#: install-gui.glade:1578(property)
 msgid "Install additional\n"
 "Metapackages"
 msgstr "Instaliranje dodatnih\n"
 "Metapaketa"
 
-#: install-gui.glade:662(property) 
+#: install-gui.glade:662(property)
 msgid "mount partitions on boot"
 msgstr "Mountati particije pri startu"
 
-#: install-gui.glade:1517(property) 
+#: install-gui.glade:1517(property)
 msgid "ssh (Secure shell client and server)"
 msgstr "ssh (Secure shell klijent i poslužitelj)"
 
-#: install-gui.glade:1537(property) 
+#: install-gui.glade:1537(property)
 msgid "cupsys (Printing System)"
 msgstr "cupsys (System za printanje)"
 
-#: install-gui.glade:1558(property) 
+#: install-gui.glade:1558(property)
 msgid "start services"
 msgstr "Startovati servise"
 
