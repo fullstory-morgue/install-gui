@@ -84,8 +84,8 @@ create_window_main (void)
   GtkWidget *frame3;
   GtkWidget *alignment8;
   GtkWidget *fixed11;
-  GtkWidget *button_tz;
   GtkWidget *label_tz;
+  GtkWidget *button_tz;
   GtkWidget *label39;
   GtkWidget *label3;
   GtkWidget *fixed5;
@@ -447,8 +447,8 @@ create_window_main (void)
 
   frame3 = gtk_frame_new (NULL);
   gtk_widget_show (frame3);
-  gtk_fixed_put (GTK_FIXED (fixed4), frame3, 104, 256);
-  gtk_widget_set_size_request (frame3, 408, 112);
+  gtk_fixed_put (GTK_FIXED (fixed4), frame3, 104, 264);
+  gtk_widget_set_size_request (frame3, 408, 104);
 
   alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
   gtk_widget_show (alignment8);
@@ -459,19 +459,20 @@ create_window_main (void)
   gtk_widget_show (fixed11);
   gtk_container_add (GTK_CONTAINER (alignment8), fixed11);
 
+  label_tz = gtk_label_new (_("Timezone"));
+  gtk_widget_show (label_tz);
+  gtk_fixed_put (GTK_FIXED (fixed11), label_tz, 0, 16);
+  gtk_widget_set_size_request (label_tz, 384, 32);
+  gtk_label_set_use_markup (GTK_LABEL (label_tz), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label_tz), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label_tz), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_tz), 0.5, 0);
+  gtk_label_set_ellipsize (GTK_LABEL (label_tz), PANGO_ELLIPSIZE_MIDDLE);
+
   button_tz = gtk_button_new_from_stock ("gtk-preferences");
   gtk_widget_show (button_tz);
-  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 200, 56);
-  gtk_widget_set_size_request (button_tz, 152, 28);
-
-  label_tz = gtk_label_new ("");
-  gtk_widget_show (label_tz);
-  gtk_fixed_put (GTK_FIXED (fixed11), label_tz, 0, 8);
-  gtk_widget_set_size_request (label_tz, 384, 40);
-  gtk_label_set_use_markup (GTK_LABEL (label_tz), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (label_tz), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_tz), 0, 0);
-  gtk_label_set_ellipsize (GTK_LABEL (label_tz), PANGO_ELLIPSIZE_MIDDLE);
+  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 112, 45);
+  gtk_widget_set_size_request (button_tz, 152, 30);
 
   label39 = gtk_label_new (_("<big><b> Timezone </b></big>"));
   gtk_widget_show (label39);
@@ -915,8 +916,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, frame3, "frame3");
   GLADE_HOOKUP_OBJECT (window_main, alignment8, "alignment8");
   GLADE_HOOKUP_OBJECT (window_main, fixed11, "fixed11");
-  GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
   GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
+  GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
   GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");

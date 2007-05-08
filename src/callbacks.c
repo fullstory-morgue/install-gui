@@ -984,13 +984,44 @@ on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
 
 
 void
-on_button_tz_clicked                   (GtkButton       *button,
-                                        gpointer         user_data)
+timezone_read (GtkWidget       *widget)
 {
+   FILE *tz_file;
+   char tz[256], tz_markup[256];
 
+   // read the timezone file
+   tz_file = fopen( "/etc/timezone", "r" );
+   if( tz_file == NULL ) {
+       printf( "The file /etc/timezone was not opened\n");
+   }
+   else {
+      fseek(  tz_file, 0L, SEEK_SET );
+      fscanf( tz_file, "%[^\n]\n", tz);
+
+      strncpy( tz_markup, "<span foreground=\"darkred\" font_desc=\"Sans Bold 12\">", 256);
+      strncat( tz_markup, tz, 256);
+      strncat( tz_markup, "</span>", 256);
+
+      GtkWidget *label_tz = lookup_widget (GTK_WIDGET (widget), "label_tz");
+      gtk_label_set_markup( GTK_LABEL ( label_tz ), tz_markup );
+
+      fclose( tz_file );
+   }
 }
 
 
+void
+on_button_tz_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+   // change timezone
+
+   system("[ -d \"/usr/lib/perl5/Gnome2/\" ] \
+   && DEBIAN_FRONTEND=gnome dpkg-reconfigure tzdata \
+   || x-terminal-emulator -e dpkg-reconfigure tzdata");
+
+   timezone_read (GTK_WIDGET (button));
+}
 
 
 void
@@ -1085,14 +1116,8 @@ on_window_main_show                    (GtkWidget       *widget,
   /* ============================================================= *
    *                      fill the label_tz                        *
    * ============================================================= */
-   GtkWidget *label_tz = lookup_widget (GTK_WIDGET (widget), "label_tz");
-   gdk_color_parse ("darkred", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label_tz), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("14");
-   gtk_widget_modify_font ( GTK_WIDGET(label_tz), font_desc);
-   pango_font_description_free (font_desc);
+   timezone_read (GTK_WIDGET (widget));
 
-   gtk_label_set_markup( GTK_LABEL ( label_tz ), "<big><b>Europe/Irgendwas</b></big>" );
 
   /* ============================================================= *
    *           Label sets, font, color, etc.                       *

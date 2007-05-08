@@ -218,3 +218,7 @@ msgstr ""
 msgid "start services"
 msgstr ""
 
+#: install-gui.glade:1559(property) 
+msgid "<big><b> Timezone </b></big>"
+msgstr "<big><b>  </b></big>"
+

@@ -246,3 +246,7 @@ msgstr "cupsys (Drucker System)"
 msgid "start services"
 msgstr "Start Service"
 
+#: install-gui.glade:1559(property) 
+msgid "<big><b> Timezone </b></big>"
+msgstr "<big><b> Zeitzone </b></big>"
+

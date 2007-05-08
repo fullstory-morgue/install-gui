@@ -232,3 +232,23 @@ msgid "Install additional\n"
 msgstr "Installer des logiciels\n"
 "additionnels"
 
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr "Monter partitions au démarrage"
+
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (Secure shell - communication sécurisée)"
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr "cupsys (système d'imprimantes)"
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr "scripts de démarrage"
+
+#: install-gui.glade:1559(property) 
+msgid "<big><b> Timezone </b></big>"
+msgstr "<big><b> fuseau horaire </b></big>"
+
