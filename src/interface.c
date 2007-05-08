@@ -27,10 +27,10 @@
   g_object_set_data (G_OBJECT (component), name, widget)
 
 GtkWidget*
-create_window1 (void)
+create_window_main (void)
 {
-  GtkWidget *window1;
-  GdkPixbuf *window1_icon_pixbuf;
+  GtkWidget *window_main;
+  GdkPixbuf *window_main_icon_pixbuf;
   GtkWidget *fixed1;
   GtkWidget *image1;
   GtkWidget *label_wellcome;
@@ -71,16 +71,22 @@ create_window1 (void)
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *hseparator4;
+  GtkWidget *label13;
   GtkWidget *hseparator9;
   GtkWidget *vseparator3;
-  GtkWidget *vseparator4;
-  GtkWidget *hseparator10;
-  GtkWidget *label13;
+  GtkWidget *label14;
+  GtkWidget *label15;
+  GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
   GtkWidget *checkbutton_bootdisk;
-  GtkWidget *label15;
-  GtkWidget *label14;
-  GtkWidget *combobox_bootmanager;
+  GtkWidget *vseparator4;
+  GtkWidget *hseparator10;
+  GtkWidget *frame3;
+  GtkWidget *alignment8;
+  GtkWidget *fixed11;
+  GtkWidget *button_tz;
+  GtkWidget *label_tz;
+  GtkWidget *label39;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *frame1;
@@ -149,23 +155,23 @@ create_window1 (void)
 
   tooltips = gtk_tooltips_new ();
 
-  window1 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (window1), _("sidux HD-Installation"));
-  gtk_window_set_resizable (GTK_WINDOW (window1), FALSE);
-  window1_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
-  if (window1_icon_pixbuf)
+  window_main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window_main), _("sidux HD-Installation"));
+  gtk_window_set_resizable (GTK_WINDOW (window_main), FALSE);
+  window_main_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  if (window_main_icon_pixbuf)
     {
-      gtk_window_set_icon (GTK_WINDOW (window1), window1_icon_pixbuf);
-      gdk_pixbuf_unref (window1_icon_pixbuf);
+      gtk_window_set_icon (GTK_WINDOW (window_main), window_main_icon_pixbuf);
+      gdk_pixbuf_unref (window_main_icon_pixbuf);
     }
-  gtk_window_set_gravity (GTK_WINDOW (window1), GDK_GRAVITY_CENTER);
+  gtk_window_set_gravity (GTK_WINDOW (window_main), GDK_GRAVITY_CENTER);
 
   fixed1 = gtk_fixed_new ();
   gtk_widget_show (fixed1);
-  gtk_container_add (GTK_CONTAINER (window1), fixed1);
+  gtk_container_add (GTK_CONTAINER (window_main), fixed1);
   gtk_container_set_border_width (GTK_CONTAINER (fixed1), 15);
 
-  image1 = create_pixmap (window1, "install-gui-title.png");
+  image1 = create_pixmap (window_main, "install-gui-title.png");
   gtk_widget_show (image1);
   gtk_fixed_put (GTK_FIXED (fixed1), image1, 420, 2);
   gtk_widget_set_size_request (image1, 250, 39);
@@ -183,7 +189,7 @@ create_window1 (void)
   gtk_button_set_relief (GTK_BUTTON (exit), GTK_RELIEF_NONE);
   gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
 
-  image12 = create_pixmap (window1, "install-gui-exit.png");
+  image12 = create_pixmap (window_main, "install-gui-exit.png");
   gtk_widget_show (image12);
   gtk_container_add (GTK_CONTAINER (exit), image12);
   gtk_misc_set_alignment (GTK_MISC (image12), 0, 0);
@@ -195,7 +201,7 @@ create_window1 (void)
   GTK_WIDGET_UNSET_FLAGS (next, GTK_CAN_FOCUS);
   gtk_button_set_relief (GTK_BUTTON (next), GTK_RELIEF_NONE);
 
-  image15 = create_pixmap (window1, "install-gui-forward.png");
+  image15 = create_pixmap (window_main, "install-gui-forward.png");
   gtk_widget_show (image15);
   gtk_container_add (GTK_CONTAINER (next), image15);
   gtk_misc_set_alignment (GTK_MISC (image15), 0, 0);
@@ -208,15 +214,15 @@ create_window1 (void)
   gtk_button_set_relief (GTK_BUTTON (prev), GTK_RELIEF_NONE);
   gtk_button_set_focus_on_click (GTK_BUTTON (prev), FALSE);
 
-  image14 = create_pixmap (window1, "install-gui-back.png");
+  image14 = create_pixmap (window_main, "install-gui-back.png");
   gtk_widget_show (image14);
   gtk_container_add (GTK_CONTAINER (prev), image14);
   gtk_misc_set_alignment (GTK_MISC (image14), 0, 0);
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
-  gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 9, 56);
-  gtk_widget_set_size_request (notebook1, 678, 407);
+  gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 0, 48);
+  gtk_widget_set_size_request (notebook1, 680, 417);
 
   fixed2 = gtk_fixed_new ();
   gtk_widget_show (fixed2);
@@ -381,63 +387,96 @@ create_window1 (void)
 
   hseparator4 = gtk_hseparator_new ();
   gtk_widget_show (hseparator4);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator4, 16, 112);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator4, 16, 88);
   gtk_widget_set_size_request (hseparator4, 640, 16);
-
-  hseparator9 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator9);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator9, 104, 160);
-  gtk_widget_set_size_request (hseparator9, 408, 16);
-
-  vseparator3 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator3);
-  gtk_fixed_put (GTK_FIXED (fixed4), vseparator3, 96, 168);
-  gtk_widget_set_size_request (vseparator3, 16, 128);
-
-  vseparator4 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator4);
-  gtk_fixed_put (GTK_FIXED (fixed4), vseparator4, 504, 168);
-  gtk_widget_set_size_request (vseparator4, 16, 128);
-
-  hseparator10 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator10);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator10, 104, 288);
-  gtk_widget_set_size_request (hseparator10, 408, 16);
 
   label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
   gtk_widget_show (label13);
   gtk_fixed_put (GTK_FIXED (fixed4), label13, 8, 8);
-  gtk_widget_set_size_request (label13, 656, 96);
+  gtk_widget_set_size_request (label13, 656, 88);
   gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.5);
+  gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
+
+  hseparator9 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator9);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator9, 104, 104);
+  gtk_widget_set_size_request (hseparator9, 408, 16);
+
+  vseparator3 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator3);
+  gtk_fixed_put (GTK_FIXED (fixed4), vseparator3, 96, 112);
+  gtk_widget_set_size_request (vseparator3, 16, 128);
+
+  label14 = gtk_label_new (_("Bootmanager"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed4), label14, 120, 128);
+  gtk_widget_set_size_request (label14, 184, 24);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
+
+  label15 = gtk_label_new (_("Installation-target"));
+  gtk_widget_show (label15);
+  gtk_fixed_put (GTK_FIXED (fixed4), label15, 120, 168);
+  gtk_widget_set_size_request (label15, 184, 24);
+  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
+
+  combobox_bootmanager = gtk_combo_box_entry_new_text ();
+  gtk_widget_show (combobox_bootmanager);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 312, 128);
+  gtk_widget_set_size_request (combobox_bootmanager, 183, 25);
 
   combobox_installplace = gtk_combo_box_entry_new_text ();
   gtk_widget_show (combobox_installplace);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 312, 224);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 312, 168);
   gtk_widget_set_size_request (combobox_installplace, 183, 25);
 
   checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
   gtk_widget_show (checkbutton_bootdisk);
-  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 312, 256);
+  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 312, 200);
   gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
 
-  label15 = gtk_label_new (_("Installation-target"));
-  gtk_widget_show (label15);
-  gtk_fixed_put (GTK_FIXED (fixed4), label15, 144, 224);
-  gtk_widget_set_size_request (label15, 168, 24);
-  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
+  vseparator4 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator4);
+  gtk_fixed_put (GTK_FIXED (fixed4), vseparator4, 504, 112);
+  gtk_widget_set_size_request (vseparator4, 16, 128);
 
-  label14 = gtk_label_new (_("Bootmanager"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed4), label14, 144, 184);
-  gtk_widget_set_size_request (label14, 168, 24);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0.04, 0.5);
+  hseparator10 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator10);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator10, 104, 232);
+  gtk_widget_set_size_request (hseparator10, 408, 16);
 
-  combobox_bootmanager = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (combobox_bootmanager);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 312, 184);
-  gtk_widget_set_size_request (combobox_bootmanager, 183, 25);
+  frame3 = gtk_frame_new (NULL);
+  gtk_widget_show (frame3);
+  gtk_fixed_put (GTK_FIXED (fixed4), frame3, 104, 256);
+  gtk_widget_set_size_request (frame3, 408, 112);
+
+  alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment8);
+  gtk_container_add (GTK_CONTAINER (frame3), alignment8);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 0, 0, 12, 0);
+
+  fixed11 = gtk_fixed_new ();
+  gtk_widget_show (fixed11);
+  gtk_container_add (GTK_CONTAINER (alignment8), fixed11);
+
+  button_tz = gtk_button_new_from_stock ("gtk-preferences");
+  gtk_widget_show (button_tz);
+  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 200, 56);
+  gtk_widget_set_size_request (button_tz, 152, 28);
+
+  label_tz = gtk_label_new ("");
+  gtk_widget_show (label_tz);
+  gtk_fixed_put (GTK_FIXED (fixed11), label_tz, 0, 8);
+  gtk_widget_set_size_request (label_tz, 384, 40);
+  gtk_label_set_use_markup (GTK_LABEL (label_tz), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label_tz), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_tz), 0, 0);
+  gtk_label_set_ellipsize (GTK_LABEL (label_tz), PANGO_ELLIPSIZE_MIDDLE);
+
+  label39 = gtk_label_new (_("<big><b> Timezone </b></big>"));
+  gtk_widget_show (label39);
+  gtk_frame_set_label_widget (GTK_FRAME (frame3), label39);
+  gtk_label_set_use_markup (GTK_LABEL (label39), TRUE);
 
   label3 = gtk_label_new (_("Grub"));
   gtk_widget_show (label3);
@@ -778,11 +817,11 @@ create_window1 (void)
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
 
-  g_signal_connect ((gpointer) window1, "configure_event",
-                    G_CALLBACK (on_window1_configure_event),
+  g_signal_connect ((gpointer) window_main, "delete_event",
+                    G_CALLBACK (on_window_main_delete_event),
                     NULL);
-  g_signal_connect ((gpointer) window1, "delete_event",
-                    G_CALLBACK (on_window1_delete_event),
+  g_signal_connect ((gpointer) window_main, "show",
+                    G_CALLBACK (on_window_main_show),
                     NULL);
   g_signal_connect ((gpointer) exit, "clicked",
                     G_CALLBACK (on_exit_clicked),
@@ -805,6 +844,9 @@ create_window1 (void)
   g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),
                     NULL);
+  g_signal_connect ((gpointer) button_tz, "clicked",
+                    G_CALLBACK (on_button_tz_clicked),
+                    NULL);
   g_signal_connect ((gpointer) radiobutton1, "toggled",
                     G_CALLBACK (on_radiobutton1_toggled),
                     NULL);
@@ -819,123 +861,129 @@ create_window1 (void)
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (window1, window1, "window1");
-  GLADE_HOOKUP_OBJECT (window1, fixed1, "fixed1");
-  GLADE_HOOKUP_OBJECT (window1, image1, "image1");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome, "label_wellcome");
-  GLADE_HOOKUP_OBJECT (window1, exit, "exit");
-  GLADE_HOOKUP_OBJECT (window1, image12, "image12");
-  GLADE_HOOKUP_OBJECT (window1, next, "next");
-  GLADE_HOOKUP_OBJECT (window1, image15, "image15");
-  GLADE_HOOKUP_OBJECT (window1, prev, "prev");
-  GLADE_HOOKUP_OBJECT (window1, image14, "image14");
-  GLADE_HOOKUP_OBJECT (window1, notebook1, "notebook1");
-  GLADE_HOOKUP_OBJECT (window1, fixed2, "fixed2");
-  GLADE_HOOKUP_OBJECT (window1, hseparator2, "hseparator2");
-  GLADE_HOOKUP_OBJECT (window1, hseparator7, "hseparator7");
-  GLADE_HOOKUP_OBJECT (window1, vseparator1, "vseparator1");
-  GLADE_HOOKUP_OBJECT (window1, hseparator8, "hseparator8");
-  GLADE_HOOKUP_OBJECT (window1, vseparator2, "vseparator2");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome_install, "label_wellcome_install");
-  GLADE_HOOKUP_OBJECT (window1, label30, "label30");
-  GLADE_HOOKUP_OBJECT (window1, hseparator3, "hseparator3");
-  GLADE_HOOKUP_OBJECT (window1, image2, "image2");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome_2, "label_wellcome_2");
-  GLADE_HOOKUP_OBJECT (window1, label_wellcome_red, "label_wellcome_red");
-  GLADE_HOOKUP_OBJECT (window1, label1, "label1");
-  GLADE_HOOKUP_OBJECT (window1, fixed3, "fixed3");
-  GLADE_HOOKUP_OBJECT (window1, format_combo, "format_combo");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_format_with, "checkbutton_format_with");
-  GLADE_HOOKUP_OBJECT (window1, button_gparted, "button_gparted");
-  GLADE_HOOKUP_OBJECT (window1, label7, "label7");
-  GLADE_HOOKUP_OBJECT (window1, rootpartcombo, "rootpartcombo");
-  GLADE_HOOKUP_OBJECT (window1, label_changed, "label_changed");
-  GLADE_HOOKUP_OBJECT (window1, hseparator1, "hseparator1");
-  GLADE_HOOKUP_OBJECT (window1, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (window1, treeview1, "treeview1");
-  GLADE_HOOKUP_OBJECT (window1, label35, "label35");
-  GLADE_HOOKUP_OBJECT (window1, label8, "label8");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_mountpoints, "checkbutton_mountpoints");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_automount, "checkbutton_automount");
-  GLADE_HOOKUP_OBJECT (window1, label2, "label2");
-  GLADE_HOOKUP_OBJECT (window1, fixed4, "fixed4");
-  GLADE_HOOKUP_OBJECT (window1, hseparator4, "hseparator4");
-  GLADE_HOOKUP_OBJECT (window1, hseparator9, "hseparator9");
-  GLADE_HOOKUP_OBJECT (window1, vseparator3, "vseparator3");
-  GLADE_HOOKUP_OBJECT (window1, vseparator4, "vseparator4");
-  GLADE_HOOKUP_OBJECT (window1, hseparator10, "hseparator10");
-  GLADE_HOOKUP_OBJECT (window1, label13, "label13");
-  GLADE_HOOKUP_OBJECT (window1, combobox_installplace, "combobox_installplace");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_bootdisk, "checkbutton_bootdisk");
-  GLADE_HOOKUP_OBJECT (window1, label15, "label15");
-  GLADE_HOOKUP_OBJECT (window1, label14, "label14");
-  GLADE_HOOKUP_OBJECT (window1, combobox_bootmanager, "combobox_bootmanager");
-  GLADE_HOOKUP_OBJECT (window1, label3, "label3");
-  GLADE_HOOKUP_OBJECT (window1, fixed5, "fixed5");
-  GLADE_HOOKUP_OBJECT (window1, frame1, "frame1");
-  GLADE_HOOKUP_OBJECT (window1, alignment5, "alignment5");
-  GLADE_HOOKUP_OBJECT (window1, fixed8, "fixed8");
-  GLADE_HOOKUP_OBJECT (window1, entry_rootpw, "entry_rootpw");
-  GLADE_HOOKUP_OBJECT (window1, entry_rootpw_again, "entry_rootpw_again");
-  GLADE_HOOKUP_OBJECT (window1, entry_realname, "entry_realname");
-  GLADE_HOOKUP_OBJECT (window1, entry_username, "entry_username");
-  GLADE_HOOKUP_OBJECT (window1, entry_pw, "entry_pw");
-  GLADE_HOOKUP_OBJECT (window1, entry_pw_again, "entry_pw_again");
-  GLADE_HOOKUP_OBJECT (window1, hseparator6, "hseparator6");
-  GLADE_HOOKUP_OBJECT (window1, label26, "label26");
-  GLADE_HOOKUP_OBJECT (window1, label27, "label27");
-  GLADE_HOOKUP_OBJECT (window1, label28, "label28");
-  GLADE_HOOKUP_OBJECT (window1, label29, "label29");
-  GLADE_HOOKUP_OBJECT (window1, label18, "label18");
-  GLADE_HOOKUP_OBJECT (window1, label21, "label21");
-  GLADE_HOOKUP_OBJECT (window1, label25, "label25");
-  GLADE_HOOKUP_OBJECT (window1, hseparator5, "hseparator5");
-  GLADE_HOOKUP_OBJECT (window1, label16, "label16");
-  GLADE_HOOKUP_OBJECT (window1, label4, "label4");
-  GLADE_HOOKUP_OBJECT (window1, fixed6, "fixed6");
-  GLADE_HOOKUP_OBJECT (window1, hostname, "hostname");
-  GLADE_HOOKUP_OBJECT (window1, hseparator11, "hseparator11");
-  GLADE_HOOKUP_OBJECT (window1, label31, "label31");
-  GLADE_HOOKUP_OBJECT (window1, hseparator12, "hseparator12");
-  GLADE_HOOKUP_OBJECT (window1, vseparator5, "vseparator5");
-  GLADE_HOOKUP_OBJECT (window1, hseparator13, "hseparator13");
-  GLADE_HOOKUP_OBJECT (window1, vseparator6, "vseparator6");
-  GLADE_HOOKUP_OBJECT (window1, label32, "label32");
-  GLADE_HOOKUP_OBJECT (window1, frame2, "frame2");
-  GLADE_HOOKUP_OBJECT (window1, alignment7, "alignment7");
-  GLADE_HOOKUP_OBJECT (window1, fixed10, "fixed10");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_ssh, "checkbutton_ssh");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_printsystem, "checkbutton_printsystem");
-  GLADE_HOOKUP_OBJECT (window1, label38, "label38");
-  GLADE_HOOKUP_OBJECT (window1, label5, "label5");
-  GLADE_HOOKUP_OBJECT (window1, fixed7, "fixed7");
-  GLADE_HOOKUP_OBJECT (window1, hseparator14, "hseparator14");
-  GLADE_HOOKUP_OBJECT (window1, vseparator8, "vseparator8");
-  GLADE_HOOKUP_OBJECT (window1, vseparator7, "vseparator7");
-  GLADE_HOOKUP_OBJECT (window1, hseparator15, "hseparator15");
-  GLADE_HOOKUP_OBJECT (window1, label33, "label33");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_force, "checkbutton_force");
-  GLADE_HOOKUP_OBJECT (window1, checkbutton_metapackages, "checkbutton_metapackages");
-  GLADE_HOOKUP_OBJECT (window1, hseparator16, "hseparator16");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton1, "radiobutton1");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton2, "radiobutton2");
-  GLADE_HOOKUP_OBJECT (window1, radiobutton3, "radiobutton3");
-  GLADE_HOOKUP_OBJECT (window1, vseparator9, "vseparator9");
-  GLADE_HOOKUP_OBJECT (window1, button_install, "button_install");
-  GLADE_HOOKUP_OBJECT (window1, alignment6, "alignment6");
-  GLADE_HOOKUP_OBJECT (window1, hbox5, "hbox5");
-  GLADE_HOOKUP_OBJECT (window1, image8, "image8");
-  GLADE_HOOKUP_OBJECT (window1, label_install_button, "label_install_button");
-  GLADE_HOOKUP_OBJECT (window1, image16, "image16");
-  GLADE_HOOKUP_OBJECT (window1, vseparator10, "vseparator10");
-  GLADE_HOOKUP_OBJECT (window1, hseparator18, "hseparator18");
-  GLADE_HOOKUP_OBJECT (window1, hseparator17, "hseparator17");
-  GLADE_HOOKUP_OBJECT (window1, label37, "label37");
-  GLADE_HOOKUP_OBJECT (window1, label_rootpart_warning, "label_rootpart_warning");
-  GLADE_HOOKUP_OBJECT (window1, label6, "label6");
-  GLADE_HOOKUP_OBJECT_NO_REF (window1, tooltips, "tooltips");
+  GLADE_HOOKUP_OBJECT_NO_REF (window_main, window_main, "window_main");
+  GLADE_HOOKUP_OBJECT (window_main, fixed1, "fixed1");
+  GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
+  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
+  GLADE_HOOKUP_OBJECT (window_main, image12, "image12");
+  GLADE_HOOKUP_OBJECT (window_main, next, "next");
+  GLADE_HOOKUP_OBJECT (window_main, image15, "image15");
+  GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
+  GLADE_HOOKUP_OBJECT (window_main, image14, "image14");
+  GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
+  GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator2, "hseparator2");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator7, "hseparator7");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator1, "vseparator1");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator8, "hseparator8");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator2, "vseparator2");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_install, "label_wellcome_install");
+  GLADE_HOOKUP_OBJECT (window_main, label30, "label30");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator3, "hseparator3");
+  GLADE_HOOKUP_OBJECT (window_main, image2, "image2");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
+  GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
+  GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
+  GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
+  GLADE_HOOKUP_OBJECT (window_main, button_gparted, "button_gparted");
+  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
+  GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
+  GLADE_HOOKUP_OBJECT (window_main, label_changed, "label_changed");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
+  GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (window_main, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (window_main, label35, "label35");
+  GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
+  GLADE_HOOKUP_OBJECT (window_main, label2, "label2");
+  GLADE_HOOKUP_OBJECT (window_main, fixed4, "fixed4");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator4, "hseparator4");
+  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
+  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
+  GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator4, "vseparator4");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator10, "hseparator10");
+  GLADE_HOOKUP_OBJECT (window_main, frame3, "frame3");
+  GLADE_HOOKUP_OBJECT (window_main, alignment8, "alignment8");
+  GLADE_HOOKUP_OBJECT (window_main, fixed11, "fixed11");
+  GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
+  GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
+  GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
+  GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
+  GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
+  GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
+  GLADE_HOOKUP_OBJECT (window_main, alignment5, "alignment5");
+  GLADE_HOOKUP_OBJECT (window_main, fixed8, "fixed8");
+  GLADE_HOOKUP_OBJECT (window_main, entry_rootpw, "entry_rootpw");
+  GLADE_HOOKUP_OBJECT (window_main, entry_rootpw_again, "entry_rootpw_again");
+  GLADE_HOOKUP_OBJECT (window_main, entry_realname, "entry_realname");
+  GLADE_HOOKUP_OBJECT (window_main, entry_username, "entry_username");
+  GLADE_HOOKUP_OBJECT (window_main, entry_pw, "entry_pw");
+  GLADE_HOOKUP_OBJECT (window_main, entry_pw_again, "entry_pw_again");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
+  GLADE_HOOKUP_OBJECT (window_main, label26, "label26");
+  GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
+  GLADE_HOOKUP_OBJECT (window_main, label28, "label28");
+  GLADE_HOOKUP_OBJECT (window_main, label29, "label29");
+  GLADE_HOOKUP_OBJECT (window_main, label18, "label18");
+  GLADE_HOOKUP_OBJECT (window_main, label21, "label21");
+  GLADE_HOOKUP_OBJECT (window_main, label25, "label25");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator5, "hseparator5");
+  GLADE_HOOKUP_OBJECT (window_main, label16, "label16");
+  GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
+  GLADE_HOOKUP_OBJECT (window_main, fixed6, "fixed6");
+  GLADE_HOOKUP_OBJECT (window_main, hostname, "hostname");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator11, "hseparator11");
+  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator12, "hseparator12");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator5, "vseparator5");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator13, "hseparator13");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator6, "vseparator6");
+  GLADE_HOOKUP_OBJECT (window_main, label32, "label32");
+  GLADE_HOOKUP_OBJECT (window_main, frame2, "frame2");
+  GLADE_HOOKUP_OBJECT (window_main, alignment7, "alignment7");
+  GLADE_HOOKUP_OBJECT (window_main, fixed10, "fixed10");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_ssh, "checkbutton_ssh");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_printsystem, "checkbutton_printsystem");
+  GLADE_HOOKUP_OBJECT (window_main, label38, "label38");
+  GLADE_HOOKUP_OBJECT (window_main, label5, "label5");
+  GLADE_HOOKUP_OBJECT (window_main, fixed7, "fixed7");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator14, "hseparator14");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator8, "vseparator8");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator7, "vseparator7");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator15, "hseparator15");
+  GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_force, "checkbutton_force");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_metapackages, "checkbutton_metapackages");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator16, "hseparator16");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton1, "radiobutton1");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton2, "radiobutton2");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton3, "radiobutton3");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator9, "vseparator9");
+  GLADE_HOOKUP_OBJECT (window_main, button_install, "button_install");
+  GLADE_HOOKUP_OBJECT (window_main, alignment6, "alignment6");
+  GLADE_HOOKUP_OBJECT (window_main, hbox5, "hbox5");
+  GLADE_HOOKUP_OBJECT (window_main, image8, "image8");
+  GLADE_HOOKUP_OBJECT (window_main, label_install_button, "label_install_button");
+  GLADE_HOOKUP_OBJECT (window_main, image16, "image16");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator10, "vseparator10");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator18, "hseparator18");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator17, "hseparator17");
+  GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
+  GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
+  GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
+  GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 
-  return window1;
+  return window_main;
 }
 
 GtkWidget*

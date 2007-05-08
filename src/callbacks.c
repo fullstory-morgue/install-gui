@@ -22,7 +22,7 @@ char scanparttmp[80];
 char systemcallstr[100];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
-int  do_it_at_first_time = 0, counter, leaved_user_page, i = 0;;
+int  counter, leaved_user_page, i = 0;;
 GtkWidget* label_changed;
 
 
@@ -255,7 +255,7 @@ password_check(GtkWidget     *button)
 
       //  Message Dialog Root Password different
       if( strcmp( rootpw, rootpw_a ) != 0 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
@@ -269,7 +269,7 @@ password_check(GtkWidget     *button)
 
       //  Message Dialog Root Password to short
       if( strlen( rootpw ) < 6 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
@@ -286,7 +286,7 @@ password_check(GtkWidget     *button)
       strcpy(nname, gtk_entry_get_text(GTK_ENTRY(entry)));
 
       if( strlen( nname ) < 1 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
@@ -303,7 +303,7 @@ password_check(GtkWidget     *button)
       strcpy(uname, gtk_entry_get_text(GTK_ENTRY(entry)));
 
       if( strlen( uname ) < 1 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
@@ -324,7 +324,7 @@ password_check(GtkWidget     *button)
 
       //  Message Dialog Password different
       if( strcmp( pw, pw_a ) != 0 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
@@ -337,7 +337,7 @@ password_check(GtkWidget     *button)
 
       //  Message Dialog Password to short
       if( strlen( pw ) < 6 ) {
-          mainW = lookup_widget (GTK_WIDGET (button), "window1");
+          mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
@@ -349,155 +349,6 @@ password_check(GtkWidget     *button)
       }
 
    return 1;
-}
-
-gboolean
-on_window1_configure_event             (GtkWidget       *widget,
-                                        GdkEventConfigure *event,
-                                        gpointer         user_data)
-{
- if( do_it_at_first_time < 1 ) {
-
-   do_it_at_first_time = 1;  // only at start
-
-
-  /* ==================================================
-   * activate mount point of other partitions treeviev
-   * ================================================== */
-   GtkWidget *treeview1;
-   GtkListStore *model;
-   GtkCellRenderer *cell, *cell_editable;
-   GtkTreeViewColumn *mointpoint, *fs, *device;
-   GtkWidget *rootpartcombo;
-   GtkWidget *label;
-   PangoFontDescription *font_desc;
-   GdkColor color;
-
-   /* treeview, other Mountpoints */
-   treeview1   = lookup_widget (GTK_WIDGET (widget), "treeview1");
-   model = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-
-   gtk_tree_view_set_model(GTK_TREE_VIEW(treeview1), GTK_TREE_MODEL (model));
-   cell = gtk_cell_renderer_text_new();
-   cell_editable = gtk_cell_renderer_text_new();
-
-   // set the right cell of treeview editable and colors
-   g_object_set (cell_editable,
-                "editable", TRUE,
-                "foreground", "red",
-                "background", "gray",
-                NULL);
-
-   device     = gtk_tree_view_column_new_with_attributes("Device", cell, "text", 0, NULL);
-   fs         = gtk_tree_view_column_new_with_attributes("FS", cell, "text", 1, NULL);
-   mointpoint = gtk_tree_view_column_new_with_attributes("Mountpoint", cell_editable, "text", 2, NULL);
-
-   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(device));
-   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(fs));
-   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(mointpoint));
-
-   // when the cell was edited store the new entry
-   g_signal_connect (G_OBJECT(cell_editable), "edited",
-		    G_CALLBACK(cell_edit_cb),
-		    model);
-
-   //gtk_tree_view_column_set_resizable(mointpoint,TRUE);
-   //gtk_tree_view_column_set_resizable(fs,TRUE);
-   //gtk_tree_view_column_set_resizable(device,TRUE);
-   //gtk_tree_view_column_set_fixed_width(device, 20);
-   //gtk_tree_view_column_set_sizing (column, GTK_TREE_VIEW_COLUMN_AUTOSIZE);
-
-
-  /* ============================================================ *
-   *                   fill the root partition combo box          *
-   * ============================================================ */
-   rootpartcombo = lookup_widget (GTK_WIDGET (widget), "rootpartcombo");
-   read_partitions( GTK_COMBO_BOX (rootpartcombo) );
-
-
-  /* ============================================================= *
-   *                   fill the format_combo_box                   *
-   * ============================================================= */
-
-   GtkWidget *format_combo = lookup_widget (GTK_WIDGET (widget), "format_combo");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext3");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext2");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "reiserfs");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "xfs");
-
-   gtk_combo_box_set_active( GTK_COMBO_BOX(format_combo),0);
-
-
-  /* ============================================================= *
-   *                   fill the combobox_bootmanager               *
-   * ============================================================= */
-   GtkWidget *combobox_bootmanager = lookup_widget (GTK_WIDGET (widget), "combobox_bootmanager");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "grub");
-   //gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "lilo");
-
-   gtk_combo_box_set_active( GTK_COMBO_BOX(combobox_bootmanager),0);
-
-
-  /* ============================================================= *
-   *                   fill the combobox_installplace              *
-   * ============================================================= */
-   GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (widget), "combobox_installplace");
-   is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
-
-
-  /* ============================================================= *
-   *           Label sets, font, color, etc.                       *
-   * ============================================================= */
-   label = lookup_widget (GTK_WIDGET (widget), "label_wellcome");
-
-   font_desc = pango_font_description_from_string ("20");
-
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_install");
-   gdk_color_parse ("darkblue", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("14");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_red");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_2");
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_metapackages");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_automount");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_rootpart_warning");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("18");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
- }
-
- return FALSE;
 }
 
 
@@ -623,7 +474,7 @@ on_prev_clicked                        (GtkButton       *button,
 
 
 gboolean
-on_window1_delete_event                (GtkWidget       *widget,
+on_window_main_delete_event                (GtkWidget       *widget,
                                         GdkEvent        *event,
                                         gpointer         user_data)
 {
@@ -679,8 +530,8 @@ on_button_gparted_clicked              (GtkButton       *button,
 
 
    // hide the main window after gparted has done
-   //GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
-   //gtk_widget_hide ( GTK_WIDGET (window1) );
+   //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+   //gtk_widget_hide ( GTK_WIDGET (window_main) );
 
 
   //disable kde automount
@@ -729,7 +580,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    }
 
    // show the main window after gparted has done
-   //gtk_widget_show ( GTK_WIDGET (window1) );
+   //gtk_widget_show ( GTK_WIDGET (window_main) );
 }
 
 
@@ -737,8 +588,8 @@ void
 on_button_gparted_pressed              (GtkButton       *button,
                                         gpointer         user_data)
 {   // hide the main window and start gparted
-   //GtkWidget *window1 = lookup_widget(GTK_WIDGET(button),"window1");
-   //gtk_widget_hide ( GTK_WIDGET (window1) ); 
+   //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+   //gtk_widget_hide ( GTK_WIDGET (window_main) ); 
 }
 
 
@@ -1129,5 +980,169 @@ on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
       gtk_label_set_text( GTK_LABEL ( label_install_button ), "Start" );
   }
+}
+
+
+void
+on_button_tz_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+
+}
+
+
+
+
+void
+on_window_main_show                    (GtkWidget       *widget,
+                                        gpointer         user_data)
+{
+  /* ==================================================
+   * activate mount point of other partitions treeviev
+   * ================================================== */
+   GtkWidget *treeview1;
+   GtkListStore *model;
+   GtkCellRenderer *cell, *cell_editable;
+   GtkTreeViewColumn *mointpoint, *fs, *device;
+   GtkWidget *rootpartcombo;
+   GtkWidget *label;
+   PangoFontDescription *font_desc;
+   GdkColor color;
+
+   /* treeview, other Mountpoints */
+   treeview1   = lookup_widget (GTK_WIDGET (widget), "treeview1");
+   model = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+
+   gtk_tree_view_set_model(GTK_TREE_VIEW(treeview1), GTK_TREE_MODEL (model));
+   cell = gtk_cell_renderer_text_new();
+   cell_editable = gtk_cell_renderer_text_new();
+
+   // set the right cell of treeview editable and colors
+   g_object_set (cell_editable,
+                "editable", TRUE,
+                "foreground", "red",
+                "background", "gray",
+                NULL);
+
+   device     = gtk_tree_view_column_new_with_attributes("Device", cell, "text", 0, NULL);
+   fs         = gtk_tree_view_column_new_with_attributes("FS", cell, "text", 1, NULL);
+   mointpoint = gtk_tree_view_column_new_with_attributes("Mountpoint", cell_editable, "text", 2, NULL);
+
+   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(device));
+   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(fs));
+   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(mointpoint));
+
+   // when the cell was edited store the new entry
+   g_signal_connect (G_OBJECT(cell_editable), "edited",
+		    G_CALLBACK(cell_edit_cb),
+		    model);
+
+   //gtk_tree_view_column_set_resizable(mointpoint,TRUE);
+   //gtk_tree_view_column_set_resizable(fs,TRUE);
+   //gtk_tree_view_column_set_resizable(device,TRUE);
+   //gtk_tree_view_column_set_fixed_width(device, 20);
+   //gtk_tree_view_column_set_sizing (column, GTK_TREE_VIEW_COLUMN_AUTOSIZE);
+
+
+  /* ============================================================ *
+   *                   fill the root partition combo box          *
+   * ============================================================ */
+   rootpartcombo = lookup_widget (GTK_WIDGET (widget), "rootpartcombo");
+   read_partitions( GTK_COMBO_BOX (rootpartcombo) );
+
+
+  /* ============================================================= *
+   *                   fill the format_combo_box                   *
+   * ============================================================= */
+
+   GtkWidget *format_combo = lookup_widget (GTK_WIDGET (widget), "format_combo");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext3");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext2");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "reiserfs");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "xfs");
+
+   gtk_combo_box_set_active( GTK_COMBO_BOX(format_combo),0);
+
+
+  /* ============================================================= *
+   *                   fill the combobox_bootmanager               *
+   * ============================================================= */
+   GtkWidget *combobox_bootmanager = lookup_widget (GTK_WIDGET (widget), "combobox_bootmanager");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "grub");
+   //gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "lilo");
+
+   gtk_combo_box_set_active( GTK_COMBO_BOX(combobox_bootmanager),0);
+
+
+  /* ============================================================= *
+   *                   fill the combobox_installplace              *
+   * ============================================================= */
+   GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (widget), "combobox_installplace");
+   is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
+
+
+  /* ============================================================= *
+   *                      fill the label_tz                        *
+   * ============================================================= */
+   GtkWidget *label_tz = lookup_widget (GTK_WIDGET (widget), "label_tz");
+   gdk_color_parse ("darkred", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label_tz), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("14");
+   gtk_widget_modify_font ( GTK_WIDGET(label_tz), font_desc);
+   pango_font_description_free (font_desc);
+
+   gtk_label_set_markup( GTK_LABEL ( label_tz ), "<big><b>Europe/Irgendwas</b></big>" );
+
+  /* ============================================================= *
+   *           Label sets, font, color, etc.                       *
+   * ============================================================= */
+   label = lookup_widget (GTK_WIDGET (widget), "label_wellcome");
+
+   font_desc = pango_font_description_from_string ("20");
+
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_install");
+   gdk_color_parse ("darkblue", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("14");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_red");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_2");
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_metapackages");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_automount");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label_rootpart_warning");
+   gdk_color_parse ("red", &color);
+   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
+   font_desc = pango_font_description_from_string ("18");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
 }
 

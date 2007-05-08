@@ -18,7 +18,7 @@
 int
 main (int argc, char *argv[])
 {
-  GtkWidget *window1;
+  GtkWidget *window_main;
 
 #ifdef ENABLE_NLS
   bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -44,8 +44,8 @@ main (int argc, char *argv[])
      gtk_widget_show (dialog_no_root);
    }
    else {
-     window1 = create_window1 ();
-     gtk_widget_show (window1);
+     window_main = create_window_main ();
+     gtk_widget_show (window_main);
    }
 
    gtk_main ();

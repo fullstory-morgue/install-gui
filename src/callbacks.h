@@ -126,3 +126,25 @@ on_radiobutton2_toggled                (GtkToggleButton *togglebutton,
 void
 on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
+
+void
+on_button1_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_tz_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);
+
+gboolean
+on_window_main_configure_event         (GtkWidget       *widget,
+                                        GdkEventConfigure *event,
+                                        gpointer         user_data);
+
+gboolean
+on_window_main_delete_event            (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data);
+
+void
+on_window_main_show                    (GtkWidget       *widget,
+                                        gpointer         user_data);
