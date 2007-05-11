@@ -1,8 +1,12 @@
 install-gui (0.1.5) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 09 May 2007 01:07:31 +0200
+  [ Horst Tritremmel ]
+  * add libqt-perl check for timezone selection 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Fri, 11 May 2007 21:11:47 +0200
 
 install-gui (0.1.4) unstable; urgency=low
 

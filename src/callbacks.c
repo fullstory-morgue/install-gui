@@ -1015,10 +1015,25 @@ on_button_tz_clicked                   (GtkButton       *button,
                                         gpointer         user_data)
 {
    // change timezone
+   char tzsh[512];
 
-   system("[ -d \"/usr/lib/perl5/Gnome2/\" ] \
-   && DEBIAN_FRONTEND=gnome dpkg-reconfigure tzdata \
-   || x-terminal-emulator -e dpkg-reconfigure tzdata");
+
+   strncpy(tzsh, "#!/bin/bash\n", 512);
+   strncat(tzsh, "close_me=0\n", 512);
+
+   strncat(tzsh, "[ -n \"$(dpkg -l | grep libqt-perl)\" ] && close_me=1 && \
+                       DEBIAN_FRONTEND=kde dpkg-reconfigure tzdata\n", 512);
+   strncat(tzsh, "[ \"${close_me}\" = 1 ] && exit\n", 512);
+
+   strncat(tzsh, "[ -n \"$(dpkg -l | grep libgnome2-perl)\" ] && close_me=1 && \
+                       DEBIAN_FRONTEND=gnome dpkg-reconfigure tzdata\n", 512);
+   strncat(tzsh, "[ \"${close_me}\" = 1 ] && exit\n", 512);
+
+   strncat(tzsh, "x-terminal-emulator -e dpkg-reconfigure tzdata", 512);
+
+
+   system(tzsh);
+
 
    timezone_read (GTK_WIDGET (button));
 }
