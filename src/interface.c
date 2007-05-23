@@ -56,10 +56,12 @@ create_window_main (void)
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
+  GtkWidget *comboboxentry_entry1;
   GtkWidget *checkbutton_format_with;
   GtkWidget *button_gparted;
   GtkWidget *label7;
   GtkWidget *rootpartcombo;
+  GtkWidget *comboboxentry_entry2;
   GtkWidget *label_changed;
   GtkWidget *hseparator1;
   GtkWidget *scrolledwindow1;
@@ -74,10 +76,7 @@ create_window_main (void)
   GtkWidget *label13;
   GtkWidget *hseparator9;
   GtkWidget *vseparator3;
-  GtkWidget *label14;
   GtkWidget *label15;
-  GtkWidget *combobox_bootmanager;
-  GtkWidget *combobox_installplace;
   GtkWidget *checkbutton_bootdisk;
   GtkWidget *vseparator4;
   GtkWidget *hseparator10;
@@ -87,6 +86,9 @@ create_window_main (void)
   GtkWidget *label_tz;
   GtkWidget *button_tz;
   GtkWidget *label39;
+  GtkWidget *label14;
+  GtkWidget *combobox_bootmanager;
+  GtkWidget *combobox_installplace;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *frame1;
@@ -306,6 +308,11 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 488, 56);
   gtk_widget_set_size_request (format_combo, 176, 24);
 
+  comboboxentry_entry1 = gtk_entry_new ();
+  gtk_container_add (GTK_CONTAINER (format_combo), comboboxentry_entry1);
+  GTK_WIDGET_UNSET_FLAGS (comboboxentry_entry1, GTK_CAN_FOCUS);
+  gtk_entry_set_invisible_char (GTK_ENTRY (comboboxentry_entry1), 9679);
+
   checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
   gtk_widget_show (checkbutton_format_with);
   gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 160, 56);
@@ -328,6 +335,11 @@ create_window_main (void)
   gtk_widget_show (rootpartcombo);
   gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 280, 24);
   gtk_widget_set_size_request (rootpartcombo, 384, 24);
+
+  comboboxentry_entry2 = gtk_entry_new ();
+  gtk_container_add (GTK_CONTAINER (rootpartcombo), comboboxentry_entry2);
+  GTK_WIDGET_UNSET_FLAGS (comboboxentry_entry2, GTK_CAN_FOCUS);
+  gtk_entry_set_invisible_char (GTK_ENTRY (comboboxentry_entry2), 9679);
 
   label_changed = gtk_label_new ("");
   gtk_widget_show (label_changed);
@@ -408,27 +420,11 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed4), vseparator3, 96, 112);
   gtk_widget_set_size_request (vseparator3, 16, 128);
 
-  label14 = gtk_label_new (_("Bootmanager"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed4), label14, 120, 128);
-  gtk_widget_set_size_request (label14, 184, 24);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
-
   label15 = gtk_label_new (_("Installation-target"));
   gtk_widget_show (label15);
   gtk_fixed_put (GTK_FIXED (fixed4), label15, 120, 168);
   gtk_widget_set_size_request (label15, 184, 24);
   gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
-
-  combobox_bootmanager = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (combobox_bootmanager);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 312, 128);
-  gtk_widget_set_size_request (combobox_bootmanager, 183, 25);
-
-  combobox_installplace = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (combobox_installplace);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 312, 168);
-  gtk_widget_set_size_request (combobox_installplace, 183, 25);
 
   checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
   gtk_widget_show (checkbutton_bootdisk);
@@ -478,6 +474,22 @@ create_window_main (void)
   gtk_widget_show (label39);
   gtk_frame_set_label_widget (GTK_FRAME (frame3), label39);
   gtk_label_set_use_markup (GTK_LABEL (label39), TRUE);
+
+  label14 = gtk_label_new (_("Bootmanager"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed4), label14, 120, 128);
+  gtk_widget_set_size_request (label14, 184, 24);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
+
+  combobox_bootmanager = gtk_combo_box_entry_new_text ();
+  gtk_widget_show (combobox_bootmanager);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 312, 128);
+  gtk_widget_set_size_request (combobox_bootmanager, 187, 27);
+
+  combobox_installplace = gtk_combo_box_entry_new_text ();
+  gtk_widget_show (combobox_installplace);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 312, 168);
+  gtk_widget_set_size_request (combobox_installplace, 187, 27);
 
   label3 = gtk_label_new (_("Grub"));
   gtk_widget_show (label3);
@@ -888,10 +900,12 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
+  GLADE_HOOKUP_OBJECT (window_main, comboboxentry_entry1, "comboboxentry_entry1");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
   GLADE_HOOKUP_OBJECT (window_main, button_gparted, "button_gparted");
   GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
   GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
+  GLADE_HOOKUP_OBJECT (window_main, comboboxentry_entry2, "comboboxentry_entry2");
   GLADE_HOOKUP_OBJECT (window_main, label_changed, "label_changed");
   GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
   GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
@@ -906,10 +920,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
   GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
-  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
   GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
   GLADE_HOOKUP_OBJECT (window_main, vseparator4, "vseparator4");
   GLADE_HOOKUP_OBJECT (window_main, hseparator10, "hseparator10");
@@ -919,6 +930,9 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
   GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
   GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
+  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
@@ -1053,5 +1067,154 @@ create_dialog_no_root (void)
   GLADE_HOOKUP_OBJECT (dialog_no_root, closebutton1, "closebutton1");
 
   return dialog_no_root;
+}
+
+GtkWidget*
+create_install_progressbar (void)
+{
+  GtkWidget *install_progressbar;
+  GdkPixbuf *install_progressbar_icon_pixbuf;
+  GtkWidget *fixed5;
+  GtkWidget *progressbar1;
+  GtkWidget *progressbar2;
+  GtkWidget *hseparator5;
+  GtkWidget *hseparator6;
+  GtkWidget *scrolledwindow3;
+  GtkWidget *viewport3;
+  GtkWidget *fixed6;
+  GtkWidget *label_generally2;
+  GtkWidget *image5;
+  GtkWidget *image6;
+  GtkWidget *label2;
+  GtkWidget *label1;
+  GtkWidget *label_clock;
+  GtkWidget *label_fifo;
+
+  install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
+  gtk_window_set_resizable (GTK_WINDOW (install_progressbar), FALSE);
+  install_progressbar_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  if (install_progressbar_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (install_progressbar), install_progressbar_icon_pixbuf);
+      gdk_pixbuf_unref (install_progressbar_icon_pixbuf);
+    }
+
+  fixed5 = gtk_fixed_new ();
+  gtk_widget_show (fixed5);
+  gtk_container_add (GTK_CONTAINER (install_progressbar), fixed5);
+  gtk_container_set_border_width (GTK_CONTAINER (fixed5), 15);
+
+  progressbar1 = gtk_progress_bar_new ();
+  gtk_widget_show (progressbar1);
+  gtk_fixed_put (GTK_FIXED (fixed5), progressbar1, 0, 448);
+  gtk_widget_set_size_request (progressbar1, 600, 24);
+  gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar1), 0.01);
+
+  progressbar2 = gtk_progress_bar_new ();
+  gtk_widget_show (progressbar2);
+  gtk_fixed_put (GTK_FIXED (fixed5), progressbar2, 0, 376);
+  gtk_widget_set_size_request (progressbar2, 600, 25);
+  gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar2), 0.01);
+
+  hseparator5 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator5);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 0, 312);
+  gtk_widget_set_size_request (hseparator5, 600, 17);
+
+  hseparator6 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator6);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator6, 0, 88);
+  gtk_widget_set_size_request (hseparator6, 600, 17);
+
+  scrolledwindow3 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow3);
+  gtk_fixed_put (GTK_FIXED (fixed5), scrolledwindow3, 0, 104);
+  gtk_widget_set_size_request (scrolledwindow3, 601, 209);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_SHADOW_IN);
+
+  viewport3 = gtk_viewport_new (NULL, NULL);
+  gtk_widget_show (viewport3);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow3), viewport3);
+
+  fixed6 = gtk_fixed_new ();
+  gtk_widget_show (fixed6);
+  gtk_container_add (GTK_CONTAINER (viewport3), fixed6);
+
+  label_generally2 = gtk_label_new (_("<span foreground=\"indianred4\" font_desc=\"Sans Bold 14\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"12\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"11\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>, so you'll probably want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">You can add contrib and non-free with metapackage-installer.</span>\n\n\n<b><u>firmware</u></b>\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ATi Radeon graphics:</span> 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '<b>sgfxi -N radeon</b>'\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Nvidia  graphics:</span> type '<b>sgfxi -h</b>' to see available options\n* Atheros/ \"madwifi\" wlan: m-a a-i madwifi.\n* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware\n* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.\n* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.\n* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html\n* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.\n* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.\n* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945\n* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html\n* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware\n* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.\n* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.\n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJoaquim Boura (x-un-i)\nRoland Engert (RoEn)\nAedan Kelly (etorix)\nBernard Gray (cleary)\nAndreas Hausmann (Bodhi)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nHarald Hope (h2)\nKel Modderman (kelmo)\nStefan Lippers-Hollmann (slh)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nNiall Walsh (bfree)\nTrevor Walkley (bluewater)\nAndreas Weber (webera)\nand many more\n\na big thank you goes to the documentation and translation teams!\n\nThanks to all involved for making this possible:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
+  gtk_widget_show (label_generally2);
+  gtk_fixed_put (GTK_FIXED (fixed6), label_generally2, 8, 8);
+  gtk_widget_set_size_request (label_generally2, 560, 1600);
+  gtk_label_set_use_markup (GTK_LABEL (label_generally2), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label_generally2), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_generally2), 0, 0);
+
+  image5 = create_pixmap (install_progressbar, "install-pgb-hot.jpg");
+  gtk_widget_show (image5);
+  gtk_fixed_put (GTK_FIXED (fixed5), image5, 8, 0);
+  gtk_widget_set_size_request (image5, 88, 80);
+  gtk_misc_set_alignment (GTK_MISC (image5), 0, 0);
+
+  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
+  gtk_widget_show (image6);
+  gtk_fixed_put (GTK_FIXED (fixed5), image6, 352, 48);
+  gtk_widget_set_size_request (image6, 241, 33);
+
+  label2 = gtk_label_new (_("Current\nOperation:"));
+  gtk_widget_show (label2);
+  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 336);
+  gtk_widget_set_size_request (label2, 129, 41);
+  gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
+
+  label1 = gtk_label_new (_("Completed Operations:"));
+  gtk_widget_show (label1);
+  gtk_fixed_put (GTK_FIXED (fixed5), label1, 0, 424);
+  gtk_widget_set_size_request (label1, 265, 25);
+  gtk_misc_set_alignment (GTK_MISC (label1), 0, 0);
+
+  label_clock = gtk_label_new (_("00:00:00"));
+  gtk_widget_show (label_clock);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
+  gtk_widget_set_size_request (label_clock, 217, 25);
+  gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
+
+  label_fifo = gtk_label_new ("");
+  gtk_widget_show (label_fifo);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
+  gtk_widget_set_size_request (label_fifo, 494, 41);
+  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
+
+  g_signal_connect ((gpointer) install_progressbar, "show",
+                    G_CALLBACK (on_install_progressbar_show),
+                    NULL);
+  g_signal_connect ((gpointer) install_progressbar, "delete_event",
+                    G_CALLBACK (on_install_progressbar_delete_event),
+                    NULL);
+  g_signal_connect ((gpointer) install_progressbar, "configure_event",
+                    G_CALLBACK (on_install_progressbar_configure_event),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (install_progressbar, install_progressbar, "install_progressbar");
+  GLADE_HOOKUP_OBJECT (install_progressbar, fixed5, "fixed5");
+  GLADE_HOOKUP_OBJECT (install_progressbar, progressbar1, "progressbar1");
+  GLADE_HOOKUP_OBJECT (install_progressbar, progressbar2, "progressbar2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator5, "hseparator5");
+  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator6, "hseparator6");
+  GLADE_HOOKUP_OBJECT (install_progressbar, scrolledwindow3, "scrolledwindow3");
+  GLADE_HOOKUP_OBJECT (install_progressbar, viewport3, "viewport3");
+  GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, image5, "image5");
+  GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label1, "label1");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
+
+  return install_progressbar;
 }
 

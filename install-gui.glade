@@ -12,7 +12,6 @@
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
   <property name="icon">sidux-inst-conf.png</property>
-  <property name="icon_name"></property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -20,8 +19,8 @@
   <property name="gravity">GDK_GRAVITY_CENTER</property>
   <property name="focus_on_map">True</property>
   <property name="urgency_hint">False</property>
-  <signal name="delete_event" handler="on_window_main_delete_event" last_modification_time="Tue, 08 May 2007 14:30:50 GMT"/>
-  <signal name="show" handler="on_window_main_show" last_modification_time="Tue, 08 May 2007 14:35:39 GMT"/>
+  <signal name="delete_event" handler="on_window_main_delete_event"/>
+  <signal name="show" handler="on_window_main_show"/>
 
   <child>
     <widget class="GtkFixed" id="fixed1">
@@ -77,7 +76,7 @@
 	  <property name="visible">True</property>
 	  <property name="relief">GTK_RELIEF_NONE</property>
 	  <property name="focus_on_click">False</property>
-	  <signal name="clicked" handler="on_exit_clicked" last_modification_time="Mon, 15 Jan 2007 12:08:01 GMT"/>
+	  <signal name="clicked" handler="on_exit_clicked"/>
 
 	  <child>
 	    <widget class="GtkImage" id="image12">
@@ -103,7 +102,7 @@
 	  <property name="visible">True</property>
 	  <property name="relief">GTK_RELIEF_NONE</property>
 	  <property name="focus_on_click">True</property>
-	  <signal name="clicked" handler="on_next_clicked" last_modification_time="Fri, 12 Jan 2007 20:15:34 GMT"/>
+	  <signal name="clicked" handler="on_next_clicked"/>
 
 	  <child>
 	    <widget class="GtkImage" id="image15">
@@ -129,7 +128,7 @@
 	  <property name="visible">True</property>
 	  <property name="relief">GTK_RELIEF_NONE</property>
 	  <property name="focus_on_click">False</property>
-	  <signal name="clicked" handler="on_prev_clicked" last_modification_time="Fri, 12 Jan 2007 20:19:31 GMT"/>
+	  <signal name="clicked" handler="on_prev_clicked"/>
 
 	  <child>
 	    <widget class="GtkImage" id="image14">
@@ -159,7 +158,7 @@
 	  <property name="tab_pos">GTK_POS_TOP</property>
 	  <property name="scrollable">False</property>
 	  <property name="enable_popup">False</property>
-	  <signal name="switch_page" handler="on_notebook1_switch_page" last_modification_time="Thu, 18 Jan 2007 09:03:15 GMT"/>
+	  <signal name="switch_page" handler="on_notebook1_switch_page"/>
 
 	  <child>
 	    <widget class="GtkFixed" id="fixed2">
@@ -404,6 +403,18 @@ The author takes no responsibility for data loss or hardware damage.</property>
 		  <property name="add_tearoffs">False</property>
 		  <property name="has_frame">True</property>
 		  <property name="focus_on_click">True</property>
+
+		  <child internal-child="entry">
+		    <widget class="GtkEntry" id="comboboxentry-entry1">
+		      <property name="editable">True</property>
+		      <property name="visibility">True</property>
+		      <property name="max_length">0</property>
+		      <property name="text" translatable="yes"></property>
+		      <property name="has_frame">True</property>
+		      <property name="invisible_char">●</property>
+		      <property name="activates_default">False</property>
+		    </widget>
+		  </child>
 		</widget>
 		<packing>
 		  <property name="x">488</property>
@@ -445,7 +456,7 @@ manager</property>
 		  <property name="use_underline">True</property>
 		  <property name="relief">GTK_RELIEF_NORMAL</property>
 		  <property name="focus_on_click">True</property>
-		  <signal name="clicked" handler="on_button_gparted_clicked" last_modification_time="Tue, 16 Jan 2007 07:36:29 GMT"/>
+		  <signal name="clicked" handler="on_button_gparted_clicked"/>
 		</widget>
 		<packing>
 		  <property name="x">8</property>
@@ -487,7 +498,19 @@ manager</property>
 		  <property name="add_tearoffs">False</property>
 		  <property name="has_frame">True</property>
 		  <property name="focus_on_click">True</property>
-		  <signal name="changed" handler="on_rootpartcombo_changed" last_modification_time="Fri, 12 Jan 2007 20:12:41 GMT"/>
+		  <signal name="changed" handler="on_rootpartcombo_changed"/>
+
+		  <child internal-child="entry">
+		    <widget class="GtkEntry" id="comboboxentry-entry2">
+		      <property name="editable">True</property>
+		      <property name="visibility">True</property>
+		      <property name="max_length">0</property>
+		      <property name="text" translatable="yes"></property>
+		      <property name="has_frame">True</property>
+		      <property name="invisible_char">●</property>
+		      <property name="activates_default">False</property>
+		    </widget>
+		  </child>
 		</widget>
 		<packing>
 		  <property name="x">280</property>
@@ -645,7 +668,7 @@ home-partition:
 		  <property name="active">False</property>
 		  <property name="inconsistent">False</property>
 		  <property name="draw_indicator">True</property>
-		  <signal name="toggled" handler="on_checkbutton_mountpoints_toggled" last_modification_time="Fri, 12 Jan 2007 20:12:52 GMT"/>
+		  <signal name="toggled" handler="on_checkbutton_mountpoints_toggled"/>
 		</widget>
 		<packing>
 		  <property name="x">160</property>
@@ -771,32 +794,6 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label14">
-		  <property name="width_request">184</property>
-		  <property name="height_request">24</property>
-		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">Bootmanager</property>
-		  <property name="use_underline">False</property>
-		  <property name="use_markup">False</property>
-		  <property name="justify">GTK_JUSTIFY_LEFT</property>
-		  <property name="wrap">False</property>
-		  <property name="selectable">False</property>
-		  <property name="xalign">0</property>
-		  <property name="yalign">0.5</property>
-		  <property name="xpad">0</property>
-		  <property name="ypad">0</property>
-		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		  <property name="width_chars">-1</property>
-		  <property name="single_line_mode">False</property>
-		  <property name="angle">0</property>
-		</widget>
-		<packing>
-		  <property name="x">120</property>
-		  <property name="y">128</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkLabel" id="label15">
 		  <property name="width_request">184</property>
 		  <property name="height_request">24</property>
@@ -818,37 +815,6 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 		</widget>
 		<packing>
 		  <property name="x">120</property>
-		  <property name="y">168</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkComboBoxEntry" id="combobox_bootmanager">
-		  <property name="width_request">183</property>
-		  <property name="height_request">25</property>
-		  <property name="visible">True</property>
-		  <property name="items" translatable="yes"></property>
-		  <property name="add_tearoffs">False</property>
-		  <property name="has_frame">True</property>
-		  <property name="focus_on_click">True</property>
-		</widget>
-		<packing>
-		  <property name="x">312</property>
-		  <property name="y">128</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkComboBoxEntry" id="combobox_installplace">
-		  <property name="width_request">183</property>
-		  <property name="height_request">25</property>
-		  <property name="visible">True</property>
-		  <property name="add_tearoffs">False</property>
-		  <property name="has_frame">True</property>
-		  <property name="focus_on_click">True</property>
-		</widget>
-		<packing>
-		  <property name="x">312</property>
 		  <property name="y">168</property>
 		</packing>
 	      </child>
@@ -958,7 +924,7 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="use_stock">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>
-			      <signal name="clicked" handler="on_button_tz_clicked" last_modification_time="Tue, 08 May 2007 14:24:44 GMT"/>
+			      <signal name="clicked" handler="on_button_tz_clicked"/>
 			    </widget>
 			    <packing>
 			      <property name="x">112</property>
@@ -996,6 +962,62 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 		<packing>
 		  <property name="x">104</property>
 		  <property name="y">264</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkLabel" id="label14">
+		  <property name="width_request">184</property>
+		  <property name="height_request">24</property>
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">Bootmanager</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_LEFT</property>
+		  <property name="wrap">False</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="x">120</property>
+		  <property name="y">128</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkComboBoxEntry" id="combobox_bootmanager">
+		  <property name="width_request">187</property>
+		  <property name="height_request">27</property>
+		  <property name="visible">True</property>
+		  <property name="add_tearoffs">False</property>
+		  <property name="has_frame">True</property>
+		  <property name="focus_on_click">True</property>
+		</widget>
+		<packing>
+		  <property name="x">312</property>
+		  <property name="y">128</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkComboBoxEntry" id="combobox_installplace">
+		  <property name="width_request">187</property>
+		  <property name="height_request">27</property>
+		  <property name="visible">True</property>
+		  <property name="add_tearoffs">False</property>
+		  <property name="has_frame">True</property>
+		  <property name="focus_on_click">True</property>
+		</widget>
+		<packing>
+		  <property name="x">312</property>
+		  <property name="y">168</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -1862,7 +1884,7 @@ and start installation</property>
 		  <property name="active">True</property>
 		  <property name="inconsistent">False</property>
 		  <property name="draw_indicator">True</property>
-		  <signal name="toggled" handler="on_radiobutton1_toggled" last_modification_time="Fri, 09 Feb 2007 08:12:05 GMT"/>
+		  <signal name="toggled" handler="on_radiobutton1_toggled"/>
 		</widget>
 		<packing>
 		  <property name="x">120</property>
@@ -1885,7 +1907,7 @@ only (~/.sidconf)</property>
 		  <property name="inconsistent">False</property>
 		  <property name="draw_indicator">True</property>
 		  <property name="group">radiobutton1</property>
-		  <signal name="toggled" handler="on_radiobutton2_toggled" last_modification_time="Fri, 09 Feb 2007 08:13:54 GMT"/>
+		  <signal name="toggled" handler="on_radiobutton2_toggled"/>
 		</widget>
 		<packing>
 		  <property name="x">120</property>
@@ -1909,7 +1931,7 @@ without configuration
 		  <property name="inconsistent">False</property>
 		  <property name="draw_indicator">True</property>
 		  <property name="group">radiobutton1</property>
-		  <signal name="toggled" handler="on_radiobutton3_toggled" last_modification_time="Fri, 09 Feb 2007 08:14:03 GMT"/>
+		  <signal name="toggled" handler="on_radiobutton3_toggled"/>
 		</widget>
 		<packing>
 		  <property name="x">120</property>
@@ -1937,7 +1959,7 @@ without configuration
 		  <property name="can_focus">True</property>
 		  <property name="relief">GTK_RELIEF_NORMAL</property>
 		  <property name="focus_on_click">True</property>
-		  <signal name="clicked" handler="on_button_install_clicked" last_modification_time="Tue, 16 Jan 2007 12:34:27 GMT"/>
+		  <signal name="clicked" handler="on_button_install_clicked"/>
 
 		  <child>
 		    <widget class="GtkAlignment" id="alignment6">
@@ -2192,7 +2214,7 @@ without configuration
 	      <property name="relief">GTK_RELIEF_NORMAL</property>
 	      <property name="focus_on_click">True</property>
 	      <property name="response_id">-7</property>
-	      <signal name="clicked" handler="gtk_main_quit" last_modification_time="Thu, 08 Feb 2007 09:47:48 GMT"/>
+	      <signal name="clicked" handler="gtk_main_quit"/>
 	    </widget>
 	  </child>
 	</widget>
@@ -2257,6 +2279,350 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 	  <property name="padding">0</property>
 	  <property name="expand">True</property>
 	  <property name="fill">True</property>
+	</packing>
+      </child>
+    </widget>
+  </child>
+</widget>
+
+<widget class="GtkWindow" id="install_progressbar">
+  <property name="visible">True</property>
+  <property name="title" translatable="yes">sidux Installer</property>
+  <property name="type">GTK_WINDOW_TOPLEVEL</property>
+  <property name="window_position">GTK_WIN_POS_NONE</property>
+  <property name="modal">False</property>
+  <property name="resizable">False</property>
+  <property name="destroy_with_parent">False</property>
+  <property name="icon">sidux-inst-conf.png</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">False</property>
+  <property name="skip_pager_hint">False</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
+  <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
+  <signal name="show" handler="on_install_progressbar_show" last_modification_time="Wed, 23 May 2007 11:10:40 GMT"/>
+  <signal name="delete_event" handler="on_install_progressbar_delete_event" last_modification_time="Wed, 23 May 2007 11:11:13 GMT"/>
+  <signal name="configure_event" handler="on_install_progressbar_configure_event" last_modification_time="Wed, 23 May 2007 13:52:39 GMT"/>
+
+  <child>
+    <widget class="GtkFixed" id="fixed5">
+      <property name="border_width">15</property>
+      <property name="visible">True</property>
+
+      <child>
+	<widget class="GtkProgressBar" id="progressbar1">
+	  <property name="width_request">600</property>
+	  <property name="height_request">24</property>
+	  <property name="visible">True</property>
+	  <property name="orientation">GTK_PROGRESS_LEFT_TO_RIGHT</property>
+	  <property name="fraction">0</property>
+	  <property name="pulse_step">0.00999999977648</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">448</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkProgressBar" id="progressbar2">
+	  <property name="width_request">600</property>
+	  <property name="height_request">25</property>
+	  <property name="visible">True</property>
+	  <property name="orientation">GTK_PROGRESS_LEFT_TO_RIGHT</property>
+	  <property name="fraction">0</property>
+	  <property name="pulse_step">0.00999999977648</property>
+	  <property name="text" translatable="yes"></property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">376</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkHSeparator" id="hseparator5">
+	  <property name="width_request">600</property>
+	  <property name="height_request">17</property>
+	  <property name="visible">True</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">312</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkHSeparator" id="hseparator6">
+	  <property name="width_request">600</property>
+	  <property name="height_request">17</property>
+	  <property name="visible">True</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">88</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkScrolledWindow" id="scrolledwindow3">
+	  <property name="width_request">601</property>
+	  <property name="height_request">209</property>
+	  <property name="visible">True</property>
+	  <property name="can_focus">True</property>
+	  <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
+	  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+	  <property name="shadow_type">GTK_SHADOW_IN</property>
+	  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
+
+	  <child>
+	    <widget class="GtkViewport" id="viewport3">
+	      <property name="visible">True</property>
+	      <property name="shadow_type">GTK_SHADOW_IN</property>
+
+	      <child>
+		<widget class="GtkFixed" id="fixed6">
+		  <property name="visible">True</property>
+
+		  <child>
+		    <widget class="GtkLabel" id="label_generally2">
+		      <property name="width_request">560</property>
+		      <property name="height_request">1600</property>
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;indianred4&quot; font_desc=&quot;Sans Bold 14&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
+
+&lt;span font_desc=&quot;12&quot;&gt;&lt;b&gt;sidux&lt;/b&gt; is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.
+The ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.&lt;/span&gt;
+
+
+&lt;span font_desc=&quot;11&quot;&gt;&lt;b&gt;&lt;u&gt;Hints for hardware with non-free needs:&lt;/u&gt;&lt;/b&gt;
+
+sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;, so you'll probably want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list&lt;/b&gt; and ensure internet access.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;You can add contrib and non-free with metapackage-installer.&lt;/span&gt;
+
+
+&lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* ATi Radeon graphics:&lt;/span&gt; 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '&lt;b&gt;sgfxi -N radeon&lt;/b&gt;'
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Nvidia  graphics:&lt;/span&gt; type '&lt;b&gt;sgfxi -h&lt;/b&gt;' to see available options
+* Atheros/ &quot;madwifi&quot; wlan: m-a a-i madwifi.
+* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware
+* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.
+* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.
+* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.
+* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.
+* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html
+* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.
+* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.
+* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945
+* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.
+* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html
+* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.
+* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware
+* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.
+* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.
+
+
+&lt;b&gt;&lt;u&gt;Disclaimer:&lt;/u&gt;&lt;/b&gt;
+
+This is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.
+
+
+&lt;b&gt;&lt;u&gt;Special thanks go to the entire sidux development team:&lt;/u&gt;&lt;/b&gt;
+
+Joaquim Boura (x-un-i)
+Roland Engert (RoEn)
+Aedan Kelly (etorix)
+Bernard Gray (cleary)
+Andreas Hausmann (Bodhi)
+Chris Hildebrandt (slam)
+Ralph Hokanson Jr. (piper)
+Harald Hope (h2)
+Kel Modderman (kelmo)
+Stefan Lippers-Hollmann (slh)
+Ferdi Thommes (devil)
+Horst Tritremmel (hjt)
+Niall Walsh (bfree)
+Trevor Walkley (bluewater)
+Andreas Weber (webera)
+and many more
+
+a big thank you goes to the documentation and translation teams!
+
+Thanks to all involved for making this possible:
+     Stefan Lippers-Hollmann (slh) 
+&lt;/span&gt;
+</property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">True</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">True</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0</property>
+		      <property name="yalign">0</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		      <property name="width_chars">-1</property>
+		      <property name="single_line_mode">False</property>
+		      <property name="angle">0</property>
+		    </widget>
+		    <packing>
+		      <property name="x">8</property>
+		      <property name="y">8</property>
+		    </packing>
+		  </child>
+		</widget>
+	      </child>
+	    </widget>
+	  </child>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">104</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image5">
+	  <property name="width_request">88</property>
+	  <property name="height_request">80</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">install-pgb-hot.jpg</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">8</property>
+	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image6">
+	  <property name="width_request">241</property>
+	  <property name="height_request">33</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">install-gui-title.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">352</property>
+	  <property name="y">48</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label2">
+	  <property name="width_request">129</property>
+	  <property name="height_request">41</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Current
+Operation:</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">True</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">336</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label1">
+	  <property name="width_request">265</property>
+	  <property name="height_request">25</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Completed Operations:</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">424</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_clock">
+	  <property name="width_request">217</property>
+	  <property name="height_request">25</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">00:00:00</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">256</property>
+	  <property name="y">424</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_fifo">
+	  <property name="width_request">494</property>
+	  <property name="height_request">41</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes"></property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">True</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">104</property>
+	  <property name="y">336</property>
 	</packing>
       </child>
     </widget>

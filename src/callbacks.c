@@ -2,14 +2,27 @@
 #  include <config.h>
 #endif
 
+#include <glib.h>
 #include <gtk/gtk.h>
+
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
+
+#include "inotify.h"
+#include "inotify-syscalls.h"
+
+
+#define BUF_LEN    1024
 
 
 #define FILENAME ".sidconf"
@@ -24,6 +37,14 @@ char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
 int  counter, leaved_user_page, i = 0;;
 GtkWidget* label_changed;
+
+
+// progressbar
+#define BUF_LEN    1024
+
+char FILE_NAME[256];
+GtkWidget *pprogres, *pprogres2, *label, *label_generally, *label_clock;
+static gint fd, hour = 0, min = 0, sec = 0;
 
 
 enum
@@ -609,9 +630,9 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton, *checkbutton;
-   char systemcall[256], install_call[256], install_call_tmp[80], services[17];
+   char systemcall[256], services[17];
    FILE *stream;
-   int fd;
+   //int fd;
 
 
    radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton3"));
@@ -859,6 +880,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
       if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
 
+/*
          strcpy( install_call_tmp, "/tmp/INSTALL_INOTIFY.XXXXXX");
          fd = mkstemp( install_call_tmp );  // make a tempfile
 
@@ -877,6 +899,8 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
          printf("progressbar call: %s\n", install_call);
          system( install_call );
 
+
+
          // start knx-installer
          strncpy( install_call, INSTALL_SH, 256 );
          strncat( install_call, " ", 256 );
@@ -886,6 +910,10 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
          system( install_call );
 
          system("sleep 1");
+*/
+         // start progressbar
+         GtkWidget* install_progressbar = create_install_progressbar ();
+         gtk_widget_show (install_progressbar);
 
    }
 
@@ -893,7 +921,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       /* remove the tempfile */
       unlink(scanparttmp);
 
-      gtk_main_quit();
+      //gtk_main_quit();   //remark, because install-progressbar is now included
    }
 }
 
@@ -1184,5 +1212,257 @@ on_window_main_show                    (GtkWidget       *widget,
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
+}
+
+
+
+
+/**************************************************************************
+***************************************************************************
+*                            progress-bar                                 *
+***************************************************************************
+***************************************************************************/
+static gboolean
+f_notify(GIOChannel    *source, 
+	 GIOCondition  condition,
+	 gpointer      data)
+{
+
+   gchar column[BUF_LEN], text_current[BUF_LEN];
+   char buf[BUF_LEN], *assign;
+   int len, i;
+   FILE *watched_file;
+
+
+   while (gtk_events_pending ())
+          gtk_main_iteration ();
+
+   // stop neverending loop
+   len = read (fd, buf, BUF_LEN);
+
+
+   // read the changed file
+   watched_file = fopen( FILE_NAME, "r" );
+   if( watched_file== NULL ) {
+      printf( "inotify watch file was not opened\n" );
+   }
+   else {
+       i = 0;
+       strncpy( text_current, "", BUF_LEN );
+       fseek( watched_file, 0L, SEEK_SET );
+
+       while ( fgets( column, BUF_LEN, watched_file )  != NULL ) {
+
+             // exit main
+             if( strncmp ( column, "end", 3 ) == 0 ) {
+                   gtk_main_quit();
+             }
+
+
+             assign = strtok( column, "=");
+
+             if ( strcmp ( assign, "PERC") == 0 ) {
+                 gtk_progress_bar_set_fraction ( GTK_PROGRESS_BAR( pprogres ), strtod( strtok( NULL, "="), NULL) );
+             }
+
+             if ( strcmp ( assign, "CURRENT") == 0 ) {
+                 gtk_label_set_markup ( GTK_LABEL ( label ), strtok( NULL, "=") );
+             }
+
+             if ( strcmp ( assign, "COMPLETE") == 0 ) {
+                 gtk_progress_bar_set_text ( GTK_PROGRESS_BAR( pprogres ), strtok( NULL, "=") );
+             }
+
+       }
+
+
+    }
+    fclose( watched_file );
+
+    //gtk_progress_bar_set_fraction ( GTK_PROGRESS_BAR( pprogres2 ), 0 );
+
+    return(TRUE);
+}
+
+
+gboolean up (gpointer user_data)
+{
+  /********************************************
+   *        progresbar2 pulse                 *
+   ********************************************/
+   gtk_progress_bar_pulse  ( GTK_PROGRESS_BAR( pprogres2 ) );
+   return(TRUE);
+}
+
+
+gboolean zeit (gpointer user_data)
+{
+  /********************************************
+   *                time counter              *
+   ********************************************/
+   char clock[80], min0[2] = "0", sec0[2] = "0";
+
+   sec++;
+   if ( sec == 60 ) {
+        sec = 0;
+        min++;
+   }
+
+   if ( sec < 10)
+        strncpy( sec0, "0", 2);
+   else
+        strncpy( sec0, "", 2);
+
+
+   if ( min == 60 ) {
+        min = 0;
+        hour++;
+   }
+
+   if ( min < 10)
+        strncpy( min0, "0", 2);
+   else
+        strncpy( min0, "", 2);
+
+   sprintf (clock, "0%d:%s%d:%s%d", hour, min0, min, sec0, sec);
+   gtk_label_set_text ( GTK_LABEL( label_clock ), clock );
+
+
+   return(TRUE);
+}
+
+
+void
+on_install_progressbar_show            (GtkWidget       *widget,
+                                        gpointer         user_data)
+{
+   GdkColor color;
+   PangoFontDescription *font_desc;
+   GIOChannel *ioc;
+   int wd;
+   char install_call[256], install_call_tmp[80];
+
+
+
+   //  inotify tem file for knx-installer
+   strcpy( install_call_tmp, "/tmp/INSTALL_INOTIFY.XXXXXX");
+   fd = mkstemp( install_call_tmp );  // make a tempfile
+   strncpy(FILE_NAME, install_call_tmp, 80);
+
+   if( fd ) {
+         close ( fd );
+   }
+   else {
+         strncpy( install_call_tmp, "/tmp/fifo_inst", 80 );
+         perror("mkstemp INSTALL_INOTIFY,");
+   }
+
+
+  /********************************************
+   *           PROGRESS BAR PART              *
+   ********************************************/
+   label = lookup_widget ( GTK_WIDGET (widget), "label1");
+
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label2");
+   //set color of label
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   pango_font_description_free (font_desc);
+
+
+
+   label = lookup_widget ( GTK_WIDGET (widget), "label_fifo");
+
+   pprogres = lookup_widget(GTK_WIDGET(widget), "progressbar1");
+   font_desc = pango_font_description_from_string ("12");
+   gtk_widget_modify_font ( GTK_WIDGET(pprogres), font_desc);
+   pango_font_description_free (font_desc);
+   // set color of ProgressBar
+   gdk_color_parse ("gray70", &color);
+   gtk_widget_modify_bg (pprogres, GTK_STATE_NORMAL, &color);
+   gdk_color_parse ("IndianRed4", &color);
+   gtk_widget_modify_bg (pprogres, GTK_STATE_PRELIGHT, &color);
+
+   pprogres2 = lookup_widget(GTK_WIDGET(widget), "progressbar2");
+   gtk_progress_bar_set_pulse_step ( GTK_PROGRESS_BAR( pprogres2 ), 0.01 );
+
+   // set color of ProgressBar
+   gdk_color_parse ("gray70", &color);
+   gtk_widget_modify_bg (pprogres2, GTK_STATE_NORMAL, &color);
+   gdk_color_parse ("IndianRed4", &color);
+   gtk_widget_modify_bg (pprogres2, GTK_STATE_PRELIGHT, &color);
+
+   // label_clock
+   label_clock = lookup_widget ( GTK_WIDGET (widget), "label_clock");
+   font_desc = pango_font_description_from_string ("Bold 12");
+   gtk_widget_modify_font ( GTK_WIDGET(label_clock), font_desc);
+   pango_font_description_free (font_desc);
+
+
+   //  Initialize, inotify!
+   fd = inotify_init();
+   if (fd < 0)  perror ("inotify_init");
+
+   //  Adding Watches
+   wd = inotify_add_watch (fd, FILE_NAME, IN_MODIFY | IN_CREATE );
+   if (wd < 0)  perror ("inotify_add_watch");
+
+   ioc=g_io_channel_unix_new(fd);
+   g_io_add_watch(ioc,G_IO_IN,(GIOFunc) f_notify, NULL);
+
+
+   while (gtk_events_pending ())
+	  gtk_main_iteration ();
+
+
+  /********************************************
+   *        progresbar2 pulse                 *
+   ********************************************/
+   g_timeout_add( 20, up, pprogres2 );
+   g_timeout_add( 1000, zeit, pprogres2 );
+
+
+
+   // start knx-installer
+   strncpy( install_call, INSTALL_SH, 256 );
+   strncat( install_call, " ", 256 );
+   strncat( install_call, install_call_tmp, 256 );
+   strncat( install_call, " &", 256 );
+   printf("installer call: %s\n", install_call);
+   system( install_call );
+
+}
+
+
+gboolean
+on_install_progressbar_delete_event    (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data)
+{
+  /* remove the tempfile */
+  unlink(scanparttmp);
+
+  gtk_main_quit();
+
+  return FALSE;
+}
+
+
+
+
+gboolean
+on_install_progressbar_configure_event (GtkWidget       *widget,
+                                        GdkEventConfigure *event,
+                                        gpointer         user_data)
+{
+   //hide the main window
+   GtkWidget *window_main = lookup_widget(GTK_WIDGET(widget),"window_main");
+   gtk_widget_hide ( window_main );
+
+   return FALSE;
 }
 

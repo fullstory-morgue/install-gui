@@ -148,3 +148,17 @@ on_window_main_delete_event            (GtkWidget       *widget,
 void
 on_window_main_show                    (GtkWidget       *widget,
                                         gpointer         user_data);
+
+void
+on_install_progressbar_show            (GtkWidget       *widget,
+                                        gpointer         user_data);
+
+gboolean
+on_install_progressbar_delete_event    (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data);
+
+gboolean
+on_install_progressbar_configure_event (GtkWidget       *widget,
+                                        GdkEventConfigure *event,
+                                        gpointer         user_data);

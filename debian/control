@@ -8,7 +8,7 @@ Standards-Version: 3.7.2
 
 Package: install-gui
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, knx-installer, rebuildfstab, install-meta, install-progressbar (>= 0.0.4)
+Depends: ${shlibs:Depends}, ${misc:Depends}, knx-installer, rebuildfstab, install-meta
 Description: sidux install-gui for knx-installer
  This is an sidux install-gui who makes it easy to configure the config file
  (~/.sidconf) and start the sidux-installer script.
