@@ -600,25 +600,6 @@ on_button_gparted_clicked              (GtkButton       *button,
           g_timeout_add( 1000, rootpart_warning, label_changed );
    }
 
-   // show the main window after gparted has done
-   //gtk_widget_show ( GTK_WIDGET (window_main) );
-}
-
-
-void
-on_button_gparted_pressed              (GtkButton       *button,
-                                        gpointer         user_data)
-{   // hide the main window and start gparted
-   //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
-   //gtk_widget_hide ( GTK_WIDGET (window_main) ); 
-}
-
-
-void
-on_button_gparted_released             (GtkButton       *button,
-                                        gpointer         user_data)
-{
-
 }
 
 
@@ -880,40 +861,14 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
       if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
 
-/*
-         strcpy( install_call_tmp, "/tmp/INSTALL_INOTIFY.XXXXXX");
-         fd = mkstemp( install_call_tmp );  // make a tempfile
 
-         if( fd ) {
-               close ( fd );
-         }
-         else {
-               strncpy( install_call_tmp, "/tmp/fifo_inst", 80 );
-               perror("mkstemp INSTALL_INOTIFY,");
-         }
+      //hide the main window
+      GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+      gtk_widget_hide ( window_main );
 
-         // start install-progressbar
-         strncpy( install_call, "install-progressbar --watch=", 256 );
-         strncat( install_call, install_call_tmp, 256 );
-         strncat( install_call, " &", 256 );
-         printf("progressbar call: %s\n", install_call);
-         system( install_call );
-
-
-
-         // start knx-installer
-         strncpy( install_call, INSTALL_SH, 256 );
-         strncat( install_call, " ", 256 );
-         strncat( install_call, install_call_tmp, 256 );
-         strncat( install_call, " &", 256 );
-         printf("installer call: %s\n", install_call);
-         system( install_call );
-
-         system("sleep 1");
-*/
-         // start progressbar
-         GtkWidget* install_progressbar = create_install_progressbar ();
-         gtk_widget_show (install_progressbar);
+      // start progressbar
+      GtkWidget* install_progressbar = create_install_progressbar ();
+      gtk_widget_show (install_progressbar);
 
    }
 
@@ -921,7 +876,6 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       /* remove the tempfile */
       unlink(scanparttmp);
 
-      //gtk_main_quit();   //remark, because install-progressbar is now included
    }
 }
 
@@ -1110,12 +1064,6 @@ on_window_main_show                    (GtkWidget       *widget,
    g_signal_connect (G_OBJECT(cell_editable), "edited",
 		    G_CALLBACK(cell_edit_cb),
 		    model);
-
-   //gtk_tree_view_column_set_resizable(mointpoint,TRUE);
-   //gtk_tree_view_column_set_resizable(fs,TRUE);
-   //gtk_tree_view_column_set_resizable(device,TRUE);
-   //gtk_tree_view_column_set_fixed_width(device, 20);
-   //gtk_tree_view_column_set_sizing (column, GTK_TREE_VIEW_COLUMN_AUTOSIZE);
 
 
   /* ============================================================ *
@@ -1452,17 +1400,4 @@ on_install_progressbar_delete_event    (GtkWidget       *widget,
 }
 
 
-
-
-gboolean
-on_install_progressbar_configure_event (GtkWidget       *widget,
-                                        GdkEventConfigure *event,
-                                        gpointer         user_data)
-{
-   //hide the main window
-   GtkWidget *window_main = lookup_widget(GTK_WIDGET(widget),"window_main");
-   gtk_widget_hide ( window_main );
-
-   return FALSE;
-}
 

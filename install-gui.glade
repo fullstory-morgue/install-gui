@@ -2303,7 +2303,6 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
   <property name="urgency_hint">False</property>
   <signal name="show" handler="on_install_progressbar_show" last_modification_time="Wed, 23 May 2007 11:10:40 GMT"/>
   <signal name="delete_event" handler="on_install_progressbar_delete_event" last_modification_time="Wed, 23 May 2007 11:11:13 GMT"/>
-  <signal name="configure_event" handler="on_install_progressbar_configure_event" last_modification_time="Wed, 23 May 2007 13:52:39 GMT"/>
 
   <child>
     <widget class="GtkFixed" id="fixed5">

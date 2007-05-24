@@ -162,3 +162,7 @@ gboolean
 on_install_progressbar_configure_event (GtkWidget       *widget,
                                         GdkEventConfigure *event,
                                         gpointer         user_data);
+
+void
+on_button1_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);

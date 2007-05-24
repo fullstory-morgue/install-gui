@@ -1193,9 +1193,6 @@ create_install_progressbar (void)
   g_signal_connect ((gpointer) install_progressbar, "delete_event",
                     G_CALLBACK (on_install_progressbar_delete_event),
                     NULL);
-  g_signal_connect ((gpointer) install_progressbar, "configure_event",
-                    G_CALLBACK (on_install_progressbar_configure_event),
-                    NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (install_progressbar, install_progressbar, "install_progressbar");
