@@ -1,9 +1,5 @@
-install-gui (0.1.6) UNRELEASED; urgency=low
+install-gui (0.1.6) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * install-progressbar now included in install-gui
 
  -- Horst Tritremmel <hjt@sidux.com>  Thu, 24 May 2007 10:08:23 +0200
