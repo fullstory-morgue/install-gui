@@ -166,3 +166,7 @@ on_install_progressbar_configure_event (GtkWidget       *widget,
 void
 on_button1_clicked                     (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_rootpartcombo_changed               (GtkComboBox     *combobox,
+                                        gpointer         user_data);
