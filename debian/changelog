@@ -1,9 +1,5 @@
-install-gui (0.1.7) UNRELEASED; urgency=low
+install-gui (0.1.7) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * root partition combobox bug fix 
 
  -- Horst Tritremmel <hjt@sidux.com>  Mon, 28 May 2007 21:24:05 +0200
