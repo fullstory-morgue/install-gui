@@ -1,9 +1,5 @@
-install-gui (0.1.8) UNRELEASED; urgency=low
+install-gui (0.1.8) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * comboboxes not editable 
 
  -- Horst Tritremmel <hjt@sidux.com>  Wed, 30 May 2007 10:19:06 +0200
