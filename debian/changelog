@@ -1,8 +1,12 @@
 install-gui (0.1.9) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 05 Jun 2007 14:23:56 +0200
+  [ Horst Tritremmel ]
+  * changed knx-installer to fll-installer
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 07 Jun 2007 21:31:51 +0200
 
 install-gui (0.1.8) unstable; urgency=low
 

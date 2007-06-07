@@ -27,8 +27,8 @@
 
 #define FILENAME ".sidconf"
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
-#define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && knx-installer installer"
-#define INSTALL_SH_WITHOUT_CONFIG "knx-installer &"
+#define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
+#define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
 
 FILE* fp;
 char scanparttmp[80];
@@ -856,7 +856,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       system(systemcall);
 
      /* ======================================================== *
-      *         start the knx-installer non-interactive          *
+      *         start the fll-installer non-interactive          *
       * ======================================================== */
       radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
       if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
@@ -955,7 +955,7 @@ void
 on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-   // start knx-installer witout .sidconf
+   // start fll-installer witout .sidconf
   GtkWidget* label_install_button = lookup_widget( GTK_WIDGET(togglebutton), "label_install_button" );
 
   GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton3");
@@ -1292,7 +1292,7 @@ on_install_progressbar_show            (GtkWidget       *widget,
 
 
 
-   //  inotify tem file for knx-installer
+   //  inotify tem file for fll-installer
    strcpy( install_call_tmp, "/tmp/INSTALL_INOTIFY.XXXXXX");
    fd = mkstemp( install_call_tmp );  // make a tempfile
    strncpy(FILE_NAME, install_call_tmp, 80);
@@ -1375,7 +1375,7 @@ on_install_progressbar_show            (GtkWidget       *widget,
 
 
 
-   // start knx-installer
+   // start fll-installer
    strncpy( install_call, INSTALL_SH, 256 );
    strncat( install_call, " ", 256 );
    strncat( install_call, install_call_tmp, 256 );
