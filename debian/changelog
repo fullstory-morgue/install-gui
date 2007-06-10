@@ -1,13 +1,14 @@
-install-gui (0.2.1) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.2.1) unstable; urgency=low
 
   [ Joaquim Boura ]
   * su-me sidux-installer was creating troubles on X we can use directly
     install-gui when called by sudo.
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 10 Jun 2007 18:09:28 +0200
+  [ Stefan Lippers-Hollmann ]
+  * revert to su-me, the problem is within install-gui which also fails using
+    sudo or sux.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 11 Jun 2007 01:31:55 +0200
 
 install-gui (0.2.0) unstable; urgency=low
 

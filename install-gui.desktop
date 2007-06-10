@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=sudo /usr/bin/install-gui
+Exec=su-me /usr/bin/install-gui
 Icon=sidux
 
 Name=sidux-installer
