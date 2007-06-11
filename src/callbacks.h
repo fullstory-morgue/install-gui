@@ -170,3 +170,11 @@ on_button1_clicked                     (GtkButton       *button,
 void
 on_rootpartcombo_changed               (GtkComboBox     *combobox,
                                         gpointer         user_data);
+
+void
+on_rootpartcombo_changed               (GtkComboBox     *combobox,
+                                        gpointer         user_data);
+
+void
+on_label1_show                         (GtkWidget       *widget,
+                                        gpointer         user_data);

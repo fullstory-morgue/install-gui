@@ -35,13 +35,11 @@ char scanparttmp[80];
 char systemcallstr[100];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
-int  counter, leaved_user_page, i = 0;;
+int  counter, leaved_user_page, i = 0, partitions_counter = 0;
 GtkWidget* label_changed;
 
 
 // progressbar
-#define BUF_LEN    1024
-
 char FILE_NAME[256];
 GtkWidget *pprogres, *pprogres2, *label, *label_generally, *label_clock;
 static gint fd, hour = 0, min = 0, sec = 0;
@@ -58,8 +56,10 @@ enum
 void
 is_the_device_a_usbdevice (GtkComboBox     *combobox)
 {
-   // is the selected install device a usb device, then only grub to partition
 
+ if ( partitions_counter > 0 ) {
+
+  // is the selected install device a usb device, then only grub to partition
    char device[80], usbdevicetmp[80];
    char *entry1, *entry2 = "";
    int fd, len;
@@ -110,6 +110,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
       /* remove the tempfile */
       unlink(usbdevicetmp);
    }
+ }
 }
 
 
@@ -213,9 +214,13 @@ void read_partitions(GtkComboBox     *combobox)
 
    if( fd ) {
             // create the shell system command (scanpartitions)
-            strcpy(systemcallstr, SCANPARTITIONS);
-            strcat(systemcallstr, scanparttmp);
-            strcat(systemcallstr, ")");
+            strncpy(systemcallstr, SCANPARTITIONS, BUF_LEN);
+            strncat(systemcallstr, scanparttmp, BUF_LEN);
+            strncat(systemcallstr, "); printf \"======= scanpartitions call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, scanparttmp, BUF_LEN);
+            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
+            strncat(systemcallstr, scanparttmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
 
             system(systemcallstr);  // write the partitiontable to the tempfile
             close(fd);
@@ -237,6 +242,8 @@ void read_partitions(GtkComboBox     *combobox)
        gtk_list_store_clear(GTK_LIST_STORE(model));
 
        // appand to combo_box
+       partitions_counter = 0;
+
        fseek( fp, 0L, SEEK_SET );
        while (fscanf(fp, "%s", partition) != EOF) {
 
@@ -252,10 +259,13 @@ void read_partitions(GtkComboBox     *combobox)
               strcmp(ptr_fs, "xfs") == 0 ) {
 
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), ptr_dev);
+              gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+
+              partitions_counter++;
           }
      }
      fclose(fp);
-     gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+
    }
 }
 
@@ -1398,6 +1408,4 @@ on_install_progressbar_delete_event    (GtkWidget       *widget,
 
   return FALSE;
 }
-
-
 

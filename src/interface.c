@@ -65,13 +65,12 @@ create_window_main (void)
   GtkWidget *label8;
   GtkWidget *checkbutton_mountpoints;
   GtkWidget *label7;
+  GtkWidget *checkbutton_automount;
   GtkWidget *rootpartcombo;
   GtkWidget *format_combo;
-  GtkWidget *checkbutton_automount;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *hseparator4;
-  GtkWidget *label13;
   GtkWidget *hseparator9;
   GtkWidget *vseparator3;
   GtkWidget *label15;
@@ -85,6 +84,7 @@ create_window_main (void)
   GtkWidget *button_tz;
   GtkWidget *label39;
   GtkWidget *label14;
+  GtkWidget *label13;
   GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
   GtkWidget *label3;
@@ -157,6 +157,7 @@ create_window_main (void)
 
   window_main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window_main), _("sidux HD-Installation"));
+  gtk_window_set_position (GTK_WINDOW (window_main), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (window_main), FALSE);
   window_main_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
   if (window_main_icon_pixbuf)
@@ -361,21 +362,21 @@ create_window_main (void)
   gtk_widget_set_size_request (label7, 120, 24);
   gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
 
-  rootpartcombo = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (rootpartcombo);
-  gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 280, 24);
-  gtk_widget_set_size_request (rootpartcombo, 380, 25);
-
-  format_combo = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (format_combo);
-  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 472, 56);
-  gtk_widget_set_size_request (format_combo, 188, 25);
-
   checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
   gtk_widget_show (checkbutton_automount);
   gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 160, 80);
   gtk_widget_set_size_request (checkbutton_automount, 504, 40);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
+
+  rootpartcombo = gtk_combo_box_new_text ();
+  gtk_widget_show (rootpartcombo);
+  gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 280, 24);
+  gtk_widget_set_size_request (rootpartcombo, 380, 26);
+
+  format_combo = gtk_combo_box_new_text ();
+  gtk_widget_show (format_combo);
+  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 472, 56);
+  gtk_widget_set_size_request (format_combo, 188, 26);
 
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
@@ -389,14 +390,6 @@ create_window_main (void)
   gtk_widget_show (hseparator4);
   gtk_fixed_put (GTK_FIXED (fixed4), hseparator4, 16, 88);
   gtk_widget_set_size_request (hseparator4, 640, 16);
-
-  label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
-  gtk_widget_show (label13);
-  gtk_fixed_put (GTK_FIXED (fixed4), label13, 8, 8);
-  gtk_widget_set_size_request (label13, 656, 88);
-  gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
 
   hseparator9 = gtk_hseparator_new ();
   gtk_widget_show (hseparator9);
@@ -469,12 +462,20 @@ create_window_main (void)
   gtk_widget_set_size_request (label14, 184, 24);
   gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
 
-  combobox_bootmanager = gtk_combo_box_entry_new_text ();
+  label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
+  gtk_widget_show (label13);
+  gtk_fixed_put (GTK_FIXED (fixed4), label13, 8, 8);
+  gtk_widget_set_size_request (label13, 656, 88);
+  gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
+
+  combobox_bootmanager = gtk_combo_box_new_text ();
   gtk_widget_show (combobox_bootmanager);
   gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 312, 128);
   gtk_widget_set_size_request (combobox_bootmanager, 187, 27);
 
-  combobox_installplace = gtk_combo_box_entry_new_text ();
+  combobox_installplace = gtk_combo_box_new_text ();
   gtk_widget_show (combobox_installplace);
   gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 312, 168);
   gtk_widget_set_size_request (combobox_installplace, 187, 27);
@@ -897,13 +898,12 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
   GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
   GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
   GLADE_HOOKUP_OBJECT (window_main, label2, "label2");
   GLADE_HOOKUP_OBJECT (window_main, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window_main, hseparator4, "hseparator4");
-  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
   GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
   GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
@@ -917,6 +917,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
   GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
   GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
+  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
@@ -1001,6 +1002,7 @@ create_dialog_no_root (void)
 
   dialog_no_root = gtk_dialog_new ();
   gtk_window_set_title (GTK_WINDOW (dialog_no_root), _("only root"));
+  gtk_window_set_position (GTK_WINDOW (dialog_no_root), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (dialog_no_root), FALSE);
   dialog_no_root_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
   if (dialog_no_root_icon_pixbuf)
@@ -1009,6 +1011,7 @@ create_dialog_no_root (void)
       gdk_pixbuf_unref (dialog_no_root_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (dialog_no_root), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (dialog_no_root), GDK_GRAVITY_CENTER);
 
   dialog_vbox1 = GTK_DIALOG (dialog_no_root)->vbox;
   gtk_widget_show (dialog_vbox1);
@@ -1078,6 +1081,7 @@ create_install_progressbar (void)
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
+  gtk_window_set_position (GTK_WINDOW (install_progressbar), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_progressbar), FALSE);
   install_progressbar_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
   if (install_progressbar_icon_pixbuf)
@@ -1085,6 +1089,7 @@ create_install_progressbar (void)
       gtk_window_set_icon (GTK_WINDOW (install_progressbar), install_progressbar_icon_pixbuf);
       gdk_pixbuf_unref (install_progressbar_icon_pixbuf);
     }
+  gtk_window_set_gravity (GTK_WINDOW (install_progressbar), GDK_GRAVITY_CENTER);
 
   fixed5 = gtk_fixed_new ();
   gtk_widget_show (fixed5);

@@ -1,8 +1,13 @@
 install-gui (0.2.2) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 11 Jun 2007 02:11:14 +0200
+  [ Horst Tritremmel ]
+  * revert back to only readable comboboxes
+  * hopefully fixed the usb_device scan
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 11 Jun 2007 15:30:23 +0200
 
 install-gui (0.2.1) unstable; urgency=low
 
