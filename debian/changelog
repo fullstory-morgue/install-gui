@@ -7,8 +7,9 @@ install-gui (0.2.1) unstable; urgency=low
   [ Stefan Lippers-Hollmann ]
   * revert to su-me, the problem is within install-gui which also fails using
     sudo or sux.
+  * revert combobox changes instead (r7634).
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 11 Jun 2007 01:31:55 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 11 Jun 2007 02:08:55 +0200
 
 install-gui (0.2.0) unstable; urgency=low
 
