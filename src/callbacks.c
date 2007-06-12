@@ -67,9 +67,9 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
    if( strlen(hd_choice) > 5 ) { 
+
           entry1 = strtok(hd_choice, "/");
           entry2 = strtok(NULL, "/");
-   
 
       strcpy(usbdevicetmp, "/tmp/usbdevice.XXXXXX");
       fd = mkstemp(usbdevicetmp);  // make a tempfile
@@ -111,6 +111,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
       unlink(usbdevicetmp);
    }
  }
+
 }
 
 
@@ -266,7 +267,14 @@ void read_partitions(GtkComboBox     *combobox)
      }
      fclose(fp);
 
+    /* ============================================================= *
+     *                   fill the combobox_installplace              *
+     * ============================================================= */
+     GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
+     is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
+
    }
+
 }
 
 
@@ -604,12 +612,15 @@ on_button_gparted_clicked              (GtkButton       *button,
 
    // has the rootpartcombo changed
    gchar *hd_choice_post = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
-   if ( strcmp(hd_choice, hd_choice_post) != 0 ) {
+
+
+   if ( partitions_counter > 0 && hd_choice != NULL) {
+      if ( strcmp(hd_choice, hd_choice_post) != 0 ) {
           label_changed = lookup_widget( GTK_WIDGET (button), "label_changed" );
 
           g_timeout_add( 1000, rootpart_warning, label_changed );
+      }
    }
-
 }
 
 
@@ -1105,13 +1116,6 @@ on_window_main_show                    (GtkWidget       *widget,
    //gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "lilo");
 
    gtk_combo_box_set_active( GTK_COMBO_BOX(combobox_bootmanager),0);
-
-
-  /* ============================================================= *
-   *                   fill the combobox_installplace              *
-   * ============================================================= */
-   GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (widget), "combobox_installplace");
-   is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
 
 
   /* ============================================================= *
