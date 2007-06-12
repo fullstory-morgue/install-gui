@@ -1,9 +1,5 @@
-install-gui (0.2.3) UNRELEASED; urgency=low
+install-gui (0.2.3) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * another bugfix for readable comboboxes
 
  -- Horst Tritremmel <hjt@sidux.com>  Tue, 12 Jun 2007 13:45:14 +0200
