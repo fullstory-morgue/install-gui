@@ -55,19 +55,26 @@ create_window_main (void)
   GtkWidget *label_wellcome_red;
   GtkWidget *label1;
   GtkWidget *fixed3;
-  GtkWidget *checkbutton_format_with;
-  GtkWidget *button_gparted;
   GtkWidget *label_changed;
-  GtkWidget *hseparator1;
-  GtkWidget *scrolledwindow1;
-  GtkWidget *treeview1;
   GtkWidget *label35;
   GtkWidget *label8;
-  GtkWidget *checkbutton_mountpoints;
-  GtkWidget *label7;
-  GtkWidget *checkbutton_automount;
   GtkWidget *rootpartcombo;
   GtkWidget *format_combo;
+  GtkWidget *label7;
+  GtkWidget *checkbutton_format_with;
+  GtkWidget *checkbutton_automount;
+  GtkWidget *checkbutton_mountpoints;
+  GtkWidget *scrolledwindow1;
+  GtkWidget *treeview1;
+  GtkWidget *hseparator1;
+  GtkWidget *frame4;
+  GtkWidget *alignment9;
+  GtkWidget *fixed12;
+  GtkWidget *radiobutton_part1;
+  GSList *radiobutton_part1_group = NULL;
+  GtkWidget *radiobutton_part2;
+  GtkWidget *button_gparted;
+  GtkWidget *label40;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *hseparator4;
@@ -170,7 +177,7 @@ create_window_main (void)
   fixed1 = gtk_fixed_new ();
   gtk_widget_show (fixed1);
   gtk_container_add (GTK_CONTAINER (window_main), fixed1);
-  gtk_container_set_border_width (GTK_CONTAINER (fixed1), 15);
+  gtk_container_set_border_width (GTK_CONTAINER (fixed1), 10);
 
   image1 = create_pixmap (window_main, "install-gui-title.png");
   gtk_widget_show (image1);
@@ -223,7 +230,7 @@ create_window_main (void)
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
   gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 0, 48);
-  gtk_widget_set_size_request (notebook1, 680, 417);
+  gtk_widget_set_size_request (notebook1, 690, 417);
 
   fixed2 = gtk_fixed_new ();
   gtk_widget_show (fixed2);
@@ -302,40 +309,11 @@ create_window_main (void)
   gtk_widget_show (fixed3);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed3);
 
-  checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
-  gtk_widget_show (checkbutton_format_with);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 160, 56);
-  gtk_widget_set_size_request (checkbutton_format_with, 328, 24);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
-
-  button_gparted = gtk_button_new_with_mnemonic (_("Start Part.-\nmanager"));
-  gtk_widget_show (button_gparted);
-  gtk_fixed_put (GTK_FIXED (fixed3), button_gparted, 8, 31);
-  gtk_widget_set_size_request (button_gparted, 144, 41);
-  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
-
   label_changed = gtk_label_new ("");
   gtk_widget_show (label_changed);
   gtk_fixed_put (GTK_FIXED (fixed3), label_changed, 280, 0);
   gtk_widget_set_size_request (label_changed, 360, 24);
   gtk_misc_set_alignment (GTK_MISC (label_changed), 0, 0.5);
-
-  hseparator1 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator1);
-  gtk_fixed_put (GTK_FIXED (fixed3), hseparator1, 8, 120);
-  gtk_widget_set_size_request (hseparator1, 656, 16);
-
-  scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_show (scrolledwindow1);
-  gtk_fixed_put (GTK_FIXED (fixed3), scrolledwindow1, 160, 184);
-  gtk_widget_set_size_request (scrolledwindow1, 504, 184);
-
-  treeview1 = gtk_tree_view_new ();
-  gtk_widget_show (treeview1);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
-  gtk_widget_set_size_request (treeview1, 248, 136);
-  gtk_tooltips_set_tip (tooltips, treeview1, _("options are:\n========\n/boot\n/home\n/opt\n/root\n/tmp\n/usr\n/var"), NULL);
-  gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
 
   label35 = gtk_label_new (_("Example:\n------------\nA seperate\nhome-partition:\n/home"));
   gtk_widget_show (label35);
@@ -351,32 +329,97 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label8), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label8), 0, 0);
 
-  checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
-  gtk_widget_show (checkbutton_mountpoints);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 160, 128);
-  gtk_widget_set_size_request (checkbutton_mountpoints, 496, 48);
-
-  label7 = gtk_label_new (_("Root-Partition"));
-  gtk_widget_show (label7);
-  gtk_fixed_put (GTK_FIXED (fixed3), label7, 160, 24);
-  gtk_widget_set_size_request (label7, 120, 24);
-  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
-
-  checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
-  gtk_widget_show (checkbutton_automount);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 160, 80);
-  gtk_widget_set_size_request (checkbutton_automount, 504, 40);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
-
   rootpartcombo = gtk_combo_box_new_text ();
   gtk_widget_show (rootpartcombo);
-  gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 280, 24);
+  gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 290, 24);
   gtk_widget_set_size_request (rootpartcombo, 380, 26);
 
   format_combo = gtk_combo_box_new_text ();
   gtk_widget_show (format_combo);
-  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 472, 56);
+  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 482, 56);
   gtk_widget_set_size_request (format_combo, 188, 26);
+
+  label7 = gtk_label_new (_("Root-Partition"));
+  gtk_widget_show (label7);
+  gtk_fixed_put (GTK_FIXED (fixed3), label7, 170, 24);
+  gtk_widget_set_size_request (label7, 120, 24);
+  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
+
+  checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
+  gtk_widget_show (checkbutton_format_with);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 170, 56);
+  gtk_widget_set_size_request (checkbutton_format_with, 310, 24);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
+
+  checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
+  gtk_widget_show (checkbutton_automount);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 170, 80);
+  gtk_widget_set_size_request (checkbutton_automount, 504, 40);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
+
+  checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
+  gtk_widget_show (checkbutton_mountpoints);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 170, 128);
+  gtk_widget_set_size_request (checkbutton_mountpoints, 496, 48);
+
+  scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow1);
+  gtk_fixed_put (GTK_FIXED (fixed3), scrolledwindow1, 170, 184);
+  gtk_widget_set_size_request (scrolledwindow1, 504, 184);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+
+  treeview1 = gtk_tree_view_new ();
+  gtk_widget_show (treeview1);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
+  gtk_widget_set_size_request (treeview1, 248, 136);
+  gtk_tooltips_set_tip (tooltips, treeview1, _("options are:\n========\n/boot\n/home\n/opt\n/root\n/tmp\n/usr\n/var"), NULL);
+  gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
+
+  hseparator1 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator1);
+  gtk_fixed_put (GTK_FIXED (fixed3), hseparator1, 168, 120);
+  gtk_widget_set_size_request (hseparator1, 496, 16);
+
+  frame4 = gtk_frame_new (NULL);
+  gtk_widget_show (frame4);
+  gtk_fixed_put (GTK_FIXED (fixed3), frame4, 8, 24);
+  gtk_widget_set_size_request (frame4, 152, 144);
+  gtk_frame_set_shadow_type (GTK_FRAME (frame4), GTK_SHADOW_IN);
+
+  alignment9 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment9);
+  gtk_container_add (GTK_CONTAINER (frame4), alignment9);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 0, 0, 12, 0);
+
+  fixed12 = gtk_fixed_new ();
+  gtk_widget_show (fixed12);
+  gtk_container_add (GTK_CONTAINER (alignment9), fixed12);
+
+  radiobutton_part1 = gtk_radio_button_new_with_mnemonic (NULL, _("gparted"));
+  gtk_widget_show (radiobutton_part1);
+  gtk_fixed_put (GTK_FIXED (fixed12), radiobutton_part1, 0, 8);
+  gtk_widget_set_size_request (radiobutton_part1, 136, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_part1), radiobutton_part1_group);
+  radiobutton_part1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_part1));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_part1), TRUE);
+
+  radiobutton_part2 = gtk_radio_button_new_with_mnemonic (NULL, _("cfdisk"));
+  gtk_widget_show (radiobutton_part2);
+  gtk_fixed_put (GTK_FIXED (fixed12), radiobutton_part2, 0, 32);
+  gtk_widget_set_size_request (radiobutton_part2, 136, 24);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_part2), radiobutton_part1_group);
+  radiobutton_part1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_part2));
+
+  button_gparted = gtk_button_new_from_stock ("gtk-execute");
+  gtk_widget_show (button_gparted);
+  gtk_fixed_put (GTK_FIXED (fixed12), button_gparted, 0, 64);
+  gtk_widget_set_size_request (button_gparted, 130, 30);
+  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
+
+  label40 = gtk_label_new (_("Start Part.-\nmanager"));
+  gtk_widget_show (label40);
+  gtk_frame_set_label_widget (GTK_FRAME (frame4), label40);
+  gtk_label_set_use_markup (GTK_LABEL (label40), TRUE);
 
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
@@ -837,14 +880,14 @@ create_window_main (void)
   g_signal_connect ((gpointer) notebook1, "switch_page",
                     G_CALLBACK (on_notebook1_switch_page),
                     NULL);
-  g_signal_connect ((gpointer) button_gparted, "clicked",
-                    G_CALLBACK (on_button_gparted_clicked),
+  g_signal_connect ((gpointer) rootpartcombo, "changed",
+                    G_CALLBACK (on_rootpartcombo_changed),
                     NULL);
   g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),
                     NULL);
-  g_signal_connect ((gpointer) rootpartcombo, "changed",
-                    G_CALLBACK (on_rootpartcombo_changed),
+  g_signal_connect ((gpointer) button_gparted, "clicked",
+                    G_CALLBACK (on_button_gparted_clicked),
                     NULL);
   g_signal_connect ((gpointer) button_tz, "clicked",
                     G_CALLBACK (on_button_tz_clicked),
@@ -888,19 +931,25 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
-  GLADE_HOOKUP_OBJECT (window_main, button_gparted, "button_gparted");
   GLADE_HOOKUP_OBJECT (window_main, label_changed, "label_changed");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
-  GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (window_main, treeview1, "treeview1");
   GLADE_HOOKUP_OBJECT (window_main, label35, "label35");
   GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
-  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
   GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
+  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
+  GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (window_main, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
+  GLADE_HOOKUP_OBJECT (window_main, frame4, "frame4");
+  GLADE_HOOKUP_OBJECT (window_main, alignment9, "alignment9");
+  GLADE_HOOKUP_OBJECT (window_main, fixed12, "fixed12");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton_part1, "radiobutton_part1");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton_part2, "radiobutton_part2");
+  GLADE_HOOKUP_OBJECT (window_main, button_gparted, "button_gparted");
+  GLADE_HOOKUP_OBJECT (window_main, label40, "label40");
   GLADE_HOOKUP_OBJECT (window_main, label2, "label2");
   GLADE_HOOKUP_OBJECT (window_main, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window_main, hseparator4, "hseparator4");

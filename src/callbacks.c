@@ -600,9 +600,17 @@ on_button_gparted_clicked              (GtkButton       *button,
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
 
 
-   //start gparted and start kde automount again
-   system("gparted; rm -f /home/sidux/.kde/share/config/medianotifierrc");
-   system("rebuildfstab --write-fstab --make-mountpoints");  // rebuild the fstab
+   GtkToggleButton *radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part1"));
+   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+       //start gparted
+       system("gparted");
+   }
+   else {
+       //start cfdisk
+       system("x-terminal-emulator -e cfdisk");
+   }
+
+   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;rebuildfstab --write-fstab --make-mountpoints");  // rebuild the fstab and start kde automount again
 
    /* remove the tempfile */
    unlink(scanparttmp);

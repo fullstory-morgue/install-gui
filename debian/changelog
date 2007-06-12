@@ -1,8 +1,12 @@
 install-gui (0.2.4) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 12 Jun 2007 15:00:41 +0200
+  [ Horst Tritremmel ]
+  * check box for partition tool, gparted or cfdisk selectable
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 12 Jun 2007 15:00:41 +0200
 
 install-gui (0.2.3) unstable; urgency=low
 
