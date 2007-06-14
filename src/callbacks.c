@@ -26,6 +26,8 @@
 
 
 #define FILENAME ".sidconf"
+#define TARGET_MNT_POINT "/media/hdinstall"
+
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
@@ -35,8 +37,8 @@ char scanparttmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
-int  counter, leaved_user_page, i = 0, partitions_counter = 0;
-GtkWidget* label_changed;
+int  counter, leaved_user_page, i = 0, partitions_counter = 0, do_it_at_first_time = 0;
+GtkWidget *label_changed, *install_progressbar;
 
 
 // progressbar
@@ -221,7 +223,7 @@ void read_partitions(GtkComboBox     *combobox)
             strncat(systemcallstr, scanparttmp, BUF_LEN);
             strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+            //strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
 
             system(systemcallstr);  // write the partitiontable to the tempfile
             close(fd);
@@ -565,20 +567,18 @@ on_button_gparted_clicked              (GtkButton       *button,
     FILE *stream;
     char sh_command[80];
 
-   //while (gtk_events_pending ())
-   //       gtk_main_iteration ();
-
 
    // hide the main window after gparted has done
-   //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
-   //gtk_widget_hide ( GTK_WIDGET (window_main) );
+   GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+   gtk_widget_hide ( GTK_WIDGET (window_main) );
+   while (gtk_events_pending ())
+          gtk_main_iteration ();
 
-
-  //disable kde automount
- if (chdir("/home/sidux/.kde/share/config/") < 0) {
+   //disable kde automount
+   if (chdir("/home/sidux/.kde/share/config/") < 0) {
          printf("failed change to /home/sidux/.kde/share/config/\n");
-  }
-  else {
+   }
+   else {
       stream = fopen( "medianotifierrc", "w+" );
       if( stream == NULL )
          printf( "The file medianotifierrc was not opened\n");
@@ -589,8 +589,8 @@ on_button_gparted_clicked              (GtkButton       *button,
 "media/cdwriter_unmounted=#NothinAction",
 "media/hdd_unmounted=#NothinAction",
 "media/removable_unmounted=#NothinAction"
-         );
-         fclose( stream );
+          );
+          fclose( stream );
       }
    }
 
@@ -673,6 +673,11 @@ on_button_gparted_clicked              (GtkButton       *button,
           g_timeout_add( 1000, rootpart_warning, label_changed );
       }
    }
+
+
+   // show the main window
+   gtk_widget_show ( GTK_WIDGET (window_main) );
+
 }
 
 
@@ -940,7 +945,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       gtk_widget_hide ( window_main );
 
       // start progressbar
-      GtkWidget* install_progressbar = create_install_progressbar ();
+      install_progressbar = create_install_progressbar ();
       gtk_widget_show (install_progressbar);
 
    }
@@ -1072,7 +1077,14 @@ on_button_tz_clicked                   (GtkButton       *button,
    // change timezone
    char tzsh[512];
 
+   //hide the main window
+   GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+   gtk_widget_hide ( GTK_WIDGET (window_main) );
+   while (gtk_events_pending ())
+          gtk_main_iteration ();
 
+
+   // system call
    strncpy(tzsh, "#!/bin/bash\n", 512);
    strncat(tzsh, "close_me=0\n", 512);
 
@@ -1091,6 +1103,10 @@ on_button_tz_clicked                   (GtkButton       *button,
 
 
    timezone_read (GTK_WIDGET (button));
+
+
+   //show the main window
+   gtk_widget_show ( GTK_WIDGET (window_main) );
 }
 
 
@@ -1148,6 +1164,11 @@ void
 on_window_main_show                    (GtkWidget       *widget,
                                         gpointer         user_data)
 {
+
+ if( do_it_at_first_time < 1 ) {
+
+   do_it_at_first_time = 1;  // only at start
+
   /* ==================================================
    * activate mount point of other partitions treeviev
    * ================================================== */
@@ -1281,7 +1302,7 @@ on_window_main_show                    (GtkWidget       *widget,
    font_desc = pango_font_description_from_string ("18");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
-
+ }
 }
 
 
@@ -1299,7 +1320,7 @@ f_notify(GIOChannel    *source,
 {
 
    gchar column[BUF_LEN], text_current[BUF_LEN];
-   char buf[BUF_LEN], *assign;
+   char buf[BUF_LEN], sh_call[BUF_LEN], *assign;
    int len, i;
    FILE *watched_file;
 
@@ -1325,7 +1346,33 @@ f_notify(GIOChannel    *source,
 
              // exit main
              if( strncmp ( column, "end", 3 ) == 0 ) {
-                   gtk_main_quit();
+
+                  //hide the progressbar window
+                  gtk_widget_hide ( install_progressbar );
+                  while (gtk_events_pending ())
+                         gtk_main_iteration ();
+
+ 
+                  // >>>>>>>>>>>>>>>   installation done   <<<<<<<<<<<<<<<<<<
+                  //           start install meta or/and dialog_end
+                  strncpy(sh_call, "source ${HOME}/", BUF_LEN);
+                  strncat(sh_call, FILENAME, BUF_LEN);
+                  strncat(sh_call, "\nif [ \"$INSTALL_META\" = yes -a -n \"$DISPLAY\" ]\n", BUF_LEN);
+                  strncat(sh_call, "then\n", BUF_LEN);
+                  strncat(sh_call, "   if [ -x /usr/bin/install-meta ]; then\n", BUF_LEN);
+                  strncat(sh_call, "       exec /usr/bin/install-meta --chroot=", BUF_LEN);
+                  strncat(sh_call, TARGET_MNT_POINT, BUF_LEN);
+                  strncat(sh_call, "\n   else\n", BUF_LEN);
+                  strncat(sh_call, "       echo \"install-meta is not available\" 1>&2\n", BUF_LEN);
+                  strncat(sh_call, "  fi\n", BUF_LEN);
+                  strncat(sh_call, "fi\n", BUF_LEN);
+
+                  system(sh_call);
+
+                  // start dialog_end
+                  GtkWidget* dialog_end = create_dialog_end  ();
+                  gtk_widget_show (dialog_end );
+
              }
 
 
