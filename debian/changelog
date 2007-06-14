@@ -1,3 +1,9 @@
+install-gui (0.2.8) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 14 Jun 2007 22:49:53 +0200
+
 install-gui (0.2.7) unstable; urgency=low
 
   * Set mountpoint of other partitions bugfix 
