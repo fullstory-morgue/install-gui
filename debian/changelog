@@ -1,9 +1,5 @@
-install-gui (0.2.7) UNRELEASED; urgency=low
+install-gui (0.2.7) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * Set mountpoint of other partitions bugfix 
 
  -- Horst Tritremmel <hjt@sidux.com>  Thu, 14 Jun 2007 22:26:50 +0200
