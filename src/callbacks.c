@@ -32,7 +32,7 @@
 
 FILE* fp;
 char scanparttmp[80];
-char systemcallstr[100];
+char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
 int  counter, leaved_user_page, i = 0, partitions_counter = 0;
@@ -68,8 +68,8 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
    if( strlen(hd_choice) > 5 ) { 
 
-          entry1 = strtok(hd_choice, "/");
-          entry2 = strtok(NULL, "/");
+      entry1 = strtok(hd_choice, "/");
+      entry2 = strtok(NULL, "/");
 
       strcpy(usbdevicetmp, "/tmp/usbdevice.XXXXXX");
       fd = mkstemp(usbdevicetmp);  // make a tempfile
@@ -563,6 +563,7 @@ on_button_gparted_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
     FILE *stream;
+    char sh_command[80];
 
    //while (gtk_events_pending ())
    //       gtk_main_iteration ();
@@ -594,31 +595,74 @@ on_button_gparted_clicked              (GtkButton       *button,
    }
 
 
+   GtkWidget *combobox = lookup_widget (GTK_WIDGET (button), "combobox_hd");
+   gchar *hd = gtk_combo_box_get_active_text(GTK_COMBO_BOX (combobox));
 
+
+   // start prtition manager
+   GtkToggleButton *radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part1"));
+   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+
+       //start gparted
+       if (hd != NULL) {
+           strncpy(sh_command, "gparted ", 80);
+           strncat(sh_command, hd, 80);
+
+           system(sh_command);
+       }
+       else {
+           system("gparted");
+       }
+   }
+
+   radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part2"));
+   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+       //start cfdisk
+       if (hd != NULL) {
+           strncpy(sh_command, "x-terminal-emulator -e cfdisk ", 80);
+           strncat(sh_command, hd, 80);
+
+           system(sh_command);
+       }
+       else {
+           system("gparted");
+       }
+
+   }
+
+   radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part3"));
+   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+       //start fdisk
+       if (hd != NULL) {
+           strncpy(sh_command, "x-terminal-emulator -e fdisk ", 80);
+           strncat(sh_command, hd, 80);
+
+           system(sh_command);
+       }
+       else {
+           system("gparted");
+       }
+   }
+
+
+   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\nstarting rebuildfstab --write-fstab --make-mountpoints\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";rebuildfstab --write-fstab --make-mountpoints");  // rebuild the fstab and start kde automount again
+
+
+   /* remove the tempfile */
+   unlink(scanparttmp);
+
+
+
+   // has the rootpartcombo changed
    // get combo box
    GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
 
 
-   GtkToggleButton *radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part1"));
-   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
-       //start gparted
-       system("gparted");
-   }
-   else {
-       //start cfdisk
-       system("x-terminal-emulator -e cfdisk");
-   }
-
-   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;rebuildfstab --write-fstab --make-mountpoints");  // rebuild the fstab and start kde automount again
-
-   /* remove the tempfile */
-   unlink(scanparttmp);
-
    // rebuild the partitions in rootpartcombo and treeview1
    read_partitions( GTK_COMBO_BOX (rootpartcombo) );
 
-   // has the rootpartcombo changed
+
    gchar *hd_choice_post = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
 
 
@@ -1009,7 +1053,7 @@ timezone_read (GtkWidget       *widget)
       fseek(  tz_file, 0L, SEEK_SET );
       fscanf( tz_file, "%[^\n]\n", tz);
 
-      strncpy( tz_markup, "<span foreground=\"darkred\" font_desc=\"Sans Bold 12\">", 256);
+      strncpy( tz_markup, "<span foreground=\"SkyBlue4\" font_desc=\"Sans Bold 12\">", 256);
       strncat( tz_markup, tz, 256);
       strncat( tz_markup, "</span>", 256);
 
@@ -1047,6 +1091,56 @@ on_button_tz_clicked                   (GtkButton       *button,
 
 
    timezone_read (GTK_WIDGET (button));
+}
+
+
+void
+combobox_hd_read (GtkWidget       *widget)
+{
+   char partition[80], hd_tmp[80];
+   int fd;
+
+   GtkWidget *combobox = lookup_widget (GTK_WIDGET (widget), "combobox_hd");
+
+   strcpy(hd_tmp, "/tmp/harddisk.XXXXXX");
+   fd = mkstemp(hd_tmp);  // make a tempfile
+
+   if( fd ) {
+            // create the shell system command
+            strncpy(systemcallstr, "fdisk -l | grep Disk | cut -d: -f1 | cut -d\" \" -f2 > ", BUF_LEN);
+            strncat(systemcallstr, hd_tmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= harddisk call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, hd_tmp, BUF_LEN);
+            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
+            strncat(systemcallstr, hd_tmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+
+            system(systemcallstr);  // write the harddisktable to the tempfile
+            close(fd);
+   }
+   else  {
+            perror("mkstemp(hd_tmp)");
+   }
+
+   // read the scanpartition temp file
+   fp=fopen(hd_tmp, "r");
+   if( fp == NULL ) {
+       strncpy(partition, "tmp file error", BUF_LEN);
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), partition);
+   }
+   else {
+
+       // append to combo_box
+       fseek( fp, 0L, SEEK_SET );
+       while (fscanf(fp, "%s", partition) != EOF) {
+
+          //printf("%s %s\n", "combobox setzen, partition");
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), partition);
+          gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+       }
+    }
+    fclose(fp);
+    unlink(hd_tmp);
 }
 
 
@@ -1130,6 +1224,12 @@ on_window_main_show                    (GtkWidget       *widget,
    *                      fill the label_tz                        *
    * ============================================================= */
    timezone_read (GTK_WIDGET (widget));
+
+
+  /* ============================================================= *
+   *             fill the combobox_hd  (harddisc)                  *
+   * ============================================================= */
+   combobox_hd_read (GTK_WIDGET (widget));
 
 
   /* ============================================================= *
@@ -1354,7 +1454,8 @@ on_install_progressbar_show            (GtkWidget       *widget,
    // set color of ProgressBar
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_NORMAL, &color);
-   gdk_color_parse ("IndianRed4", &color);
+   //gdk_color_parse ("IndianRed4", &color);
+   gdk_color_parse ("#6B91B8", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_PRELIGHT, &color);
 
    pprogres2 = lookup_widget(GTK_WIDGET(widget), "progressbar2");
@@ -1363,7 +1464,7 @@ on_install_progressbar_show            (GtkWidget       *widget,
    // set color of ProgressBar
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_NORMAL, &color);
-   gdk_color_parse ("IndianRed4", &color);
+   gdk_color_parse ("#6B91B8", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_PRELIGHT, &color);
 
    // label_clock
