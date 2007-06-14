@@ -1135,14 +1135,14 @@ create_install_progressbar (void)
   GtkWidget *hseparator6;
   GtkWidget *image5;
   GtkWidget *image6;
-  GtkWidget *label2;
   GtkWidget *label1;
-  GtkWidget *label_clock;
-  GtkWidget *label_fifo;
   GtkWidget *scrolledwindow3;
   GtkWidget *viewport3;
   GtkWidget *fixed6;
   GtkWidget *label_generally2;
+  GtkWidget *label2;
+  GtkWidget *label_fifo;
+  GtkWidget *label_clock;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
@@ -1194,31 +1194,11 @@ create_install_progressbar (void)
   gtk_fixed_put (GTK_FIXED (fixed5), image6, 352, 48);
   gtk_widget_set_size_request (image6, 241, 33);
 
-  label2 = gtk_label_new (_("Current\nOperation:"));
-  gtk_widget_show (label2);
-  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 336);
-  gtk_widget_set_size_request (label2, 129, 41);
-  gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
-
   label1 = gtk_label_new (_("Completed Operations:"));
   gtk_widget_show (label1);
   gtk_fixed_put (GTK_FIXED (fixed5), label1, 0, 424);
   gtk_widget_set_size_request (label1, 265, 25);
   gtk_misc_set_alignment (GTK_MISC (label1), 0, 0);
-
-  label_clock = gtk_label_new (_("00:00:00"));
-  gtk_widget_show (label_clock);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
-  gtk_widget_set_size_request (label_clock, 217, 25);
-  gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
-
-  label_fifo = gtk_label_new ("");
-  gtk_widget_show (label_fifo);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
-  gtk_widget_set_size_request (label_fifo, 494, 41);
-  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
 
   scrolledwindow3 = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_show (scrolledwindow3);
@@ -1243,6 +1223,28 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_generally2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_generally2), 0, 0);
 
+  label2 = gtk_label_new (_("Current\nOperation:"));
+  gtk_widget_show (label2);
+  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 336);
+  gtk_widget_set_size_request (label2, 105, 41);
+  gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
+
+  label_fifo = gtk_label_new (_("<b>Start Installation</b>"));
+  gtk_widget_show (label_fifo);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
+  gtk_widget_set_size_request (label_fifo, 494, 41);
+  gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
+
+  label_clock = gtk_label_new (_("00:00:00"));
+  gtk_widget_show (label_clock);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
+  gtk_widget_set_size_request (label_clock, 217, 25);
+  gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
+
   g_signal_connect ((gpointer) install_progressbar, "show",
                     G_CALLBACK (on_install_progressbar_show),
                     NULL);
@@ -1259,14 +1261,14 @@ create_install_progressbar (void)
   GLADE_HOOKUP_OBJECT (install_progressbar, hseparator6, "hseparator6");
   GLADE_HOOKUP_OBJECT (install_progressbar, image5, "image5");
   GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
   GLADE_HOOKUP_OBJECT (install_progressbar, label1, "label1");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
   GLADE_HOOKUP_OBJECT (install_progressbar, scrolledwindow3, "scrolledwindow3");
   GLADE_HOOKUP_OBJECT (install_progressbar, viewport3, "viewport3");
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
 
   return install_progressbar;
 }
