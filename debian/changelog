@@ -1,9 +1,5 @@
-install-gui (0.2.5) UNRELEASED; urgency=low
+install-gui (0.2.5) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * add harddisk combobox for partition manager
   * change progressbar color
 
