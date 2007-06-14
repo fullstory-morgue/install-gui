@@ -32,7 +32,7 @@
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
 
-FILE* fp;
+
 char scanparttmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
@@ -206,6 +206,7 @@ void read_partitions(GtkComboBox     *combobox)
    * read the partitions with the systemcall scanpartitions  *
    * and put it in the combo box                             *
    * ======================================================= */
+   FILE* fp;
 
    char partition[80];
    char *ptr_dev, *ptr_fs;
@@ -231,6 +232,7 @@ void read_partitions(GtkComboBox     *combobox)
    else  {
             perror("mkstemp(scanparttmp)");
    }
+
 
    // read the scanpartition temp file
    fp=fopen(scanparttmp, "r");
@@ -267,6 +269,7 @@ void read_partitions(GtkComboBox     *combobox)
               partitions_counter++;
           }
      }
+
      fclose(fp);
 
     /* ============================================================= *
@@ -428,7 +431,9 @@ void
 on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-  // GtkWidget *toggle;
+   // GtkWidget *toggle;
+   FILE* fp;
+
    GtkTreeIter iter_tb;
    GtkWidget *rootpartcombo;
    gchar *rootpart;
@@ -667,13 +672,14 @@ on_button_gparted_clicked              (GtkButton       *button,
 
 
    if ( partitions_counter > 0 && hd_choice != NULL) {
+
       if ( strcmp(hd_choice, hd_choice_post) != 0 ) {
+
           label_changed = lookup_widget( GTK_WIDGET (button), "label_changed" );
 
           g_timeout_add( 1000, rootpart_warning, label_changed );
       }
    }
-
 
    // show the main window
    gtk_widget_show ( GTK_WIDGET (window_main) );
@@ -1113,6 +1119,9 @@ on_button_tz_clicked                   (GtkButton       *button,
 void
 combobox_hd_read (GtkWidget       *widget)
 {
+
+   FILE* fp;
+
    char partition[80], hd_tmp[80];
    int fd;
 
