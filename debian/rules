@@ -59,6 +59,12 @@ install: build
 	$(MAKE) DESTDIR=$(CURDIR)/debian/install-gui install
 	DESTDIR=$(CURDIR)/debian/install-gui po/make_po.sh install-gui.mo
 
+	mkdir -p debian/install-gui/usr/share/pixmaps
+	convert -geometry 32x32 pixmaps/sidux-inst-conf.png \
+		debian/install-gui/usr/share/pixmaps/install-gui.xpm
+	convert -geometry 16x16 pixmaps/sidux-inst-conf.png \
+		debian/install-gui/usr/share/pixmaps/install-gui-16.xpm
+
 # Build architecture-independent files here.
 binary-indep: build install
 # We have nothing to do by default.

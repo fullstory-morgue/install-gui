@@ -1,8 +1,8 @@
 install-gui (0.2.8) UNRELEASED; urgency=low
 
-  * NOT RELEASED YET
+  * Add debian menu entry. Build-Depend on imagemagick.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 14 Jun 2007 22:49:53 +0200
+ -- Kel Modderman <kel@otaku42.de>  Sat, 16 Jun 2007 00:49:32 +1000
 
 install-gui (0.2.7) unstable; urgency=low
 
