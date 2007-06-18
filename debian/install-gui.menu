@@ -4,4 +4,4 @@
 	title="sidux-installer" \
 	icon32x32="/usr/share/pixmaps/install-gui.xpm" \
 	icon16x16="/usr/share/pixmaps/install-gui-16.xpm" \
-	command="su-to-root -X -c /usr/sbin/install-gui"
+	command="su-to-root -X -c /usr/bin/install-gui"
