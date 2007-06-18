@@ -1,4 +1,4 @@
-install-gui (0.2.9) UNRELEASED; urgency=low
+install-gui (0.2.9) unstable; urgency=low
 
   * debian/install-gui.menu: fix path to install-gui bin.
 
