@@ -1,3 +1,9 @@
+install-gui (0.2.11) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 20 Jun 2007 01:31:55 +0200
+
 install-gui (0.2.10) unstable; urgency=low
 
   * add language selection
