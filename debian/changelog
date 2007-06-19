@@ -1,9 +1,5 @@
-install-gui (0.2.10) UNRELEASED; urgency=low
+install-gui (0.2.10) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * add language selection
   * add HD_LANG_COUNTRY 
 
