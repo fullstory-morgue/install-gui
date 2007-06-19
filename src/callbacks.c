@@ -31,7 +31,7 @@
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
-
+#define LANG_SH "grep -e \"	..)\" -e \"	..|..)\" /etc/init.d/fll-locales | sed -e 's/\\t//g; s/)//;s/### .. /, /; s/ ###//;s/ ,/,/' | sort > "
 
 char scanparttmp[80];
 char systemcallstr[BUF_LEN];
@@ -277,6 +277,72 @@ void read_partitions(GtkComboBox     *combobox)
      * ============================================================= */
      GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
      is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
+
+   }
+
+}
+
+
+void read_language(GtkComboBox     *combobox) 
+{
+  /* ======================================================= *
+   * read the language codes from /etc/init.d/fll-locales    *
+   * and put it in the combo box                             *
+   * ======================================================= */
+   FILE* fp;
+
+   char langcode[80], langtmp[80];
+   int fd;
+
+
+   strcpy(langtmp, "/tmp/languagetmp.XXXXXX");
+   fd = mkstemp(langtmp);  // make a tempfile
+
+   if( fd ) {
+            // create the shell system command (scanpartitions)
+            strncpy(systemcallstr, LANG_SH, BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= language call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+            //strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+
+            system(systemcallstr);  // write the partitiontable to the tempfile
+            close(fd);
+   }
+   else  {
+            perror("mkstemp(langtmp)");
+   }
+
+
+   // read the scanpartition temp file
+   fp=fopen(langtmp, "r");
+   if( fp == NULL ) {
+       strcpy(langcode, "tmp file error");
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
+   }
+   else {
+
+       // clear the combo_box before
+       GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
+       gtk_list_store_clear(GTK_LIST_STORE(model));
+
+       // appand to combo_box
+       partitions_counter = 0;
+
+       fseek( fp, 0L, SEEK_SET );
+       while (fscanf(fp, "%[^\n]\n", langcode) != EOF) {
+
+          //printf("%s %s\n", "combobox setzen, partition");
+
+         gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
+         //gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+
+     }
+
+     fclose(fp);
+
 
    }
 
@@ -901,6 +967,12 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
              fprintf( stream, "no'\n");
          }
 
+       fprintf( stream, "\n%s\n%s%s'\n", 
+"# locale",
+"HD_LANG='",
+gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_lang")))
+       );
+
 
         fclose( stream );
       }
@@ -1224,6 +1296,13 @@ on_window_main_show                    (GtkWidget       *widget,
    * ============================================================ */
    rootpartcombo = lookup_widget (GTK_WIDGET (widget), "rootpartcombo");
    read_partitions( GTK_COMBO_BOX (rootpartcombo) );
+
+
+  /* ============================================================ *
+   *                   fill the language combobox                 *
+   * ============================================================ */
+   GtkWidget *combobox_lang = lookup_widget (GTK_WIDGET (widget), "combobox_lang");
+   read_language( GTK_COMBO_BOX (combobox_lang) );
 
 
   /* ============================================================= *

@@ -39,6 +39,7 @@ create_window_main (void)
   GtkWidget *image15;
   GtkWidget *prev;
   GtkWidget *image14;
+  GtkWidget *label_wellcome;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -78,23 +79,28 @@ create_window_main (void)
   GtkWidget *label_changed;
   GtkWidget *label2;
   GtkWidget *fixed4;
-  GtkWidget *hseparator4;
-  GtkWidget *hseparator9;
-  GtkWidget *vseparator3;
-  GtkWidget *checkbutton_bootdisk;
-  GtkWidget *vseparator4;
-  GtkWidget *hseparator10;
   GtkWidget *frame3;
   GtkWidget *alignment8;
   GtkWidget *fixed11;
   GtkWidget *label_tz;
   GtkWidget *button_tz;
   GtkWidget *label39;
-  GtkWidget *label13;
-  GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
-  GtkWidget *label15;
+  GtkWidget *checkbutton_bootdisk;
   GtkWidget *label14;
+  GtkWidget *label15;
+  GtkWidget *combobox_bootmanager;
+  GtkWidget *vseparator4;
+  GtkWidget *vseparator3;
+  GtkWidget *hseparator9;
+  GtkWidget *hseparator10;
+  GtkWidget *frame5;
+  GtkWidget *alignment10;
+  GtkWidget *fixed14;
+  GtkWidget *combobox_lang;
+  GtkWidget *label43;
+  GtkWidget *label13;
+  GtkWidget *hseparator19;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *frame1;
@@ -159,7 +165,6 @@ create_window_main (void)
   GtkWidget *label37;
   GtkWidget *label_rootpart_warning;
   GtkWidget *label6;
-  GtkWidget *label_wellcome;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -223,6 +228,11 @@ create_window_main (void)
   gtk_widget_show (image14);
   gtk_container_add (GTK_CONTAINER (prev), image14);
   gtk_misc_set_alignment (GTK_MISC (image14), 0, 0);
+
+  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
+  gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
+  gtk_widget_set_size_request (label_wellcome, 369, 41);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
@@ -438,40 +448,10 @@ create_window_main (void)
   gtk_widget_show (fixed4);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed4);
 
-  hseparator4 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator4);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator4, 16, 88);
-  gtk_widget_set_size_request (hseparator4, 640, 16);
-
-  hseparator9 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator9);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator9, 104, 104);
-  gtk_widget_set_size_request (hseparator9, 408, 16);
-
-  vseparator3 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator3);
-  gtk_fixed_put (GTK_FIXED (fixed4), vseparator3, 96, 112);
-  gtk_widget_set_size_request (vseparator3, 16, 128);
-
-  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
-  gtk_widget_show (checkbutton_bootdisk);
-  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 312, 200);
-  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
-
-  vseparator4 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator4);
-  gtk_fixed_put (GTK_FIXED (fixed4), vseparator4, 504, 112);
-  gtk_widget_set_size_request (vseparator4, 16, 128);
-
-  hseparator10 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator10);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator10, 104, 232);
-  gtk_widget_set_size_request (hseparator10, 408, 16);
-
   frame3 = gtk_frame_new (NULL);
   gtk_widget_show (frame3);
-  gtk_fixed_put (GTK_FIXED (fixed4), frame3, 104, 264);
-  gtk_widget_set_size_request (frame3, 408, 104);
+  gtk_fixed_put (GTK_FIXED (fixed4), frame3, 16, 264);
+  gtk_widget_set_size_request (frame3, 320, 104);
 
   alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
   gtk_widget_show (alignment8);
@@ -484,8 +464,8 @@ create_window_main (void)
 
   label_tz = gtk_label_new (_("Timezone"));
   gtk_widget_show (label_tz);
-  gtk_fixed_put (GTK_FIXED (fixed11), label_tz, 0, 16);
-  gtk_widget_set_size_request (label_tz, 384, 32);
+  gtk_fixed_put (GTK_FIXED (fixed11), label_tz, 0, 8);
+  gtk_widget_set_size_request (label_tz, 304, 32);
   gtk_label_set_use_markup (GTK_LABEL (label_tz), TRUE);
   gtk_label_set_justify (GTK_LABEL (label_tz), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label_tz), TRUE);
@@ -494,7 +474,7 @@ create_window_main (void)
 
   button_tz = gtk_button_new_from_stock ("gtk-preferences");
   gtk_widget_show (button_tz);
-  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 112, 45);
+  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 72, 46);
   gtk_widget_set_size_request (button_tz, 152, 30);
 
   label39 = gtk_label_new (_("<big><b> Timezone </b></big>"));
@@ -502,37 +482,91 @@ create_window_main (void)
   gtk_frame_set_label_widget (GTK_FRAME (frame3), label39);
   gtk_label_set_use_markup (GTK_LABEL (label39), TRUE);
 
+  combobox_installplace = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_installplace);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 352, 168);
+  gtk_widget_set_size_request (combobox_installplace, 187, 28);
+
+  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
+  gtk_widget_show (checkbutton_bootdisk);
+  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
+  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
+
+  label14 = gtk_label_new (_("Bootmanager"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 128);
+  gtk_widget_set_size_request (label14, 256, 28);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
+
+  label15 = gtk_label_new (_("Installation-target"));
+  gtk_widget_show (label15);
+  gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 168);
+  gtk_widget_set_size_request (label15, 256, 28);
+  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
+
+  combobox_bootmanager = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_bootmanager);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 352, 128);
+  gtk_widget_set_size_request (combobox_bootmanager, 187, 28);
+
+  vseparator4 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator4);
+  gtk_fixed_put (GTK_FIXED (fixed4), vseparator4, 664, 16);
+  gtk_widget_set_size_request (vseparator4, 16, 224);
+
+  vseparator3 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator3);
+  gtk_fixed_put (GTK_FIXED (fixed4), vseparator3, 8, 16);
+  gtk_widget_set_size_request (vseparator3, 16, 224);
+
+  hseparator9 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator9);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator9, 16, 8);
+  gtk_widget_set_size_request (hseparator9, 656, 16);
+
+  hseparator10 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator10);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator10, 16, 232);
+  gtk_widget_set_size_request (hseparator10, 656, 16);
+
+  frame5 = gtk_frame_new (NULL);
+  gtk_widget_show (frame5);
+  gtk_fixed_put (GTK_FIXED (fixed4), frame5, 352, 264);
+  gtk_widget_set_size_request (frame5, 320, 104);
+
+  alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment10);
+  gtk_container_add (GTK_CONTAINER (frame5), alignment10);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 0, 0, 12, 0);
+
+  fixed14 = gtk_fixed_new ();
+  gtk_widget_show (fixed14);
+  gtk_container_add (GTK_CONTAINER (alignment10), fixed14);
+
+  combobox_lang = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_lang);
+  gtk_fixed_put (GTK_FIXED (fixed14), combobox_lang, 8, 24);
+  gtk_widget_set_size_request (combobox_lang, 280, 28);
+
+  label43 = gtk_label_new (_("<big><b> Language </b></big>"));
+  gtk_widget_show (label43);
+  gtk_frame_set_label_widget (GTK_FRAME (frame5), label43);
+  gtk_label_set_use_markup (GTK_LABEL (label43), TRUE);
+
   label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
   gtk_widget_show (label13);
-  gtk_fixed_put (GTK_FIXED (fixed4), label13, 8, 8);
-  gtk_widget_set_size_request (label13, 656, 88);
+  gtk_fixed_put (GTK_FIXED (fixed4), label13, 24, 24);
+  gtk_widget_set_size_request (label13, 640, 88);
   gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
 
-  combobox_bootmanager = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_bootmanager);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 312, 128);
-  gtk_widget_set_size_request (combobox_bootmanager, 187, 28);
+  hseparator19 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator19);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator19, 56, 105);
+  gtk_widget_set_size_request (hseparator19, 576, 16);
 
-  combobox_installplace = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_installplace);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 312, 168);
-  gtk_widget_set_size_request (combobox_installplace, 187, 28);
-
-  label15 = gtk_label_new (_("Installation-target"));
-  gtk_widget_show (label15);
-  gtk_fixed_put (GTK_FIXED (fixed4), label15, 120, 168);
-  gtk_widget_set_size_request (label15, 184, 28);
-  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
-
-  label14 = gtk_label_new (_("Bootmanager"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed4), label14, 120, 128);
-  gtk_widget_set_size_request (label14, 184, 28);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
-
-  label3 = gtk_label_new (_("Grub"));
+  label3 = gtk_label_new (_("Grub/Timezone/Language"));
   gtk_widget_show (label3);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label3);
 
@@ -871,11 +905,6 @@ create_window_main (void)
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
 
-  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
-  gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
-  gtk_widget_set_size_request (label_wellcome, 369, 41);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
-
   g_signal_connect ((gpointer) window_main, "delete_event",
                     G_CALLBACK (on_window_main_delete_event),
                     NULL);
@@ -929,6 +958,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, image15, "image15");
   GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
   GLADE_HOOKUP_OBJECT (window_main, image14, "image14");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window_main, hseparator2, "hseparator2");
@@ -967,23 +997,28 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label_changed, "label_changed");
   GLADE_HOOKUP_OBJECT (window_main, label2, "label2");
   GLADE_HOOKUP_OBJECT (window_main, fixed4, "fixed4");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator4, "hseparator4");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
-  GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
-  GLADE_HOOKUP_OBJECT (window_main, vseparator4, "vseparator4");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator10, "hseparator10");
   GLADE_HOOKUP_OBJECT (window_main, frame3, "frame3");
   GLADE_HOOKUP_OBJECT (window_main, alignment8, "alignment8");
   GLADE_HOOKUP_OBJECT (window_main, fixed11, "fixed11");
   GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
   GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
   GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
-  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
-  GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
   GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
+  GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator4, "vseparator4");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator10, "hseparator10");
+  GLADE_HOOKUP_OBJECT (window_main, frame5, "frame5");
+  GLADE_HOOKUP_OBJECT (window_main, alignment10, "alignment10");
+  GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_lang, "combobox_lang");
+  GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
+  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator19, "hseparator19");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
@@ -1047,7 +1082,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
-  GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 
   return window_main;
@@ -1215,7 +1249,7 @@ create_install_progressbar (void)
   gtk_widget_show (fixed6);
   gtk_container_add (GTK_CONTAINER (viewport3), fixed6);
 
-  label_generally2 = gtk_label_new (_("<span foreground=\"SkyBlue4\" font_desc=\"Sans Bold 14\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"12\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"11\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>, so you'll probably want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">You can add contrib and non-free with metapackage-installer.</span>\n\n\n<b><u>firmware</u></b>\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ATi Radeon graphics:</span> 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '<b>sgfxi -N radeon</b>'\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Nvidia  graphics:</span> type '<b>sgfxi -h</b>' to see available options\n* Atheros/ \"madwifi\" wlan: m-a a-i madwifi.\n* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware\n* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.\n* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.\n* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html\n* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.\n* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.\n* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945\n* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html\n* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware\n* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.\n* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.\n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJoaquim Boura (x-un-i)\nRoland Engert (RoEn)\nAedan Kelly (etorix)\nBernard Gray (cleary)\nAndreas Hausmann (Bodhi)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nHarald Hope (h2)\nKel Modderman (kelmo)\nStefan Lippers-Hollmann (slh)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nNiall Walsh (bfree)\nTrevor Walkley (bluewater)\nAndreas Weber (webera)\nand many more\n\na big thank you goes to the documentation and translation teams!\n\nThanks to all involved for making this possible:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
+  label_generally2 = gtk_label_new (_("<span foreground=\"SkyBlue4\" font_desc=\"Sans Bold 14\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"12\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"11\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">You can add contrib and non-free with metapackage-installer.</span>\n\n\n<b><u>firmware</u></b>\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ATi Radeon graphics:</span> 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '<b>sgfxi -N radeon</b>'\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Nvidia  graphics:</span> type '<b>sgfxi -h</b>' to see available options\n* Atheros/ \"madwifi\" wlan: m-a a-i madwifi.\n* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware\n* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.\n* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.\n* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html\n* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.\n* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.\n* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945\n* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html\n* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware\n* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.\n* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.\n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJoaquim Boura (x-un-i)\nRoland Engert (RoEn)\nAedan Kelly (etorix)\nBernard Gray (cleary)\nAndreas Hausmann (Bodhi)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nHarald Hope (h2)\nKel Modderman (kelmo)\nStefan Lippers-Hollmann (slh)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nNiall Walsh (bfree)\nTrevor Walkley (bluewater)\nAndreas Weber (webera)\nand many more\n\na big thank you goes to the documentation and translation teams!\n\nThanks to all involved for making this possible:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
   gtk_widget_show (label_generally2);
   gtk_fixed_put (GTK_FIXED (fixed6), label_generally2, 8, 8);
   gtk_widget_set_size_request (label_generally2, 560, 1700);
