@@ -31,7 +31,12 @@
 #define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
+
 #define LANG_SH "grep -e \"	..)\" -e \"	..|..)\" /etc/init.d/fll-locales | sed -e 's/\\t//g; s/)//;s/### .. /, /; s/ ###//;s/ ,/,/' | sort > "
+//${LANGUAGE} is set in /etc/default/fll-locales
+#define LANG_CUR "source /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANGUAGE}\n\";sed -ie \"s/^${LANGUAGE},/DEFAULT_${LANGUAGE},/\" "
+
+
 
 char scanparttmp[80];
 char systemcallstr[BUF_LEN];
@@ -291,8 +296,8 @@ void read_language(GtkComboBox     *combobox)
    * ======================================================= */
    FILE* fp;
 
-   char langcode[80], langtmp[80];
-   int fd;
+   char langcode[80], langtmp[80], *default_lang;
+   int fd, z = 0, l = 0;
 
 
    strcpy(langtmp, "/tmp/languagetmp.XXXXXX");
@@ -306,7 +311,9 @@ void read_language(GtkComboBox     *combobox)
             strncat(systemcallstr, langtmp, BUF_LEN);
             strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
             strncat(systemcallstr, langtmp, BUF_LEN);
-            //strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= default language =======\n\";", BUF_LEN);
+            strncat(systemcallstr, LANG_CUR, BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
 
             system(systemcallstr);  // write the partitiontable to the tempfile
             close(fd);
@@ -334,15 +341,25 @@ void read_language(GtkComboBox     *combobox)
        fseek( fp, 0L, SEEK_SET );
        while (fscanf(fp, "%[^\n]\n", langcode) != EOF) {
 
-          //printf("%s %s\n", "combobox setzen, partition");
+          //set default language
+          if( strncmp ( langcode, "DEFAULT_", 8 ) == 0 ) {
+              l=z;
 
-         gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
-         //gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+              default_lang = strtok(langcode, "_");
+              default_lang = strtok(NULL, "_");
 
-     }
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), default_lang);
+          }
+          else {
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
+          }
 
-     fclose(fp);
+          z++;
+      }
 
+      gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), l);
+
+      fclose(fp);
 
    }
 
