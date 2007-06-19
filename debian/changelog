@@ -5,8 +5,9 @@ install-gui (0.2.10) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * add language selection
+  * add HD_LANG_COUNTRY 
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 20 Jun 2007 06:40:08 +1000
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 20 Jun 2007 07:19:53 +1000
 
 install-gui (0.2.9) unstable; urgency=low
 

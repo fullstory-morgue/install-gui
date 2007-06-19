@@ -778,7 +778,7 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton, *checkbutton;
-   char systemcall[256], services[17];
+   char systemcall[256], services[17], *default_lang, *default_country;
    FILE *stream;
    //int fd;
 
@@ -984,10 +984,17 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
              fprintf( stream, "no'\n");
          }
 
-       fprintf( stream, "\n%s\n%s%s'\n", 
+
+        // Language 
+        default_lang = strtok(gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_lang"))), ",");
+        default_country = strtok(NULL, ",");
+
+        fprintf( stream, "\n%s\n%s%s'\n%s%s'\n", 
 "# locale",
 "HD_LANG='",
-gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_lang")))
+        default_lang,
+"HD_LANG_COUNTRY='",
+        default_country
        );
 
 
