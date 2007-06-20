@@ -1,9 +1,5 @@
-install-gui (0.2.12) UNRELEASED; urgency=low
+install-gui (0.2.12) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * reactivate bootdisc checkbox 
 
  -- Horst Tritremmel <hjt@sidux.com>  Thu, 21 Jun 2007 14:42:12 +0200
