@@ -178,3 +178,11 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
 void
 on_label1_show                         (GtkWidget       *widget,
                                         gpointer         user_data);
+
+void
+on_combobox_lang_changed               (GtkComboBox     *combobox,
+                                        gpointer         user_data);
+
+void
+on_okbutton2_clicked                   (GtkButton       *button,
+                                        gpointer         user_data);

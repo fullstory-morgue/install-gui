@@ -6,3 +6,4 @@ GtkWidget* create_window_main (void);
 GtkWidget* create_dialog_no_root (void);
 GtkWidget* create_install_progressbar (void);
 GtkWidget* create_dialog_end (void);
+GtkWidget* create_dialog_keyb_change (void);

@@ -94,13 +94,13 @@ create_window_main (void)
   GtkWidget *fixed14;
   GtkWidget *combobox_lang;
   GtkWidget *label43;
-  GtkWidget *checkbutton_bootdisk;
+  GtkWidget *label13;
+  GtkWidget *hseparator19;
+  GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
   GtkWidget *label15;
   GtkWidget *label14;
-  GtkWidget *combobox_bootmanager;
-  GtkWidget *hseparator19;
-  GtkWidget *label13;
+  GtkWidget *checkbutton_bootdisk;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *frame1;
@@ -526,37 +526,6 @@ create_window_main (void)
   gtk_frame_set_label_widget (GTK_FRAME (frame5), label43);
   gtk_label_set_use_markup (GTK_LABEL (label43), TRUE);
 
-  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
-  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
-  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
-
-  combobox_installplace = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_installplace);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 352, 184);
-  gtk_widget_set_size_request (combobox_installplace, 187, 28);
-
-  label15 = gtk_label_new (_("Installation-target"));
-  gtk_widget_show (label15);
-  gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 184);
-  gtk_widget_set_size_request (label15, 256, 28);
-  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
-
-  label14 = gtk_label_new (_("Bootmanager"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 144);
-  gtk_widget_set_size_request (label14, 256, 28);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
-
-  combobox_bootmanager = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_bootmanager);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 352, 144);
-  gtk_widget_set_size_request (combobox_bootmanager, 187, 28);
-
-  hseparator19 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator19);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator19, 56, 112);
-  gtk_widget_set_size_request (hseparator19, 576, 16);
-
   label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
   gtk_widget_show (label13);
   gtk_fixed_put (GTK_FIXED (fixed4), label13, 24, 24);
@@ -564,6 +533,38 @@ create_window_main (void)
   gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
+
+  hseparator19 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator19);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator19, 56, 105);
+  gtk_widget_set_size_request (hseparator19, 576, 16);
+
+  combobox_bootmanager = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_bootmanager);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 352, 128);
+  gtk_widget_set_size_request (combobox_bootmanager, 187, 28);
+
+  combobox_installplace = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_installplace);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 352, 168);
+  gtk_widget_set_size_request (combobox_installplace, 187, 28);
+
+  label15 = gtk_label_new (_("Installation-target"));
+  gtk_widget_show (label15);
+  gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 168);
+  gtk_widget_set_size_request (label15, 256, 28);
+  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
+
+  label14 = gtk_label_new (_("Bootmanager"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 128);
+  gtk_widget_set_size_request (label14, 256, 28);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
+
+  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
+  gtk_widget_show (checkbutton_bootdisk);
+  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
+  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
 
   label3 = gtk_label_new (_("Grub/Timezone/Language"));
   gtk_widget_show (label3);
@@ -934,6 +935,9 @@ create_window_main (void)
   g_signal_connect ((gpointer) button_tz, "clicked",
                     G_CALLBACK (on_button_tz_clicked),
                     NULL);
+  g_signal_connect ((gpointer) combobox_lang, "changed",
+                    G_CALLBACK (on_combobox_lang_changed),
+                    NULL);
   g_signal_connect ((gpointer) radiobutton1, "toggled",
                     G_CALLBACK (on_radiobutton1_toggled),
                     NULL);
@@ -1011,13 +1015,13 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
   GLADE_HOOKUP_OBJECT (window_main, combobox_lang, "combobox_lang");
   GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
+  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator19, "hseparator19");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
   GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
   GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator19, "hseparator19");
-  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
@@ -1374,5 +1378,72 @@ create_dialog_end (void)
   GLADE_HOOKUP_OBJECT (dialog_end, okbutton1, "okbutton1");
 
   return dialog_end;
+}
+
+GtkWidget*
+create_dialog_keyb_change (void)
+{
+  GtkWidget *dialog_keyb_change;
+  GdkPixbuf *dialog_keyb_change_icon_pixbuf;
+  GtkWidget *dialog_vbox3;
+  GtkWidget *fixed15;
+  GtkWidget *label44;
+  GtkWidget *image18;
+  GtkWidget *dialog_action_area3;
+  GtkWidget *okbutton2;
+
+  dialog_keyb_change = gtk_dialog_new ();
+  gtk_window_set_title (GTK_WINDOW (dialog_keyb_change), _("Keyboard Info"));
+  dialog_keyb_change_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  if (dialog_keyb_change_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (dialog_keyb_change), dialog_keyb_change_icon_pixbuf);
+      gdk_pixbuf_unref (dialog_keyb_change_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (dialog_keyb_change), GDK_WINDOW_TYPE_HINT_DIALOG);
+
+  dialog_vbox3 = GTK_DIALOG (dialog_keyb_change)->vbox;
+  gtk_widget_show (dialog_vbox3);
+
+  fixed15 = gtk_fixed_new ();
+  gtk_widget_show (fixed15);
+  gtk_box_pack_start (GTK_BOX (dialog_vbox3), fixed15, TRUE, TRUE, 0);
+
+  label44 = gtk_label_new (_("<span foreground=\"red\" font_desc=\"Sans Bold 14\">The keyboardlayout of the installed system does not match the current layout.\n\nYou might have problems typing your password!</span>"));
+  gtk_widget_show (label44);
+  gtk_fixed_put (GTK_FIXED (fixed15), label44, 88, 8);
+  gtk_widget_set_size_request (label44, 296, 136);
+  gtk_label_set_use_markup (GTK_LABEL (label44), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label44), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label44), 0.5, 0.25);
+
+  image18 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_DIALOG);
+  gtk_widget_show (image18);
+  gtk_fixed_put (GTK_FIXED (fixed15), image18, 8, 16);
+  gtk_widget_set_size_request (image18, 72, 72);
+
+  dialog_action_area3 = GTK_DIALOG (dialog_keyb_change)->action_area;
+  gtk_widget_show (dialog_action_area3);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area3), GTK_BUTTONBOX_END);
+
+  okbutton2 = gtk_button_new_from_stock ("gtk-ok");
+  gtk_widget_show (okbutton2);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dialog_keyb_change), okbutton2, GTK_RESPONSE_OK);
+  GTK_WIDGET_SET_FLAGS (okbutton2, GTK_CAN_DEFAULT);
+
+  g_signal_connect ((gpointer) okbutton2, "clicked",
+                    G_CALLBACK (on_okbutton2_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_keyb_change, dialog_keyb_change, "dialog_keyb_change");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_keyb_change, dialog_vbox3, "dialog_vbox3");
+  GLADE_HOOKUP_OBJECT (dialog_keyb_change, fixed15, "fixed15");
+  GLADE_HOOKUP_OBJECT (dialog_keyb_change, label44, "label44");
+  GLADE_HOOKUP_OBJECT (dialog_keyb_change, image18, "image18");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_keyb_change, dialog_action_area3, "dialog_action_area3");
+  GLADE_HOOKUP_OBJECT (dialog_keyb_change, okbutton2, "okbutton2");
+
+  return dialog_keyb_change;
 }
 

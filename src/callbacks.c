@@ -40,7 +40,7 @@
 char scanparttmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
-char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80];
+char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80];
 int  counter, leaved_user_page, i = 0, partitions_counter = 0, do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar;
 
@@ -346,6 +346,8 @@ void read_language(GtkComboBox     *combobox)
 
               default_lang = strtok(langcode, "_");
               default_lang = strtok(NULL, "_");
+
+              strncpy(lang_default, default_lang, 80);
 
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), default_lang);
           }
@@ -1678,5 +1680,28 @@ on_install_progressbar_delete_event    (GtkWidget       *widget,
   gtk_main_quit();
 
   return FALSE;
+}
+
+
+void
+on_combobox_lang_changed               (GtkComboBox     *combobox,
+                                        gpointer         user_data)
+{
+     char *selected_lang = gtk_combo_box_get_active_text(GTK_COMBO_BOX ( combobox ));
+
+     if ( strcmp(lang_default, selected_lang) != 0 ) {
+            GtkWidget *dialog = create_dialog_keyb_change ();
+            gtk_widget_show (dialog);
+     }
+
+}
+
+
+void
+on_okbutton2_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+          GtkWidget *dialog = lookup_widget (GTK_WIDGET (button), "dialog_keyb_change");
+          gtk_widget_destroy (dialog);
 }
 
