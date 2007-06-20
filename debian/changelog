@@ -1,9 +1,5 @@
-install-gui (0.2.11) UNRELEASED; urgency=low
+install-gui (0.2.11) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * removed the create a bootdisc checkbox
   * new fll-locales scan
 
