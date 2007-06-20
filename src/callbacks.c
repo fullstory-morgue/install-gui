@@ -24,17 +24,16 @@
 
 #define BUF_LEN    1024
 
-
 #define FILENAME ".sidconf"
 #define TARGET_MNT_POINT "/media/hdinstall"
 
-#define SCANPARTITIONS "$(scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
+#define SCANPARTITIONS "scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
 
-#define LANG_SH "grep -e \"	..)\" -e \"	..|..)\" /etc/init.d/fll-locales | sed -e 's/\\t//g; s/)//;s/### .. /, /; s/ ###//;s/ ,/,/' | sort > "
+#define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
 //${LANGUAGE} is set in /etc/default/fll-locales
-#define LANG_CUR "source /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANGUAGE}\n\";sed -ie \"s/^${LANGUAGE},/DEFAULT_${LANGUAGE},/\" "
+#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANGUAGE}\n\";sed -ie \"s/^${LANGUAGE},/DEFAULT_${LANGUAGE},/\" "
 
 
 
@@ -225,7 +224,7 @@ void read_partitions(GtkComboBox     *combobox)
             // create the shell system command (scanpartitions)
             strncpy(systemcallstr, SCANPARTITIONS, BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
-            strncat(systemcallstr, "); printf \"======= scanpartitions call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= scanpartitions call =======\n\";printf \"", BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
             strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);

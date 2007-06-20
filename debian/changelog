@@ -1,8 +1,13 @@
 install-gui (0.2.11) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 20 Jun 2007 01:31:55 +0200
+  [ Horst Tritremmel ]
+  * removed the create a bootdisc checkbox
+  * new fll-locales scan
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 20 Jun 2007 09:27:04 +0200
 
 install-gui (0.2.10) unstable; urgency=low
 

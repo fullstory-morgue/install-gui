@@ -82,14 +82,9 @@ create_window_main (void)
   GtkWidget *frame3;
   GtkWidget *alignment8;
   GtkWidget *fixed11;
-  GtkWidget *label_tz;
   GtkWidget *button_tz;
+  GtkWidget *label_tz;
   GtkWidget *label39;
-  GtkWidget *combobox_installplace;
-  GtkWidget *checkbutton_bootdisk;
-  GtkWidget *label14;
-  GtkWidget *label15;
-  GtkWidget *combobox_bootmanager;
   GtkWidget *vseparator4;
   GtkWidget *vseparator3;
   GtkWidget *hseparator9;
@@ -99,8 +94,13 @@ create_window_main (void)
   GtkWidget *fixed14;
   GtkWidget *combobox_lang;
   GtkWidget *label43;
-  GtkWidget *label13;
+  GtkWidget *checkbutton_bootdisk;
+  GtkWidget *combobox_installplace;
+  GtkWidget *label15;
+  GtkWidget *label14;
+  GtkWidget *combobox_bootmanager;
   GtkWidget *hseparator19;
+  GtkWidget *label13;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *frame1;
@@ -462,6 +462,11 @@ create_window_main (void)
   gtk_widget_show (fixed11);
   gtk_container_add (GTK_CONTAINER (alignment8), fixed11);
 
+  button_tz = gtk_button_new_from_stock ("gtk-preferences");
+  gtk_widget_show (button_tz);
+  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 72, 40);
+  gtk_widget_set_size_request (button_tz, 152, 30);
+
   label_tz = gtk_label_new (_("Timezone"));
   gtk_widget_show (label_tz);
   gtk_fixed_put (GTK_FIXED (fixed11), label_tz, 0, 8);
@@ -472,42 +477,10 @@ create_window_main (void)
   gtk_misc_set_alignment (GTK_MISC (label_tz), 0.5, 0);
   gtk_label_set_ellipsize (GTK_LABEL (label_tz), PANGO_ELLIPSIZE_MIDDLE);
 
-  button_tz = gtk_button_new_from_stock ("gtk-preferences");
-  gtk_widget_show (button_tz);
-  gtk_fixed_put (GTK_FIXED (fixed11), button_tz, 72, 46);
-  gtk_widget_set_size_request (button_tz, 152, 30);
-
   label39 = gtk_label_new (_("<big><b> Timezone </b></big>"));
   gtk_widget_show (label39);
   gtk_frame_set_label_widget (GTK_FRAME (frame3), label39);
   gtk_label_set_use_markup (GTK_LABEL (label39), TRUE);
-
-  combobox_installplace = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_installplace);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 352, 168);
-  gtk_widget_set_size_request (combobox_installplace, 187, 28);
-
-  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
-  gtk_widget_show (checkbutton_bootdisk);
-  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
-  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
-
-  label14 = gtk_label_new (_("Bootmanager"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 128);
-  gtk_widget_set_size_request (label14, 256, 28);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
-
-  label15 = gtk_label_new (_("Installation-target"));
-  gtk_widget_show (label15);
-  gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 168);
-  gtk_widget_set_size_request (label15, 256, 28);
-  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
-
-  combobox_bootmanager = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_bootmanager);
-  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 352, 128);
-  gtk_widget_set_size_request (combobox_bootmanager, 187, 28);
 
   vseparator4 = gtk_vseparator_new ();
   gtk_widget_show (vseparator4);
@@ -553,6 +526,37 @@ create_window_main (void)
   gtk_frame_set_label_widget (GTK_FRAME (frame5), label43);
   gtk_label_set_use_markup (GTK_LABEL (label43), TRUE);
 
+  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
+  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
+  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
+
+  combobox_installplace = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_installplace);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_installplace, 352, 184);
+  gtk_widget_set_size_request (combobox_installplace, 187, 28);
+
+  label15 = gtk_label_new (_("Installation-target"));
+  gtk_widget_show (label15);
+  gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 184);
+  gtk_widget_set_size_request (label15, 256, 28);
+  gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
+
+  label14 = gtk_label_new (_("Bootmanager"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 144);
+  gtk_widget_set_size_request (label14, 256, 28);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
+
+  combobox_bootmanager = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_bootmanager);
+  gtk_fixed_put (GTK_FIXED (fixed4), combobox_bootmanager, 352, 144);
+  gtk_widget_set_size_request (combobox_bootmanager, 187, 28);
+
+  hseparator19 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator19);
+  gtk_fixed_put (GTK_FIXED (fixed4), hseparator19, 56, 112);
+  gtk_widget_set_size_request (hseparator19, 576, 16);
+
   label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
   gtk_widget_show (label13);
   gtk_fixed_put (GTK_FIXED (fixed4), label13, 24, 24);
@@ -560,11 +564,6 @@ create_window_main (void)
   gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
-
-  hseparator19 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator19);
-  gtk_fixed_put (GTK_FIXED (fixed4), hseparator19, 56, 105);
-  gtk_widget_set_size_request (hseparator19, 576, 16);
 
   label3 = gtk_label_new (_("Grub/Timezone/Language"));
   gtk_widget_show (label3);
@@ -1000,14 +999,9 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, frame3, "frame3");
   GLADE_HOOKUP_OBJECT (window_main, alignment8, "alignment8");
   GLADE_HOOKUP_OBJECT (window_main, fixed11, "fixed11");
-  GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
   GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
+  GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
   GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
-  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
-  GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, vseparator4, "vseparator4");
   GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
   GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
@@ -1017,8 +1011,13 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
   GLADE_HOOKUP_OBJECT (window_main, combobox_lang, "combobox_lang");
   GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
-  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
+  GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
+  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, hseparator19, "hseparator19");
+  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
