@@ -287,86 +287,6 @@ void read_partitions(GtkComboBox     *combobox)
 }
 
 
-void read_language(GtkComboBox     *combobox) 
-{
-  /* ======================================================= *
-   * read the language codes from /etc/init.d/fll-locales    *
-   * and put it in the combo box                             *
-   * ======================================================= */
-   FILE* fp;
-
-   char langcode[80], langtmp[80], *default_lang;
-   int fd, z = 0, l = 0;
-
-
-   strcpy(langtmp, "/tmp/languagetmp.XXXXXX");
-   fd = mkstemp(langtmp);  // make a tempfile
-
-   if( fd ) {
-            // create the shell system command (scanpartitions)
-            strncpy(systemcallstr, LANG_SH, BUF_LEN);
-            strncat(systemcallstr, langtmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"======= language call =======\n\";printf \"", BUF_LEN);
-            strncat(systemcallstr, langtmp, BUF_LEN);
-            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
-            strncat(systemcallstr, langtmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"======= default language =======\n\";", BUF_LEN);
-            strncat(systemcallstr, LANG_CUR, BUF_LEN);
-            strncat(systemcallstr, langtmp, BUF_LEN);
-
-            system(systemcallstr);  // write the partitiontable to the tempfile
-            close(fd);
-   }
-   else  {
-            perror("mkstemp(langtmp)");
-   }
-
-
-   // read the scanpartition temp file
-   fp=fopen(langtmp, "r");
-   if( fp == NULL ) {
-       strcpy(langcode, "tmp file error");
-       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
-   }
-   else {
-
-       // clear the combo_box before
-       GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
-       gtk_list_store_clear(GTK_LIST_STORE(model));
-
-       // appand to combo_box
-       partitions_counter = 0;
-
-       fseek( fp, 0L, SEEK_SET );
-       while (fscanf(fp, "%[^\n]\n", langcode) != EOF) {
-
-          //set default language
-          if( strncmp ( langcode, "DEFAULT_", 8 ) == 0 ) {
-              l=z;
-
-              default_lang = strtok(langcode, "_");
-              default_lang = strtok(NULL, "_");
-
-              strncpy(lang_default, default_lang, 80);
-
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), default_lang);
-          }
-          else {
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
-          }
-
-          z++;
-      }
-
-      gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), l);
-
-      fclose(fp);
-
-   }
-
-}
-
-
 int
 password_check(GtkWidget     *button) 
 {
@@ -987,7 +907,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
 
 
         // Language 
-        default_lang = strtok(gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_lang"))), ",");
+/*        default_lang = strtok(gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_lang"))), ",");
         default_country = strtok(NULL, ",");
 
         fprintf( stream, "\n%s\n%s%s'\n%s%s'\n", 
@@ -997,7 +917,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
 "HD_LANG_COUNTRY='",
         default_country
        );
-
+*/
 
         fclose( stream );
       }
@@ -1263,6 +1183,112 @@ combobox_hd_read (GtkWidget       *widget)
     }
     fclose(fp);
     unlink(hd_tmp);
+}
+
+
+void read_language(GtkComboBox     *combobox) 
+{
+  /* ======================================================= *
+   * read the language codes from /etc/init.d/fll-locales    *
+   * and put it in the combo box                             *
+   * ======================================================= */
+
+/*
+   FILE* fp;
+
+   char langcode[80], langtmp[80], *default_lang;
+   int fd, z = 0, l = 0;
+
+
+   strcpy(langtmp, "/tmp/languagetmp.XXXXXX");
+   fd = mkstemp(langtmp);  // make a tempfile
+
+   if( fd ) {
+            // create the shell system command (scanpartitions)
+            strncpy(systemcallstr, LANG_SH, BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= language call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= default language =======\n\";", BUF_LEN);
+            strncat(systemcallstr, LANG_CUR, BUF_LEN);
+            strncat(systemcallstr, langtmp, BUF_LEN);
+
+            system(systemcallstr);  // write the partitiontable to the tempfile
+            close(fd);
+   }
+   else  {
+            perror("mkstemp(langtmp)");
+   }
+
+
+   // read the scanpartition temp file
+   fp=fopen(langtmp, "r");
+   if( fp == NULL ) {
+       strcpy(langcode, "tmp file error");
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
+   }
+   else {
+
+       // clear the combo_box before
+       GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
+       gtk_list_store_clear(GTK_LIST_STORE(model));
+
+       // appand to combo_box
+       partitions_counter = 0;
+
+       fseek( fp, 0L, SEEK_SET );
+       while (fscanf(fp, "%[^\n]\n", langcode) != EOF) {
+
+          //set default language
+          if( strncmp ( langcode, "DEFAULT_", 8 ) == 0 ) {
+              l=z;
+
+              default_lang = strtok(langcode, "_");
+              default_lang = strtok(NULL, "_");
+
+              strncpy(lang_default, default_lang, 80);
+
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), default_lang);
+          }
+          else {
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), langcode);
+          }
+
+          z++;
+      }
+
+      gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), l);
+
+      fclose(fp);
+
+   }
+*/
+}
+
+
+void
+on_combobox_lang_changed               (GtkComboBox     *combobox,
+                                        gpointer         user_data)
+{
+
+     char *selected_lang = gtk_combo_box_get_active_text(GTK_COMBO_BOX ( combobox ));
+
+     if ( strcmp(lang_default, selected_lang) != 0 ) {
+            GtkWidget *dialog = create_dialog_keyb_change ();
+            gtk_widget_show (dialog);
+     }
+
+}
+
+
+void
+on_okbutton2_clicked                   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+          GtkWidget *dialog = lookup_widget (GTK_WIDGET (button), "dialog_keyb_change");
+          gtk_widget_destroy (dialog);
 }
 
 
@@ -1682,26 +1708,4 @@ on_install_progressbar_delete_event    (GtkWidget       *widget,
   return FALSE;
 }
 
-
-void
-on_combobox_lang_changed               (GtkComboBox     *combobox,
-                                        gpointer         user_data)
-{
-     char *selected_lang = gtk_combo_box_get_active_text(GTK_COMBO_BOX ( combobox ));
-
-     if ( strcmp(lang_default, selected_lang) != 0 ) {
-            GtkWidget *dialog = create_dialog_keyb_change ();
-            gtk_widget_show (dialog);
-     }
-
-}
-
-
-void
-on_okbutton2_clicked                   (GtkButton       *button,
-                                        gpointer         user_data)
-{
-          GtkWidget *dialog = lookup_widget (GTK_WIDGET (button), "dialog_keyb_change");
-          gtk_widget_destroy (dialog);
-}
 

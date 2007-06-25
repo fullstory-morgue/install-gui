@@ -89,11 +89,6 @@ create_window_main (void)
   GtkWidget *vseparator3;
   GtkWidget *hseparator9;
   GtkWidget *hseparator10;
-  GtkWidget *frame5;
-  GtkWidget *alignment10;
-  GtkWidget *fixed14;
-  GtkWidget *combobox_lang;
-  GtkWidget *label43;
   GtkWidget *label13;
   GtkWidget *hseparator19;
   GtkWidget *combobox_bootmanager;
@@ -101,6 +96,11 @@ create_window_main (void)
   GtkWidget *label15;
   GtkWidget *label14;
   GtkWidget *checkbutton_bootdisk;
+  GtkWidget *frame5;
+  GtkWidget *alignment10;
+  GtkWidget *fixed14;
+  GtkWidget *combobox_lang;
+  GtkWidget *label43;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *frame1;
@@ -502,30 +502,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed4), hseparator10, 16, 232);
   gtk_widget_set_size_request (hseparator10, 656, 16);
 
-  frame5 = gtk_frame_new (NULL);
-  gtk_widget_show (frame5);
-  gtk_fixed_put (GTK_FIXED (fixed4), frame5, 352, 264);
-  gtk_widget_set_size_request (frame5, 320, 104);
-
-  alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment10);
-  gtk_container_add (GTK_CONTAINER (frame5), alignment10);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 0, 0, 12, 0);
-
-  fixed14 = gtk_fixed_new ();
-  gtk_widget_show (fixed14);
-  gtk_container_add (GTK_CONTAINER (alignment10), fixed14);
-
-  combobox_lang = gtk_combo_box_new_text ();
-  gtk_widget_show (combobox_lang);
-  gtk_fixed_put (GTK_FIXED (fixed14), combobox_lang, 8, 24);
-  gtk_widget_set_size_request (combobox_lang, 280, 28);
-
-  label43 = gtk_label_new (_("<big><b> Language </b></big>"));
-  gtk_widget_show (label43);
-  gtk_frame_set_label_widget (GTK_FRAME (frame5), label43);
-  gtk_label_set_use_markup (GTK_LABEL (label43), TRUE);
-
   label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
   gtk_widget_show (label13);
   gtk_fixed_put (GTK_FIXED (fixed4), label13, 24, 24);
@@ -566,7 +542,30 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
   gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
 
-  label3 = gtk_label_new (_("Grub/Timezone/Language"));
+  frame5 = gtk_frame_new (NULL);
+  gtk_fixed_put (GTK_FIXED (fixed4), frame5, 352, 264);
+  gtk_widget_set_size_request (frame5, 320, 104);
+
+  alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_widget_show (alignment10);
+  gtk_container_add (GTK_CONTAINER (frame5), alignment10);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 0, 0, 12, 0);
+
+  fixed14 = gtk_fixed_new ();
+  gtk_widget_show (fixed14);
+  gtk_container_add (GTK_CONTAINER (alignment10), fixed14);
+
+  combobox_lang = gtk_combo_box_new_text ();
+  gtk_widget_show (combobox_lang);
+  gtk_fixed_put (GTK_FIXED (fixed14), combobox_lang, 8, 24);
+  gtk_widget_set_size_request (combobox_lang, 280, 28);
+
+  label43 = gtk_label_new (_("<big><b> Language </b></big>"));
+  gtk_widget_show (label43);
+  gtk_frame_set_label_widget (GTK_FRAME (frame5), label43);
+  gtk_label_set_use_markup (GTK_LABEL (label43), TRUE);
+
+  label3 = gtk_label_new (_("Grub/Timezone"));
   gtk_widget_show (label3);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label3);
 
@@ -1010,11 +1009,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
   GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
   GLADE_HOOKUP_OBJECT (window_main, hseparator10, "hseparator10");
-  GLADE_HOOKUP_OBJECT (window_main, frame5, "frame5");
-  GLADE_HOOKUP_OBJECT (window_main, alignment10, "alignment10");
-  GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
-  GLADE_HOOKUP_OBJECT (window_main, combobox_lang, "combobox_lang");
-  GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
   GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, hseparator19, "hseparator19");
   GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
@@ -1022,6 +1016,11 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
   GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
+  GLADE_HOOKUP_OBJECT (window_main, frame5, "frame5");
+  GLADE_HOOKUP_OBJECT (window_main, alignment10, "alignment10");
+  GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
+  GLADE_HOOKUP_OBJECT (window_main, combobox_lang, "combobox_lang");
+  GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
@@ -1178,8 +1177,8 @@ create_install_progressbar (void)
   GtkWidget *fixed6;
   GtkWidget *label_generally2;
   GtkWidget *label2;
-  GtkWidget *label_fifo;
   GtkWidget *label_clock;
+  GtkWidget *label_fifo;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
@@ -1267,20 +1266,20 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
 
-  label_fifo = gtk_label_new (_("<b>Start Installation</b>"));
-  gtk_widget_show (label_fifo);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
-  gtk_widget_set_size_request (label_fifo, 494, 41);
-  gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
-
   label_clock = gtk_label_new (_("00:00:00"));
   gtk_widget_show (label_clock);
   gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
   gtk_widget_set_size_request (label_clock, 217, 25);
   gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
+
+  label_fifo = gtk_label_new (_("<big><b>Start Installation</b></big>"));
+  gtk_widget_show (label_fifo);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
+  gtk_widget_set_size_request (label_fifo, 494, 41);
+  gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
 
   g_signal_connect ((gpointer) install_progressbar, "show",
                     G_CALLBACK (on_install_progressbar_show),
@@ -1304,8 +1303,8 @@ create_install_progressbar (void)
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
   GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
 
   return install_progressbar;
 }
