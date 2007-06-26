@@ -699,7 +699,7 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton, *checkbutton;
-   char systemcall[256], services[17], *default_lang, *default_country;
+   char systemcall[256], services[17]; //, *default_lang, *default_country;
    FILE *stream;
    //int fd;
 

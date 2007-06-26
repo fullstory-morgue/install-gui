@@ -151,7 +151,6 @@ create_window_main (void)
   GtkWidget *radiobutton1;
   GSList *radiobutton1_group = NULL;
   GtkWidget *radiobutton2;
-  GtkWidget *radiobutton3;
   GtkWidget *vseparator9;
   GtkWidget *button_install;
   GtkWidget *alignment6;
@@ -164,6 +163,7 @@ create_window_main (void)
   GtkWidget *hseparator17;
   GtkWidget *label37;
   GtkWidget *label_rootpart_warning;
+  GtkWidget *radiobutton3;
   GtkWidget *label6;
   GtkTooltips *tooltips;
 
@@ -834,13 +834,6 @@ create_window_main (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
   radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
 
-  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
-  gtk_widget_show (radiobutton3);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
-  gtk_widget_set_size_request (radiobutton3, 376, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
-
   vseparator9 = gtk_vseparator_new ();
   gtk_widget_show (vseparator9);
   gtk_fixed_put (GTK_FIXED (fixed7), vseparator9, 88, 320);
@@ -900,6 +893,12 @@ create_window_main (void)
   gtk_widget_set_size_request (label_rootpart_warning, 144, 32);
   gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
 
+  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
+  gtk_widget_set_size_request (radiobutton3, 376, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
+  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
+
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
@@ -943,11 +942,11 @@ create_window_main (void)
   g_signal_connect ((gpointer) radiobutton2, "toggled",
                     G_CALLBACK (on_radiobutton2_toggled),
                     NULL);
-  g_signal_connect ((gpointer) radiobutton3, "toggled",
-                    G_CALLBACK (on_radiobutton3_toggled),
-                    NULL);
   g_signal_connect ((gpointer) button_install, "clicked",
                     G_CALLBACK (on_button_install_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) radiobutton3, "toggled",
+                    G_CALLBACK (on_radiobutton3_toggled),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1070,7 +1069,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator16, "hseparator16");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton1, "radiobutton1");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton2, "radiobutton2");
-  GLADE_HOOKUP_OBJECT (window_main, radiobutton3, "radiobutton3");
   GLADE_HOOKUP_OBJECT (window_main, vseparator9, "vseparator9");
   GLADE_HOOKUP_OBJECT (window_main, button_install, "button_install");
   GLADE_HOOKUP_OBJECT (window_main, alignment6, "alignment6");
@@ -1083,6 +1081,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator17, "hseparator17");
   GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton3, "radiobutton3");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 
@@ -1246,6 +1245,7 @@ create_install_progressbar (void)
   viewport3 = gtk_viewport_new (NULL, NULL);
   gtk_widget_show (viewport3);
   gtk_container_add (GTK_CONTAINER (scrolledwindow3), viewport3);
+  gtk_viewport_set_shadow_type (GTK_VIEWPORT (viewport3), GTK_SHADOW_ETCHED_IN);
 
   fixed6 = gtk_fixed_new ();
   gtk_widget_show (fixed6);
