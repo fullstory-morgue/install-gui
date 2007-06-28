@@ -1176,8 +1176,8 @@ create_install_progressbar (void)
   GtkWidget *fixed6;
   GtkWidget *label_generally2;
   GtkWidget *label2;
-  GtkWidget *label_clock;
   GtkWidget *label_fifo;
+  GtkWidget *label_clock;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
@@ -1266,20 +1266,20 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
 
-  label_clock = gtk_label_new (_("00:00:00"));
-  gtk_widget_show (label_clock);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
-  gtk_widget_set_size_request (label_clock, 217, 25);
-  gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
-
-  label_fifo = gtk_label_new (_("<big><b>Start Installation</b></big>"));
+  label_fifo = gtk_label_new (_("<big><b>sidux-installer started</b></big>"));
   gtk_widget_show (label_fifo);
   gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
   gtk_widget_set_size_request (label_fifo, 494, 41);
   gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
   gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
+
+  label_clock = gtk_label_new (_("00:00:00"));
+  gtk_widget_show (label_clock);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
+  gtk_widget_set_size_request (label_clock, 217, 25);
+  gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
 
   g_signal_connect ((gpointer) install_progressbar, "show",
                     G_CALLBACK (on_install_progressbar_show),
@@ -1303,8 +1303,8 @@ create_install_progressbar (void)
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
   GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
 
   return install_progressbar;
 }
@@ -1317,7 +1317,10 @@ create_dialog_end (void)
   GtkWidget *dialog_vbox2;
   GtkWidget *fixed13;
   GtkWidget *image17;
+  GtkWidget *label45;
   GtkWidget *label41;
+  GtkWidget *label47;
+  GtkWidget *label46;
   GtkWidget *dialog_action_area2;
   GtkWidget *okbutton1;
 
@@ -1343,13 +1346,37 @@ create_dialog_end (void)
   gtk_fixed_put (GTK_FIXED (fixed13), image17, 8, 8);
   gtk_widget_set_size_request (image17, 488, 168);
 
-  label41 = gtk_label_new (_("<big><b>Installation successful\nhttp://sidux.com</b></big>"));
+  label45 = gtk_label_new (_("<big><b>http://sidux.com</b></big>"));
+  gtk_widget_show (label45);
+  gtk_fixed_put (GTK_FIXED (fixed13), label45, 8, 176);
+  gtk_widget_set_size_request (label45, 496, 24);
+  gtk_label_set_use_markup (GTK_LABEL (label45), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label45), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label45), 0.5, 0.03);
+
+  label41 = gtk_label_new (_("<big><b>Installation successfull</b></big>"));
   gtk_widget_show (label41);
-  gtk_fixed_put (GTK_FIXED (fixed13), label41, 8, 184);
-  gtk_widget_set_size_request (label41, 496, 56);
+  gtk_fixed_put (GTK_FIXED (fixed13), label41, 8, 208);
+  gtk_widget_set_size_request (label41, 496, 24);
   gtk_label_set_use_markup (GTK_LABEL (label41), TRUE);
   gtk_label_set_justify (GTK_LABEL (label41), GTK_JUSTIFY_CENTER);
-  gtk_misc_set_alignment (GTK_MISC (label41), 0.5, 0.03);
+  gtk_misc_set_alignment (GTK_MISC (label41), 0.5, 0);
+
+  label47 = gtk_label_new (_("The installation took"));
+  gtk_widget_show (label47);
+  gtk_fixed_put (GTK_FIXED (fixed13), label47, 8, 248);
+  gtk_widget_set_size_request (label47, 496, 22);
+  gtk_label_set_use_markup (GTK_LABEL (label47), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label47), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label47), 0.5, 0);
+
+  label46 = gtk_label_new ("");
+  gtk_widget_show (label46);
+  gtk_fixed_put (GTK_FIXED (fixed13), label46, 8, 270);
+  gtk_widget_set_size_request (label46, 496, 22);
+  gtk_label_set_use_markup (GTK_LABEL (label46), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label46), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label46), 0.5, 0);
 
   dialog_action_area2 = GTK_DIALOG (dialog_end)->action_area;
   gtk_widget_show (dialog_action_area2);
@@ -1372,7 +1399,10 @@ create_dialog_end (void)
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_end, dialog_vbox2, "dialog_vbox2");
   GLADE_HOOKUP_OBJECT (dialog_end, fixed13, "fixed13");
   GLADE_HOOKUP_OBJECT (dialog_end, image17, "image17");
+  GLADE_HOOKUP_OBJECT (dialog_end, label45, "label45");
   GLADE_HOOKUP_OBJECT (dialog_end, label41, "label41");
+  GLADE_HOOKUP_OBJECT (dialog_end, label47, "label47");
+  GLADE_HOOKUP_OBJECT (dialog_end, label46, "label46");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_end, dialog_action_area2, "dialog_action_area2");
   GLADE_HOOKUP_OBJECT (dialog_end, okbutton1, "okbutton1");
 

@@ -40,7 +40,7 @@
 char scanparttmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
-char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80];
+char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80];
 int  counter, leaved_user_page, i = 0, partitions_counter = 0, do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar;
 
@@ -1278,6 +1278,7 @@ on_combobox_lang_changed               (GtkComboBox     *combobox,
      if ( strcmp(lang_default, selected_lang) != 0 ) {
             GtkWidget *dialog = create_dialog_keyb_change ();
             gtk_widget_show (dialog);
+
      }
 
 }
@@ -1491,7 +1492,7 @@ f_notify(GIOChannel    *source,
                   while (gtk_events_pending ())
                          gtk_main_iteration ();
 
- 
+
                   // >>>>>>>>>>>>>>>   installation done   <<<<<<<<<<<<<<<<<<
                   //           start install meta or/and dialog_end
                   strncpy(sh_call, "source ${HOME}/", BUF_LEN);
@@ -1508,9 +1509,13 @@ f_notify(GIOChannel    *source,
 
                   system(sh_call);
 
+
                   // start dialog_end
                   GtkWidget* dialog_end = create_dialog_end  ();
-                  gtk_widget_show (dialog_end );
+                  gtk_widget_show ( dialog_end );
+
+                  GtkWidget* label46 = lookup_widget( GTK_WIDGET ( dialog_end ), "label46" );
+                  gtk_label_set_text ( GTK_LABEL( label46 ), progressclock );
 
              }
 
@@ -1556,7 +1561,7 @@ gboolean zeit (gpointer user_data)
   /********************************************
    *                time counter              *
    ********************************************/
-   char clock[80], min0[2] = "0", sec0[2] = "0";
+   char min0[2] = "0", sec0[2] = "0";
 
    sec++;
    if ( sec == 60 ) {
@@ -1580,8 +1585,8 @@ gboolean zeit (gpointer user_data)
    else
         strncpy( min0, "", 2);
 
-   sprintf (clock, "0%d:%s%d:%s%d", hour, min0, min, sec0, sec);
-   gtk_label_set_text ( GTK_LABEL( label_clock ), clock );
+   sprintf (progressclock, "0%d:%s%d:%s%d", hour, min0, min, sec0, sec);
+   gtk_label_set_text ( GTK_LABEL( label_clock ), progressclock );
 
 
    return(TRUE);
