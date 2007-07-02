@@ -1,9 +1,5 @@
-install-gui (0.2.16) UNRELEASED; urgency=low
+install-gui (0.2.16) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Bernard Gray ]
   * update logo for gaia look
   * update hd install for gaia look
   * include sources
