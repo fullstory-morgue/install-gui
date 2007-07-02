@@ -1,8 +1,14 @@
 install-gui (0.2.16) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 02 Jul 2007 10:38:26 +0200
+  [ Bernard Gray ]
+  * update logo for gaia look
+  * update hd install for gaia look
+  * include sources
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Tue, 03 Jul 2007 09:00:05 +1000
 
 install-gui (0.2.15) unstable; urgency=low
 
