@@ -1,9 +1,5 @@
-install-gui (0.2.15) UNRELEASED; urgency=low
+install-gui (0.2.15) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * show the installation time in end dialog
   * xfs removed, backend does not support it 
 
