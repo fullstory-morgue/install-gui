@@ -1,3 +1,9 @@
+install-gui (0.2.16) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 02 Jul 2007 10:38:26 +0200
+
 install-gui (0.2.15) unstable; urgency=low
 
   * show the installation time in end dialog
