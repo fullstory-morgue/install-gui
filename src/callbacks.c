@@ -264,8 +264,7 @@ void read_partitions(GtkComboBox     *combobox)
 
           if( strncmp(ptr_fs, "reiser", 6) == 0 ||
               strncmp(ptr_fs, "ext", 3) == 0 ||
-              strcmp(ptr_fs, "jfs") == 0 ||
-              strcmp(ptr_fs, "xfs") == 0 ) {
+              strcmp(ptr_fs, "jfs") == 0 ) {
 
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), ptr_dev);
               gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
@@ -792,7 +791,7 @@ on_button_install_clicked              (GtkButton       *button,
 
          fprintf( stream, "%s\n%s\n%s\n%s", 
 "# Sets the Filesystem type.",
-"# Possible are: ext3|ext2|reiserfs|xfs|jfs",
+"# Possible are: ext3|ext2|reiserfs|jfs",
 "# Default value is: reiserfs",
 "HD_FSTYPE='");
  
@@ -1366,7 +1365,6 @@ on_window_main_show                    (GtkWidget       *widget,
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext2");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "reiserfs");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "xfs");
 
    gtk_combo_box_set_active( GTK_COMBO_BOX(format_combo),0);
 
