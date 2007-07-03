@@ -32,7 +32,6 @@ create_window_main (void)
   GtkWidget *window_main;
   GdkPixbuf *window_main_icon_pixbuf;
   GtkWidget *fixed1;
-  GtkWidget *image1;
   GtkWidget *exit;
   GtkWidget *image12;
   GtkWidget *next;
@@ -40,6 +39,7 @@ create_window_main (void)
   GtkWidget *prev;
   GtkWidget *image14;
   GtkWidget *label_wellcome;
+  GtkWidget *image1;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -51,8 +51,8 @@ create_window_main (void)
   GtkWidget *label30;
   GtkWidget *hseparator3;
   GtkWidget *image2;
-  GtkWidget *label_wellcome_2;
   GtkWidget *label_wellcome_red;
+  GtkWidget *label_wellcome_2;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -186,11 +186,6 @@ create_window_main (void)
   gtk_container_add (GTK_CONTAINER (window_main), fixed1);
   gtk_container_set_border_width (GTK_CONTAINER (fixed1), 10);
 
-  image1 = create_pixmap (window_main, "install-gui-title.png");
-  gtk_widget_show (image1);
-  gtk_fixed_put (GTK_FIXED (fixed1), image1, 420, 2);
-  gtk_widget_set_size_request (image1, 156, 50);
-
   exit = gtk_button_new ();
   gtk_widget_show (exit);
   gtk_fixed_put (GTK_FIXED (fixed1), exit, 32, 480);
@@ -234,9 +229,14 @@ create_window_main (void)
   gtk_widget_set_size_request (label_wellcome, 369, 41);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
 
+  image1 = create_pixmap (window_main, "install-gui-title.png");
+  gtk_widget_show (image1);
+  gtk_fixed_put (GTK_FIXED (fixed1), image1, 464, 0);
+  gtk_widget_set_size_request (image1, 192, 51);
+
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
-  gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 0, 48);
+  gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 0, 56);
   gtk_widget_set_size_request (notebook1, 690, 417);
 
   fixed2 = gtk_fixed_new ();
@@ -292,14 +292,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), image2, 32, 112);
   gtk_widget_set_size_request (image2, 32, 48);
 
-  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\nsidux-website: http://sidux.com"));
-  gtk_widget_show (label_wellcome_2);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_2, 32, 224);
-  gtk_widget_set_size_request (label_wellcome_2, 608, 96);
-  gtk_label_set_justify (GTK_LABEL (label_wellcome_2), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
-
   label_wellcome_red = gtk_label_new (_("Note that this version is still a very early version and under heavy development. \nThe author takes no responsibility for data loss or hardware damage."));
   gtk_widget_show (label_wellcome_red);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
@@ -307,6 +299,14 @@ create_window_main (void)
   gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
+
+  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\nsidux-website: http://sidux.com"));
+  gtk_widget_show (label_wellcome_2);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_2, 32, 224);
+  gtk_widget_set_size_request (label_wellcome_2, 608, 96);
+  gtk_label_set_justify (GTK_LABEL (label_wellcome_2), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -952,7 +952,6 @@ create_window_main (void)
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, window_main, "window_main");
   GLADE_HOOKUP_OBJECT (window_main, fixed1, "fixed1");
-  GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
   GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT (window_main, image12, "image12");
   GLADE_HOOKUP_OBJECT (window_main, next, "next");
@@ -960,6 +959,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
   GLADE_HOOKUP_OBJECT (window_main, image14, "image14");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
+  GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
   GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window_main, hseparator2, "hseparator2");
@@ -971,8 +971,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label30, "label30");
   GLADE_HOOKUP_OBJECT (window_main, hseparator3, "hseparator3");
   GLADE_HOOKUP_OBJECT (window_main, image2, "image2");
-  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
@@ -1166,18 +1166,17 @@ create_install_progressbar (void)
   GtkWidget *fixed5;
   GtkWidget *progressbar1;
   GtkWidget *progressbar2;
-  GtkWidget *hseparator5;
   GtkWidget *hseparator6;
-  GtkWidget *image5;
-  GtkWidget *image6;
-  GtkWidget *label1;
   GtkWidget *scrolledwindow3;
   GtkWidget *viewport3;
   GtkWidget *fixed6;
   GtkWidget *label_generally2;
-  GtkWidget *label2;
+  GtkWidget *hseparator5;
   GtkWidget *label_fifo;
+  GtkWidget *label1;
   GtkWidget *label_clock;
+  GtkWidget *label2;
+  GtkWidget *image6;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
@@ -1198,46 +1197,24 @@ create_install_progressbar (void)
 
   progressbar1 = gtk_progress_bar_new ();
   gtk_widget_show (progressbar1);
-  gtk_fixed_put (GTK_FIXED (fixed5), progressbar1, 0, 448);
+  gtk_fixed_put (GTK_FIXED (fixed5), progressbar1, 0, 416);
   gtk_widget_set_size_request (progressbar1, 600, 24);
   gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar1), 0.01);
 
   progressbar2 = gtk_progress_bar_new ();
   gtk_widget_show (progressbar2);
-  gtk_fixed_put (GTK_FIXED (fixed5), progressbar2, 0, 376);
+  gtk_fixed_put (GTK_FIXED (fixed5), progressbar2, 0, 352);
   gtk_widget_set_size_request (progressbar2, 600, 25);
   gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar2), 0.01);
 
-  hseparator5 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator5);
-  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 0, 312);
-  gtk_widget_set_size_request (hseparator5, 600, 17);
-
   hseparator6 = gtk_hseparator_new ();
   gtk_widget_show (hseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed5), hseparator6, 0, 88);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator6, 0, 56);
   gtk_widget_set_size_request (hseparator6, 600, 17);
-
-  image5 = create_pixmap (install_progressbar, "install-pgb-hot.jpg");
-  gtk_widget_show (image5);
-  gtk_fixed_put (GTK_FIXED (fixed5), image5, 8, 0);
-  gtk_widget_set_size_request (image5, 88, 80);
-  gtk_misc_set_alignment (GTK_MISC (image5), 0, 0);
-
-  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
-  gtk_widget_show (image6);
-  gtk_fixed_put (GTK_FIXED (fixed5), image6, 352, 48);
-  gtk_widget_set_size_request (image6, 241, 33);
-
-  label1 = gtk_label_new (_("Completed Operations:"));
-  gtk_widget_show (label1);
-  gtk_fixed_put (GTK_FIXED (fixed5), label1, 0, 424);
-  gtk_widget_set_size_request (label1, 265, 25);
-  gtk_misc_set_alignment (GTK_MISC (label1), 0, 0);
 
   scrolledwindow3 = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_show (scrolledwindow3);
-  gtk_fixed_put (GTK_FIXED (fixed5), scrolledwindow3, 0, 104);
+  gtk_fixed_put (GTK_FIXED (fixed5), scrolledwindow3, 0, 72);
   gtk_widget_set_size_request (scrolledwindow3, 601, 209);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_SHADOW_IN);
@@ -1251,7 +1228,7 @@ create_install_progressbar (void)
   gtk_widget_show (fixed6);
   gtk_container_add (GTK_CONTAINER (viewport3), fixed6);
 
-  label_generally2 = gtk_label_new (_("<span foreground=\"SkyBlue4\" font_desc=\"Sans Bold 14\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"12\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"11\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">You can add contrib and non-free with metapackage-installer.</span>\n\n\n<b><u>firmware</u></b>\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ATi Radeon graphics:</span> 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '<b>sgfxi -N radeon</b>'\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Nvidia  graphics:</span> type '<b>sgfxi -h</b>' to see available options\n* Atheros/ \"madwifi\" wlan: m-a a-i madwifi.\n* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware\n* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.\n* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.\n* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html\n* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.\n* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.\n* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945\n* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html\n* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware\n* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.\n* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.\n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJoaquim Boura (x-un-i)\nRoland Engert (RoEn)\nAedan Kelly (etorix)\nBernard Gray (cleary)\nAndreas Hausmann (Bodhi)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nHarald Hope (h2)\nKel Modderman (kelmo)\nStefan Lippers-Hollmann (slh)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nNiall Walsh (bfree)\nTrevor Walkley (bluewater)\nAndreas Weber (webera)\nand many more\n\na big thank you goes to the documentation and translation teams!\n\nThanks to all involved for making this possible:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
+  label_generally2 = gtk_label_new (_("<span foreground=\"#a4a58b\" font_desc=\"Sans Bold 14\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"12\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"11\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">You can add contrib and non-free with metapackage-installer.</span>\n\n\n<b><u>firmware</u></b>\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ATi Radeon graphics:</span> 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '<b>sgfxi -N radeon</b>'\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Nvidia  graphics:</span> type '<b>sgfxi -h</b>' to see available options\n* Atheros/ \"madwifi\" wlan: m-a a-i madwifi.\n* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware\n* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.\n* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.\n* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html\n* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.\n* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.\n* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945\n* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html\n* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware\n* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.\n* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.\n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJoaquim Boura (x-un-i)\nRoland Engert (RoEn)\nAedan Kelly (etorix)\nBernard Gray (cleary)\nAndreas Hausmann (Bodhi)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nHarald Hope (h2)\nKel Modderman (kelmo)\nStefan Lippers-Hollmann (slh)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nNiall Walsh (bfree)\nTrevor Walkley (bluewater)\nAndreas Weber (webera)\nand many more\n\na big thank you goes to the documentation and translation teams!\n\nThanks to all involved for making this possible:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
   gtk_widget_show (label_generally2);
   gtk_fixed_put (GTK_FIXED (fixed6), label_generally2, 8, 8);
   gtk_widget_set_size_request (label_generally2, 560, 1700);
@@ -1259,27 +1236,43 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_generally2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_generally2), 0, 0);
 
-  label2 = gtk_label_new (_("Current\nOperation:"));
-  gtk_widget_show (label2);
-  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 336);
-  gtk_widget_set_size_request (label2, 105, 41);
-  gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
+  hseparator5 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator5);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 0, 288);
+  gtk_widget_set_size_request (hseparator5, 600, 17);
 
   label_fifo = gtk_label_new (_("<big><b>sidux-installer started</b></big>"));
   gtk_widget_show (label_fifo);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 336);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 312);
   gtk_widget_set_size_request (label_fifo, 494, 41);
   gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
   gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
 
+  label1 = gtk_label_new (_("Completed Operations:"));
+  gtk_widget_show (label1);
+  gtk_fixed_put (GTK_FIXED (fixed5), label1, 0, 392);
+  gtk_widget_set_size_request (label1, 257, 24);
+  gtk_misc_set_alignment (GTK_MISC (label1), 0, 0);
+
   label_clock = gtk_label_new (_("00:00:00"));
   gtk_widget_show (label_clock);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 424);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_clock, 256, 392);
   gtk_widget_set_size_request (label_clock, 217, 25);
   gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
+
+  label2 = gtk_label_new (_("Current\nOperation:"));
+  gtk_widget_show (label2);
+  gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 312);
+  gtk_widget_set_size_request (label2, 105, 41);
+  gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
+
+  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
+  gtk_widget_show (image6);
+  gtk_fixed_put (GTK_FIXED (fixed5), image6, 360, 0);
+  gtk_widget_set_size_request (image6, 241, 56);
 
   g_signal_connect ((gpointer) install_progressbar, "show",
                     G_CALLBACK (on_install_progressbar_show),
@@ -1293,18 +1286,17 @@ create_install_progressbar (void)
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (install_progressbar, progressbar1, "progressbar1");
   GLADE_HOOKUP_OBJECT (install_progressbar, progressbar2, "progressbar2");
-  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator5, "hseparator5");
   GLADE_HOOKUP_OBJECT (install_progressbar, hseparator6, "hseparator6");
-  GLADE_HOOKUP_OBJECT (install_progressbar, image5, "image5");
-  GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label1, "label1");
   GLADE_HOOKUP_OBJECT (install_progressbar, scrolledwindow3, "scrolledwindow3");
   GLADE_HOOKUP_OBJECT (install_progressbar, viewport3, "viewport3");
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator5, "hseparator5");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label1, "label1");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
 
   return install_progressbar;
 }
@@ -1316,11 +1308,11 @@ create_dialog_end (void)
   GdkPixbuf *dialog_end_icon_pixbuf;
   GtkWidget *dialog_vbox2;
   GtkWidget *fixed13;
-  GtkWidget *image17;
   GtkWidget *label45;
   GtkWidget *label41;
   GtkWidget *label47;
   GtkWidget *label46;
+  GtkWidget *image17;
   GtkWidget *dialog_action_area2;
   GtkWidget *okbutton1;
 
@@ -1340,11 +1332,6 @@ create_dialog_end (void)
   fixed13 = gtk_fixed_new ();
   gtk_widget_show (fixed13);
   gtk_box_pack_start (GTK_BOX (dialog_vbox2), fixed13, TRUE, TRUE, 0);
-
-  image17 = create_pixmap (dialog_end, "sidux-logo.png");
-  gtk_widget_show (image17);
-  gtk_fixed_put (GTK_FIXED (fixed13), image17, 8, 8);
-  gtk_widget_set_size_request (image17, 488, 168);
 
   label45 = gtk_label_new (_("<big><b>http://sidux.com</b></big>"));
   gtk_widget_show (label45);
@@ -1378,6 +1365,11 @@ create_dialog_end (void)
   gtk_label_set_justify (GTK_LABEL (label46), GTK_JUSTIFY_CENTER);
   gtk_misc_set_alignment (GTK_MISC (label46), 0.5, 0);
 
+  image17 = create_pixmap (dialog_end, "sidux-logo.png");
+  gtk_widget_show (image17);
+  gtk_fixed_put (GTK_FIXED (fixed13), image17, 8, 8);
+  gtk_widget_set_size_request (image17, 488, 168);
+
   dialog_action_area2 = GTK_DIALOG (dialog_end)->action_area;
   gtk_widget_show (dialog_action_area2);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
@@ -1398,11 +1390,11 @@ create_dialog_end (void)
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_end, dialog_end, "dialog_end");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_end, dialog_vbox2, "dialog_vbox2");
   GLADE_HOOKUP_OBJECT (dialog_end, fixed13, "fixed13");
-  GLADE_HOOKUP_OBJECT (dialog_end, image17, "image17");
   GLADE_HOOKUP_OBJECT (dialog_end, label45, "label45");
   GLADE_HOOKUP_OBJECT (dialog_end, label41, "label41");
   GLADE_HOOKUP_OBJECT (dialog_end, label47, "label47");
   GLADE_HOOKUP_OBJECT (dialog_end, label46, "label46");
+  GLADE_HOOKUP_OBJECT (dialog_end, image17, "image17");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_end, dialog_action_area2, "dialog_action_area2");
   GLADE_HOOKUP_OBJECT (dialog_end, okbutton1, "okbutton1");
 

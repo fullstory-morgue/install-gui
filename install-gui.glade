@@ -28,23 +28,6 @@
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkImage" id="image1">
-	  <property name="width_request">250</property>
-	  <property name="height_request">39</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">install-gui-title.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">420</property>
-	  <property name="y">2</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkButton" id="exit">
 	  <property name="width_request">116</property>
 	  <property name="height_request">34</property>
@@ -144,6 +127,23 @@
 	<packing>
 	  <property name="x">32</property>
 	  <property name="y">8</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkImage" id="image1">
+	  <property name="width_request">192</property>
+	  <property name="height_request">51</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">install-gui-title.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">464</property>
+	  <property name="y">0</property>
 	</packing>
       </child>
 
@@ -308,6 +308,33 @@
 	      </child>
 
 	      <child>
+		<widget class="GtkLabel" id="label_wellcome_red">
+		  <property name="width_request">568</property>
+		  <property name="height_request">80</property>
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">Note that this version is still a very early version and under heavy development. 
+The author takes no responsibility for data loss or hardware damage.</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_CENTER</property>
+		  <property name="wrap">True</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0</property>
+		  <property name="yalign">0.34999999404</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="x">72</property>
+		  <property name="y">96</property>
+		</packing>
+	      </child>
+
+	      <child>
 		<widget class="GtkLabel" id="label_wellcome_2">
 		  <property name="width_request">608</property>
 		  <property name="height_request">96</property>
@@ -332,33 +359,6 @@ sidux-website: http://sidux.com</property>
 		<packing>
 		  <property name="x">32</property>
 		  <property name="y">224</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkLabel" id="label_wellcome_red">
-		  <property name="width_request">568</property>
-		  <property name="height_request">80</property>
-		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">Note that this version is still a very early version and under heavy development. 
-The author takes no responsibility for data loss or hardware damage.</property>
-		  <property name="use_underline">False</property>
-		  <property name="use_markup">False</property>
-		  <property name="justify">GTK_JUSTIFY_CENTER</property>
-		  <property name="wrap">True</property>
-		  <property name="selectable">False</property>
-		  <property name="xalign">0</property>
-		  <property name="yalign">0.34999999404</property>
-		  <property name="xpad">0</property>
-		  <property name="ypad">0</property>
-		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		  <property name="width_chars">-1</property>
-		  <property name="single_line_mode">False</property>
-		  <property name="angle">0</property>
-		</widget>
-		<packing>
-		  <property name="x">72</property>
-		  <property name="y">96</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -2345,7 +2345,7 @@ without configuration
 	</widget>
 	<packing>
 	  <property name="x">0</property>
-	  <property name="y">48</property>
+	  <property name="y">56</property>
 	</packing>
       </child>
     </widget>
@@ -2498,7 +2498,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 	</widget>
 	<packing>
 	  <property name="x">0</property>
-	  <property name="y">448</property>
+	  <property name="y">416</property>
 	</packing>
       </child>
 
@@ -2515,19 +2515,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 	</widget>
 	<packing>
 	  <property name="x">0</property>
-	  <property name="y">376</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkHSeparator" id="hseparator5">
-	  <property name="width_request">600</property>
-	  <property name="height_request">17</property>
-	  <property name="visible">True</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">312</property>
+	  <property name="y">352</property>
 	</packing>
       </child>
 
@@ -2539,67 +2527,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 	</widget>
 	<packing>
 	  <property name="x">0</property>
-	  <property name="y">88</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image5">
-	  <property name="width_request">88</property>
-	  <property name="height_request">80</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">install-pgb-hot.jpg</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">8</property>
-	  <property name="y">0</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image6">
-	  <property name="width_request">241</property>
-	  <property name="height_request">33</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">install-gui-title.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">352</property>
-	  <property name="y">48</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label1">
-	  <property name="width_request">265</property>
-	  <property name="height_request">25</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Completed Operations:</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">424</property>
+	  <property name="y">56</property>
 	</packing>
       </child>
 
@@ -2628,7 +2556,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 		      <property name="width_request">560</property>
 		      <property name="height_request">1700</property>
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;SkyBlue4&quot; font_desc=&quot;Sans Bold 14&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
+		      <property name="label" translatable="yes">&lt;span foreground=&quot;#a4a58b&quot; font_desc=&quot;Sans Bold 14&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
 
 &lt;span font_desc=&quot;12&quot;&gt;&lt;b&gt;sidux&lt;/b&gt; is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.
 The ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.&lt;/span&gt;
@@ -2719,7 +2647,97 @@ Thanks to all involved for making this possible:
 	</widget>
 	<packing>
 	  <property name="x">0</property>
-	  <property name="y">104</property>
+	  <property name="y">72</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkHSeparator" id="hseparator5">
+	  <property name="width_request">600</property>
+	  <property name="height_request">17</property>
+	  <property name="visible">True</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">288</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_fifo">
+	  <property name="width_request">494</property>
+	  <property name="height_request">41</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;sidux-installer started&lt;/b&gt;&lt;/big&gt;</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">True</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">True</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">104</property>
+	  <property name="y">312</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label1">
+	  <property name="width_request">257</property>
+	  <property name="height_request">24</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Completed Operations:</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">392</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_clock">
+	  <property name="width_request">217</property>
+	  <property name="height_request">25</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">00:00:00</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">True</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">256</property>
+	  <property name="y">392</property>
 	</packing>
       </child>
 
@@ -2746,59 +2764,24 @@ Operation:</property>
 	</widget>
 	<packing>
 	  <property name="x">0</property>
-	  <property name="y">336</property>
+	  <property name="y">312</property>
 	</packing>
       </child>
 
       <child>
-	<widget class="GtkLabel" id="label_fifo">
-	  <property name="width_request">494</property>
-	  <property name="height_request">41</property>
+	<widget class="GtkImage" id="image6">
+	  <property name="width_request">241</property>
+	  <property name="height_request">56</property>
 	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;sidux-installer started&lt;/b&gt;&lt;/big&gt;</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">True</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">True</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
+	  <property name="pixbuf">install-gui-title.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
 	  <property name="xpad">0</property>
 	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
 	</widget>
 	<packing>
-	  <property name="x">104</property>
-	  <property name="y">336</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label_clock">
-	  <property name="width_request">217</property>
-	  <property name="height_request">25</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">00:00:00</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">True</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">256</property>
-	  <property name="y">424</property>
+	  <property name="x">360</property>
+	  <property name="y">0</property>
 	</packing>
       </child>
     </widget>
@@ -2860,23 +2843,6 @@ Operation:</property>
       <child>
 	<widget class="GtkFixed" id="fixed13">
 	  <property name="visible">True</property>
-
-	  <child>
-	    <widget class="GtkImage" id="image17">
-	      <property name="width_request">488</property>
-	      <property name="height_request">168</property>
-	      <property name="visible">True</property>
-	      <property name="pixbuf">sidux-logo.png</property>
-	      <property name="xalign">0.5</property>
-	      <property name="yalign">0.5</property>
-	      <property name="xpad">0</property>
-	      <property name="ypad">0</property>
-	    </widget>
-	    <packing>
-	      <property name="x">8</property>
-	      <property name="y">8</property>
-	    </packing>
-	  </child>
 
 	  <child>
 	    <widget class="GtkLabel" id="label45">
@@ -2979,6 +2945,23 @@ Operation:</property>
 	    <packing>
 	      <property name="x">8</property>
 	      <property name="y">270</property>
+	    </packing>
+	  </child>
+
+	  <child>
+	    <widget class="GtkImage" id="image17">
+	      <property name="width_request">488</property>
+	      <property name="height_request">168</property>
+	      <property name="visible">True</property>
+	      <property name="pixbuf">sidux-logo.png</property>
+	      <property name="xalign">0.5</property>
+	      <property name="yalign">0.5</property>
+	      <property name="xpad">0</property>
+	      <property name="ypad">0</property>
+	    </widget>
+	    <packing>
+	      <property name="x">8</property>
+	      <property name="y">8</property>
 	    </packing>
 	  </child>
 	</widget>

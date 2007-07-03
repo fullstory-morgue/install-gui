@@ -4,9 +4,12 @@ install-gui (0.2.17) UNRELEASED; urgency=low
   * NOT RELEASED YET
 
   [ Bernard Gray ]
-  * adjust pixmap size for gaia install-gui-title.png 
+  * adjust pixmap size for gaia install-gui-title.png
 
- -- Bernard Gray <bernard.gray@gmail.com>  Tue, 03 Jul 2007 17:13:30 +1000
+  [ Horst Tritremmel ]
+  * change progressbar color for gaia, using #A4A58B
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 03 Jul 2007 10:41:44 +0200
 
 install-gui (0.2.16) unstable; urgency=low
 

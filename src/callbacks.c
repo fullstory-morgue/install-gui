@@ -1644,7 +1644,7 @@ on_install_progressbar_show            (GtkWidget       *widget,
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_NORMAL, &color);
    //gdk_color_parse ("IndianRed4", &color);
-   gdk_color_parse ("#6B91B8", &color);
+   gdk_color_parse ("#A4A58B", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_PRELIGHT, &color);
 
    pprogres2 = lookup_widget(GTK_WIDGET(widget), "progressbar2");
@@ -1653,7 +1653,7 @@ on_install_progressbar_show            (GtkWidget       *widget,
    // set color of ProgressBar
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_NORMAL, &color);
-   gdk_color_parse ("#6B91B8", &color);
+   gdk_color_parse ("#A4A58B", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_PRELIGHT, &color);
 
    // label_clock
