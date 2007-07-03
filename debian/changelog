@@ -1,8 +1,12 @@
 install-gui (0.2.17) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 03 Jul 2007 01:47:26 +0200
+  [ Bernard Gray ]
+  * adjust pixmap size for gaia install-gui-title.png 
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Tue, 03 Jul 2007 17:13:30 +1000
 
 install-gui (0.2.16) unstable; urgency=low
 

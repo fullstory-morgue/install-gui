@@ -189,7 +189,7 @@ create_window_main (void)
   image1 = create_pixmap (window_main, "install-gui-title.png");
   gtk_widget_show (image1);
   gtk_fixed_put (GTK_FIXED (fixed1), image1, 420, 2);
-  gtk_widget_set_size_request (image1, 250, 39);
+  gtk_widget_set_size_request (image1, 156, 50);
 
   exit = gtk_button_new ();
   gtk_widget_show (exit);
