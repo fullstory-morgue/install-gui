@@ -1,3 +1,9 @@
+install-gui (0.2.19) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Jul 2007 01:00:13 +0200
+
 install-gui (0.2.18) unstable; urgency=low
 
   * switch buttons back to standard gtk2 widgets
