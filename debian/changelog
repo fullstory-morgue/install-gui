@@ -1,9 +1,5 @@
-install-gui (0.2.18) UNRELEASED; urgency=low
+install-gui (0.2.18) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * switch buttons back to standard gtk2 widgets
 
  -- Horst Tritremmel <hjt@sidux.com>  Wed, 04 Jul 2007 11:21:20 +0200
