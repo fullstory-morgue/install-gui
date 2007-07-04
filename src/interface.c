@@ -32,14 +32,11 @@ create_window_main (void)
   GtkWidget *window_main;
   GdkPixbuf *window_main_icon_pixbuf;
   GtkWidget *fixed1;
-  GtkWidget *exit;
-  GtkWidget *image12;
-  GtkWidget *next;
-  GtkWidget *image15;
-  GtkWidget *prev;
-  GtkWidget *image14;
   GtkWidget *label_wellcome;
   GtkWidget *image1;
+  GtkWidget *exit;
+  GtkWidget *next;
+  GtkWidget *prev;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -186,44 +183,6 @@ create_window_main (void)
   gtk_container_add (GTK_CONTAINER (window_main), fixed1);
   gtk_container_set_border_width (GTK_CONTAINER (fixed1), 10);
 
-  exit = gtk_button_new ();
-  gtk_widget_show (exit);
-  gtk_fixed_put (GTK_FIXED (fixed1), exit, 32, 480);
-  gtk_widget_set_size_request (exit, 116, 34);
-  GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
-  gtk_button_set_relief (GTK_BUTTON (exit), GTK_RELIEF_NONE);
-  gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
-
-  image12 = create_pixmap (window_main, "install-gui-exit.png");
-  gtk_widget_show (image12);
-  gtk_container_add (GTK_CONTAINER (exit), image12);
-  gtk_misc_set_alignment (GTK_MISC (image12), 0, 0);
-
-  next = gtk_button_new ();
-  gtk_widget_show (next);
-  gtk_fixed_put (GTK_FIXED (fixed1), next, 544, 480);
-  gtk_widget_set_size_request (next, 116, 34);
-  GTK_WIDGET_UNSET_FLAGS (next, GTK_CAN_FOCUS);
-  gtk_button_set_relief (GTK_BUTTON (next), GTK_RELIEF_NONE);
-
-  image15 = create_pixmap (window_main, "install-gui-forward.png");
-  gtk_widget_show (image15);
-  gtk_container_add (GTK_CONTAINER (next), image15);
-  gtk_misc_set_alignment (GTK_MISC (image15), 0, 0);
-
-  prev = gtk_button_new ();
-  gtk_widget_show (prev);
-  gtk_fixed_put (GTK_FIXED (fixed1), prev, 416, 480);
-  gtk_widget_set_size_request (prev, 116, 34);
-  GTK_WIDGET_UNSET_FLAGS (prev, GTK_CAN_FOCUS);
-  gtk_button_set_relief (GTK_BUTTON (prev), GTK_RELIEF_NONE);
-  gtk_button_set_focus_on_click (GTK_BUTTON (prev), FALSE);
-
-  image14 = create_pixmap (window_main, "install-gui-back.png");
-  gtk_widget_show (image14);
-  gtk_container_add (GTK_CONTAINER (prev), image14);
-  gtk_misc_set_alignment (GTK_MISC (image14), 0, 0);
-
   label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
   gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
   gtk_widget_set_size_request (label_wellcome, 369, 41);
@@ -233,6 +192,26 @@ create_window_main (void)
   gtk_widget_show (image1);
   gtk_fixed_put (GTK_FIXED (fixed1), image1, 464, 0);
   gtk_widget_set_size_request (image1, 192, 51);
+
+  exit = gtk_button_new_from_stock ("gtk-quit");
+  gtk_widget_show (exit);
+  gtk_fixed_put (GTK_FIXED (fixed1), exit, 32, 488);
+  gtk_widget_set_size_request (exit, 116, 28);
+  GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
+  gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
+
+  next = gtk_button_new_from_stock ("gtk-go-forward");
+  gtk_widget_show (next);
+  gtk_fixed_put (GTK_FIXED (fixed1), next, 544, 488);
+  gtk_widget_set_size_request (next, 116, 28);
+  GTK_WIDGET_UNSET_FLAGS (next, GTK_CAN_FOCUS);
+
+  prev = gtk_button_new_from_stock ("gtk-go-back");
+  gtk_widget_show (prev);
+  gtk_fixed_put (GTK_FIXED (fixed1), prev, 416, 488);
+  gtk_widget_set_size_request (prev, 116, 28);
+  GTK_WIDGET_UNSET_FLAGS (prev, GTK_CAN_FOCUS);
+  gtk_button_set_focus_on_click (GTK_BUTTON (prev), FALSE);
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
@@ -952,14 +931,11 @@ create_window_main (void)
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, window_main, "window_main");
   GLADE_HOOKUP_OBJECT (window_main, fixed1, "fixed1");
-  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
-  GLADE_HOOKUP_OBJECT (window_main, image12, "image12");
-  GLADE_HOOKUP_OBJECT (window_main, next, "next");
-  GLADE_HOOKUP_OBJECT (window_main, image15, "image15");
-  GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
-  GLADE_HOOKUP_OBJECT (window_main, image14, "image14");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
+  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
+  GLADE_HOOKUP_OBJECT (window_main, next, "next");
+  GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
   GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window_main, hseparator2, "hseparator2");
