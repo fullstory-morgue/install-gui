@@ -1080,7 +1080,7 @@ timezone_read (GtkWidget       *widget)
       fseek(  tz_file, 0L, SEEK_SET );
       fscanf( tz_file, "%[^\n]\n", tz);
 
-      strncpy( tz_markup, "<span foreground=\"SkyBlue4\" font_desc=\"Sans Bold 12\">", 256);
+      strncpy( tz_markup, "<span foreground=\"#A4A58B\" font_desc=\"Sans Bold 12\">", 256);
       strncat( tz_markup, tz, 256);
       strncat( tz_markup, "</span>", 256);
 
