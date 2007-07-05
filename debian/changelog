@@ -1,9 +1,5 @@
-install-gui (0.2.19) UNRELEASED; urgency=low
+install-gui (0.2.19) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * timezonetext color changed
 
  -- Horst Tritremmel <hjt@sidux.com>  Thu, 05 Jul 2007 12:12:48 +0200
