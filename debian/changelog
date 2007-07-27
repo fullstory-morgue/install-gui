@@ -1,9 +1,5 @@
-install-gui (0.2.21) UNRELEASED; urgency=low
+install-gui (0.2.21) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * progressbar infotext changed
 
  -- Horst Tritremmel <hjt@sidux.com>  Fri, 27 Jul 2007 12:47:44 +0200
