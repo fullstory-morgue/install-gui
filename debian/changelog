@@ -1,3 +1,9 @@
+install-gui (0.2.22) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 27 Jul 2007 14:25:03 +0200
+
 install-gui (0.2.21) unstable; urgency=low
 
   * progressbar infotext changed
