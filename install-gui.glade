@@ -2527,7 +2527,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 		  <child>
 		    <widget class="GtkLabel" id="label_generally2">
 		      <property name="width_request">560</property>
-		      <property name="height_request">1700</property>
+		      <property name="height_request">2000</property>
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">&lt;span foreground=&quot;#a4a58b&quot; font_desc=&quot;Sans Bold 14&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
 
@@ -2539,58 +2539,122 @@ The ISO is completely based on Debian Sid, enriched and stabilized with sidux' o
 
 sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list&lt;/b&gt; and ensure internet access.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;You can add contrib and non-free with metapackage-installer.&lt;/span&gt;
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;You can add contrib and non-free with metapackage-installer
+or try &lt;i&gt;&quot;smxi&quot;&lt;/i&gt; script, replacing &quot;sm&quot; and &quot;du-fixes-h2.sh&quot;.&lt;/span&gt;
 
 
 &lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* ATi Radeon graphics:&lt;/span&gt; 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance, type '&lt;b&gt;sgfxi -N radeon&lt;/b&gt;'
+Which firmware might be required to employ affected hardware can be determined with the following device/ firmware enumeration or by using the newly developed &lt;b&gt;fw-detect&lt;/b&gt; script (packaged in configure-networkcard).
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* ATi Radeon graphics:&lt;/span&gt; type '&lt;b&gt;sgfxi -N radeon&lt;/b&gt;'
+3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with X.org 7.2.
+Depending on the particular chipset &quot;xmodule=vesa&quot; or &quot;xmodule=fbdev&quot; as cheatcode might be in order for later Radeon X1xxx models.
+
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Nvidia  graphics:&lt;/span&gt; type '&lt;b&gt;sgfxi -h&lt;/b&gt;' to see available options
-* Atheros/ &quot;madwifi&quot; wlan: m-a a-i madwifi.
-* Atmel AT76c50x 11 MBit/s wlan: apt-get install atmel-firmware
-* AVM ISDN/ ADSL PCI/ USB Karten: AVM's closed source driver are not compatible with kernel 2.6.20 yet.
-* Broadcom/ bcm43xx wlan: apt-get install bcm43xx-fwcutter.
-* Eagle USB ADSL modem: fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.
-* DVB firmwares for various full featured DVB TV cards (most budget cards won't need this): fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.
-* hostap based 11 MBit/s wlan with loadable firmware (e.g. D-Link DWL-520 rev. E1 and others): http://www.oakcourt.dyndns.org/~andrew/dwl520e1.html
-* Intel ipw2100, 11 MBit/s wlan: fetch the firmware from http://ipw2100.sf.net/ and place it under /lib/firmware/.
-* Intel ipw2200, 54 MBit/s wlan: fetch the firmware from http://ipw2200.sf.net/ and place it under /lib/firmware/.
-* Intel ipw3945, 54 Mbit/s wlan: apt-get install ipw3945d firmware-ipw3945
-* Intersil prism54, 54 MBit/s wlan: fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.
-* RaLink rt61 54 MBit/s wlan, fetch the firmware from http://www.ralinktech.com/ralink/Home/Support/Linux.html
-* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan, fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.
-* ZyDAS zd1201 11 MBit/s wlan: apt-get install zd1201-firmware
-* ZyDAS zd1211 54 MBit/s wlan: fetch the firmware from http://sourceforge.net/project/showfiles.php?group_id=129083 and place it under /lib/firmware/.
-* We will check if we can provide packages for at least some of these devices, but the legal status isn't necessarily easy.
+ 3d acceleration isn't possible with free drivers yet, please use get-sidux-binary-gfx to fetch install scripts for these cards.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Atheros/ &quot;madwifi&quot; wlan:&lt;/span&gt;
+m-a a-i madwifi
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Atmel AT76c50x 11 MBit/s wlan:&lt;/span&gt;
+apt-get install atmel-firmware
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Broadcom/ bcm43xx wlan:&lt;/span&gt;
+apt-get install bcm43xx-fwcutter
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Eagle USB ADSL modem:&lt;/span&gt;
+fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):&lt;/span&gt;
+fetch the needed firmeware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Intel ipw2100, 11 MBit/s wlan:&lt;/span&gt;
+apt-get install ipw2100-firmware
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Intel ipw2200, 54 MBit/s wlan:&lt;/span&gt;
+apt-get install ipw2200-firmware
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:&lt;/span&gt;
+apt-get install firmware-iwlwifi
+
+please remove iwlwifi-ucode and iwlwifi-3945, if already installed.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Intel ipw4965/ iwlwifi, draft-n wlan:&lt;/span&gt;
+apt-get install firmware-iwl4965
+
+please remove iwlwifi-4965, if already installed.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Intersil prism54, 54 MBit/s wlan:&lt;/span&gt;
+fetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* RaLink rt61 54 MBit/s wlan:&lt;/span&gt;
+apt-get install rt61-fwcutter
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:&lt;/span&gt;
+fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* ZyDAS zd1201 11 MBit/s wlan:&lt;/span&gt;
+fetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.
+
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* ZyDAS zd1211 54 MBit/s wlan:&lt;/span&gt;
+apt-get install zd1211-firmware
+
+
+We try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. 
 
 
 &lt;b&gt;&lt;u&gt;Disclaimer:&lt;/u&gt;&lt;/b&gt;
 
-This is experimental software. Use at your own risk. The sidux project, it's developers and team members (all represented by the sidux Foundation, Inc) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.
+This is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.
+
+
+&lt;b&gt;&lt;u&gt;How to get involved:&lt;/u&gt;&lt;/b&gt;
+Getting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. We will gladly discuss any dfsg- free patches and contributions. Especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations.
 
 
 &lt;b&gt;&lt;u&gt;Special thanks go to the entire sidux development team:&lt;/u&gt;&lt;/b&gt;
 
 Joaquim Boura (x-un-i)
+Michiel de Boer (locsmif)
+Mikhail Burov (von_Selbst)
+Alessio Giustini (alessiog75)
+Stefan R. Eissens (eislon)
 Roland Engert (RoEn)
-Aedan Kelly (etorix)
 Bernard Gray (cleary)
-Andreas Hausmann (Bodhi)
+Andreas Hausmann (Bohdi)
 Chris Hildebrandt (slam)
 Ralph Hokanson Jr. (piper)
+Richard Holt (Richard)
+Markus Huber (hubi)
 Harald Hope (h2)
-Kel Modderman (kelmo)
+HarzG
+Aedan Kelly (etorix)
+Lady_Cuddles
+Latino
 Stefan Lippers-Hollmann (slh)
+Kel Modderman (kelmo)
+Koslow
+Markus Müller (moto)
+maslot
+Gabriel Palade (ladepa)
+Gerald Prock (raider700)
+Steven J. Robinson (cathbard)
+Philipp Rudolph (Zophod)
+Dinko Sabo (cobra)
+Florian Schneider (hathe)
 Ferdi Thommes (devil)
 Horst Tritremmel (hjt)
-Niall Walsh (bfree)
 Trevor Walkley (bluewater)
+Niall Walsh (bfree)
 Andreas Weber (webera)
-and many more
+xadras
+zerby
+zonker
+zulu9
 
-a big thank you goes to the documentation and translation teams!
 
-Thanks to all involved for making this possible:
+On behalf of the sidux team:
      Stefan Lippers-Hollmann (slh) 
 &lt;/span&gt;
 </property>
