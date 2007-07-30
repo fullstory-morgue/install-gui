@@ -2527,7 +2527,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 		  <child>
 		    <widget class="GtkLabel" id="label_generally2">
 		      <property name="width_request">560</property>
-		      <property name="height_request">2000</property>
+		      <property name="height_request">2200</property>
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">&lt;span foreground=&quot;#a4a58b&quot; font_desc=&quot;Sans Bold 14&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
 
@@ -2648,7 +2648,7 @@ Horst Tritremmel (hjt)
 Trevor Walkley (bluewater)
 Niall Walsh (bfree)
 Andreas Weber (webera)
-xadras
+Fabian Wuertz (xadras)
 zerby
 zonker
 zulu9
