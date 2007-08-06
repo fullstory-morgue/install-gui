@@ -27,6 +27,7 @@
 #define FILENAME ".sidconf"
 #define TARGET_MNT_POINT "/media/hdinstall"
 
+#define HD_SCAN "fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 #define SCANPARTITIONS "scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
@@ -1148,7 +1149,7 @@ combobox_hd_read (GtkWidget       *widget)
 
    if( fd ) {
             // create the shell system command
-            strncpy(systemcallstr, "fdisk -l | grep Disk | cut -d: -f1 | cut -d\" \" -f2 > ", BUF_LEN);
+            strncpy(systemcallstr, HD_SCAN, BUF_LEN);
             strncat(systemcallstr, hd_tmp, BUF_LEN);
             strncat(systemcallstr, "; printf \"======= harddisk call =======\n\";printf \"", BUF_LEN);
             strncat(systemcallstr, hd_tmp, BUF_LEN);
