@@ -1,9 +1,5 @@
-install-gui (0.2.23) UNRELEASED; urgency=low
+install-gui (0.2.23) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * Harddisc scan bugfix for Start Partitionmanger
   * start sequence between install success window and install-meta changed
 
