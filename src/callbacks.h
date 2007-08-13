@@ -186,3 +186,12 @@ on_combobox_lang_changed               (GtkComboBox     *combobox,
 void
 on_okbutton2_clicked                   (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_success_exit_button_clicked         (GtkButton       *button,
+                                        gpointer         user_data);
+
+gboolean
+on_dialog_end_delete_event             (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data);

@@ -41,7 +41,7 @@
 char scanparttmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
-char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80];
+char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
 int  counter, leaved_user_page, i = 0, partitions_counter = 0, do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar;
 
@@ -544,6 +544,67 @@ on_exit_clicked                        (GtkButton       *button,
    unlink(scanparttmp);
 
    gtk_main_quit();
+}
+
+
+void
+start_install_meta()
+
+{
+   char sh_call[BUF_LEN];
+
+   // >>>>>>>>>>>>>>>   installation done   <<<<<<<<<<<<<<<<<<
+   //           start install meta
+   strncpy(sh_call, "source ${HOME}/", BUF_LEN);
+   strncat(sh_call, FILENAME, BUF_LEN);
+   strncat(sh_call, "\nif [ \"$INSTALL_META\" = yes -a -n \"$DISPLAY\" ]\n", BUF_LEN);
+   strncat(sh_call, "then\n", BUF_LEN);
+   strncat(sh_call, "   if [ -x /usr/bin/install-meta ]; then\n", BUF_LEN);
+   strncat(sh_call, "       exec /usr/bin/install-meta --chroot=", BUF_LEN);
+   strncat(sh_call, TARGET_MNT_POINT, BUF_LEN);
+   strncat(sh_call, " &\n   else\n", BUF_LEN);
+   strncat(sh_call, "       echo \"install-meta is not available\" 1>&2\n", BUF_LEN);
+   strncat(sh_call, "  fi\n", BUF_LEN);
+   strncat(sh_call, "fi\n", BUF_LEN);
+
+   system(sh_call);
+}
+
+
+void
+on_success_exit_button_clicked         (GtkButton       *button,
+                                        gpointer         user_data)
+{
+   // start install-meta
+   start_install_meta ();
+
+   // remove the tempfile
+   unlink(scanparttmp);
+
+   //remove the initofy tempfile
+   unlink(install_call_tmp);
+
+   gtk_main_quit();
+}
+
+
+gboolean
+on_dialog_end_delete_event             (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data)
+{
+   // start install-meta
+   start_install_meta ();
+
+   // remove the tempfile
+   unlink(scanparttmp);
+
+   //remove the initofy tempfile
+   unlink(install_call_tmp);
+
+   gtk_main_quit();
+
+   return FALSE;
 }
 
 
@@ -1459,7 +1520,7 @@ f_notify(GIOChannel    *source,
 {
 
    gchar column[BUF_LEN], text_current[BUF_LEN];
-   char buf[BUF_LEN], sh_call[BUF_LEN], *assign;
+   char buf[BUF_LEN], *assign;
    int len, i;
    FILE *watched_file;
 
@@ -1488,26 +1549,6 @@ f_notify(GIOChannel    *source,
 
                   //hide the progressbar window
                   gtk_widget_hide ( install_progressbar );
-                  while (gtk_events_pending ())
-                         gtk_main_iteration ();
-
-
-                  // >>>>>>>>>>>>>>>   installation done   <<<<<<<<<<<<<<<<<<
-                  //           start install meta or/and dialog_end
-                  strncpy(sh_call, "source ${HOME}/", BUF_LEN);
-                  strncat(sh_call, FILENAME, BUF_LEN);
-                  strncat(sh_call, "\nif [ \"$INSTALL_META\" = yes -a -n \"$DISPLAY\" ]\n", BUF_LEN);
-                  strncat(sh_call, "then\n", BUF_LEN);
-                  strncat(sh_call, "   if [ -x /usr/bin/install-meta ]; then\n", BUF_LEN);
-                  strncat(sh_call, "       exec /usr/bin/install-meta --chroot=", BUF_LEN);
-                  strncat(sh_call, TARGET_MNT_POINT, BUF_LEN);
-                  strncat(sh_call, "\n   else\n", BUF_LEN);
-                  strncat(sh_call, "       echo \"install-meta is not available\" 1>&2\n", BUF_LEN);
-                  strncat(sh_call, "  fi\n", BUF_LEN);
-                  strncat(sh_call, "fi\n", BUF_LEN);
-
-                  system(sh_call);
-
 
                   // start dialog_end
                   GtkWidget* dialog_end = create_dialog_end  ();
@@ -1600,7 +1641,7 @@ on_install_progressbar_show            (GtkWidget       *widget,
    PangoFontDescription *font_desc;
    GIOChannel *ioc;
    int wd;
-   char install_call[256], install_call_tmp[80];
+   char install_call[256];
 
 
 
@@ -1711,5 +1752,6 @@ on_install_progressbar_delete_event    (GtkWidget       *widget,
 
   return FALSE;
 }
+
 
 
