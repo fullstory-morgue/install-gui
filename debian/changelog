@@ -1,3 +1,9 @@
+install-gui (0.2.24) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 13 Aug 2007 10:55:12 +0200
+
 install-gui (0.2.23) unstable; urgency=low
 
   * Harddisc scan bugfix for Start Partitionmanger
