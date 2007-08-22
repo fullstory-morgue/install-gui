@@ -28,7 +28,7 @@
 #define TARGET_MNT_POINT "/media/hdinstall"
 
 #define HD_SCAN "fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
-#define SCANPARTITIONS "scanpartitions 2> /dev/null | grep -v -e swap -e null | awk -F' ' '{print $1\"-\"$3}' > "
+#define SCANPARTITIONS "fll-fshelper --install-gui 2>/dev/null > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
 
