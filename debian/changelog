@@ -1,7 +1,4 @@
-install-gui (0.2.24) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.2.24) unstable; urgency=low
 
   [ Horst Tritremmel ]
   * Message Dialog root partition empty added
@@ -11,7 +8,10 @@ install-gui (0.2.24) UNRELEASED; urgency=low
   * Fix SCANPARTITIONS define for fll-fshelper.
   * Depend on fll-fshelper and not rebuildfstab.
 
- -- Kel Modderman <kel@otaku42.de>  Thu, 23 Aug 2007 00:40:12 +1000
+  [ Stefan Lippers-Hollmann ]
+  * remove rebuildfstab calls.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 22 Aug 2007 16:53:51 +0200
 
 install-gui (0.2.23) unstable; urgency=low
 

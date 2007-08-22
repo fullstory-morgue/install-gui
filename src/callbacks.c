@@ -225,7 +225,7 @@ void read_partitions(GtkComboBox     *combobox)
             // create the shell system command (scanpartitions)
             strncpy(systemcallstr, SCANPARTITIONS, BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"======= scanpartitions call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= scan partitions =======\n\";printf \"", BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
             strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
@@ -715,7 +715,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    }
 
 
-   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\nstarting rebuildfstab --write-fstab --make-mountpoints\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";rebuildfstab --write-fstab --make-mountpoints");  // rebuild the fstab and start kde automount again
+   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll-fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
 
 
    /* remove the tempfile */
@@ -1284,7 +1284,7 @@ void read_language(GtkComboBox     *combobox)
    fd = mkstemp(langtmp);  // make a tempfile
 
    if( fd ) {
-            // create the shell system command (scanpartitions)
+            // create the shell system command (fll-fshelper)
             strncpy(systemcallstr, LANG_SH, BUF_LEN);
             strncat(systemcallstr, langtmp, BUF_LEN);
             strncat(systemcallstr, "; printf \"======= language call =======\n\";printf \"", BUF_LEN);
