@@ -1,8 +1,13 @@
 install-gui (0.2.24) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 13 Aug 2007 10:55:12 +0200
+  [ Horst Tritremmel ]
+  * Message Dialog root partition empty added
+  * progressbar text changed
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 22 Aug 2007 11:43:09 +0200
 
 install-gui (0.2.23) unstable; urgency=low
 

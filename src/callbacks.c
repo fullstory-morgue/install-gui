@@ -786,6 +786,27 @@ on_button_install_clicked              (GtkButton       *button,
       if( password_check(GTK_WIDGET (button)) < 1 )
            return;
 
+      // root partition check
+      gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
+      if( strlen( hd_choice ) < 1 ) {
+           GtkWidget *mainW, *dialog;
+
+           // Message Dialog root partition empty
+           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s\n\n%s\n%s\n%s\n%s", "Rootpartition empty!", "Please create a linux partition", 
+                                                  "Note: VMmware with SCSI virtual disc:",
+                                                  "-------------------------------------",
+                                                  "You must use \"Linux/Other Linux\","
+                                                  "	    NOT \"Other Linux 2.6x kernel\"");
+           gtk_dialog_run (GTK_DIALOG (dialog));
+           gtk_widget_destroy (dialog);
+
+           return;
+      }
 
       // read the treeview1 (mountpoint) list
       GtkWidget *treeview1 = lookup_widget (GTK_WIDGET (button), "treeview1");
@@ -864,7 +885,6 @@ hd_fstyp,
 "# This value will be checked by function module_hd_check",
 "HD_CHOICE='");
 
-        gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
         fprintf( stream, "%s'\n%s\n", 
 hd_choice,
 "# Here you can give additional mappings. (Experimental) You need to have the partitions formatted yourself and give the correct mappings like: \"/dev/hda4:/boot /dev/hda5:/var /dev/hda6:/tmp\"");
@@ -1023,16 +1043,15 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
       if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
 
+         // hide the main window
+         GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+         gtk_widget_hide ( window_main );
 
-      //hide the main window
-      GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
-      gtk_widget_hide ( window_main );
+         // start progressbar
+         install_progressbar = create_install_progressbar ();
+         gtk_widget_show (install_progressbar);
 
-      // start progressbar
-      install_progressbar = create_install_progressbar ();
-      gtk_widget_show (install_progressbar);
-
-   }
+      }
 
 
       /* remove the tempfile */
