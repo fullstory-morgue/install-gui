@@ -28,7 +28,7 @@
 #define TARGET_MNT_POINT "/media/hdinstall"
 
 #define HD_SCAN "fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
-#define SCANPARTITIONS "fll-fshelper --install-gui 2>/dev/null > "
+#define SCANPARTITIONS "fll_fshelper --install-gui 2>/dev/null > "
 #define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
 
@@ -715,7 +715,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    }
 
 
-   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll-fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
+   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll_fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
 
 
    /* remove the tempfile */
@@ -1284,7 +1284,7 @@ void read_language(GtkComboBox     *combobox)
    fd = mkstemp(langtmp);  // make a tempfile
 
    if( fd ) {
-            // create the shell system command (fll-fshelper)
+            // create the shell system command (fll_fshelper)
             strncpy(systemcallstr, LANG_SH, BUF_LEN);
             strncat(systemcallstr, langtmp, BUF_LEN);
             strncat(systemcallstr, "; printf \"======= language call =======\n\";printf \"", BUF_LEN);
