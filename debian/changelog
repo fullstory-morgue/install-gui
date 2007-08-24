@@ -1,9 +1,5 @@
-install-gui (0.3.1) UNRELEASED; urgency=low
+install-gui (0.3.1) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Kel Modderman ]
   * fll-fshelper is no more, fll-live-initscripts will provide required
     script.
 
