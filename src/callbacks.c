@@ -636,7 +636,7 @@ on_button_gparted_clicked              (GtkButton       *button,
 {
     FILE *stream;
     char sh_command[80];
-
+    char kdeconfdir[256];
 
    // hide the main window after gparted has done
    GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
@@ -645,8 +645,11 @@ on_button_gparted_clicked              (GtkButton       *button,
           gtk_main_iteration ();
 
    //disable kde automount
-   if (chdir("/home/sidux/.kde/share/config/") < 0) {
-         printf("failed change to /home/sidux/.kde/share/config/\n");
+   strncpy(kdeconfdir, getenv("HOME"), 256);
+   strncat(kdeconfdir, "/.kde/share/config/", 256);
+
+   if (chdir(kdeconfdir) < 0) {
+         printf("failed change to $HOME/.kde/share/config/\n");
    }
    else {
       stream = fopen( "medianotifierrc", "w+" );
@@ -715,7 +718,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    }
 
 
-   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll_fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
+   system("rm -f ${HOME}/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll_fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
 
 
    /* remove the tempfile */
@@ -800,7 +803,7 @@ on_button_install_clicked              (GtkButton       *button,
                                   "%s\n%s\n\n%s\n%s\n%s\n%s", "Rootpartition empty!", "Please create a linux partition", 
                                                   "Note: VMmware with SCSI virtual disc:",
                                                   "-------------------------------------",
-                                                  "You must use \"Linux/Other Linux\","
+                                                  "You must use \"Linux/Other Linux\",",
                                                   "	    NOT \"Other Linux 2.6x kernel\"");
            gtk_dialog_run (GTK_DIALOG (dialog));
            gtk_widget_destroy (dialog);
