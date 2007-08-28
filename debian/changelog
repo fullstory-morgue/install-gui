@@ -1,9 +1,5 @@
-install-gui (0.3.2) UNRELEASED; urgency=low
+install-gui (0.3.2) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * hardcoded /home/sidux changed to $HOME
 
  -- Horst Tritremmel <hjt@sidux.com>  Tue, 28 Aug 2007 10:21:41 +0200
