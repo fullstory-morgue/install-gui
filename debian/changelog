@@ -1,10 +1,7 @@
-install-gui (0.3.3) UNRELEASED; urgency=low
+install-gui (0.3.3) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
-  * udevtrigger added, update disk name/symlinks after partitioning/reformatting
+  * udevtrigger added, update disk name/symlinks after partitioning/
+    reformatting.
 
  -- Horst Tritremmel <hjt@sidux.com>  Fri, 31 Aug 2007 12:24:18 +0200
 
