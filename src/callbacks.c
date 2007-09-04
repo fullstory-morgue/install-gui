@@ -121,16 +121,16 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
 }
 
-
+/*
 void cell_edit_cb(GtkCellRendererText *cell,
                   const gchar *path_string,
                   const gchar *new_text,
                   gpointer data)
 {
 
-  /* ======================================================= *
-   * Callback for editable Mountpoints in the treeview1      *
-   * ======================================================= */
+ //  ======================================================= *
+ //  * Callback for editable Mountpoints in the treeview1      *
+ //  * ======================================================= 
   GtkTreeModel *model;
   GtkTreePath  *path;
   GtkTreeIter iter;
@@ -174,8 +174,8 @@ foreach_func (GtkTreeModel *model,
 {
   gchar *ptr_dev, *ptr_fs, *slash, *tree_path_str;
 
-  /* Note: here we use 'iter' and not '&iter', because we did not allocate
-   *  the iter on the stack and are already getting the pointer to a tree iter */
+   // Note: here we use 'iter' and not '&iter', because we did not allocate
+  //  the iter on the stack and are already getting the pointer to a tree iter
 
   gtk_tree_model_get (model, iter,
                       COL_DEVICE, &ptr_dev,
@@ -197,13 +197,13 @@ foreach_func (GtkTreeModel *model,
 
   g_free(tree_path_str);
 
-  g_free(ptr_dev); /* gtk_tree_model_get made copies of       */
-  g_free(ptr_fs);  /* the strings for us when retrieving them */
+  g_free(ptr_dev); // gtk_tree_model_get made copies of       
+  g_free(ptr_fs);  // the strings for us when retrieving them 
   g_free(slash);
 
-  return FALSE; /* do not stop walking the store, call us with next row */
+  return FALSE; // do not stop walking the store, call us with next row 
 }
-
+*/
 
 void read_partitions(GtkComboBox     *combobox) 
 {
@@ -423,10 +423,7 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
    gtk_label_set_text( GTK_LABEL ( label_rootpart_warning ), hd_choice );
 
 
-   // change also the  / (rootpartition) entry in the treeview, set the treeview new
-   g_signal_connect ((gpointer) rootpartcombo, "changed",
-                    G_CALLBACK (on_checkbutton_mountpoints_toggled),
-                    NULL);
+
 
 }
 
@@ -459,7 +456,7 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
         gtk_list_store_clear ( GTK_LIST_STORE (model) );  //make treeview empty
 
 
-        /* get the partitiontable from scanpart tempfile */
+        // get the partitiontable from scanpart tempfile
         fp=fopen(scanparttmp, "r");
         if( fp == NULL ) {
            strcpy(partition, "tmp file error");
@@ -470,7 +467,7 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
             fseek( fp, 0L, SEEK_SET );
             while (fscanf(fp, "%s", partition) != EOF) {
 
-                /* Append a row and fill in some data */
+                // Append a row and fill in some data
                 gtk_list_store_append ( GTK_LIST_STORE (model), &iter_tb);
 
                 // example of partition  /dev/hda1-ext3
@@ -820,7 +817,7 @@ on_button_install_clicked              (GtkButton       *button,
 
       counter=0;
       strcpy(mountpoints_config, "HD_MAP=\'");
-      gtk_tree_model_foreach(GTK_TREE_MODEL(model), foreach_func, NULL);  // add the mountpoints to mountpoints_config
+     // gtk_tree_model_foreach(GTK_TREE_MODEL(model), foreach_func, NULL);  // add the mountpoints to mountpoints_config
       strcat(mountpoints_config, "\'");
 
 
@@ -1378,6 +1375,121 @@ on_okbutton2_clicked                   (GtkButton       *button,
           gtk_widget_destroy (dialog);
 }
 
+/*
+static void
+combo_edited_cb (GtkCellRendererText *cell, const gchar *path,
+		 const gchar *value, GtkListStore *list)
+{
+	g_debug("COMBO_EDITED_CB");
+}
+
+
+GtkWidget* create_list(void)
+{
+	GtkListStore *list_store;
+	GtkWidget *list;
+	GtkCellRenderer *renderer;
+	GtkListStore *list_store_combo;
+	GtkTreeIter iter;
+
+	list_store = gtk_list_store_new (NB_COLUMN,
+					 G_TYPE_STRING,
+					 G_TYPE_UINT);
+	gtk_list_store_append (list_store, &iter);
+	gtk_list_store_set (list_store, &iter, 0, "First Item (default)", -1);
+
+	list = gtk_tree_view_new_with_model( GTK_TREE_MODEL (list_store));
+
+	g_object_unref (list_store);
+
+	// Combo
+	renderer = gtk_cell_renderer_combo_new ();
+
+	list_store_combo = gtk_list_store_new (1, G_TYPE_STRING);
+	gtk_list_store_append (list_store_combo, &iter);
+	gtk_list_store_set (list_store_combo, &iter, 0, "First Item", -1);
+	gtk_list_store_append (list_store_combo, &iter);
+	gtk_list_store_set (list_store_combo, &iter, 0, "Second Item", -1);
+	gtk_list_store_append (list_store_combo, &iter);
+	gtk_list_store_set (list_store_combo, &iter, 0, "Third Item", -1);
+
+	g_object_set (G_OBJECT (renderer), 
+		      "model", list_store_combo,
+		      "editable", TRUE,
+		      NULL);
+	g_signal_connect (G_OBJECT (renderer), 
+			  "edited",
+			  G_CALLBACK (combo_edited_cb), 
+			  list_store);
+	gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW(list), -1,
+						     "Combo", renderer,
+						     "text", C_STRING,
+						     "text-column", C_TEXT_COLUMN,
+						     NULL);
+	
+	return list;
+}
+*/
+
+enum { 
+	C_STRING,
+	C_TEXT_COLUMN,
+	NB_COLUMN 
+};
+
+static void
+combo_edited_cb (GtkCellRendererText *cell, const gchar *path,
+		 const gchar *value, GtkListStore *list)
+{
+	g_debug("COMBO_EDITED_CB");
+}
+
+GtkWidget* create_list(void)
+{
+	GtkListStore *list_store;
+	GtkWidget *list;
+	GtkCellRenderer *renderer;
+	GtkListStore *list_store_combo;
+	GtkTreeIter iter;
+
+	list_store = gtk_list_store_new (NB_COLUMN,
+					 G_TYPE_STRING,
+					 G_TYPE_UINT);
+	gtk_list_store_append (list_store, &iter);
+	gtk_list_store_set (list_store, &iter, 0, "First Item (default)", -1);
+
+	list = gtk_tree_view_new_with_model( GTK_TREE_MODEL (list_store));
+
+	g_object_unref (list_store);
+
+	/* Combo */
+	renderer = gtk_cell_renderer_combo_new ();
+
+	list_store_combo = gtk_list_store_new (1, G_TYPE_STRING);
+	gtk_list_store_append (list_store_combo, &iter);
+	gtk_list_store_set (list_store_combo, &iter, 0, "First Item", -1);
+	gtk_list_store_append (list_store_combo, &iter);
+	gtk_list_store_set (list_store_combo, &iter, 0, "Second Item", -1);
+	gtk_list_store_append (list_store_combo, &iter);
+	gtk_list_store_set (list_store_combo, &iter, 0, "Third Item", -1);
+
+	g_object_set (G_OBJECT (renderer), 
+		      "model", list_store_combo,
+		      "editable", TRUE,
+		      NULL);
+
+	gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW(list), -1,
+						     "Combo", renderer,
+						     "text", C_STRING,
+						     "text-column", C_TEXT_COLUMN,
+						     NULL);
+		gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW(list), -1,
+						     "Combo", renderer,
+						     "text", C_STRING,
+						     "text-column", C_TEXT_COLUMN,
+						     NULL);
+	return list;
+}
 
 void
 on_window_main_show                    (GtkWidget       *widget,
@@ -1391,143 +1503,30 @@ on_window_main_show                    (GtkWidget       *widget,
   /* ==================================================
    * activate mount point of other partitions treeviev
    * ================================================== */
-   GtkWidget *treeview1;
-   GtkListStore *model;
-   GtkCellRenderer *cell, *cell_editable;
-   GtkTreeViewColumn *mointpoint, *fs, *device;
-   GtkWidget *rootpartcombo;
-   GtkWidget *label;
-   PangoFontDescription *font_desc;
-   GdkColor color;
-
-   /* treeview, other Mountpoints */
-   treeview1   = lookup_widget (GTK_WIDGET (widget), "treeview1");
-   model = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-
-   gtk_tree_view_set_model(GTK_TREE_VIEW(treeview1), GTK_TREE_MODEL (model));
-   cell = gtk_cell_renderer_text_new();
-   cell_editable = gtk_cell_renderer_text_new();
-
-   // set the right cell of treeview editable and colors
-   g_object_set (cell_editable,
-                "editable", TRUE,
-                "foreground", "red",
-                "background", "gray",
-                NULL);
-
-   device     = gtk_tree_view_column_new_with_attributes("Device", cell, "text", 0, NULL);
-   fs         = gtk_tree_view_column_new_with_attributes("FS", cell, "text", 1, NULL);
-   mointpoint = gtk_tree_view_column_new_with_attributes("Mountpoint", cell_editable, "text", 2, NULL);
-
-   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(device));
-   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(fs));
-   gtk_tree_view_append_column(GTK_TREE_VIEW(treeview1), GTK_TREE_VIEW_COLUMN(mointpoint));
-
-   // when the cell was edited store the new entry
-   g_signal_connect (G_OBJECT(cell_editable), "edited",
-		    G_CALLBACK(cell_edit_cb),
-		    model);
 
 
-  /* ============================================================ *
-   *                   fill the root partition combo box          *
-   * ============================================================ */
-   rootpartcombo = lookup_widget (GTK_WIDGET (widget), "rootpartcombo");
-   read_partitions( GTK_COMBO_BOX (rootpartcombo) );
+       GtkWidget *window;
+	GtkWidget *list;
+        
+
+	/* Create window, etc */
+	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	g_signal_connect (window, "destroy",
+			  G_CALLBACK(gtk_main_quit),
+			  NULL);
+
+        list = create_list ();
+	gtk_container_add (GTK_CONTAINER (window),
+			   list);
+
+        gtk_widget_show_all (window);
+        
+
+        
+        return 0;
 
 
-  /* ============================================================ *
-   *                   fill the language combobox                 *
-   * ============================================================ */
-   GtkWidget *combobox_lang = lookup_widget (GTK_WIDGET (widget), "combobox_lang");
-   read_language( GTK_COMBO_BOX (combobox_lang) );
-
-
-  /* ============================================================= *
-   *                   fill the format_combo_box                   *
-   * ============================================================= */
-
-   GtkWidget *format_combo = lookup_widget (GTK_WIDGET (widget), "format_combo");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext3");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext2");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "reiserfs");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
-
-   gtk_combo_box_set_active( GTK_COMBO_BOX(format_combo),0);
-
-
-  /* ============================================================= *
-   *                   fill the combobox_bootmanager               *
-   * ============================================================= */
-   GtkWidget *combobox_bootmanager = lookup_widget (GTK_WIDGET (widget), "combobox_bootmanager");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "grub");
-   //gtk_combo_box_append_text (GTK_COMBO_BOX (combobox_bootmanager), "lilo");
-
-   gtk_combo_box_set_active( GTK_COMBO_BOX(combobox_bootmanager),0);
-
-
-  /* ============================================================= *
-   *                      fill the label_tz                        *
-   * ============================================================= */
-   timezone_read (GTK_WIDGET (widget));
-
-
-  /* ============================================================= *
-   *             fill the combobox_hd  (harddisc)                  *
-   * ============================================================= */
-   combobox_hd_read (GTK_WIDGET (widget));
-
-
-  /* ============================================================= *
-   *           Label sets, font, color, etc.                       *
-   * ============================================================= */
-   label = lookup_widget (GTK_WIDGET (widget), "label_wellcome");
-
-   font_desc = pango_font_description_from_string ("20");
-
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_install");
-   gdk_color_parse ("darkblue", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("14");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_red");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_2");
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_metapackages");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_automount");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label_rootpart_warning");
-   gdk_color_parse ("red", &color);
-   gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("18");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
- }
+  }
 }
 
 
