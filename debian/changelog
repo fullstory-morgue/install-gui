@@ -1,9 +1,5 @@
-install-gui (0.3.5) UNRELEASED; urgency=low
+install-gui (0.3.5) unstable; urgency=high
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * very important bugfix for last commit
 
  -- Horst Tritremmel <hjt@sidux.com>  Wed, 05 Sep 2007 09:54:49 +0200
