@@ -1,9 +1,5 @@
-install-gui (0.3.6) UNRELEASED; urgency=low
+install-gui (0.3.6) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * bugfix for empty rootpart if install button is pressed
   * enable hoover follow in treeview
 
