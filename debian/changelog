@@ -1,8 +1,13 @@
 install-gui (0.3.6) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 05 Sep 2007 10:15:03 +0200
+  [ Horst Tritremmel ]
+  * bugfix for empty rootpart if install button is pressed
+  * enable hoover follow in treeview
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 06 Sep 2007 21:45:02 +0200
 
 install-gui (0.3.5) unstable; urgency=high
 

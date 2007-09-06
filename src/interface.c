@@ -377,7 +377,7 @@ create_window_main (void)
   gtk_widget_show (treeview1);
   gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
   gtk_widget_set_size_request (treeview1, 248, 136);
-  gtk_tooltips_set_tip (tooltips, treeview1, _("options are:\n========\n/boot\n/home\n/opt\n/root\n/tmp\n/usr\n/var"), NULL);
+  gtk_tree_view_set_hover_selection (GTK_TREE_VIEW (treeview1), TRUE);
   gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
 
   label7 = gtk_label_new (_("Root-Partition"));

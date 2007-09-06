@@ -73,6 +73,10 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
 
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
+   if( hd_choice == NULL ) {
+      return;
+   }
+
    if( strlen(hd_choice) > 5 ) { 
 
       entry1 = strtok(hd_choice, "/");
@@ -793,8 +797,11 @@ on_button_install_clicked              (GtkButton       *button,
            return;
 
       // root partition check
+//   GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
+//   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
+
       gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
-      if( strlen( hd_choice ) < 1 ) {
+      if( hd_choice == NULL ) {
            GtkWidget *mainW, *dialog;
 
            // Message Dialog root partition empty
