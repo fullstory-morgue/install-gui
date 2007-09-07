@@ -8,7 +8,7 @@ Standards-Version: 3.7.2
 
 Package: install-gui
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.0.6), install-meta (>= 0.1.18), fll-live-initscripts
+Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.0.6), install-meta (>= 0.1.18), fll-live-initscripts (>= 1.2.8)
 Description: sidux install-gui for knx-installer
  This is an sidux install-gui who makes it easy to configure the config file
  (~/.sidconf) and start the sidux-installer script.
