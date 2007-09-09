@@ -1386,6 +1386,14 @@ on_okbutton2_clicked                   (GtkButton       *button,
 
 
 void
+on_button_usb_clicked                  (GtkButton       *button,
+                                        gpointer         user_data)
+{
+	system("USBGUI=$(which install-usb-gui.bash); $USBGUI &");
+}
+
+
+void
 on_window_main_show                    (GtkWidget       *widget,
                                         gpointer         user_data)
 {
@@ -1806,4 +1814,5 @@ on_install_progressbar_delete_event    (GtkWidget       *widget,
 
   return FALSE;
 }
+
 

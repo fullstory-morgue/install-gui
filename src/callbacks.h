@@ -195,3 +195,7 @@ gboolean
 on_dialog_end_delete_event             (GtkWidget       *widget,
                                         GdkEvent        *event,
                                         gpointer         user_data);
+
+void
+on_button_usb_clicked                  (GtkButton       *button,
+                                        gpointer         user_data);
