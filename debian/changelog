@@ -1,9 +1,5 @@
-install-gui (0.3.8) UNRELEASED; urgency=low
+install-gui (0.3.8) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * install-usb-gui button added
   * install-usb-icon added
 
