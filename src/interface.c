@@ -53,8 +53,8 @@ create_window_main (void)
   GtkWidget *button_usb;
   GtkWidget *eventbox1;
   GtkWidget *fixed16;
-  GtkWidget *image19;
   GtkWidget *label48;
+  GtkWidget *image19;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -293,8 +293,8 @@ create_window_main (void)
 
   button_usb = gtk_button_new ();
   gtk_widget_show (button_usb);
-  gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 232, 296);
-  gtk_widget_set_size_request (button_usb, 208, 34);
+  gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 250, 302);
+  gtk_widget_set_size_request (button_usb, 173, 34);
 
   eventbox1 = gtk_event_box_new ();
   gtk_widget_show (eventbox1);
@@ -304,17 +304,17 @@ create_window_main (void)
   gtk_widget_show (fixed16);
   gtk_container_add (GTK_CONTAINER (eventbox1), fixed16);
 
-  image19 = gtk_image_new_from_stock ("gtk-save", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image19);
-  gtk_fixed_put (GTK_FIXED (fixed16), image19, 3, 0);
-  gtk_widget_set_size_request (image19, 27, 23);
-
-  label48 = gtk_label_new (_("<span foreground=\"darkorange\" font_desc=\"Bold\">install to USB</span>"));
+  label48 = gtk_label_new (_("<span foreground=\"#0022ff\" font_desc=\"Bold\">install to USB</span>"));
   gtk_widget_show (label48);
-  gtk_fixed_put (GTK_FIXED (fixed16), label48, 28, 0);
+  gtk_fixed_put (GTK_FIXED (fixed16), label48, 0, 0);
   gtk_widget_set_size_request (label48, 170, 24);
   gtk_label_set_use_markup (GTK_LABEL (label48), TRUE);
   gtk_label_set_justify (GTK_LABEL (label48), GTK_JUSTIFY_CENTER);
+
+  image19 = create_pixmap (window_main, "install-usb-icon.png");
+  gtk_widget_show (image19);
+  gtk_fixed_put (GTK_FIXED (fixed2), image19, 167, 288);
+  gtk_widget_set_size_request (image19, 64, 56);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -984,8 +984,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, eventbox1, "eventbox1");
   GLADE_HOOKUP_OBJECT (window_main, fixed16, "fixed16");
-  GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label48, "label48");
+  GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");

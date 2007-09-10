@@ -5,8 +5,9 @@ install-gui (0.3.8) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * install-usb-gui button added
+  * install-usb-icon added
 
- -- Horst Tritremmel <hjt@sidux.com>  Sun, 09 Sep 2007 21:38:13 +0200
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 10 Sep 2007 21:56:06 +0200
 
 install-gui (0.3.7) unstable; urgency=low
 
