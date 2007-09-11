@@ -1,8 +1,9 @@
 install-gui (0.3.9) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * add VCS control headers.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Sep 2007 00:53:30 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Sep 2007 20:16:38 +0200
 
 install-gui (0.3.8) unstable; urgency=low
 
