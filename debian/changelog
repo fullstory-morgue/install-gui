@@ -5,8 +5,9 @@ install-gui (0.3.10) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * language files updated
+  * install fromiso into USB button name changed
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 13 Sep 2007 20:43:58 +0200
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 13 Sep 2007 21:43:13 +0200
 
 install-gui (0.3.9) unstable; urgency=low
 
