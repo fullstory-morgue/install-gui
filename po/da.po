@@ -174,7 +174,7 @@ msgstr "Netværk"
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
-"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+"If everything is correct for you, pressing \"Save config & Next\"."
 msgstr "Du har indtastet alt den nødvendige information og kan nu starte sidux installationen.\n\n"
 "Du kan kontrollere eller ændre dine indstillinger igen ved at trykke \"Forrige\" knappen.\n\n"
 "Hvis alt er som du ønsker, start da installationen ved at trykke på \"Begynd installation\"."
@@ -221,8 +221,81 @@ msgstr "Næste"
 msgid "Prev"
 msgstr "Forrige"
 
+#--------- new ----------
+
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
+msgstr ""
+
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr ""
+
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr ""
+
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr ""
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr ""
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr ""
+
+#: install-gui.glade:1559(property) 
+msgid "<big><b> Timezone </b></big>"
+msgstr ""
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr ""
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr ""
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr ""
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr ""
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr ""
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr ""
+
+#: install-gui.glade:3417(property) 
+msgid "Edit Configuration"
+msgstr ""
+
+#: install-gui.glade:3497(property) 
+msgid "not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr ""
+
+#: install-gui.glade:3455(property) 
+msgid "Installation with progressbar\n"
+"(default)"
+msgstr ""
+
+#: install-gui.glade:3476(property) 
+msgid "Installation with terminal\n"
+"(debug modus)"
+msgstr ""
+
+#: install-gui.glade:2108(property) 
+msgid "Save config & Next"
 msgstr ""
 

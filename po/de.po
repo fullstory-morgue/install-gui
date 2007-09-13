@@ -177,10 +177,10 @@ msgstr "Netzwerk"
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
-"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+"If everything is correct for you, pressing \"Save config & Next\"."
 msgstr "Es sind alle notwendigen Daten vorhanden, um die sidux-Installation zu starten.\n\n"
 "Sie können die Einstellungen nochmal Überpruefen, indem Sie den Button \"Zurück\" betätigen.\n\n"
-"Wenn alles in Ordnung ist können Sie die Installation mit dem Button \"Installation starten\" beginnen."
+"Wenn alles in Ordnung ist können Sie die Installation mit dem Button \"Konfig speichern & weiter\" beginnen."
 
 #: install-gui.glade:1800(property) 
 msgid "Save configuration\n"
@@ -249,4 +249,55 @@ msgstr "Start Service"
 #: install-gui.glade:1559(property) 
 msgid "<big><b> Timezone </b></big>"
 msgstr "<big><b> Zeitzone </b></big>"
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr "Root-Passwort unterschiedlich!"
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr "Root-Passwort zu kurz"
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr "Echter Name leer!"
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr "Benutzername leer"
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr "Passwort unterschiedlich!"
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr "Passwort zu kurz"
+
+#: install-gui.glade:3417(property) 
+msgid "Edit Configuration"
+msgstr "Konfiguration editieren"
+
+#: install-gui.glade:3497(property) 
+msgid "not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr "nicht notwendig,\n"
+"<b>Sei vorsichtig !!!</b>"
+
+#: install-gui.glade:3455(property) 
+msgid "Installation with progressbar\n"
+"(default)"
+msgstr "Grafische Installation mit Fortschrittsbalken\n"
+"(Standard)"
+
+#: install-gui.glade:3476(property) 
+msgid "Installation with terminal\n"
+"(debug modus)"
+msgstr "Installation im Befehlsfenster\n"
+"(im Fehlerfall hilfreich)"
+
+#: install-gui.glade:2108(property) 
+msgid "Save config & Next"
+msgstr "Konfig speichern & weiter"
+
 

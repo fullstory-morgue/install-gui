@@ -175,7 +175,7 @@ msgstr "Réseau"
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
-"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+"If everything is correct for you, pressing \"Save config & Next\"."
 msgstr "Vous avez fourni toutes les informations nécessaires pour pouvoir démarrer l'installation.\n\n"
 "Vous pouvez contrõler ou modifier ves options en cliquant sur le bouton \"Précédent\".\n\n"
 "Si toutes les informations sont correctes, lancez l'installation en cliquant sur \"Begin Installation\"."
@@ -251,4 +251,52 @@ msgstr "scripts de démarrage"
 #: install-gui.glade:1559(property) 
 msgid "<big><b> Timezone </b></big>"
 msgstr "<big><b> fuseau horaire </b></big>"
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr ""
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr ""
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr ""
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr ""
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr ""
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr ""
+
+#: install-gui.glade:3417(property) 
+msgid "Edit Configuration"
+msgstr ""
+
+#: install-gui.glade:3497(property) 
+msgid "not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr ""
+
+#: install-gui.glade:3455(property) 
+msgid "Installation with progressbar\n"
+"(default)"
+msgstr ""
+
+#: install-gui.glade:3476(property) 
+msgid "Installation with terminal\n"
+"(debug modus)"
+msgstr ""
+
+#: install-gui.glade:2108(property) 
+msgid "Save config & Next"
+msgstr ""
+
 

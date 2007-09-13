@@ -396,7 +396,7 @@ password_check(GtkWidget     *button)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s", gettext("Root-Password too short!") );
+                                  "%s", gettext("Password too short!") );
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
           return 0;

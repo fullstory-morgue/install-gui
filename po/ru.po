@@ -184,7 +184,7 @@ msgstr "локальная сеть"
 #: install-gui.glade:1709(property)
 msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
-"If everything is correct for you, begin the installation by pressing \"Begin installation\"."
+"If everything is correct for you, pressing \"Save config & Next\"."
 msgstr ""
 "Все необходимые данные в системе, можно запустить установку sidux.\n\n"
 "Проверить данные или изменить опции еще раз при нажатием кнопку \"назад \".\n\n"
@@ -257,4 +257,55 @@ msgstr "cups (система выдачи на печать)"
 #: install-gui.glade:1558(property) 
 msgid "start services"
 msgstr "запуск служб"
+
+#: install-gui.glade:1559(property) 
+msgid "<big><b> Timezone </b></big>"
+msgstr ""
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr ""
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr ""
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr ""
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr ""
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr ""
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr ""
+
+#: install-gui.glade:3417(property) 
+msgid "Edit Configuration"
+msgstr ""
+
+#: install-gui.glade:3497(property) 
+msgid "not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr ""
+
+#: install-gui.glade:3455(property) 
+msgid "Installation with progressbar\n"
+"(default)"
+msgstr ""
+
+#: install-gui.glade:3476(property) 
+msgid "Installation with terminal\n"
+"(debug modus)"
+msgstr ""
+
+#: install-gui.glade:2108(property) 
+msgid "Save config & Next"
+msgstr ""
 
