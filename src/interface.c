@@ -34,8 +34,8 @@ create_window_main (void)
   GtkWidget *fixed1;
   GtkWidget *label_wellcome;
   GtkWidget *image1;
-  GtkWidget *exit;
   GtkWidget *next;
+  GtkWidget *exit;
   GtkWidget *prev;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
@@ -50,11 +50,11 @@ create_window_main (void)
   GtkWidget *hseparator3;
   GtkWidget *label_wellcome_2;
   GtkWidget *hseparator20;
+  GtkWidget *image19;
   GtkWidget *button_usb;
   GtkWidget *eventbox1;
   GtkWidget *fixed16;
   GtkWidget *label48;
-  GtkWidget *image19;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -125,10 +125,9 @@ create_window_main (void)
   GtkWidget *hseparator5;
   GtkWidget *label16;
   GtkWidget *label4;
-  GtkWidget *fixed6;
+  GtkWidget *fixed_network;
   GtkWidget *hostname;
   GtkWidget *hseparator11;
-  GtkWidget *label31;
   GtkWidget *hseparator12;
   GtkWidget *vseparator5;
   GtkWidget *hseparator13;
@@ -140,32 +139,30 @@ create_window_main (void)
   GtkWidget *checkbutton_ssh;
   GtkWidget *checkbutton_printsystem;
   GtkWidget *label38;
+  GtkWidget *label31;
   GtkWidget *label5;
   GtkWidget *fixed7;
   GtkWidget *hseparator14;
+  GtkWidget *radiobutton3;
+  GSList *radiobutton3_group = NULL;
+  GtkWidget *radiobutton2;
+  GtkWidget *radiobutton1;
+  GtkWidget *hseparator17;
+  GtkWidget *checkbutton_metapackages;
+  GtkWidget *button_install;
+  GtkWidget *alignment13;
+  GtkWidget *hbox8;
+  GtkWidget *image22;
+  GtkWidget *label52;
+  GtkWidget *label33;
+  GtkWidget *hseparator15;
   GtkWidget *vseparator8;
   GtkWidget *vseparator7;
-  GtkWidget *hseparator15;
-  GtkWidget *label33;
-  GtkWidget *checkbutton_force;
-  GtkWidget *checkbutton_metapackages;
   GtkWidget *hseparator16;
-  GtkWidget *radiobutton1;
-  GSList *radiobutton1_group = NULL;
-  GtkWidget *radiobutton2;
-  GtkWidget *vseparator9;
-  GtkWidget *button_install;
-  GtkWidget *alignment6;
-  GtkWidget *hbox5;
-  GtkWidget *image8;
-  GtkWidget *label_install_button;
+  GtkWidget *checkbutton_force;
   GtkWidget *image16;
-  GtkWidget *vseparator10;
-  GtkWidget *hseparator18;
-  GtkWidget *hseparator17;
   GtkWidget *label37;
   GtkWidget *label_rootpart_warning;
-  GtkWidget *radiobutton3;
   GtkWidget *label6;
   GtkTooltips *tooltips;
 
@@ -198,18 +195,18 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed1), image1, 464, 0);
   gtk_widget_set_size_request (image1, 192, 51);
 
+  next = gtk_button_new_from_stock ("gtk-go-forward");
+  gtk_widget_show (next);
+  gtk_fixed_put (GTK_FIXED (fixed1), next, 544, 488);
+  gtk_widget_set_size_request (next, 116, 28);
+  GTK_WIDGET_UNSET_FLAGS (next, GTK_CAN_FOCUS);
+
   exit = gtk_button_new_from_stock ("gtk-quit");
   gtk_widget_show (exit);
   gtk_fixed_put (GTK_FIXED (fixed1), exit, 32, 488);
   gtk_widget_set_size_request (exit, 116, 28);
   GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
   gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
-
-  next = gtk_button_new_from_stock ("gtk-go-forward");
-  gtk_widget_show (next);
-  gtk_fixed_put (GTK_FIXED (fixed1), next, 544, 488);
-  gtk_widget_set_size_request (next, 116, 28);
-  GTK_WIDGET_UNSET_FLAGS (next, GTK_CAN_FOCUS);
 
   prev = gtk_button_new_from_stock ("gtk-go-back");
   gtk_widget_show (prev);
@@ -291,10 +288,16 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), hseparator20, 24, 272);
   gtk_widget_set_size_request (hseparator20, 624, 16);
 
+  image19 = create_pixmap (window_main, "install-usb-icon.png");
+  gtk_widget_show (image19);
+  gtk_fixed_put (GTK_FIXED (fixed2), image19, 167, 288);
+  gtk_widget_set_size_request (image19, 64, 56);
+
   button_usb = gtk_button_new ();
   gtk_widget_show (button_usb);
   gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 250, 302);
   gtk_widget_set_size_request (button_usb, 173, 34);
+  gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled sidux_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg sidux)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
 
   eventbox1 = gtk_event_box_new ();
   gtk_widget_show (eventbox1);
@@ -310,11 +313,6 @@ create_window_main (void)
   gtk_widget_set_size_request (label48, 170, 24);
   gtk_label_set_use_markup (GTK_LABEL (label48), TRUE);
   gtk_label_set_justify (GTK_LABEL (label48), GTK_JUSTIFY_CENTER);
-
-  image19 = create_pixmap (window_main, "install-usb-icon.png");
-  gtk_widget_show (image19);
-  gtk_fixed_put (GTK_FIXED (fixed2), image19, 167, 288);
-  gtk_widget_set_size_request (image19, 64, 56);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -697,58 +695,50 @@ create_window_main (void)
   gtk_widget_show (label4);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label4);
 
-  fixed6 = gtk_fixed_new ();
-  gtk_widget_show (fixed6);
-  gtk_container_add (GTK_CONTAINER (notebook1), fixed6);
+  fixed_network = gtk_fixed_new ();
+  gtk_widget_show (fixed_network);
+  gtk_container_add (GTK_CONTAINER (notebook1), fixed_network);
 
   hostname = gtk_entry_new ();
   gtk_widget_show (hostname);
-  gtk_fixed_put (GTK_FIXED (fixed6), hostname, 264, 160);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hostname, 264, 160);
   gtk_widget_set_size_request (hostname, 232, 24);
   gtk_entry_set_text (GTK_ENTRY (hostname), _("siduxbox"));
 
   hseparator11 = gtk_hseparator_new ();
   gtk_widget_show (hseparator11);
-  gtk_fixed_put (GTK_FIXED (fixed6), hseparator11, 16, 96);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator11, 16, 96);
   gtk_widget_set_size_request (hseparator11, 640, 16);
-
-  label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
-  gtk_widget_show (label31);
-  gtk_fixed_put (GTK_FIXED (fixed6), label31, 16, 8);
-  gtk_widget_set_size_request (label31, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
 
   hseparator12 = gtk_hseparator_new ();
   gtk_widget_show (hseparator12);
-  gtk_fixed_put (GTK_FIXED (fixed6), hseparator12, 120, 128);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator12, 120, 128);
   gtk_widget_set_size_request (hseparator12, 408, 16);
 
   vseparator5 = gtk_vseparator_new ();
   gtk_widget_show (vseparator5);
-  gtk_fixed_put (GTK_FIXED (fixed6), vseparator5, 112, 136);
+  gtk_fixed_put (GTK_FIXED (fixed_network), vseparator5, 112, 136);
   gtk_widget_set_size_request (vseparator5, 16, 80);
 
   hseparator13 = gtk_hseparator_new ();
   gtk_widget_show (hseparator13);
-  gtk_fixed_put (GTK_FIXED (fixed6), hseparator13, 120, 208);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator13, 120, 208);
   gtk_widget_set_size_request (hseparator13, 408, 16);
 
   vseparator6 = gtk_vseparator_new ();
   gtk_widget_show (vseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed6), vseparator6, 520, 136);
+  gtk_fixed_put (GTK_FIXED (fixed_network), vseparator6, 520, 136);
   gtk_widget_set_size_request (vseparator6, 16, 80);
 
   label32 = gtk_label_new (_("Hostname:"));
   gtk_widget_show (label32);
-  gtk_fixed_put (GTK_FIXED (fixed6), label32, 128, 160);
+  gtk_fixed_put (GTK_FIXED (fixed_network), label32, 128, 160);
   gtk_widget_set_size_request (label32, 128, 24);
   gtk_misc_set_alignment (GTK_MISC (label32), 0.04, 0.5);
 
   frame2 = gtk_frame_new (NULL);
   gtk_widget_show (frame2);
-  gtk_fixed_put (GTK_FIXED (fixed6), frame2, 120, 232);
+  gtk_fixed_put (GTK_FIXED (fixed_network), frame2, 120, 232);
   gtk_widget_set_size_request (frame2, 408, 120);
 
   alignment7 = gtk_alignment_new (0.5, 0.5, 1, 1);
@@ -775,6 +765,14 @@ create_window_main (void)
   gtk_widget_show (label38);
   gtk_frame_set_label_widget (GTK_FRAME (frame2), label38);
 
+  label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
+  gtk_widget_show (label31);
+  gtk_fixed_put (GTK_FIXED (fixed_network), label31, 16, 8);
+  gtk_widget_set_size_request (label31, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
+
   label5 = gtk_label_new (_("Network"));
   gtk_widget_show (label5);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 4), label5);
@@ -788,22 +786,58 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed7), hseparator14, 16, 96);
   gtk_widget_set_size_request (hseparator14, 640, 16);
 
-  vseparator8 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator8);
-  gtk_fixed_put (GTK_FIXED (fixed7), vseparator8, 88, 136);
-  gtk_widget_set_size_request (vseparator8, 16, 160);
+  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Edit configuration\n!!! be careful !!!"));
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 360, 200);
+  gtk_widget_set_size_request (radiobutton3, 208, 48);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton3_group);
+  radiobutton3_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
 
-  vseparator7 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator7);
-  gtk_fixed_put (GTK_FIXED (fixed7), vseparator7, 560, 136);
-  gtk_widget_set_size_request (vseparator7, 16, 160);
+  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nonly (~/.sidconf)"));
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton2, 360, 160);
+  gtk_widget_set_size_request (radiobutton2, 208, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton3_group);
+  radiobutton3_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
 
-  hseparator15 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator15);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator15, 96, 128);
-  gtk_widget_set_size_request (hseparator15, 472, 16);
+  radiobutton1 = gtk_radio_button_new_with_mnemonic (NULL, _("Start installation"));
+  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton1, 360, 128);
+  gtk_widget_set_size_request (radiobutton1, 208, 56);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton1), radiobutton3_group);
+  radiobutton3_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton1), TRUE);
 
-  label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, begin the installation by pressing \"Begin installation\"."));
+  hseparator17 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator17);
+  gtk_fixed_put (GTK_FIXED (fixed7), hseparator17, 96, 240);
+  gtk_widget_set_size_request (hseparator17, 472, 16);
+
+  checkbutton_metapackages = gtk_check_button_new_with_mnemonic (_("Install additional\nMetapackages"));
+  gtk_widget_show (checkbutton_metapackages);
+  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 112, 184);
+  gtk_widget_set_size_request (checkbutton_metapackages, 232, 56);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_metapackages), TRUE);
+
+  button_install = gtk_button_new ();
+  gtk_widget_show (button_install);
+  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 232, 325);
+  gtk_widget_set_size_request (button_install, 200, 34);
+
+  alignment13 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment13);
+  gtk_container_add (GTK_CONTAINER (button_install), alignment13);
+
+  hbox8 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox8);
+  gtk_container_add (GTK_CONTAINER (alignment13), hbox8);
+
+  image22 = gtk_image_new_from_stock ("gtk-save", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image22);
+  gtk_box_pack_start (GTK_BOX (hbox8), image22, FALSE, FALSE, 0);
+
+  label52 = gtk_label_new_with_mnemonic (_("Save config & Next"));
+  gtk_widget_show (label52);
+  gtk_box_pack_start (GTK_BOX (hbox8), label52, FALSE, FALSE, 0);
+
+  label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, pressing \"Save config & Next\"."));
   gtk_widget_show (label33);
   gtk_fixed_put (GTK_FIXED (fixed7), label33, 16, 8);
   gtk_widget_set_size_request (label33, 640, 88);
@@ -811,101 +845,48 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label33), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label33), 0, 0.5);
 
-  checkbutton_force = gtk_check_button_new_with_mnemonic (_("Force Installation\n(Ignore RAM-/Partition-Check, etc.)"));
-  gtk_widget_show (checkbutton_force);
-  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_force, 328, 136);
-  gtk_widget_set_size_request (checkbutton_force, 232, 56);
+  hseparator15 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator15);
+  gtk_fixed_put (GTK_FIXED (fixed7), hseparator15, 96, 120);
+  gtk_widget_set_size_request (hseparator15, 472, 16);
 
-  checkbutton_metapackages = gtk_check_button_new_with_mnemonic (_("Install additional\nMetapackages"));
-  gtk_widget_show (checkbutton_metapackages);
-  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 328, 184);
-  gtk_widget_set_size_request (checkbutton_metapackages, 232, 56);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_metapackages), TRUE);
+  vseparator8 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator8);
+  gtk_fixed_put (GTK_FIXED (fixed7), vseparator8, 88, 128);
+  gtk_widget_set_size_request (vseparator8, 16, 120);
+
+  vseparator7 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator7);
+  gtk_fixed_put (GTK_FIXED (fixed7), vseparator7, 560, 128);
+  gtk_widget_set_size_request (vseparator7, 16, 120);
 
   hseparator16 = gtk_hseparator_new ();
   gtk_widget_show (hseparator16);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator16, 96, 288);
+  gtk_fixed_put (GTK_FIXED (fixed7), hseparator16, 96, 296);
   gtk_widget_set_size_request (hseparator16, 472, 16);
 
-  radiobutton1 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nand start installation"));
-  gtk_widget_show (radiobutton1);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton1, 120, 136);
-  gtk_widget_set_size_request (radiobutton1, 208, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton1), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton1));
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton1), TRUE);
-
-  radiobutton2 = gtk_radio_button_new_with_mnemonic (NULL, _("Save configuration\nonly (~/.sidconf)"));
-  gtk_widget_show (radiobutton2);
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton2, 120, 184);
-  gtk_widget_set_size_request (radiobutton2, 208, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton2), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton2));
-
-  vseparator9 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator9);
-  gtk_fixed_put (GTK_FIXED (fixed7), vseparator9, 88, 320);
-  gtk_widget_set_size_request (vseparator9, 16, 32);
-
-  button_install = gtk_button_new ();
-  gtk_widget_show (button_install);
-  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 416, 318);
-  gtk_widget_set_size_request (button_install, 152, 34);
-
-  alignment6 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment6);
-  gtk_container_add (GTK_CONTAINER (button_install), alignment6);
-
-  hbox5 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox5);
-  gtk_container_add (GTK_CONTAINER (alignment6), hbox5);
-
-  image8 = gtk_image_new_from_stock ("gtk-execute", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image8);
-  gtk_box_pack_start (GTK_BOX (hbox5), image8, FALSE, FALSE, 0);
-
-  label_install_button = gtk_label_new_with_mnemonic (_("Begin Installation"));
-  gtk_widget_show (label_install_button);
-  gtk_box_pack_start (GTK_BOX (hbox5), label_install_button, FALSE, FALSE, 0);
+  checkbutton_force = gtk_check_button_new_with_mnemonic (_("Force Installation\n(Ignore RAM-/Partition-Check, etc.)"));
+  gtk_widget_show (checkbutton_force);
+  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_force, 112, 136);
+  gtk_widget_set_size_request (checkbutton_force, 232, 56);
 
   image16 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image16);
-  gtk_fixed_put (GTK_FIXED (fixed7), image16, 112, 320);
+  gtk_fixed_put (GTK_FIXED (fixed7), image16, 200, 272);
   gtk_widget_set_size_request (image16, 24, 32);
   gtk_misc_set_alignment (GTK_MISC (image16), 0, 0.42);
 
-  vseparator10 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator10);
-  gtk_fixed_put (GTK_FIXED (fixed7), vseparator10, 392, 320);
-  gtk_widget_set_size_request (vseparator10, 16, 32);
-
-  hseparator18 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator18);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator18, 96, 344);
-  gtk_widget_set_size_request (hseparator18, 304, 16);
-
-  hseparator17 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator17);
-  gtk_fixed_put (GTK_FIXED (fixed7), hseparator17, 96, 312);
-  gtk_widget_set_size_request (hseparator17, 304, 16);
-
   label37 = gtk_label_new (_("Root-Partition"));
   gtk_widget_show (label37);
-  gtk_fixed_put (GTK_FIXED (fixed7), label37, 144, 320);
+  gtk_fixed_put (GTK_FIXED (fixed7), label37, 224, 272);
   gtk_widget_set_size_request (label37, 112, 32);
   gtk_misc_set_alignment (GTK_MISC (label37), 0, 0.52);
 
   label_rootpart_warning = gtk_label_new (_("error"));
   gtk_widget_show (label_rootpart_warning);
-  gtk_fixed_put (GTK_FIXED (fixed7), label_rootpart_warning, 256, 320);
+  gtk_fixed_put (GTK_FIXED (fixed7), label_rootpart_warning, 344, 272);
   gtk_widget_set_size_request (label_rootpart_warning, 144, 32);
   gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
-
-  radiobutton3 = gtk_radio_button_new_with_mnemonic (NULL, _("Start sidux-Installer-Script\nwithout configuration\n(this configuration will be lost)"));
-  gtk_fixed_put (GTK_FIXED (fixed7), radiobutton3, 120, 232);
-  gtk_widget_set_size_request (radiobutton3, 376, 56);
-  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton3), radiobutton1_group);
-  radiobutton1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton3));
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
@@ -914,21 +895,21 @@ create_window_main (void)
   g_signal_connect ((gpointer) window_main, "delete_event",
                     G_CALLBACK (on_window_main_delete_event),
                     NULL);
-  g_signal_connect ((gpointer) window_main, "show",
-                    G_CALLBACK (on_window_main_show),
-                    NULL);
-  g_signal_connect ((gpointer) exit, "clicked",
-                    G_CALLBACK (on_exit_clicked),
+  g_signal_connect ((gpointer) window_main, "realize",
+                    G_CALLBACK (on_window_main_realize),
                     NULL);
   g_signal_connect ((gpointer) next, "clicked",
                     G_CALLBACK (on_next_clicked),
                     NULL);
+  g_signal_connect ((gpointer) exit, "clicked",
+                    G_CALLBACK (on_exit_clicked),
+                    NULL);
   g_signal_connect ((gpointer) prev, "clicked",
                     G_CALLBACK (on_prev_clicked),
                     NULL);
-  g_signal_connect ((gpointer) notebook1, "switch_page",
-                    G_CALLBACK (on_notebook1_switch_page),
-                    NULL);
+  g_signal_connect_after ((gpointer) notebook1, "switch_page",
+                          G_CALLBACK (on_notebook1_switch_page),
+                          NULL);
   g_signal_connect ((gpointer) button_usb, "clicked",
                     G_CALLBACK (on_button_usb_clicked),
                     NULL);
@@ -947,17 +928,17 @@ create_window_main (void)
   g_signal_connect ((gpointer) combobox_lang, "changed",
                     G_CALLBACK (on_combobox_lang_changed),
                     NULL);
-  g_signal_connect ((gpointer) radiobutton1, "toggled",
-                    G_CALLBACK (on_radiobutton1_toggled),
+  g_signal_connect ((gpointer) radiobutton3, "toggled",
+                    G_CALLBACK (on_radiobutton3_toggled),
                     NULL);
   g_signal_connect ((gpointer) radiobutton2, "toggled",
                     G_CALLBACK (on_radiobutton2_toggled),
                     NULL);
+  g_signal_connect ((gpointer) radiobutton1, "toggled",
+                    G_CALLBACK (on_radiobutton1_toggled),
+                    NULL);
   g_signal_connect ((gpointer) button_install, "clicked",
                     G_CALLBACK (on_button_install_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) radiobutton3, "toggled",
-                    G_CALLBACK (on_radiobutton3_toggled),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -965,8 +946,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, fixed1, "fixed1");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
-  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT (window_main, next, "next");
+  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
   GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
@@ -981,11 +962,11 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator3, "hseparator3");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
   GLADE_HOOKUP_OBJECT (window_main, hseparator20, "hseparator20");
+  GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, eventbox1, "eventbox1");
   GLADE_HOOKUP_OBJECT (window_main, fixed16, "fixed16");
   GLADE_HOOKUP_OBJECT (window_main, label48, "label48");
-  GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
@@ -1055,10 +1036,9 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator5, "hseparator5");
   GLADE_HOOKUP_OBJECT (window_main, label16, "label16");
   GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
-  GLADE_HOOKUP_OBJECT (window_main, fixed6, "fixed6");
+  GLADE_HOOKUP_OBJECT (window_main, fixed_network, "fixed_network");
   GLADE_HOOKUP_OBJECT (window_main, hostname, "hostname");
   GLADE_HOOKUP_OBJECT (window_main, hseparator11, "hseparator11");
-  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
   GLADE_HOOKUP_OBJECT (window_main, hseparator12, "hseparator12");
   GLADE_HOOKUP_OBJECT (window_main, vseparator5, "vseparator5");
   GLADE_HOOKUP_OBJECT (window_main, hseparator13, "hseparator13");
@@ -1070,31 +1050,29 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_ssh, "checkbutton_ssh");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_printsystem, "checkbutton_printsystem");
   GLADE_HOOKUP_OBJECT (window_main, label38, "label38");
+  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
   GLADE_HOOKUP_OBJECT (window_main, label5, "label5");
   GLADE_HOOKUP_OBJECT (window_main, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (window_main, hseparator14, "hseparator14");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton3, "radiobutton3");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton2, "radiobutton2");
+  GLADE_HOOKUP_OBJECT (window_main, radiobutton1, "radiobutton1");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator17, "hseparator17");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_metapackages, "checkbutton_metapackages");
+  GLADE_HOOKUP_OBJECT (window_main, button_install, "button_install");
+  GLADE_HOOKUP_OBJECT (window_main, alignment13, "alignment13");
+  GLADE_HOOKUP_OBJECT (window_main, hbox8, "hbox8");
+  GLADE_HOOKUP_OBJECT (window_main, image22, "image22");
+  GLADE_HOOKUP_OBJECT (window_main, label52, "label52");
+  GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator15, "hseparator15");
   GLADE_HOOKUP_OBJECT (window_main, vseparator8, "vseparator8");
   GLADE_HOOKUP_OBJECT (window_main, vseparator7, "vseparator7");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator15, "hseparator15");
-  GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_force, "checkbutton_force");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_metapackages, "checkbutton_metapackages");
   GLADE_HOOKUP_OBJECT (window_main, hseparator16, "hseparator16");
-  GLADE_HOOKUP_OBJECT (window_main, radiobutton1, "radiobutton1");
-  GLADE_HOOKUP_OBJECT (window_main, radiobutton2, "radiobutton2");
-  GLADE_HOOKUP_OBJECT (window_main, vseparator9, "vseparator9");
-  GLADE_HOOKUP_OBJECT (window_main, button_install, "button_install");
-  GLADE_HOOKUP_OBJECT (window_main, alignment6, "alignment6");
-  GLADE_HOOKUP_OBJECT (window_main, hbox5, "hbox5");
-  GLADE_HOOKUP_OBJECT (window_main, image8, "image8");
-  GLADE_HOOKUP_OBJECT (window_main, label_install_button, "label_install_button");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_force, "checkbutton_force");
   GLADE_HOOKUP_OBJECT (window_main, image16, "image16");
-  GLADE_HOOKUP_OBJECT (window_main, vseparator10, "vseparator10");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator18, "hseparator18");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator17, "hseparator17");
   GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
-  GLADE_HOOKUP_OBJECT (window_main, radiobutton3, "radiobutton3");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 
@@ -1287,11 +1265,11 @@ create_install_progressbar (void)
   gtk_fixed_put (GTK_FIXED (fixed5), image6, 360, 0);
   gtk_widget_set_size_request (image6, 241, 56);
 
-  g_signal_connect ((gpointer) install_progressbar, "show",
-                    G_CALLBACK (on_install_progressbar_show),
-                    NULL);
   g_signal_connect ((gpointer) install_progressbar, "delete_event",
                     G_CALLBACK (on_install_progressbar_delete_event),
+                    NULL);
+  g_signal_connect ((gpointer) install_progressbar, "realize",
+                    G_CALLBACK (on_install_progressbar_realize),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1479,5 +1457,201 @@ create_dialog_keyb_change (void)
   GLADE_HOOKUP_OBJECT (dialog_keyb_change, okbutton2, "okbutton2");
 
   return dialog_keyb_change;
+}
+
+GtkWidget*
+create_install_window (void)
+{
+  GtkWidget *install_window;
+  GdkPixbuf *install_window_icon_pixbuf;
+  GtkWidget *fixed17;
+  GtkWidget *button_install_now_back;
+  GtkWidget *button1;
+  GtkWidget *button_install_now;
+  GtkWidget *alignment11;
+  GtkWidget *hbox6;
+  GtkWidget *image20;
+  GtkWidget *label49;
+  GtkWidget *image23;
+  GtkWidget *image24;
+  GtkWidget *vseparator11;
+  GtkWidget *vseparator10;
+  GtkWidget *hseparator21;
+  GtkWidget *hseparator22;
+  GtkWidget *button_edit_configuration;
+  GtkWidget *alignment12;
+  GtkWidget *hbox7;
+  GtkWidget *image21;
+  GtkWidget *label50;
+  GtkWidget *radiobutton_install_now1;
+  GSList *radiobutton_install_now1_group = NULL;
+  GtkWidget *radiobutton_install_now2;
+  GtkWidget *label51;
+
+  install_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (install_window), _("sidux HD-Installation"));
+  gtk_window_set_position (GTK_WINDOW (install_window), GTK_WIN_POS_CENTER);
+  gtk_window_set_resizable (GTK_WINDOW (install_window), FALSE);
+  install_window_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  if (install_window_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (install_window), install_window_icon_pixbuf);
+      gdk_pixbuf_unref (install_window_icon_pixbuf);
+    }
+  gtk_window_set_gravity (GTK_WINDOW (install_window), GDK_GRAVITY_CENTER);
+
+  fixed17 = gtk_fixed_new ();
+  gtk_widget_show (fixed17);
+  gtk_container_add (GTK_CONTAINER (install_window), fixed17);
+  gtk_container_set_border_width (GTK_CONTAINER (fixed17), 29);
+
+  button_install_now_back = gtk_button_new_from_stock ("gtk-go-back");
+  gtk_widget_show (button_install_now_back);
+  gtk_fixed_put (GTK_FIXED (fixed17), button_install_now_back, 360, 344);
+  gtk_widget_set_size_request (button_install_now_back, 116, 28);
+  GTK_WIDGET_UNSET_FLAGS (button_install_now_back, GTK_CAN_FOCUS);
+  gtk_button_set_focus_on_click (GTK_BUTTON (button_install_now_back), FALSE);
+
+  button1 = gtk_button_new_from_stock ("gtk-quit");
+  gtk_widget_show (button1);
+  gtk_fixed_put (GTK_FIXED (fixed17), button1, 16, 344);
+  gtk_widget_set_size_request (button1, 116, 28);
+  GTK_WIDGET_UNSET_FLAGS (button1, GTK_CAN_FOCUS);
+  gtk_button_set_focus_on_click (GTK_BUTTON (button1), FALSE);
+
+  button_install_now = gtk_button_new ();
+  gtk_widget_show (button_install_now);
+  gtk_fixed_put (GTK_FIXED (fixed17), button_install_now, 144, 280);
+  gtk_widget_set_size_request (button_install_now, 203, 35);
+
+  alignment11 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment11);
+  gtk_container_add (GTK_CONTAINER (button_install_now), alignment11);
+
+  hbox6 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox6);
+  gtk_container_add (GTK_CONTAINER (alignment11), hbox6);
+
+  image20 = gtk_image_new_from_stock ("gtk-execute", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image20);
+  gtk_box_pack_start (GTK_BOX (hbox6), image20, FALSE, FALSE, 0);
+
+  label49 = gtk_label_new_with_mnemonic (_("Begin Installation"));
+  gtk_widget_show (label49);
+  gtk_box_pack_start (GTK_BOX (hbox6), label49, FALSE, FALSE, 0);
+
+  image23 = create_pixmap (install_window, "progressbar_info.png");
+  gtk_widget_show (image23);
+  gtk_fixed_put (GTK_FIXED (fixed17), image23, 352, 72);
+  gtk_widget_set_size_request (image23, 107, 83);
+
+  image24 = create_pixmap (install_window, "terminal_info.png");
+  gtk_widget_show (image24);
+  gtk_fixed_put (GTK_FIXED (fixed17), image24, 352, 160);
+  gtk_widget_set_size_request (image24, 107, 83);
+
+  vseparator11 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator11);
+  gtk_fixed_put (GTK_FIXED (fixed17), vseparator11, 472, 64);
+  gtk_widget_set_size_request (vseparator11, 16, 192);
+
+  vseparator10 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator10);
+  gtk_fixed_put (GTK_FIXED (fixed17), vseparator10, 0, 64);
+  gtk_widget_set_size_request (vseparator10, 16, 192);
+
+  hseparator21 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator21);
+  gtk_fixed_put (GTK_FIXED (fixed17), hseparator21, 8, 56);
+  gtk_widget_set_size_request (hseparator21, 472, 16);
+
+  hseparator22 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator22);
+  gtk_fixed_put (GTK_FIXED (fixed17), hseparator22, 8, 248);
+  gtk_widget_set_size_request (hseparator22, 472, 16);
+
+  button_edit_configuration = gtk_button_new ();
+  gtk_widget_show (button_edit_configuration);
+  gtk_fixed_put (GTK_FIXED (fixed17), button_edit_configuration, 48, 0);
+  gtk_widget_set_size_request (button_edit_configuration, 152, 33);
+
+  alignment12 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment12);
+  gtk_container_add (GTK_CONTAINER (button_edit_configuration), alignment12);
+
+  hbox7 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox7);
+  gtk_container_add (GTK_CONTAINER (alignment12), hbox7);
+
+  image21 = gtk_image_new_from_stock ("gtk-edit", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image21);
+  gtk_box_pack_start (GTK_BOX (hbox7), image21, FALSE, FALSE, 0);
+
+  label50 = gtk_label_new_with_mnemonic (_("Edit Configuration"));
+  gtk_widget_show (label50);
+  gtk_box_pack_start (GTK_BOX (hbox7), label50, FALSE, FALSE, 0);
+
+  radiobutton_install_now1 = gtk_radio_button_new_with_mnemonic (NULL, _("Installation with progressbar\n(default)"));
+  gtk_widget_show (radiobutton_install_now1);
+  gtk_fixed_put (GTK_FIXED (fixed17), radiobutton_install_now1, 24, 80);
+  gtk_widget_set_size_request (radiobutton_install_now1, 323, 67);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_install_now1), radiobutton_install_now1_group);
+  radiobutton_install_now1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_install_now1));
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (radiobutton_install_now1), TRUE);
+
+  radiobutton_install_now2 = gtk_radio_button_new_with_mnemonic (NULL, _("Installation with terminal\n(debug modus)"));
+  gtk_widget_show (radiobutton_install_now2);
+  gtk_fixed_put (GTK_FIXED (fixed17), radiobutton_install_now2, 24, 168);
+  gtk_widget_set_size_request (radiobutton_install_now2, 323, 67);
+  gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_install_now2), radiobutton_install_now1_group);
+  radiobutton_install_now1_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_install_now2));
+
+  label51 = gtk_label_new (_("not necessary,\n<b>be careful !!!</b>"));
+  gtk_widget_show (label51);
+  gtk_fixed_put (GTK_FIXED (fixed17), label51, 224, 1);
+  gtk_widget_set_size_request (label51, 259, 50);
+  gtk_label_set_use_markup (GTK_LABEL (label51), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label51), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label51), 0, 0);
+
+  g_signal_connect ((gpointer) button_install_now_back, "clicked",
+                    G_CALLBACK (on_button_install_now_back_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button1, "clicked",
+                    G_CALLBACK (gtk_main_quit),
+                    NULL);
+  g_signal_connect ((gpointer) button_install_now, "clicked",
+                    G_CALLBACK (on_button_install_now_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button_edit_configuration, "clicked",
+                    G_CALLBACK (on_button_edit_configuration_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (install_window, install_window, "install_window");
+  GLADE_HOOKUP_OBJECT (install_window, fixed17, "fixed17");
+  GLADE_HOOKUP_OBJECT (install_window, button_install_now_back, "button_install_now_back");
+  GLADE_HOOKUP_OBJECT (install_window, button1, "button1");
+  GLADE_HOOKUP_OBJECT (install_window, button_install_now, "button_install_now");
+  GLADE_HOOKUP_OBJECT (install_window, alignment11, "alignment11");
+  GLADE_HOOKUP_OBJECT (install_window, hbox6, "hbox6");
+  GLADE_HOOKUP_OBJECT (install_window, image20, "image20");
+  GLADE_HOOKUP_OBJECT (install_window, label49, "label49");
+  GLADE_HOOKUP_OBJECT (install_window, image23, "image23");
+  GLADE_HOOKUP_OBJECT (install_window, image24, "image24");
+  GLADE_HOOKUP_OBJECT (install_window, vseparator11, "vseparator11");
+  GLADE_HOOKUP_OBJECT (install_window, vseparator10, "vseparator10");
+  GLADE_HOOKUP_OBJECT (install_window, hseparator21, "hseparator21");
+  GLADE_HOOKUP_OBJECT (install_window, hseparator22, "hseparator22");
+  GLADE_HOOKUP_OBJECT (install_window, button_edit_configuration, "button_edit_configuration");
+  GLADE_HOOKUP_OBJECT (install_window, alignment12, "alignment12");
+  GLADE_HOOKUP_OBJECT (install_window, hbox7, "hbox7");
+  GLADE_HOOKUP_OBJECT (install_window, image21, "image21");
+  GLADE_HOOKUP_OBJECT (install_window, label50, "label50");
+  GLADE_HOOKUP_OBJECT (install_window, radiobutton_install_now1, "radiobutton_install_now1");
+  GLADE_HOOKUP_OBJECT (install_window, radiobutton_install_now2, "radiobutton_install_now2");
+  GLADE_HOOKUP_OBJECT (install_window, label51, "label51");
+
+  return install_window;
 }
 

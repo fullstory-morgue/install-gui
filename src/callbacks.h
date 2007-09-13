@@ -199,3 +199,66 @@ on_dialog_end_delete_event             (GtkWidget       *widget,
 void
 on_button_usb_clicked                  (GtkButton       *button,
                                         gpointer         user_data);
+
+void
+on_button_install_now_clicked          (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_entry_rootpw_changed                (GtkEditable     *editable,
+                                        gpointer         user_data);
+
+void
+on_button_install_now_clicked          (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_edit_configuration_clicked   (GtkButton       *button,
+                                        gpointer         user_data);
+
+gboolean
+on_notebook1_select_page               (GtkNotebook     *notebook,
+                                        gboolean         move_focus,
+                                        gpointer         user_data);
+
+void
+on_window_main_realize                 (GtkWidget       *widget,
+                                        gpointer         user_data);
+
+void
+on_fixed_network_realize               (GtkWidget       *widget,
+                                        gpointer         user_data);
+
+void
+on_fixed_network_show                  (GtkWidget       *widget,
+                                        gpointer         user_data);
+
+void
+on_button3_clicked                     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_label5_populate_popup               (GtkLabel        *label,
+                                        GtkMenu         *menu,
+                                        gpointer         user_data);
+
+void
+on_label5_move_cursor                  (GtkLabel        *label,
+                                        GtkMovementStep  step,
+                                        gint             count,
+                                        gboolean         extend_selection,
+                                        gpointer         user_data);
+
+void
+on_notebook1_switch_page               (GtkNotebook     *notebook,
+                                        GtkNotebookPage *page,
+                                        guint            page_num,
+                                        gpointer         user_data);
+
+void
+on_button_install_now_back_clicked     (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_install_progressbar_realize         (GtkWidget       *widget,
+                                        gpointer         user_data);

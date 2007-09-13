@@ -21,16 +21,16 @@
 #include "inotify.h"
 #include "inotify-syscalls.h"
 
-
 #define BUF_LEN    1024
 
 #define FILENAME ".sidconf"
 #define TARGET_MNT_POINT "/media/hdinstall"
 
-#define HD_SCAN "fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
-#define SCANPARTITIONS "fll_fshelper --install-gui 2>/dev/null > "
-#define INSTALL_SH ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
-#define INSTALL_SH_WITHOUT_CONFIG "fll-installer &"
+#define HD_SCAN                   "fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
+#define SCANPARTITIONS            "fll_fshelper --install-gui 2>/dev/null > "
+
+#define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
+#define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
 
 #define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
 //${LANGUAGE} is set in /etc/default/fll-locales
@@ -42,9 +42,10 @@ char scanparttmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
-int  counter, leaved_user_page, i = 0, partitions_counter = 0, do_it_at_first_time = 0;
-GtkWidget *label_changed, *install_progressbar;
-
+int  counter, leaved_user_page, i = 0, partitions_counter = 0;
+//int do_it_at_first_time = 0;
+GtkWidget *label_changed, *install_progressbar, *window_main;
+ 
 
 // progressbar
 char FILE_NAME[256];
@@ -305,6 +306,7 @@ password_check(GtkWidget     *button)
       strcpy(rootpw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
 
 
+
       //  Message Dialog Root Password different
       if( strcmp( rootpw, rootpw_a ) != 0 ) {
           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
@@ -312,21 +314,21 @@ password_check(GtkWidget     *button)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n%s", "Root-Password different!", "go back" );
+                                  "%s", gettext("Root-Password different!"));
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
 
           return 0;
       }
 
-      //  Message Dialog Root Password to short
+      //  Message Dialog Root Password too short
       if( strlen( rootpw ) < 6 ) {
           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n%s", "Root-Password to short!", "go back" );
+                                  "%s", gettext("Root-Password too short!"));
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
           return 0;
@@ -343,7 +345,7 @@ password_check(GtkWidget     *button)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n%s", "Realname empty!", "go back" );
+                                  "%s", gettext("Realname empty!"));
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
           return 0;
@@ -360,7 +362,7 @@ password_check(GtkWidget     *button)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n%s", "Username empty!", "go back" );
+                                  "%s", gettext("Username empty!"));
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
           return 0;
@@ -381,20 +383,20 @@ password_check(GtkWidget     *button)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n%s", "Password different!", "go back" );
+                                  "%s", gettext("Password different!"));
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
           return 0;
       }
 
-      //  Message Dialog Password to short
+      //  Message Dialog Password too short
       if( strlen( pw ) < 6 ) {
           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n%s", "Password to short!", "go back" );
+                                  "%s", gettext("Root-Password too short!") );
           gtk_dialog_run (GTK_DIALOG (dialog));
           gtk_widget_destroy (dialog);
           return 0;
@@ -643,7 +645,7 @@ on_button_gparted_clicked              (GtkButton       *button,
     char kdeconfdir[256];
 
    // hide the main window after gparted has done
-   GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+   //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
    gtk_widget_hide ( GTK_WIDGET (window_main) );
    while (gtk_events_pending ())
           gtk_main_iteration ();
@@ -763,63 +765,14 @@ on_button_gparted_clicked              (GtkButton       *button,
 
 
 void
-on_button_install_clicked              (GtkButton       *button,
-                                        gpointer         user_data)
+save_config            (GtkButton       *button)
 {
-  /* ======================================================== *
-   *                      read the widgets                    *
-   * ======================================================== */
-   GtkToggleButton *radiobutton, *checkbutton;
-   char systemcall[256], services[17]; //, *default_lang, *default_country;
-   FILE *stream;
-   //int fd;
+      GtkToggleButton *checkbutton;
+      char systemcall[256], services[17]; //, *default_lang, *default_country;
+      FILE *stream;
 
-
-   radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton3"));
-   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
-     /* ======================================================== *
-      *          Start sidux-Installer-Script                    *
-      *          without configuration                           *
-      *         (this configuration will be lost)                *
-      * ======================================================== */
-
-      /* remove the tempfile */
-      unlink(scanparttmp);
-
-      system(INSTALL_SH_WITHOUT_CONFIG);
-
-      gtk_main_quit();
-   }
-   else {
-
-      //password_check
-      if( password_check(GTK_WIDGET (button)) < 1 )
-           return;
-
-      // root partition check
-//   GtkWidget *rootpartcombo = lookup_widget (GTK_WIDGET (button), "rootpartcombo");
-//   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
 
       gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
-      if( hd_choice == NULL ) {
-           GtkWidget *mainW, *dialog;
-
-           // Message Dialog root partition empty
-           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
-           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_ERROR,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s\n%s\n\n%s\n%s\n%s\n%s", "Rootpartition empty!", "Please create a linux partition", 
-                                                  "Note: VMmware with SCSI virtual disc:",
-                                                  "-------------------------------------",
-                                                  "You must use \"Linux/Other Linux\",",
-                                                  "	    NOT \"Other Linux 2.6x kernel\"");
-           gtk_dialog_run (GTK_DIALOG (dialog));
-           gtk_widget_destroy (dialog);
-
-           return;
-      }
 
       // read the treeview1 (mountpoint) list
       GtkWidget *treeview1 = lookup_widget (GTK_WIDGET (button), "treeview1");
@@ -866,13 +819,13 @@ on_button_install_clicked              (GtkButton       *button,
          printf( "The file %s was not opened\n", FILENAME);
       else
       {
-         fprintf( stream, "%s\n\n%s\n\n%s\n%s\n%s\n%s\n%s", 
+         fprintf( stream, "%s\n\n%s\n%s\n%s\n%s\n%s\n%s", 
 "REGISTERED=' SYSTEM_MODULE HD_MODULE HD_FORMAT HD_FSTYPE HD_CHOICE HD_MAP HD_IGNORECHECK SWAP_MODULE SWAP_AUTODETECT SWAP_CHOICES NAME_MODULE NAME_NAME USER_MODULE USER_NAME USERPASS_MODULE USERPASS_CRYPT ROOTPASS_MODULE ROOTPASS_CRYPT HOST_MODULE HOST_NAME SERVICES_MODULE SERVICES_START BOOT_MODULE BOOT_LOADER BOOT_DISK BOOT_WHERE AUTOLOGIN_MODULE INSTALL_READY'", 
 
 "SYSTEM_MODULE='configured'",
 "HD_MODULE='configured'",
 
-"# Determines if the HD should be formatted. (mkfs.*)",
+"\n# Determines if the HD should be formatted. (mkfs.*)",
 "# Possible are: yes|no",
 "# Default value is: yes",
 "HD_FORMAT='");
@@ -885,7 +838,7 @@ on_button_install_clicked              (GtkButton       *button,
              fprintf( stream, "no'\n");
          }
 
-         fprintf( stream, "%s\n%s\n%s\n%s", 
+         fprintf( stream, "\n%s\n%s\n%s\n%s", 
 "# Sets the Filesystem type.",
 "# Possible are: ext3|ext2|reiserfs|jfs",
 "# Default value is: reiserfs",
@@ -894,17 +847,17 @@ on_button_install_clicked              (GtkButton       *button,
         gchar *hd_fstyp = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "format_combo")));
         fprintf( stream, "%s'\n%s\n%s\n%s", 
 hd_fstyp,
-"# Here the sidux-System will be installed",
+"\n# Here the sidux-System will be installed",
 "# This value will be checked by function module_hd_check",
 "HD_CHOICE='");
 
         fprintf( stream, "%s'\n%s\n", 
 hd_choice,
-"# Here you can give additional mappings. (Experimental) You need to have the partitions formatted yourself and give the correct mappings like: \"/dev/hda4:/boot /dev/hda5:/var /dev/hda6:/tmp\"");
+"\n# Here you can give additional mappings. (Experimental) You need to have the partitions formatted yourself and give the correct mappings like: \"/dev/hda4:/boot /dev/hda5:/var /dev/hda6:/tmp\"");
 
         fprintf( stream, "%s\n%s\n%s\n%s\n%s", 
 mountpoints_config,
-"# If set to yes, the program will NOT check if there is enough space to install sidux on the selected partition(s). Use at your own risk! Useful for example with HD_MAP if you only have a small root partition.",
+"\n# If set to yes, the program will NOT check if there is enough space to install sidux on the selected partition(s). Use at your own risk! Useful for example with HD_MAP if you only have a small root partition.",
 "# Possible are: yes|no",
 "# Default value is: no",
 "HD_IGNORECHECK='");
@@ -926,7 +879,8 @@ mountpoints_config,
 "# Possible are: yes|no",
 "# Default value is: yes",
 "SWAP_AUTODETECT='yes'",
-"# The swap partitions to be used by the installed sidux.",
+
+"\n# The swap partitions to be used by the installed sidux.",
 "# This value will be checked by function module_swap_check",
 "SWAP_CHOICES='__swapchoices__'",
 "NAME_MODULE='configured'",
@@ -953,7 +907,7 @@ services,
 "# Default value is: grub",
 "BOOT_LOADER='",
 gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_bootmanager"))),
-"# If set to 'yes' a boot disk will be created!",
+"\n# If set to 'yes' a boot disk will be created!",
 "# Possible are: yes|no",
 "# Default value is: yes",
 "BOOT_DISK='");
@@ -967,7 +921,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
          }
 
        fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s", 
-"# Where the Boot-Loader will be installed",
+"\n# Where the Boot-Loader will be installed",
 "# Possible are: mbr|partition",
 "# Default value is: mbr",
 "BOOT_WHERE='",
@@ -1049,27 +1003,166 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       strcat(systemcall, FILENAME);
       //printf("%s\n", systemcall);
       system(systemcall);
+}
 
-     /* ======================================================== *
-      *         start the fll-installer non-interactive          *
-      * ======================================================== */
-      radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
-      if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+
+void
+on_button_install_clicked              (GtkButton       *button,
+                                        gpointer         user_data)
+{
+  /* ======================================================== *
+   *                      read the widgets                    *
+   * ======================================================== */
+   GtkToggleButton *radiobutton;
+
+   //password_check
+   if( password_check(GTK_WIDGET (button)) < 1 ) {
+
+           GtkWidget *notebook1 = lookup_widget (GTK_WIDGET (button), "notebook1");
+           gtk_notebook_set_current_page( GTK_NOTEBOOK(notebook1), 3 );
+
+           return;
+   }
+
+   // root partition check
+   gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
+   if( hd_choice == NULL ) {
+           GtkWidget *mainW, *dialog;
+
+           // Message Dialog root partition empty
+           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s\n\n%s\n%s\n%s\n%s", "Rootpartition empty!", "Please create a linux partition", 
+                                                  "Note: VMmware with SCSI virtual disc:",
+                                                  "-------------------------------------",
+                                                  "You must use \"Linux/Other Linux\",",
+                                                  "	    NOT \"Other Linux 2.6x kernel\"");
+           gtk_dialog_run (GTK_DIALOG (dialog));
+           gtk_widget_destroy (dialog);
+
+           return;
+   }
+
+
+  /* ======================================================== *
+   *                   start the install_window               *
+   * ======================================================== */
+   radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton1"));
+   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+
+
+         // save config if not available
+         save_config ( GTK_BUTTON (button) );
 
          // hide the main window
          GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
          gtk_widget_hide ( window_main );
 
-         // start progressbar
-         install_progressbar = create_install_progressbar ();
-         gtk_widget_show (install_progressbar);
-
-         /* remove the tempfile */
-         unlink(scanparttmp);
-      }
-
+         // open install window
+         GtkWidget *install_window = create_install_window ();
+         gtk_widget_show (install_window);
 
    }
+
+
+  /* ======================================================== *
+   *                   save config file .sidconf              *
+   * ======================================================== */
+/*   radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton2"));
+   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+
+         save_config ( GTK_BUTTON (button) );
+
+   }
+*/
+
+}
+
+
+void
+on_button_edit_configuration_clicked   (GtkButton       *button,
+                                        gpointer         user_data)
+{
+  /* ======================================================== *
+   *            edit config file .sidconf              *
+   * ======================================================== */
+    char syscall[BUF_LEN], fname[BUF_LEN];
+
+    strncpy( fname, getenv("HOME"), BUF_LEN);
+    strncat( fname, "/", BUF_LEN);
+    strncat( fname, FILENAME, BUF_LEN);
+
+/*
+    // set the config filename
+    // save config if not available
+    FILE* fp=fopen(fname, "r");
+    if( fp == NULL ) {
+        save_config ( GTK_BUTTON (button) );
+    }
+    else {
+         fclose(fp);
+    }
+*/
+
+     strncpy( syscall, "#!/bin/bash\n", BUF_LEN);
+     strncat( syscall, "EDITOR=$(which kwrite) || $(which gedit)", BUF_LEN);
+     strncat( syscall, "\n$EDITOR ", BUF_LEN);
+     strncat( syscall, fname, BUF_LEN);
+     strncat( syscall, " 2> /dev/null", BUF_LEN);
+
+     printf("edit config: %s\n", syscall);
+     system( syscall);
+
+}
+
+
+void
+on_button_install_now_back_clicked     (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    // close install window and show install-gui window (back button in install_window)
+    // hide install window
+    gtk_widget_show ( window_main );
+
+    GtkWidget *install_window = lookup_widget(GTK_WIDGET(button),"install_window");
+    gtk_widget_destroy ( install_window );
+
+}
+
+
+void
+on_button_install_now_clicked          (GtkButton       *button,
+                                        gpointer         user_data)
+{
+    // hide install window
+    GtkWidget *install_window = lookup_widget(GTK_WIDGET(button),"install_window");
+    gtk_widget_hide ( install_window );
+
+    // start install with progressbar
+    GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(button),"radiobutton_install_now1");
+    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+
+          install_progressbar = create_install_progressbar ();
+          gtk_widget_show (install_progressbar);
+     }
+
+     // start install with terminal
+     else {
+           system(INSTALL_SH_WITH_TERMINAL);
+
+           // remove the tempfile
+           unlink(scanparttmp);
+
+           gtk_main_quit ();
+
+     }
+
+
+    // remove the tempfile
+    unlink(scanparttmp);
 }
 
 
@@ -1087,9 +1180,9 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
 
    notebook1 = lookup_widget (GTK_WIDGET (notebook), "notebook1");
 
-     /* ==================================================================== *
-      *          Hide the Next Button if Page Install is selected            *
-      * ==================================================================== */
+     // ==================================================================== 
+     //          Hide the Next Button if Page Install is selected
+     // ==================================================================== 
 
       GtkWidget *button_next = lookup_widget(GTK_WIDGET (notebook),"next");
 
@@ -1099,9 +1192,8 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
           gtk_widget_hide ( GTK_WIDGET (button_next) );
 
 
-     /* ==================================================================== *
-      *                            password_check                            *
-      * ==================================================================== */
+
+      // password_check
       if(page_num == 3) {
             leaved_user_page = 1;
       }
@@ -1109,6 +1201,10 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
       if(page_num != 3 && leaved_user_page == 1) {
           password_failed = password_check(GTK_WIDGET (notebook));
           leaved_user_page = 0;
+
+          if( password_failed == 0) {
+                 gtk_notebook_set_current_page( GTK_NOTEBOOK(notebook1), 3 );
+          }
       }
 
 }
@@ -1148,12 +1244,12 @@ void
 on_radiobutton3_toggled                (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-   // start fll-installer witout .sidconf
+   // Save and edit .sidconf
   GtkWidget* label_install_button = lookup_widget( GTK_WIDGET(togglebutton), "label_install_button" );
 
   GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(togglebutton),"radiobutton3");
   if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
-      gtk_label_set_text( GTK_LABEL ( label_install_button ), "Start" );
+      gtk_label_set_text( GTK_LABEL ( label_install_button ), "Edit" );
   }
 }
 
@@ -1193,7 +1289,7 @@ on_button_tz_clicked                   (GtkButton       *button,
    char tzsh[512];
 
    //hide the main window
-   GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
+   //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
    gtk_widget_hide ( GTK_WIDGET (window_main) );
    while (gtk_events_pending ())
           gtk_main_iteration ();
@@ -1393,15 +1489,12 @@ on_button_usb_clicked                  (GtkButton       *button,
 }
 
 
+
+
 void
-on_window_main_show                    (GtkWidget       *widget,
+on_window_main_realize                 (GtkWidget       *widget,
                                         gpointer         user_data)
 {
-
- if( do_it_at_first_time < 1 ) {
-
-   do_it_at_first_time = 1;  // only at start
-
   /* ==================================================
    * activate mount point of other partitions treeviev
    * ================================================== */
@@ -1416,6 +1509,10 @@ on_window_main_show                    (GtkWidget       *widget,
    GtkListStore *comboList;
    GtkTreeIter iter;
 
+   printf("\n========================\non_window_main_realize\n========================\n");
+
+
+    window_main = lookup_widget (GTK_WIDGET (widget), "window_main");
 
    /* treeview, other Mountpoints */
    treeview1   = lookup_widget (GTK_WIDGET (widget), "treeview1");
@@ -1564,9 +1661,24 @@ on_window_main_show                    (GtkWidget       *widget,
    font_desc = pango_font_description_from_string ("18");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
- }
 }
 
+
+/*
+void
+on_window_main_show                    (GtkWidget       *widget,
+                                        gpointer         user_data)
+{
+
+ if( do_it_at_first_time < 1 ) {
+
+   do_it_at_first_time = 1;  // only at start
+
+
+ }
+
+}
+*/
 
 
 
@@ -1695,8 +1807,22 @@ gboolean zeit (gpointer user_data)
 }
 
 
+gboolean
+on_install_progressbar_delete_event    (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data)
+{
+  /* remove the tempfile */
+  unlink(scanparttmp);
+
+  gtk_main_quit();
+
+  return FALSE;
+}
+
+
 void
-on_install_progressbar_show            (GtkWidget       *widget,
+on_install_progressbar_realize         (GtkWidget       *widget,
                                         gpointer         user_data)
 {
    GdkColor color;
@@ -1800,19 +1926,4 @@ on_install_progressbar_show            (GtkWidget       *widget,
    system( install_call );
 
 }
-
-
-gboolean
-on_install_progressbar_delete_event    (GtkWidget       *widget,
-                                        GdkEvent        *event,
-                                        gpointer         user_data)
-{
-  /* remove the tempfile */
-  unlink(scanparttmp);
-
-  gtk_main_quit();
-
-  return FALSE;
-}
-
 

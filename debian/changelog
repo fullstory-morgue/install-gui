@@ -1,9 +1,17 @@
 install-gui (0.3.9) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
   * add VCS control headers.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Sep 2007 20:16:38 +0200
+  [ Horst Tritremmel ]
+  * use realize_window instead of show_window callback
+  * add window install_window for edit configuration and radiobutton
+    progressbar/terminal installation
+  * jump back to user notebook if a error comes
+  * infotext for install-usb-gui button added
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 13 Sep 2007 13:43:51 +0200
 
 install-gui (0.3.8) unstable; urgency=low
 
