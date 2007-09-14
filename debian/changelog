@@ -1,8 +1,12 @@
 install-gui (0.3.11) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 13 Sep 2007 22:29:57 +0200
+  [ Horst Tritremmel ]
+  * real-time password length checker added
+
+ -- Horst Tritremmel <hjt@sidux.com>  Fri, 14 Sep 2007 10:59:35 +0200
 
 install-gui (0.3.10) unstable; urgency=low
 

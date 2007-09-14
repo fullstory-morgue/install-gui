@@ -105,6 +105,8 @@ create_window_main (void)
   GtkWidget *label43;
   GtkWidget *label3;
   GtkWidget *fixed5;
+  GtkWidget *hseparator5;
+  GtkWidget *label16;
   GtkWidget *frame1;
   GtkWidget *alignment5;
   GtkWidget *fixed8;
@@ -114,16 +116,20 @@ create_window_main (void)
   GtkWidget *entry_username;
   GtkWidget *entry_pw;
   GtkWidget *entry_pw_again;
-  GtkWidget *hseparator6;
   GtkWidget *label26;
   GtkWidget *label27;
   GtkWidget *label28;
   GtkWidget *label29;
   GtkWidget *label18;
   GtkWidget *label21;
+  GtkWidget *hseparator6;
+  GtkWidget *image_root_pw;
+  GtkWidget *image_rootpw_again;
+  GtkWidget *image_realname;
+  GtkWidget *image_username;
+  GtkWidget *image_pw;
+  GtkWidget *image_pw_again;
   GtkWidget *label25;
-  GtkWidget *hseparator5;
-  GtkWidget *label16;
   GtkWidget *label4;
   GtkWidget *fixed_network;
   GtkWidget *hostname;
@@ -579,10 +585,23 @@ create_window_main (void)
   gtk_widget_show (fixed5);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed5);
 
+  hseparator5 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator5);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 16, 96);
+  gtk_widget_set_size_request (hseparator5, 640, 16);
+
+  label16 = gtk_label_new (_("Root-password: This password will be used for the administrator. So keep it in mind!\n\nUsername: The username should consist of lower case letters (and numbers) only.\n\nImportant: All passwords have to be between 6 and 20 characters long!"));
+  gtk_widget_show (label16);
+  gtk_fixed_put (GTK_FIXED (fixed5), label16, 16, 8);
+  gtk_widget_set_size_request (label16, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label16), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label16), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label16), 0, 0.5);
+
   frame1 = gtk_frame_new (NULL);
   gtk_widget_show (frame1);
-  gtk_fixed_put (GTK_FIXED (fixed5), frame1, 120, 120);
-  gtk_widget_set_size_request (frame1, 424, 240);
+  gtk_fixed_put (GTK_FIXED (fixed5), frame1, 96, 120);
+  gtk_widget_set_size_request (frame1, 464, 240);
   gtk_frame_set_shadow_type (GTK_FRAME (frame1), GTK_SHADOW_IN);
 
   alignment5 = gtk_alignment_new (0.5, 0.5, 1, 1);
@@ -632,11 +651,6 @@ create_window_main (void)
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw_again), FALSE);
 
-  hseparator6 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed8), hseparator6, 0, 64);
-  gtk_widget_set_size_request (hseparator6, 400, 16);
-
   label26 = gtk_label_new (_("Realname:"));
   gtk_widget_show (label26);
   gtk_fixed_put (GTK_FIXED (fixed8), label26, 0, 88);
@@ -673,23 +687,45 @@ create_window_main (void)
   gtk_widget_set_size_request (label21, 184, 24);
   gtk_misc_set_alignment (GTK_MISC (label21), 0, 0.5);
 
+  hseparator6 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator6);
+  gtk_fixed_put (GTK_FIXED (fixed8), hseparator6, 0, 64);
+  gtk_widget_set_size_request (hseparator6, 440, 16);
+
+  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_root_pw);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 408, 2);
+  gtk_widget_set_size_request (image_root_pw, 21, 21);
+
+  image_rootpw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_rootpw_again);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_rootpw_again, 408, 34);
+  gtk_widget_set_size_request (image_rootpw_again, 21, 21);
+
+  image_realname = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_realname);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_realname, 408, 90);
+  gtk_widget_set_size_request (image_realname, 21, 21);
+
+  image_username = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_username);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_username, 408, 122);
+  gtk_widget_set_size_request (image_username, 21, 21);
+
+  image_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_pw);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_pw, 408, 160);
+  gtk_widget_set_size_request (image_pw, 21, 21);
+
+  image_pw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_pw_again);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_pw_again, 408, 194);
+  gtk_widget_set_size_request (image_pw_again, 21, 21);
+
   label25 = gtk_label_new ("");
   gtk_widget_show (label25);
   gtk_frame_set_label_widget (GTK_FRAME (frame1), label25);
   gtk_label_set_use_markup (GTK_LABEL (label25), TRUE);
-
-  hseparator5 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator5);
-  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 16, 96);
-  gtk_widget_set_size_request (hseparator5, 640, 16);
-
-  label16 = gtk_label_new (_("Root-password: This password will be used for the administrator. So keep it in mind!\n\nUsername: The username should consist of lower case letters (and numbers) only.\n\nImportant: All passwords have to be between 6 and 20 characters long!"));
-  gtk_widget_show (label16);
-  gtk_fixed_put (GTK_FIXED (fixed5), label16, 16, 8);
-  gtk_widget_set_size_request (label16, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label16), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label16), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label16), 0, 0.5);
 
   label4 = gtk_label_new (_("User"));
   gtk_widget_show (label4);
@@ -928,6 +964,24 @@ create_window_main (void)
   g_signal_connect ((gpointer) combobox_lang, "changed",
                     G_CALLBACK (on_combobox_lang_changed),
                     NULL);
+  g_signal_connect ((gpointer) entry_rootpw, "changed",
+                    G_CALLBACK (on_entry_rootpw_changed),
+                    NULL);
+  g_signal_connect ((gpointer) entry_rootpw_again, "changed",
+                    G_CALLBACK (on_entry_rootpw_again_changed),
+                    NULL);
+  g_signal_connect ((gpointer) entry_realname, "changed",
+                    G_CALLBACK (on_entry_realname_changed),
+                    NULL);
+  g_signal_connect ((gpointer) entry_username, "changed",
+                    G_CALLBACK (on_entry_username_changed),
+                    NULL);
+  g_signal_connect ((gpointer) entry_pw, "changed",
+                    G_CALLBACK (on_entry_pw_changed),
+                    NULL);
+  g_signal_connect ((gpointer) entry_pw_again, "changed",
+                    G_CALLBACK (on_entry_pw_again_changed),
+                    NULL);
   g_signal_connect ((gpointer) radiobutton3, "toggled",
                     G_CALLBACK (on_radiobutton3_toggled),
                     NULL);
@@ -1016,6 +1070,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator5, "hseparator5");
+  GLADE_HOOKUP_OBJECT (window_main, label16, "label16");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
   GLADE_HOOKUP_OBJECT (window_main, alignment5, "alignment5");
   GLADE_HOOKUP_OBJECT (window_main, fixed8, "fixed8");
@@ -1025,16 +1081,20 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, entry_username, "entry_username");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw, "entry_pw");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw_again, "entry_pw_again");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
   GLADE_HOOKUP_OBJECT (window_main, label26, "label26");
   GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
   GLADE_HOOKUP_OBJECT (window_main, label28, "label28");
   GLADE_HOOKUP_OBJECT (window_main, label29, "label29");
   GLADE_HOOKUP_OBJECT (window_main, label18, "label18");
   GLADE_HOOKUP_OBJECT (window_main, label21, "label21");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
+  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
+  GLADE_HOOKUP_OBJECT (window_main, image_rootpw_again, "image_rootpw_again");
+  GLADE_HOOKUP_OBJECT (window_main, image_realname, "image_realname");
+  GLADE_HOOKUP_OBJECT (window_main, image_username, "image_username");
+  GLADE_HOOKUP_OBJECT (window_main, image_pw, "image_pw");
+  GLADE_HOOKUP_OBJECT (window_main, image_pw_again, "image_pw_again");
   GLADE_HOOKUP_OBJECT (window_main, label25, "label25");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator5, "hseparator5");
-  GLADE_HOOKUP_OBJECT (window_main, label16, "label16");
   GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
   GLADE_HOOKUP_OBJECT (window_main, fixed_network, "fixed_network");
   GLADE_HOOKUP_OBJECT (window_main, hostname, "hostname");

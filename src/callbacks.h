@@ -262,3 +262,27 @@ on_button_install_now_back_clicked     (GtkButton       *button,
 void
 on_install_progressbar_realize         (GtkWidget       *widget,
                                         gpointer         user_data);
+
+void
+on_entry_rootpw_changed                (GtkEditable     *editable,
+                                        gpointer         user_data);
+
+void
+on_entry_rootpw_again_changed          (GtkEditable     *editable,
+                                        gpointer         user_data);
+
+void
+on_entry_realname_changed              (GtkEditable     *editable,
+                                        gpointer         user_data);
+
+void
+on_entry_username_changed              (GtkEditable     *editable,
+                                        gpointer         user_data);
+
+void
+on_entry_pw_changed                    (GtkEditable     *editable,
+                                        gpointer         user_data);
+
+void
+on_entry_pw_again_changed              (GtkEditable     *editable,
+                                        gpointer         user_data);

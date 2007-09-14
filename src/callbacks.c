@@ -292,6 +292,129 @@ void read_partitions(GtkComboBox     *combobox)
 }
 
 
+void
+on_entry_rootpw_changed                (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+
+   GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_rootpw");
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_root_pw");
+   GtkWidget* image_again = lookup_widget ( GTK_WIDGET (window_main), "image_rootpw_again");
+
+   gtk_image_set_from_stock ( GTK_IMAGE(image_again), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+
+   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   // Root Password too short
+   if( strlen( rootpw ) < 6 ) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+}
+
+
+void
+on_entry_rootpw_again_changed          (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_rootpw_again");
+
+   GtkWidget* entry = lookup_widget(GTK_WIDGET(window_main), "entry_rootpw");
+   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   entry = lookup_widget(GTK_WIDGET(window_main), "entry_rootpw_again");
+   strcpy(rootpw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   if( strcmp( rootpw, rootpw_a ) != 0 ) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+}
+
+
+void
+on_entry_realname_changed              (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+   GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_realname");
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_realname");
+
+   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   if( strlen( rootpw ) < 1 ) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+}
+
+
+void
+on_entry_username_changed              (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+   GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_username");
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_username");
+
+   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   if( strlen( rootpw ) < 1 ) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+}
+
+
+void
+on_entry_pw_changed                    (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+   GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_pw");
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_pw");
+   GtkWidget* image_again = lookup_widget ( GTK_WIDGET (window_main), "image_pw_again");
+
+   gtk_image_set_from_stock ( GTK_IMAGE(image_again), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+
+   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+
+   if( strlen( rootpw ) < 6 ) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+}
+
+
+void
+on_entry_pw_again_changed              (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_pw_again");
+
+   GtkWidget* entry = lookup_widget(GTK_WIDGET(window_main), "entry_pw");
+   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   entry = lookup_widget(GTK_WIDGET(window_main), "entry_pw_again");
+   strcpy(rootpw_a, gtk_entry_get_text(GTK_ENTRY(entry)));
+
+   if( strcmp( rootpw, rootpw_a ) != 0 ) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+}
+
+
 int
 password_check(GtkWidget     *button) 
 {

@@ -1265,8 +1265,50 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 	      <property name="visible">True</property>
 
 	      <child>
+		<widget class="GtkHSeparator" id="hseparator5">
+		  <property name="width_request">640</property>
+		  <property name="height_request">16</property>
+		  <property name="visible">True</property>
+		</widget>
+		<packing>
+		  <property name="x">16</property>
+		  <property name="y">96</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkLabel" id="label16">
+		  <property name="width_request">640</property>
+		  <property name="height_request">88</property>
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">Root-password: This password will be used for the administrator. So keep it in mind!
+
+Username: The username should consist of lower case letters (and numbers) only.
+
+Important: All passwords have to be between 6 and 20 characters long!</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_CENTER</property>
+		  <property name="wrap">True</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="x">16</property>
+		  <property name="y">8</property>
+		</packing>
+	      </child>
+
+	      <child>
 		<widget class="GtkFrame" id="frame1">
-		  <property name="width_request">424</property>
+		  <property name="width_request">464</property>
 		  <property name="height_request">240</property>
 		  <property name="visible">True</property>
 		  <property name="label_xalign">0</property>
@@ -1302,6 +1344,7 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="has_frame">True</property>
 			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
+			      <signal name="changed" handler="on_entry_rootpw_changed" last_modification_time="Fri, 14 Sep 2007 07:07:59 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="x">184</property>
@@ -1322,6 +1365,7 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="has_frame">True</property>
 			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
+			      <signal name="changed" handler="on_entry_rootpw_again_changed" last_modification_time="Fri, 14 Sep 2007 08:11:15 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="x">184</property>
@@ -1342,6 +1386,7 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="has_frame">True</property>
 			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
+			      <signal name="changed" handler="on_entry_realname_changed" last_modification_time="Fri, 14 Sep 2007 08:11:24 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="x">184</property>
@@ -1362,6 +1407,7 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="has_frame">True</property>
 			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
+			      <signal name="changed" handler="on_entry_username_changed" last_modification_time="Fri, 14 Sep 2007 08:11:30 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="x">184</property>
@@ -1382,6 +1428,7 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="has_frame">True</property>
 			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
+			      <signal name="changed" handler="on_entry_pw_changed" last_modification_time="Fri, 14 Sep 2007 08:11:36 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="x">184</property>
@@ -1402,22 +1449,11 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="has_frame">True</property>
 			      <property name="invisible_char">*</property>
 			      <property name="activates_default">False</property>
+			      <signal name="changed" handler="on_entry_pw_again_changed" last_modification_time="Fri, 14 Sep 2007 08:11:42 GMT"/>
 			    </widget>
 			    <packing>
 			      <property name="x">184</property>
 			      <property name="y">192</property>
-			    </packing>
-			  </child>
-
-			  <child>
-			    <widget class="GtkHSeparator" id="hseparator6">
-			      <property name="width_request">400</property>
-			      <property name="height_request">16</property>
-			      <property name="visible">True</property>
-			    </widget>
-			    <packing>
-			      <property name="x">0</property>
-			      <property name="y">64</property>
 			    </packing>
 			  </child>
 
@@ -1576,6 +1612,126 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 			      <property name="y">32</property>
 			    </packing>
 			  </child>
+
+			  <child>
+			    <widget class="GtkHSeparator" id="hseparator6">
+			      <property name="width_request">440</property>
+			      <property name="height_request">16</property>
+			      <property name="visible">True</property>
+			    </widget>
+			    <packing>
+			      <property name="x">0</property>
+			      <property name="y">64</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkImage" id="image_root_pw">
+			      <property name="width_request">21</property>
+			      <property name="height_request">21</property>
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-cancel</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="x">408</property>
+			      <property name="y">2</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkImage" id="image_rootpw_again">
+			      <property name="width_request">21</property>
+			      <property name="height_request">21</property>
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-cancel</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="x">408</property>
+			      <property name="y">34</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkImage" id="image_realname">
+			      <property name="width_request">21</property>
+			      <property name="height_request">21</property>
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-cancel</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="x">408</property>
+			      <property name="y">90</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkImage" id="image_username">
+			      <property name="width_request">21</property>
+			      <property name="height_request">21</property>
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-cancel</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="x">408</property>
+			      <property name="y">122</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkImage" id="image_pw">
+			      <property name="width_request">21</property>
+			      <property name="height_request">21</property>
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-cancel</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="x">408</property>
+			      <property name="y">160</property>
+			    </packing>
+			  </child>
+
+			  <child>
+			    <widget class="GtkImage" id="image_pw_again">
+			      <property name="width_request">21</property>
+			      <property name="height_request">21</property>
+			      <property name="visible">True</property>
+			      <property name="stock">gtk-cancel</property>
+			      <property name="icon_size">4</property>
+			      <property name="xalign">0.5</property>
+			      <property name="yalign">0.5</property>
+			      <property name="xpad">0</property>
+			      <property name="ypad">0</property>
+			    </widget>
+			    <packing>
+			      <property name="x">408</property>
+			      <property name="y">194</property>
+			    </packing>
+			  </child>
 			</widget>
 		      </child>
 		    </widget>
@@ -1605,50 +1761,8 @@ Installation-target: MBR (Master Boot Record) or root-partition</property>
 		  </child>
 		</widget>
 		<packing>
-		  <property name="x">120</property>
+		  <property name="x">96</property>
 		  <property name="y">120</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkHSeparator" id="hseparator5">
-		  <property name="width_request">640</property>
-		  <property name="height_request">16</property>
-		  <property name="visible">True</property>
-		</widget>
-		<packing>
-		  <property name="x">16</property>
-		  <property name="y">96</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkLabel" id="label16">
-		  <property name="width_request">640</property>
-		  <property name="height_request">88</property>
-		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">Root-password: This password will be used for the administrator. So keep it in mind!
-
-Username: The username should consist of lower case letters (and numbers) only.
-
-Important: All passwords have to be between 6 and 20 characters long!</property>
-		  <property name="use_underline">False</property>
-		  <property name="use_markup">False</property>
-		  <property name="justify">GTK_JUSTIFY_CENTER</property>
-		  <property name="wrap">True</property>
-		  <property name="selectable">False</property>
-		  <property name="xalign">0</property>
-		  <property name="yalign">0.5</property>
-		  <property name="xpad">0</property>
-		  <property name="ypad">0</property>
-		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		  <property name="width_chars">-1</property>
-		  <property name="single_line_mode">False</property>
-		  <property name="angle">0</property>
-		</widget>
-		<packing>
-		  <property name="x">16</property>
-		  <property name="y">8</property>
 		</packing>
 	      </child>
 	    </widget>
