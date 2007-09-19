@@ -1,8 +1,12 @@
 install-gui (0.3.12) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 14 Sep 2007 12:25:03 +0200
+  [ Horst Tritremmel ]
+  * xfce mousepad editor added to configuration editor var
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 19 Sep 2007 10:18:50 +0200
 
 install-gui (0.3.11) unstable; urgency=low
 

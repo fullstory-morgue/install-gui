@@ -1231,7 +1231,7 @@ on_button_edit_configuration_clicked   (GtkButton       *button,
 */
 
      strncpy( syscall, "#!/bin/bash\n", BUF_LEN);
-     strncat( syscall, "EDITOR=$(which kwrite) || $(which gedit)", BUF_LEN);
+     strncat( syscall, "EDITOR=$(which kwrite) || $(which gedit) || $(which mousepad)", BUF_LEN);
      strncat( syscall, "\n$EDITOR ", BUF_LEN);
      strncat( syscall, fname, BUF_LEN);
      strncat( syscall, " 2> /dev/null", BUF_LEN);
