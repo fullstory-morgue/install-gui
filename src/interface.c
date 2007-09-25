@@ -1369,6 +1369,8 @@ create_dialog_end (void)
 
   dialog_end = gtk_dialog_new ();
   gtk_window_set_title (GTK_WINDOW (dialog_end), _("Installation successful"));
+  gtk_window_set_position (GTK_WINDOW (dialog_end), GTK_WIN_POS_CENTER);
+  gtk_window_set_resizable (GTK_WINDOW (dialog_end), FALSE);
   dialog_end_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
   if (dialog_end_icon_pixbuf)
     {
@@ -1376,6 +1378,7 @@ create_dialog_end (void)
       gdk_pixbuf_unref (dialog_end_icon_pixbuf);
     }
   gtk_window_set_type_hint (GTK_WINDOW (dialog_end), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (dialog_end), GDK_GRAVITY_CENTER);
 
   dialog_vbox2 = GTK_DIALOG (dialog_end)->vbox;
   gtk_widget_show (dialog_vbox2);

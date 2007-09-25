@@ -1,8 +1,13 @@
 install-gui (0.3.13) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 19 Sep 2007 10:44:41 +0200
+  [ Horst Tritremmel ]
+  * open end dialog window center
+  * code for edit config file rewritten
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 25 Sep 2007 20:20:31 +0200
 
 install-gui (0.3.12) unstable; urgency=low
 

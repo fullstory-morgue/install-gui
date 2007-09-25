@@ -1231,8 +1231,11 @@ on_button_edit_configuration_clicked   (GtkButton       *button,
 */
 
      strncpy( syscall, "#!/bin/bash\n", BUF_LEN);
-     strncat( syscall, "EDITOR=$(which kwrite) || $(which gedit) || $(which mousepad)", BUF_LEN);
-     strncat( syscall, "\n$EDITOR ", BUF_LEN);
+     strncat( syscall, "EDITOR=$(which kwrite)\n", BUF_LEN);
+     strncat( syscall, "[ -z \"$EDITOR\" ] && EDITOR=$(which gedit)\n", BUF_LEN);
+     strncat( syscall, "[ -z \"$EDITOR\" ] && EDITOR=$(which mousepad)\n", BUF_LEN);
+     strncat( syscall, "[ -z \"$EDITOR\" ] && EDITOR=x-terminal-emulator -e vi \n", BUF_LEN);
+     strncat( syscall, "$EDITOR ", BUF_LEN);
      strncat( syscall, fname, BUF_LEN);
      strncat( syscall, " 2> /dev/null", BUF_LEN);
 
