@@ -1,9 +1,5 @@
-install-gui (0.3.13) UNRELEASED; urgency=low
+install-gui (0.3.13) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * open end dialog window center
   * code for edit config file rewritten
   * language files uodated
