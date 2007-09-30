@@ -22,12 +22,8 @@ msgid "Welcome to the sidux HD-Installation"
 msgstr "Welkom bij de sidux HD-Installatie"
 
 #: install-gui.glade:425(property)
-msgid ""
-"Note that this version is still a very early version and under heavy development. \n"
-"The author takes no responsibility for data loss or hardware damage."
-msgstr ""
-"Bedenk wel dat deze versie nog een erg vroege versie is en volop in ontwikkeling. \n"
-"De auteur neemt geen verantwoordelijkheid voor verlies van data of beschadiging van hardware."
+msgid "sidux takes no responsibility for data loss or hardware damage."
+msgstr "sidux neemt geen verantwoordelijkheid voor verlies van data of beschadiging van hardware."
 
 #: install-gui.glade:452(property)
 msgid "This application will install sidux to your harddisk."

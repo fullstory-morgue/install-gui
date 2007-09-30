@@ -46,7 +46,6 @@ create_window_main (void)
   GtkWidget *vseparator2;
   GtkWidget *label_wellcome_install;
   GtkWidget *image2;
-  GtkWidget *label_wellcome_red;
   GtkWidget *hseparator3;
   GtkWidget *hseparator20;
   GtkWidget *image19;
@@ -55,6 +54,7 @@ create_window_main (void)
   GtkWidget *eventbox1;
   GtkWidget *fixed16;
   GtkWidget *label48;
+  GtkWidget *label_wellcome_red;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -268,14 +268,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), image2, 32, 112);
   gtk_widget_set_size_request (image2, 32, 48);
 
-  label_wellcome_red = gtk_label_new (_("Note that this version is still a very early version and under heavy development. \nThe author takes no responsibility for data loss or hardware damage."));
-  gtk_widget_show (label_wellcome_red);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
-  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
-  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
-
   hseparator3 = gtk_hseparator_new ();
   gtk_widget_show (hseparator3);
   gtk_fixed_put (GTK_FIXED (fixed2), hseparator3, 24, 176);
@@ -319,6 +311,14 @@ create_window_main (void)
   gtk_widget_set_size_request (label48, 188, 24);
   gtk_label_set_use_markup (GTK_LABEL (label48), TRUE);
   gtk_label_set_justify (GTK_LABEL (label48), GTK_JUSTIFY_CENTER);
+
+  label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
+  gtk_widget_show (label_wellcome_red);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
+  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
+  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -1012,7 +1012,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, vseparator2, "vseparator2");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_install, "label_wellcome_install");
   GLADE_HOOKUP_OBJECT (window_main, image2, "image2");
-  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, hseparator3, "hseparator3");
   GLADE_HOOKUP_OBJECT (window_main, hseparator20, "hseparator20");
   GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
@@ -1021,6 +1020,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, eventbox1, "eventbox1");
   GLADE_HOOKUP_OBJECT (window_main, fixed16, "fixed16");
   GLADE_HOOKUP_OBJECT (window_main, label48, "label48");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");

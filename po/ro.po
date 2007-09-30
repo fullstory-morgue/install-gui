@@ -22,10 +22,8 @@ msgid "Welcome to the sidux HD-Installation"
 msgstr "Bine ati venit la Instalarea sidux pe Hard Disc"
 
 #: install-gui.glade:425(property)
-msgid "Note that this version is still a very early version and under heavy development. \n"
-"The author takes no responsibility for data loss or hardware damage."
-msgstr "Retineti ca aceasta versiune este una aflata inca la inceputul sau si intr-o continua dezvoltare. \n"
-"Autorul nu-si asuma nici o responsabilitate in legatura cu pierderea de date sau distrugerea de hardware ."
+msgid "sidux takes no responsibility for data loss or hardware damage."
+msgstr "sidux nu-si asuma nici o responsabilitate in legatura cu pierderea de date sau distrugerea de hardware ."
 
 #: install-gui.glade:452(property)
 msgid "This application will install sidux to your harddisk."
@@ -229,10 +227,6 @@ msgid "Install additional\n"
 "Metapackages"
 msgstr "Instaleaza Metapachete\n"
 "aditionale"
-
-#: install-gui.glade:663(property) 
-msgid "Hostname:"
-msgstr ""
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"

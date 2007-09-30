@@ -24,10 +24,8 @@ msgid "Welcome to the sidux HD-Installation"
 msgstr "Witamy w instalatorze systemu sidux"
 
 #: install-gui.glade:425(property)
-msgid "Note that this version is still a very early version and under heavy development. \n"
-"The author takes no responsibility for data loss or hardware damage."
-msgstr "Weź pod uwagę, że program ten jest we wczesnej fazie rozwoju i może zawierać błędy. \n"
-"Autor nie bierze odpowiedzialności za utratę danych i uszkodzenie sprzętu."
+msgid "sidux takes no responsibility for data loss or hardware damage."
+msgstr "Autor nie bierze odpowiedzialności za utratę danych i uszkodzenie sprzętu."
 
 #: install-gui.glade:452(property)
 msgid "This application will install sidux to your harddisk."
@@ -235,10 +233,6 @@ msgid "Install additional\n"
 "Metapackages"
 msgstr "Zainstaluj dodatkowe\n"
 "metapakiety"
-
-#: install-gui.glade:663(property) 
-msgid "Hostname:"
-msgstr ""
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"

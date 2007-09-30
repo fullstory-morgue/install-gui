@@ -22,10 +22,8 @@ msgid "Welcome to the sidux HD-Installation"
 msgstr "欢迎使用 sidux 的硬盘安装程序"
 
 #: install-gui.glade:425(property) 
-msgid "Note that this version is still a very early version and under heavy development. \n"
-"The author takes no responsibility for data loss or hardware damage."
-msgstr "请注意该版本仍处于开发阶段，\n"
-"作者不对可能造成的数据丢失和硬件损坏负责！"
+msgid "sidux takes no responsibility for data loss or hardware damage."
+msgstr "作者不对可能造成的数据丢失和硬件损坏负责！"
 
 #: install-gui.glade:452(property) 
 msgid "This application will install sidux to your harddisk."
@@ -228,10 +226,6 @@ msgstr "主机名:"
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
 "Metapackages"
-msgstr ""
-
-#: install-gui.glade:663(property) 
-msgid "Hostname:"
 msgstr ""
 
 #: install-gui.glade:662(property) 
