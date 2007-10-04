@@ -3284,165 +3284,6 @@ You might have problems typing your password!&lt;/span&gt;</property>
       <property name="visible">True</property>
 
       <child>
-	<widget class="GtkButton" id="button_install_now_back">
-	  <property name="width_request">116</property>
-	  <property name="height_request">28</property>
-	  <property name="visible">True</property>
-	  <property name="label">gtk-go-back</property>
-	  <property name="use_stock">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">False</property>
-	  <signal name="clicked" handler="on_button_install_now_back_clicked" last_modification_time="Thu, 13 Sep 2007 09:17:43 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">360</property>
-	  <property name="y">344</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkButton" id="button1">
-	  <property name="width_request">116</property>
-	  <property name="height_request">28</property>
-	  <property name="visible">True</property>
-	  <property name="label">gtk-quit</property>
-	  <property name="use_stock">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">False</property>
-	  <signal name="clicked" handler="gtk_main_quit" last_modification_time="Wed, 12 Sep 2007 19:53:10 GMT"/>
-	</widget>
-	<packing>
-	  <property name="x">16</property>
-	  <property name="y">344</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image23">
-	  <property name="width_request">107</property>
-	  <property name="height_request">83</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">progressbar_info.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">352</property>
-	  <property name="y">72</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image24">
-	  <property name="width_request">107</property>
-	  <property name="height_request">83</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">terminal_info.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">352</property>
-	  <property name="y">160</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkVSeparator" id="vseparator11">
-	  <property name="width_request">16</property>
-	  <property name="height_request">192</property>
-	  <property name="visible">True</property>
-	</widget>
-	<packing>
-	  <property name="x">472</property>
-	  <property name="y">64</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkVSeparator" id="vseparator10">
-	  <property name="width_request">16</property>
-	  <property name="height_request">192</property>
-	  <property name="visible">True</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">64</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkHSeparator" id="hseparator21">
-	  <property name="width_request">472</property>
-	  <property name="height_request">16</property>
-	  <property name="visible">True</property>
-	</widget>
-	<packing>
-	  <property name="x">8</property>
-	  <property name="y">56</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkHSeparator" id="hseparator22">
-	  <property name="width_request">472</property>
-	  <property name="height_request">16</property>
-	  <property name="visible">True</property>
-	</widget>
-	<packing>
-	  <property name="x">8</property>
-	  <property name="y">248</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkRadioButton" id="radiobutton_install_now1">
-	  <property name="width_request">323</property>
-	  <property name="height_request">67</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Installation with progressbar
-(default)</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <property name="active">True</property>
-	  <property name="inconsistent">False</property>
-	  <property name="draw_indicator">True</property>
-	</widget>
-	<packing>
-	  <property name="x">24</property>
-	  <property name="y">80</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkRadioButton" id="radiobutton_install_now2">
-	  <property name="width_request">323</property>
-	  <property name="height_request">67</property>
-	  <property name="visible">True</property>
-	  <property name="can_focus">True</property>
-	  <property name="label" translatable="yes">Installation with terminal
-(debug modus)</property>
-	  <property name="use_underline">True</property>
-	  <property name="relief">GTK_RELIEF_NORMAL</property>
-	  <property name="focus_on_click">True</property>
-	  <property name="active">False</property>
-	  <property name="inconsistent">False</property>
-	  <property name="draw_indicator">True</property>
-	  <property name="group">radiobutton_install_now1</property>
-	</widget>
-	<packing>
-	  <property name="x">24</property>
-	  <property name="y">168</property>
-	</packing>
-      </child>
-
-      <child>
 	<widget class="GtkButton" id="button_edit_configuration">
 	  <property name="width_request">203</property>
 	  <property name="height_request">35</property>
@@ -3523,6 +3364,52 @@ You might have problems typing your password!&lt;/span&gt;</property>
       </child>
 
       <child>
+	<widget class="GtkHSeparator" id="hseparator22">
+	  <property name="width_request">475</property>
+	  <property name="height_request">16</property>
+	  <property name="visible">True</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">72</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="button1">
+	  <property name="width_request">116</property>
+	  <property name="height_request">28</property>
+	  <property name="visible">True</property>
+	  <property name="label">gtk-quit</property>
+	  <property name="use_stock">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">False</property>
+	  <signal name="clicked" handler="gtk_main_quit" last_modification_time="Wed, 12 Sep 2007 19:53:10 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">216</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkButton" id="button_install_now_back">
+	  <property name="width_request">116</property>
+	  <property name="height_request">28</property>
+	  <property name="visible">True</property>
+	  <property name="label">gtk-go-back</property>
+	  <property name="use_stock">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">False</property>
+	  <signal name="clicked" handler="on_button_install_now_back_clicked" last_modification_time="Thu, 13 Sep 2007 09:17:43 GMT"/>
+	</widget>
+	<packing>
+	  <property name="x">360</property>
+	  <property name="y">216</property>
+	</packing>
+      </child>
+
+      <child>
 	<widget class="GtkButton" id="button_install_now">
 	  <property name="width_request">203</property>
 	  <property name="height_request">35</property>
@@ -3597,8 +3484,49 @@ You might have problems typing your password!&lt;/span&gt;</property>
 	  </child>
 	</widget>
 	<packing>
-	  <property name="x">144</property>
-	  <property name="y">280</property>
+	  <property name="x">136</property>
+	  <property name="y">120</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkRadioButton" id="radiobutton_install_now1">
+	  <property name="width_request">219</property>
+	  <property name="height_request">16</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Installation with progressbar
+(default)</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <property name="active">True</property>
+	  <property name="inconsistent">False</property>
+	  <property name="draw_indicator">True</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">32</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkRadioButton" id="radiobutton_install_now2">
+	  <property name="width_request">195</property>
+	  <property name="height_request">16</property>
+	  <property name="can_focus">True</property>
+	  <property name="label" translatable="yes">Installation with terminal
+(debug modus)</property>
+	  <property name="use_underline">True</property>
+	  <property name="relief">GTK_RELIEF_NORMAL</property>
+	  <property name="focus_on_click">True</property>
+	  <property name="active">False</property>
+	  <property name="inconsistent">False</property>
+	  <property name="draw_indicator">True</property>
+	  <property name="group">radiobutton_install_now1</property>
+	</widget>
+	<packing>
+	  <property name="x">160</property>
+	  <property name="y">32</property>
 	</packing>
       </child>
 
@@ -3625,7 +3553,7 @@ You might have problems typing your password!&lt;/span&gt;</property>
 	</widget>
 	<packing>
 	  <property name="x">232</property>
-	  <property name="y">0</property>
+	  <property name="y">4</property>
 	</packing>
       </child>
     </widget>
