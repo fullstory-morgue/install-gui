@@ -5,8 +5,8 @@ Maintainer: Horst Tritremmel <hjt@sidux.com>
 Uploaders: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Build-Depends: debhelper (>= 5), autotools-dev, automake1.10, libgtk2.0-dev, libglade2-dev, imagemagick
 Standards-Version: 3.7.2
-XS-Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
-XS-Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
+Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
+Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
 Package: install-gui
 Architecture: any
