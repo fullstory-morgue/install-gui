@@ -827,7 +827,7 @@ on_button_gparted_clicked              (GtkButton       *button,
            system(sh_command);
        }
        else {
-           system("gparted");
+           system("x-terminal-emulator -e cfdisk");
        }
 
    }
@@ -1395,7 +1395,7 @@ timezone_read (GtkWidget       *widget)
       fseek(  tz_file, 0L, SEEK_SET );
       fscanf( tz_file, "%[^\n]\n", tz);
 
-      strncpy( tz_markup, "<span foreground=\"#A4A58B\" font_desc=\"Sans Bold 12\">", 256);
+      strncpy( tz_markup, "<span foreground=\"#484540\" font_desc=\"Sans Bold 12\">", 256);
       strncat( tz_markup, tz, 256);
       strncat( tz_markup, "</span>", 256);
 
@@ -2000,7 +2000,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_NORMAL, &color);
    //gdk_color_parse ("IndianRed4", &color);
-   gdk_color_parse ("#A4A58B", &color);
+   gdk_color_parse ("#484540", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_PRELIGHT, &color);
 
    pprogres2 = lookup_widget(GTK_WIDGET(widget), "progressbar2");
@@ -2009,7 +2009,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    // set color of ProgressBar
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_NORMAL, &color);
-   gdk_color_parse ("#A4A58B", &color);
+   gdk_color_parse ("#484540", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_PRELIGHT, &color);
 
    // label_clock

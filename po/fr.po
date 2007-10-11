@@ -151,7 +151,7 @@ msgid "Username:"
 msgstr "Nom de l'utilisateur"
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
 "Username: The username should consist of lower case letters (and numbers) only.\n\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
 msgstr "Mot de passe root: Ce mot de passe sera utilisé pour l'administrateur. Ne l'oubliez pas!\n\n"

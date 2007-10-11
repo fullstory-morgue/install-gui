@@ -150,7 +150,7 @@ msgid "Username:"
 msgstr "Brugernavn:"
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. So keep it in mind!\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
 "Username: The username should consist of lower case letters (and numbers) only.\n\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
 msgstr "Root-password: Dette password skal anvendes af administratoren. Husk det!\n\n"

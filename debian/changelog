@@ -1,9 +1,14 @@
 install-gui (0.3.15) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
   * update syntax for Vcs headers in debian/control
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 07 Oct 2007 14:43:38 +0200
+  [ Horst Tritremmel ]
+  * changed some text colors
+  * changed some info text
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 11 Oct 2007 10:21:12 +0200
 
 install-gui (0.3.14) unstable; urgency=low
 
