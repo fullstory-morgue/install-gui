@@ -1,6 +1,5 @@
-install-gui (0.3.16) UNRELEASED; urgency=low
+install-gui (0.3.16) unstable; urgency=low
 
-  * NOT RELEASED YET
   * fix typo, s/Bohdi/Bodhi/.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 12 Oct 2007 11:34:00 +0200
