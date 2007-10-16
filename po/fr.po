@@ -252,49 +252,50 @@ msgstr "<big><b> fuseau horaire </b></big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr ""
+msgstr "Mot de passe root différent!"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
-msgstr ""
+msgstr "Mot de passe root trop court!"
 
 #: callbacks.c:348
 msgid "Realname empty!"
-msgstr ""
+msgstr "Nom réel vide!"
 
 #: callbacks.c:365
 msgid "Username empty!"
-msgstr ""
+msgstr "Nom d'utilisateur vide!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr ""
+msgstr "Mot de passe différent!"
 
 #: callbacks.c:399
 msgid "Password too short!"
-msgstr ""
+msgstr "Mot de passe trop court!"
 
 #: install-gui.glade:3417(property) 
 msgid "Edit Configuration"
-msgstr ""
+msgstr "éditer la configuration"
 
 #: install-gui.glade:3497(property) 
 msgid "not necessary,\n"
 "<b>be careful !!!</b>"
-msgstr ""
+msgstr "pas nécessaire,\n"
+"<b>soyez prudent !!!</b>"
 
 #: install-gui.glade:3455(property) 
 msgid "Installation with progressbar\n"
 "(default)"
-msgstr ""
+msgstr "Installation avec barre de progrès"
 
 #: install-gui.glade:3476(property) 
 msgid "Installation with terminal\n"
 "(debug modus)"
-msgstr ""
+msgstr "Installation avec terminal"
+"(mode debug)"
 
 #: install-gui.glade:2108(property) 
 msgid "Save config & Next"
-msgstr ""
-
+msgstr "Sauvegarder configuration & suivant"
 

@@ -1,11 +1,13 @@
 # translation of ru.po to russisch
+# Roland Engert <roen@sidux.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-01-20 01:39+0100\n"
-"Last-Translator: Roland Engert <roen at sidux dot com>\n"
+"PO-Revision-Date: 2007-10-04 06:31+0200\n"
+"Last-Translator: Roland Engert <roen@sidux.com>\n"
 "Language-Team: russisch <roen@sidux.com>\n"
+"Roland Engert <roen@sidux.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +15,7 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: install-gui.glade:8(property)
 msgid "sidux HD-Installation"
@@ -254,54 +256,59 @@ msgstr "cups (система выдачи на печать)"
 msgid "start services"
 msgstr "запуск служб"
 
-#: install-gui.glade:1559(property) 
+#: install-gui.glade:1559(property)
 msgid "<big><b> Timezone </b></big>"
-msgstr ""
+msgstr "<big><b> Часовой пояс </b></big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr ""
+msgstr "Пароль root не совпадает!"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
-msgstr ""
+msgstr "Пароль root слишком короткий!"
 
 #: callbacks.c:348
 msgid "Realname empty!"
-msgstr ""
+msgstr "Настоящее имя не указано!"
 
 #: callbacks.c:365
 msgid "Username empty!"
-msgstr ""
+msgstr "Не указано имя пользователя!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr ""
+msgstr "Пароль не совпадает!"
 
 #: callbacks.c:399
 msgid "Password too short!"
-msgstr ""
+msgstr "Пароль слишком короткий!"
 
-#: install-gui.glade:3417(property) 
+#: install-gui.glade:3417(property)
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Редактирование конфигурации"
 
-#: install-gui.glade:3497(property) 
-msgid "not necessary,\n"
+#: install-gui.glade:3497(property)
+msgid ""
+"not necessary,\n"
 "<b>be careful !!!</b>"
 msgstr ""
+"Не является необходимым,\n"
+"<b>Будьте внимательныbe !!!</b>"
 
-#: install-gui.glade:3455(property) 
-msgid "Installation with progressbar\n"
+#: install-gui.glade:3455(property)
+msgid ""
+"Installation with progressbar\n"
 "(default)"
-msgstr ""
+msgstr "Инсталляция с индикатором выполнения\n (по умолчанию)"
 
-#: install-gui.glade:3476(property) 
-msgid "Installation with terminal\n"
+#: install-gui.glade:3476(property)
+msgid ""
+"Installation with terminal\n"
 "(debug modus)"
-msgstr ""
+msgstr "Инсталляция в терминале\n (режим отладки)"
 
-#: install-gui.glade:2108(property) 
+#: install-gui.glade:2108(property)
 msgid "Save config & Next"
-msgstr ""
+msgstr "Конфигурация сохранена & Дальше"
 

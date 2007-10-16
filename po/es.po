@@ -241,55 +241,63 @@ msgstr "cupsys (Sistema de impresoras)"
 msgid "start services"
 msgstr "iniciar servicios"
 
-#: install-gui.glade:1559(property) 
+#: install-gui.glade:1559(property)
 msgid "<big><b> Timezone </b></big>"
-msgstr ""
+msgstr "<big><b> Zona Horaria </b></big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr ""
+msgstr "Clave de Raíz son diferentes"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
-msgstr ""
+msgstr "¡Clave de Raíz es muy corta!"
 
 #: callbacks.c:348
 msgid "Realname empty!"
-msgstr ""
+msgstr "¡Nombre verdadero vacio!"
 
 #: callbacks.c:365
 msgid "Username empty!"
-msgstr ""
+msgstr "¡Nombre de usuario vacio!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr ""
+msgstr "¡Clave es diferente!"
 
 #: callbacks.c:399
 msgid "Password too short!"
-msgstr ""
+msgstr "¡Clave muy corta!"
 
-#: install-gui.glade:3417(property) 
+#: install-gui.glade:3417(property)
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Editar configuración"
 
-#: install-gui.glade:3497(property) 
-msgid "not necessary,\n"
+#: install-gui.glade:3497(property)
+msgid ""
+"not necessary,\n"
 "<b>be careful !!!</b>"
 msgstr ""
+"no necesario,\n"
+"<b>¡¡Sea cuidadoso!!</b>"
 
-#: install-gui.glade:3455(property) 
-msgid "Installation with progressbar\n"
+#: install-gui.glade:3455(property)
+msgid ""
+"Installation with progressbar\n"
 "(default)"
 msgstr ""
+"Instalación con barra de progreso\n"
+"(default)"
 
-#: install-gui.glade:3476(property) 
-msgid "Installation with terminal\n"
+#: install-gui.glade:3476(property)
+msgid ""
+"Installation with terminal\n"
 "(debug modus)"
 msgstr ""
+"Instalación con terminal\n"
+"(modo debug)"
 
-#: install-gui.glade:2108(property) 
+#: install-gui.glade:2108(property)
 msgid "Save config & Next"
-msgstr ""
-
+msgstr "Grabar config & Seguir"
 

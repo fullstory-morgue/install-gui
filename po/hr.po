@@ -243,52 +243,55 @@ msgstr "Startovati servise"
 
 #: install-gui.glade:1559(property) 
 msgid "<big><b> Timezone </b></big>"
-msgstr ""
+msgstr "<big><b> Vremenska Zona </b></big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr ""
+msgstr "Root-Lozinke nisu identične"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
-msgstr ""
+msgstr "Root-Lozinka je prekratka!"
 
 #: callbacks.c:348
 msgid "Realname empty!"
-msgstr ""
+msgstr "Pravo ime je prazno!"
 
 #: callbacks.c:365
 msgid "Username empty!"
-msgstr ""
+msgstr "Korisničko ime je prazno!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr ""
+msgstr "Lozinke nisu identične!"
 
 #: callbacks.c:399
 msgid "Password too short!"
-msgstr ""
+msgstr "Lozinka prekratka!"
 
 #: install-gui.glade:3417(property) 
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Editiraj konfiguraciju"
 
 #: install-gui.glade:3497(property) 
 msgid "not necessary,\n"
 "<b>be careful !!!</b>"
-msgstr ""
+msgstr "nepotrebno,\n"
+"<b>budite pažljivi !!!</b>"
 
 #: install-gui.glade:3455(property) 
 msgid "Installation with progressbar\n"
 "(default)"
-msgstr ""
+msgstr "Instalacija sa trakom za napredovanje\n"
+"(Standard)"
 
 #: install-gui.glade:3476(property) 
 msgid "Installation with terminal\n"
 "(debug modus)"
-msgstr ""
+msgstr "Instalacija s terminalom\n"
+"(debug modus)"
 
 #: install-gui.glade:2108(property) 
 msgid "Save config & Next"
-msgstr ""
+msgstr "Spremi konfiguraciju i dalje"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2007-01-18 10:07+0000\n"
 "PO-Revision-Date: 2007-03-06 16:00+0200\n"
-"Last-Translator: Gabriel Palade <ladepa@gmail.com>\n"
+"Last-Translator: Adriana <bluewater@sidux.com>\n"
 "Language-Team: LANGUAGE < LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,68 +230,68 @@ msgstr "Instaleaza Metapachete\n"
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"
-msgstr ""
+msgstr "plaseaza partitiile pe boot"
 
 #: install-gui.glade:1517(property) 
 msgid "ssh (Secure shell client and server)"
-msgstr ""
+msgstr "ssh (Asigura cochilia clientului si a serverului)"
 
 #: install-gui.glade:1537(property) 
 msgid "cupsys (Printing System)"
-msgstr ""
+msgstr "cupsys (Sistem de printare)"
 
 #: install-gui.glade:1558(property) 
 msgid "start services"
-msgstr ""
+msgstr "servicii de pornire"
 
 #: install-gui.glade:1559(property) 
 msgid "<big><b> Timezone </b></big>"
-msgstr ""
+msgstr "Ora locala"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr ""
+msgstr "Parola Root diferita!"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
-msgstr ""
+msgstr "Parola Root prea scurta!"
 
 #: callbacks.c:348
 msgid "Realname empty!"
-msgstr ""
+msgstr "Numele adevarat necompletat!"
 
 #: callbacks.c:365
 msgid "Username empty!"
-msgstr ""
+msgstr "Numele utilizatorului necompletat!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr ""
+msgstr "Parola diferita!"
 
 #: callbacks.c:399
 msgid "Password too short!"
-msgstr ""
+msgstr "Parola prea scurta!"
 
 #: install-gui.glade:3417(property) 
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Editeaza configuratia"
 
 #: install-gui.glade:3497(property) 
 msgid "not necessary,\n"
 "<b>be careful !!!</b>"
-msgstr ""
+msgstr "Atentie !!!"
 
 #: install-gui.glade:3455(property) 
 msgid "Installation with progressbar\n"
 "(default)"
-msgstr ""
+msgstr "(default)"
 
 #: install-gui.glade:3476(property) 
 msgid "Installation with terminal\n"
 "(debug modus)"
-msgstr ""
+msgstr "(debug modus)"
 
 #: install-gui.glade:2108(property) 
 msgid "Save config & Next"
-msgstr ""
+msgstr "Salveaza config si Next"
 
