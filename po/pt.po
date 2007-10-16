@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2007-01-18 10:07+0000\n"
 "PO-Revision-Date: 2007-01-18 21:00+0000\n"
-"Last-Translator: João Batista <joao_mn_batista@hotmail.com>\n"
+"Last-Translator: Joaquim Boura <x-un-i@sidux.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "sidux declina toda a responsabilidade pela perda de dados ou danos em ha
 
 #: install-gui.glade:452(property) 
 msgid "This application will install sidux to your harddisk."
-msgstr "Esta aplicaçãoo irá instalar o sidux no disco rígido deste computador."
+msgstr "Esta aplicação irá instalar o sidux no disco rígido deste computador."
 
 #: install-gui.glade:505(property) 
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
@@ -231,7 +231,7 @@ msgstr "Instalação de\n"
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"
-msgstr "Montagem automático das Partições"
+msgstr "Montagem automática das Partições"
 
 #: install-gui.glade:1517(property) 
 msgid "ssh (Secure shell client and server)"
@@ -243,56 +243,59 @@ msgstr "cupsys (sistema de impressão)"
 
 #: install-gui.glade:1558(property) 
 msgid "start services"
-msgstr "lançamento automático der serviços"
+msgstr "lançamento automático de serviços"
 
 #: install-gui.glade:1559(property) 
 msgid "<big><b> Timezone </b></big>"
-msgstr ""
+msgstr "Zona horária"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr ""
+msgstr "Senha do utilizador root diferentess!"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
-msgstr ""
+msgstr "Senha do utilizador root demasiado  curta!"
 
 #: callbacks.c:348
 msgid "Realname empty!"
-msgstr ""
+msgstr "Entre o nome do utilizador!"
 
 #: callbacks.c:365
 msgid "Username empty!"
-msgstr ""
+msgstr "Nome do utilizador vazio!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr ""
+msgstr "Senhas diferentes!"
 
 #: callbacks.c:399
 msgid "Password too short!"
-msgstr ""
+msgstr "Senha muito curta!"
 
 #: install-gui.glade:3417(property) 
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Edite a configuração"
 
 #: install-gui.glade:3497(property) 
 msgid "not necessary,\n"
 "<b>be careful !!!</b>"
-msgstr ""
+msgstr "não necessária!\n"
+"<b>tenha cuidado !!!</b>"
 
 #: install-gui.glade:3455(property) 
 msgid "Installation with progressbar\n"
 "(default)"
-msgstr ""
+msgstr "Instalação com barra de progressão\n"
+"(default)"
 
 #: install-gui.glade:3476(property) 
 msgid "Installation with terminal\n"
 "(debug modus)"
-msgstr ""
+msgstr "Instalação com terminal\n"
+"(debug modus)"
 
 #: install-gui.glade:2108(property) 
 msgid "Save config & Next"
-msgstr ""
+msgstr "Guardar a configuração e continuar"
 
