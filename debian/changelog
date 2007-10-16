@@ -1,9 +1,5 @@
-install-gui (0.3.17) UNRELEASED; urgency=low
+install-gui (0.3.17) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * po files updated
 
  -- Horst Tritremmel <hjt@sidux.com>  Tue, 16 Oct 2007 09:54:27 +0200
