@@ -32,7 +32,7 @@ msgstr "Esta aplicação irá instalar o sidux no disco rígido deste computador
 #: install-gui.glade:505(property) 
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
 "sidux-website: http://sidux.com"
-msgstr "Se precisar de ajuda para a instalaçãoo visite a página de Web, o Wiki, o Fórum ou o IRC Chat do sidux!\n\n"
+msgstr "Se precisar de ajuda para a instalação visite a página de Web, o Wiki, o Fórum ou o IRC Chat do sidux!\n\n"
 "Sítio de Web do sidux: http://sidux.com"
 
 #: install-gui.glade:537(property) 
@@ -49,7 +49,7 @@ msgid "options are:\n"
 "/tmp\n"
 "/usr\n"
 "/var"
-msgstr "Op�es:\n"
+msgstr "Opções:\n"
 "========\n"
 "/boot\n"
 "/home\n"
@@ -63,7 +63,7 @@ msgstr "Op�es:\n"
 msgid "!!!!!! be careful !!!!!!!\n"
 "Do it, if you don't have a linux partition.\n"
 "Read the Manual before. (see the Manual Button on the Desktop)"
-msgstr "!!!!!! PRESTE MUITA ATEN�O !!!!!!\n"
+msgstr "!!!!!! PRESTE MUITA ATENÇÃO !!!!!!\n"
 "Faça isto se não tiver uma partição de Linux.\n"
 "Leia o Manual antes de continuar (veja o ícone do Manual na Área de Trabalho)."
 
