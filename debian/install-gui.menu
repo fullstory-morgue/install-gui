@@ -1,5 +1,5 @@
 ?package(install-gui):needs="X11" \
-	section="Apps/System" \
+	section="Applications/System/Administration" \
 	hints="sidux,Config" \
 	title="sidux-installer" \
 	icon32x32="/usr/share/pixmaps/install-gui.xpm" \
