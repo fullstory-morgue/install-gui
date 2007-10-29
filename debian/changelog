@@ -4,9 +4,10 @@ install-gui (0.3.19) UNRELEASED; urgency=low
   * NOT RELEASED YET
 
   [ Bernard Gray ]
-  * clean up sidux logo source (no upload required) 
+  * clean up sidux logo source (no upload required)
+  * more logo source cleanup 
 
- -- Bernard Gray <bernard.gray@gmail.com>  Mon, 29 Oct 2007 14:05:42 +1100
+ -- Bernard Gray <bernard.gray@gmail.com>  Mon, 29 Oct 2007 14:42:48 +1100
 
 install-gui (0.3.18) unstable; urgency=low
 

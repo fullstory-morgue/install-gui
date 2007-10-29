@@ -9,7 +9,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="450"
+   width="435"
    height="160"
    id="svg3150"
    sodipodi:version="0.32"
@@ -19,8 +19,8 @@
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
    inkscape:export-filename="/home/bgray/svn/svn.berlios.de-fullstory/fll-builder/trunk/usr/share/fll-builder/templates/sidux/release/sidux.png"
-   inkscape:export-xdpi="32"
-   inkscape:export-ydpi="32">
+   inkscape:export-xdpi="35.172413"
+   inkscape:export-ydpi="35.172413">
   <defs
      id="defs3152">
     <radialGradient
@@ -394,7 +394,8 @@
      inkscape:window-height="786"
      inkscape:window-x="320"
      inkscape:window-y="0"
-     height="150px" />
+     height="150px"
+     width="440px" />
   <metadata
      id="metadata3155">
     <rdf:RDF>
@@ -412,7 +413,7 @@
      id="layer1"
      transform="translate(-177.10489,-435.4878)">
     <path
-       transform="matrix(0.8477424,0,0,0.8477424,-439.67145,375.56833)"
+       transform="matrix(0.8477424,0,0,0.8477424,-455.67145,375.56833)"
        d="M 911.66665,100 A 18.333334,18.333334 0 1 1 874.99998,100 A 18.333334,18.333334 0 1 1 911.66665,100 z"
        sodipodi:ry="18.333334"
        sodipodi:rx="18.333334"
@@ -425,7 +426,7 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
-       transform="matrix(0.9703666,0,0,0.9703666,173.67631,442.02879)"
+       transform="matrix(0.9703666,0,0,0.9703666,157.67631,442.02879)"
        id="g4501"
        style="fill:#000000;fill-opacity:1;display:inline;filter:url(#filter3611)"
        inkscape:export-filename="/home/bernie/software/sidux-art/gaia/ksplash-logo.png"
@@ -556,7 +557,7 @@
       </g>
     </g>
     <path
-       transform="matrix(0.8477424,0,0,0.8477424,-441.61219,373.6276)"
+       transform="matrix(0.8477424,0,0,0.8477424,-457.61219,373.6276)"
        d="M 911.66665,100 A 18.333334,18.333334 0 1 1 874.99998,100 A 18.333334,18.333334 0 1 1 911.66665,100 z"
        sodipodi:ry="18.333334"
        sodipodi:rx="18.333334"
@@ -569,7 +570,7 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
-       transform="matrix(0.8477424,0,0,0.8477424,-441.61219,373.6276)"
+       transform="matrix(0.8477424,0,0,0.8477424,-457.61219,373.6276)"
        d="M 911.66665,100 A 18.333334,18.333334 0 1 1 874.99998,100 A 18.333334,18.333334 0 1 1 911.66665,100 z"
        sodipodi:ry="18.333334"
        sodipodi:rx="18.333334"
@@ -590,13 +591,13 @@
        sodipodi:rx="18.333334"
        sodipodi:ry="18.333334"
        d="M 911.66665,100 A 18.333334,18.333334 0 1 1 874.99998,100 A 18.333334,18.333334 0 1 1 911.66665,100 z"
-       transform="matrix(0.8477424,0,0,0.8477424,-441.61219,373.6276)"
+       transform="matrix(0.8477424,0,0,0.8477424,-457.61219,373.6276)"
        inkscape:export-filename="/home/bernie/software/sidux-art/gaia/ksplash-logo.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g4949"
-       transform="translate(-26.142857,-159.57142)">
+       transform="translate(-42.142857,-159.57142)">
       <path
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -732,7 +733,7 @@
          inkscape:export-ydpi="90" />
     </g>
     <path
-       transform="matrix(0.4726352,0,0,0.4726352,-104.39711,407.60606)"
+       transform="matrix(0.4726352,0,0,0.4726352,-120.39711,407.60606)"
        d="M 911.66665,100 A 18.333334,18.333334 0 1 1 874.99998,100 A 18.333334,18.333334 0 1 1 911.66665,100 z"
        sodipodi:ry="18.333334"
        sodipodi:rx="18.333334"
@@ -753,7 +754,7 @@
        sodipodi:rx="65"
        sodipodi:ry="27.083334"
        d="M 972.5,287.91666 A 65,27.083334 0 1 1 871.77049,265.29199"
-       transform="matrix(0.907439,-0.4598581,0.6351266,0.5003881,-745.55334,766.90896)"
+       transform="matrix(0.907439,-0.4598581,0.6351266,0.5003881,-761.55334,766.90896)"
        sodipodi:start="0"
        sodipodi:end="4.1304021"
        sodipodi:open="true"
@@ -772,7 +773,7 @@
        sodipodi:start="4.1887902"
        sodipodi:end="10.413587"
        sodipodi:open="true"
-       transform="matrix(6.5117577e-2,0,0,9.3631381e-2,265.83581,443.62905)"
+       transform="matrix(6.5117577e-2,0,0,9.3631381e-2,249.83581,443.62905)"
        inkscape:export-filename="/home/bernie/software/sidux-art/gaia/ksplash-logo.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
@@ -780,7 +781,7 @@
        sodipodi:open="true"
        sodipodi:end="5.6753397"
        sodipodi:start="4.6625238"
-       transform="matrix(0.907439,-0.4598581,0.6351266,0.5003881,-745.55334,766.90896)"
+       transform="matrix(0.907439,-0.4598581,0.6351266,0.5003881,-761.55334,766.90896)"
        d="M 904.26011,260.86699 A 65,27.083334 0 0 1 960.85722,272.44936"
        sodipodi:ry="27.083334"
        sodipodi:rx="65"
