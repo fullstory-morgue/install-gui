@@ -1,8 +1,12 @@
 install-gui (0.3.19) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 25 Oct 2007 17:54:04 +0200
+  [ Bernard Gray ]
+  * clean up sidux logo source (no upload required) 
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Mon, 29 Oct 2007 14:05:42 +1100
 
 install-gui (0.3.18) unstable; urgency=low
 
