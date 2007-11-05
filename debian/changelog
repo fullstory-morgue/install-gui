@@ -5,9 +5,12 @@ install-gui (0.3.19) UNRELEASED; urgency=low
 
   [ Bernard Gray ]
   * clean up sidux logo source (no upload required)
-  * more logo source cleanup 
+  * more logo source cleanup
 
- -- Bernard Gray <bernard.gray@gmail.com>  Mon, 29 Oct 2007 14:42:48 +1100
+  [ Horst Tritremmel ]
+  * successful typo
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 05 Nov 2007 12:04:18 +0100
 
 install-gui (0.3.18) unstable; urgency=low
 
