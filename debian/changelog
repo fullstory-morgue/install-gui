@@ -1,14 +1,11 @@
-install-gui (0.3.19) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.3.19) unstable; urgency=low
 
   [ Bernard Gray ]
   * clean up sidux logo source (no upload required)
-  * more logo source cleanup
+  * more logo source cleanup.
 
   [ Horst Tritremmel ]
-  * successful typo
+  * "successful" typo.
 
  -- Horst Tritremmel <hjt@sidux.com>  Mon, 05 Nov 2007 12:04:18 +0100
 
