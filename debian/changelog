@@ -1,9 +1,8 @@
-install-gui (0.3.20) UNRELEASED; urgency=low
+install-gui (0.3.20) unstable; urgency=low
 
-  * NOT RELEASED YET
   * COPYING belongs into the upstream source.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 10 Nov 2007 14:21:37 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 10 Nov 2007 14:32:38 +0100
 
 install-gui (0.3.19) unstable; urgency=low
 
