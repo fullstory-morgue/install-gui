@@ -1,8 +1,12 @@
 install-gui (0.3.21) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 10 Nov 2007 14:34:59 +0100
+  [ Horst Tritremmel ]
+  * release notes updated
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 20 Nov 2007 17:21:39 +0100
 
 install-gui (0.3.20) unstable; urgency=low
 

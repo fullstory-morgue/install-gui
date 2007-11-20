@@ -2669,10 +2669,10 @@ The ISO is completely based on Debian Sid, enriched and stabilized with sidux' o
 
 &lt;span font_desc=&quot;11&quot;&gt;&lt;b&gt;&lt;u&gt;Hints for hardware with non-free needs:&lt;/u&gt;&lt;/b&gt;
 
-sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list&lt;/b&gt; and ensure internet access.
+sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list.d/debian.list and /etc/apt/sources.list.d/sidux.list&lt;/b&gt; and ensure internet access.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;You can add contrib and non-free with metapackage-installer
-or try &lt;i&gt;&quot;smxi&quot;&lt;/i&gt; script, replacing &quot;sm&quot; and &quot;du-fixes-h2.sh&quot;.&lt;/span&gt;
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;You can add contrib and non-free with metapackage-installer, 
+&lt;i&gt;&quot;smxi&quot;&lt;/i&gt; script or &lt;i&gt;&quot;siduxcc&lt;/i&gt;.&lt;/span&gt;
 
 
 &lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
@@ -2683,8 +2683,7 @@ Which firmware might be required to employ affected hardware can be determined w
 see http://manual.sidux.com/en/hw-dev-hw-dri-en.htm
 type '&lt;b&gt;get-sidux-binary-gfx; install-binary-gfx -a&lt;/b&gt;' or
 type '&lt;b&gt;sgfxi -N radeon&lt;/b&gt;'
-3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with X.org 7.2.
-Depending on the particular chipset &quot;xmodule=vesa&quot; or &quot;xmodule=fbdev&quot; as cheatcode might be in order for later Radeon X1xxx models.
+3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with Kernel 2.6.23. Depending on the particular chipset &quot;xmodule=vesa&quot; or &quot;xmodule=fbdev&quot; as cheatcode might be in order for later Radeon X1xxx models.
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Nvidia  graphics:&lt;/span&gt; 
 see http://manual.sidux.com/en/hw-dev-hw-dri-en.htm
@@ -2729,6 +2728,9 @@ fetch the firmware from http://prism54.org/firmware/ and place it under /lib/fir
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* RaLink rt61 54 MBit/s wlan:&lt;/span&gt;
 apt-get install rt61-fwcutter
 
+&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* RaLink rt73 54 MBit/s wlan:&lt;/span&gt;
+apt-get install rt73-fwcutter
+
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 11&quot;&gt;* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:&lt;/span&gt;
 fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.
 
@@ -2753,24 +2755,25 @@ Getting involved in sidux is easy, just join us at our Forum or even better on I
 
 &lt;b&gt;&lt;u&gt;Special thanks go to the entire sidux development team:&lt;/u&gt;&lt;/b&gt;
 
-Joaquim Boura (x-un-i)
+Jose Tadeu Barros (ceti)
 Michiel de Boer (locsmif)
+Joaquim Boura (x-un-i)
 Mikhail Burov (von_Selbst)
 Alessio Giustini (alessiog75)
 Stefan R. Eissens (eislon)
 Roland Engert (RoEn)
 Bernard Gray (cleary)
-Andreas Hausmann (Bodhi)
 Chris Hildebrandt (slam)
 Ralph Hokanson Jr. (piper)
 Richard Holt (Richard)
-Markus Huber (hubi)
 Harald Hope (h2)
 HarzG
+Markus Huber (hubi)
 Aedan Kelly (etorix)
 Lady_Cuddles
 Latino
 Stefan Lippers-Hollmann (slh)
+Philippe Masson (LjanA)
 Kel Modderman (kelmo)
 Koslow
 Markus Müller (moto)
@@ -2790,7 +2793,6 @@ Fabian Wuertz (xadras)
 zerby
 zonker
 zulu9
-
 
 On behalf of the sidux team:
      Stefan Lippers-Hollmann (slh) 
