@@ -264,9 +264,10 @@ void read_partitions(GtkComboBox     *combobox)
 
           //printf("%s %s\n", "combobox setzen, partition");
 
-          // example of partition  /dev/hda1-ext3
-          ptr_dev = strtok(partition, "-");  // ptr_dev is /dev/hda1
-          ptr_fs = strtok(NULL, "-");        // ptr_fs is ext3
+          // example of partition  /dev/dm-0,ext3  
+          // example of partition  /dev/hda1,ext3
+          ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
+          ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
           if( strncmp(ptr_fs, "reiser", 6) == 0 ||
               strncmp(ptr_fs, "ext", 3) == 0 ||
