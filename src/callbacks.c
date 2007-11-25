@@ -604,8 +604,8 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
                 gtk_list_store_append ( GTK_LIST_STORE (model), &iter_tb);
 
                 // example of partition  /dev/hda1-ext3
-                ptr_dev = strtok(partition, "-");  // ptr_dev is /dev/hda1
-                ptr_fs = strtok(NULL, "-");        // ptr_fs is ext3
+                ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
+                ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
                 if( strcmp(ptr_dev, rootpart) == 0 ) {
                         strcpy(slash, "/");
