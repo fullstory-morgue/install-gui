@@ -1,9 +1,5 @@
-install-gui (0.4.1) UNRELEASED; urgency=low
+install-gui (0.4.1) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * well same code spreaded over different places ...
 
  -- Joaquim Boura <x-un-i@sidux.com>  Sun, 25 Nov 2007 21:39:44 +0100
