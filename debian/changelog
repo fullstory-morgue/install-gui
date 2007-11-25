@@ -1,3 +1,9 @@
+install-gui (0.3.23) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 25 Nov 2007 21:08:52 +0100
+
 install-gui (0.3.22) unstable; urgency=low
 
   * changed separator into "," in the output of fll_fshelper --install-gui so
