@@ -1,9 +1,5 @@
-install-gui (0.3.22) UNRELEASED; urgency=low
+install-gui (0.3.22) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * changed separator into "," in the output of fll_fshelper --install-gui so
     lvm can be handled smoothly.
 
