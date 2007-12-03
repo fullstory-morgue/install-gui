@@ -1,7 +1,6 @@
-install-gui (0.4.2) UNRELEASED; urgency=low
+install-gui (0.4.2) unstable; urgency=low
 
   [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
   * update to Standards-Version 3.7.3, no changes necessary.
 
   [ Horst Tritremmel ]
