@@ -746,7 +746,7 @@ rootpart_warning  ( gpointer user_data )
 
     if ( i == 0 ) {
           gtk_label_set_markup ( GTK_LABEL ( label_changed ), 
-                "<span foreground=\"red\" font_desc=\"Sans Bold 12\">Root Partition changed !!!</span>" );
+                "<span foreground=\"red\" font_desc=\"Sans 12\">Root Partition changed !!!</span>" );
 
           i = 1;
     }
@@ -1396,7 +1396,7 @@ timezone_read (GtkWidget       *widget)
       fseek(  tz_file, 0L, SEEK_SET );
       fscanf( tz_file, "%[^\n]\n", tz);
 
-      strncpy( tz_markup, "<span foreground=\"#484540\" font_desc=\"Sans Bold 12\">", 256);
+      strncpy( tz_markup, "<span foreground=\"#484540\" font_desc=\"12\">", 256);
       strncat( tz_markup, tz, 256);
       strncat( tz_markup, "</span>", 256);
 
@@ -1744,7 +1744,7 @@ on_window_main_realize                 (GtkWidget       *widget,
    * ============================================================= */
    label = lookup_widget (GTK_WIDGET (widget), "label_wellcome");
 
-   font_desc = pango_font_description_from_string ("20");
+   font_desc = pango_font_description_from_string ("16");
 
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
@@ -1752,40 +1752,40 @@ on_window_main_realize                 (GtkWidget       *widget,
    label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_install");
    gdk_color_parse ("darkblue", &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("14");
+   font_desc = pango_font_description_from_string ("12");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
    label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_red");
    gdk_color_parse ("red", &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
+   font_desc = pango_font_description_from_string ("10");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
    label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_2");
-   font_desc = pango_font_description_from_string ("12");
+   font_desc = pango_font_description_from_string ("10");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
    label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_metapackages");
    gdk_color_parse ("red", &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
+   font_desc = pango_font_description_from_string ("10");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
    label = lookup_widget ( GTK_WIDGET (widget), "checkbutton_automount");
    gdk_color_parse ("red", &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("12");
+   font_desc = pango_font_description_from_string ("10");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 
    label = lookup_widget ( GTK_WIDGET (widget), "label_rootpart_warning");
    gdk_color_parse ("red", &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
-   font_desc = pango_font_description_from_string ("18");
+   font_desc = pango_font_description_from_string ("14");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 }
@@ -1977,24 +1977,23 @@ on_install_progressbar_realize         (GtkWidget       *widget,
   /********************************************
    *           PROGRESS BAR PART              *
    ********************************************/
-   label = lookup_widget ( GTK_WIDGET (widget), "label1");
+   //label = lookup_widget ( GTK_WIDGET (widget), "label1");
+   //font_desc = pango_font_description_from_string ("Bold");
+   //gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   //pango_font_description_free (font_desc);
 
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
-
-   label = lookup_widget ( GTK_WIDGET (widget), "label2");
+   //label = lookup_widget ( GTK_WIDGET (widget), "label2");
    //set color of label
-   font_desc = pango_font_description_from_string ("12");
-   gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
-   pango_font_description_free (font_desc);
+   //font_desc = pango_font_description_from_string ("Bold");
+   //gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
+   //pango_font_description_free (font_desc);
 
 
 
    label = lookup_widget ( GTK_WIDGET (widget), "label_fifo");
 
    pprogres = lookup_widget(GTK_WIDGET(widget), "progressbar1");
-   font_desc = pango_font_description_from_string ("12");
+   font_desc = pango_font_description_from_string ("Bold");
    gtk_widget_modify_font ( GTK_WIDGET(pprogres), font_desc);
    pango_font_description_free (font_desc);
    // set color of ProgressBar
@@ -2015,7 +2014,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
 
    // label_clock
    label_clock = lookup_widget ( GTK_WIDGET (widget), "label_clock");
-   font_desc = pango_font_description_from_string ("Bold 12");
+   font_desc = pango_font_description_from_string ("Bold");
    gtk_widget_modify_font ( GTK_WIDGET(label_clock), font_desc);
    pango_font_description_free (font_desc);
 

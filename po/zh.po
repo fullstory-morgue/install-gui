@@ -116,9 +116,9 @@ msgid "Installation-target"
 msgstr "安装路径"
 
 #: install-gui.glade:957(property) 
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "启动管理器: 您可以利用启动管理器在开机时选择要进入的操作系统. \n\n"
+msgstr "启动管理器: 您可以利用启动管理器在开机时选择要进入的操作系统. \n"
 "安装位置包括: MBR (主引导记录) 或者 根分区"
 
 #: install-gui.glade:1033(property) 
@@ -150,11 +150,11 @@ msgid "Username:"
 msgstr "用户名"
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "管理员密码: 这个密码将被用于系统管理，请牢记！\n\n"
-"用户名: 该名字只能由小写字母(数字)组成.\n\n"
+msgstr "管理员密码: 这个密码将被用于系统管理，请牢记！\n"
+"用户名: 该名字只能由小写字母(数字)组成.\n"
 "敬请注意: 所有的密码长度必须在 6-20 位之间！"
 
 #: install-gui.glade:1515(property) 
@@ -170,11 +170,11 @@ msgid "Network"
 msgstr "网络"
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
-msgstr "您需要提供必要的信息以开始 sidux 的安装程序.\n\n"
-"您可以通过按\"上一步\"的改变您的选择.\n\n"
+msgstr "您需要提供必要的信息以开始 sidux 的安装程序.\n"
+"您可以通过按\"上一步\"的改变您的选择.\n"
 "如果一切正常，您可以按下\"开始安装\"来开始安装."
 
 #: install-gui.glade:1800(property) 
@@ -245,7 +245,7 @@ msgid "start services"
 msgstr ""
 
 #: install-gui.glade:1559(property) 
-msgid "<big><b> Timezone </b></big>"
+msgid "<big> Timezone </big>"
 msgstr ""
 
 #: callbacks.c:317

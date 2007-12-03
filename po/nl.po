@@ -130,11 +130,9 @@ msgstr "Installatieplaats"
 #: install-gui.glade:957(property)
 msgid ""
 "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
-"\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr ""
 "Bootmanager: Een bootmanager laat je het besturingssysteem kiezen dat je wilt opstarten.\n"
-"\n"
 "Waar wil je hem installeren: MBR (Master Boot Record) of op de rootpartitie"
 
 #: install-gui.glade:1033(property)
@@ -168,15 +166,11 @@ msgstr "Gebruikersnaam:"
 #: install-gui.glade:1481(property)
 msgid ""
 "Root-password: This password will be used for the administrator. Do not forget it!\n"
-"\n"
 "Username: The username should consist of lower case letters (and numbers) only.\n"
-"\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
 msgstr ""
 "Rootwachtwoord: dit wachtwoord wordt gebruikt door de 'administrator'. Onthou het dus goed!\n"
-"\n"
 "Gebruikersnaam: de gebruikersnaam mag alleen maar bestaan uit kleine letters (en cijfers).\n"
-"\n"
 "Belangrijk: Alle wachtwoorden moeten tussen de 6 en 20 karakters lang zijn!"
 
 #: install-gui.glade:1515(property)
@@ -192,14 +186,12 @@ msgid "Network"
 msgstr "Netwerk"
 
 #: install-gui.glade:1709(property)
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
 msgstr ""
 "Je hebt alle informatie ingevoerd die nodig is om de installatie van sidux te beginnen.\n"
-"\n"
 "Je kunt je opties controleren of veranderen door op de \"Prev\" knop te klikken. \n"
-"\n"
 "Als alles naar jouw mening  in orde is, dan begin je de installatie door op \"Begin de installatie\" te klikken."
 
 #: install-gui.glade:1800(property)
@@ -281,7 +273,7 @@ msgid "start services"
 msgstr "start services"
 
 #: install-gui.glade:1559(property) 
-msgid "<big><b> Timezone </b></big>"
+msgid "<big> Timezone </big>"
 msgstr ""
 
 #: callbacks.c:317

@@ -116,9 +116,9 @@ msgid "Installation-target"
 msgstr "Installations sted"
 
 #: install-gui.glade:957(property) 
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "Bootmanager: En bootmanager gør det muligt for dig at vælge det operativ-system du vil boote fra ved opstart.\n\n"
+msgstr "Bootmanager: En bootmanager gør det muligt for dig at vælge det operativ-system du vil boote fra ved opstart.\n"
 "Installations sted: MBR (Master Boot Record) eller root-partition"
 
 #: install-gui.glade:1033(property) 
@@ -150,11 +150,11 @@ msgid "Username:"
 msgstr "Brugernavn:"
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "Root-password: Dette password skal anvendes af administratoren. Husk det!\n\n"
-"Brugernavn: Brugernavnet må udelukkende bestå af små bogstaver (og tal).\n\n"
+msgstr "Root-password: Dette password skal anvendes af administratoren. Husk det!\n"
+"Brugernavn: Brugernavnet må udelukkende bestå af små bogstaver (og tal).\n"
 "Vigtigt: Alle passwords skal være på mellem 6 and 20 anslag!"
 
 #: install-gui.glade:1515(property) 
@@ -170,11 +170,11 @@ msgid "Network"
 msgstr "Netværk"
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
-msgstr "Du har indtastet alt den nødvendige information og kan nu starte sidux installationen.\n\n"
-"Du kan kontrollere eller ændre dine indstillinger igen ved at trykke \"Forrige\" knappen.\n\n"
+msgstr "Du har indtastet alt den nødvendige information og kan nu starte sidux installationen.\n"
+"Du kan kontrollere eller ændre dine indstillinger igen ved at trykke \"Forrige\" knappen.\n"
 "Hvis alt er som du ønsker, start da installationen ved at trykke på \"Begynd installation\"."
 
 #: install-gui.glade:1800(property) 
@@ -249,8 +249,8 @@ msgid "start services"
 msgstr "start tjenester"
 
 #: install-gui.glade:1559(property)
-msgid "<big><b> Timezone </b></big>"
-msgstr "<big><b> Tidszone </b></big>"
+msgid "<big> Timezone </big>"
+msgstr "<big> Tidszone </big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"

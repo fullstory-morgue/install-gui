@@ -116,10 +116,10 @@ msgid "Installation-target"
 msgstr "Cible de l'installation"
 
 #: install-gui.glade:957(property) 
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr "Chargeur de Boot: Un chargeur de boot vous donne le choix du système\n"
-"d'exploitation que vous voulez démarrer au lancement de l'ordinateur.\n\n"
+"d'exploitation que vous voulez démarrer au lancement de l'ordinateur.\n"
 "Cible d'installation: MBR (Master Boot Record) ou partition root"
 
 #: install-gui.glade:1033(property) 
@@ -151,11 +151,11 @@ msgid "Username:"
 msgstr "Nom de l'utilisateur"
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "Mot de passe root: Ce mot de passe sera utilisé pour l'administrateur. Ne l'oubliez pas!\n\n"
-"Nom de l'utilisateur: Composé de lettres minuscules et de chiffres seulement.\n\n"
+msgstr "Mot de passe root: Ce mot de passe sera utilisé pour l'administrateur. Ne l'oubliez pas!\n"
+"Nom de l'utilisateur: Composé de lettres minuscules et de chiffres seulement.\n"
 "Important: La longueur de tous les mots de passe doit aller de 6 à 20 caractères!"
 
 #: install-gui.glade:1515(property) 
@@ -171,11 +171,11 @@ msgid "Network"
 msgstr "Réseau"
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
-msgstr "Vous avez fourni toutes les informations nécessaires pour pouvoir démarrer l'installation.\n\n"
-"Vous pouvez contrõler ou modifier ves options en cliquant sur le bouton \"Précédent\".\n\n"
+msgstr "Vous avez fourni toutes les informations nécessaires pour pouvoir démarrer l'installation.\n"
+"Vous pouvez contrõler ou modifier ves options en cliquant sur le bouton \"Précédent\".\n"
 "Si toutes les informations sont correctes, lancez l'installation en cliquant sur \"Begin Installation\"."
 
 #: install-gui.glade:1800(property) 
@@ -247,8 +247,8 @@ msgid "start services"
 msgstr "scripts de démarrage"
 
 #: install-gui.glade:1559(property) 
-msgid "<big><b> Timezone </b></big>"
-msgstr "<big><b> fuseau horaire </b></big>"
+msgid "<big> Timezone </big>"
+msgstr "<big> fuseau horaire </big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"

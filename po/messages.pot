@@ -99,7 +99,7 @@ msgid "Installation-target"
 msgstr ""
 
 #: install-gui.glade:957(property) 
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr ""
 
@@ -132,8 +132,8 @@ msgid "Username:"
 msgstr ""
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
 msgstr ""
 
@@ -150,8 +150,8 @@ msgid "Network"
 msgstr ""
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
 msgstr ""
 
@@ -218,7 +218,7 @@ msgid "start services"
 msgstr ""
 
 #: install-gui.glade:1559(property) 
-msgid "<big><b> Timezone </b></big>"
+msgid "<big> Timezone </big>"
 msgstr ""
 
 #: callbacks.c:317

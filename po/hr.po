@@ -116,9 +116,9 @@ msgid "Installation-target"
 msgstr "Mjesto za instalaciju"
 
 #: install-gui.glade:957(property)
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "Bootmenadžer: bootmenadžer vam daje mogućnost izbora OSa koji hoćete da startuje.\n\n"
+msgstr "Bootmenadžer: bootmenadžer vam daje mogućnost izbora OSa koji hoćete da startuje.\n"
 "Mjesto za instalaciju: MBR (Master Boot Record) ili root-particija"
 
 #: install-gui.glade:1033(property)
@@ -150,11 +150,11 @@ msgid "Username:"
 msgstr "Korisničko ime:"
 
 #: install-gui.glade:1481(property)
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "Root-lozinka: Ova lozinka će biti korištena za administratora. Zapamtite je dobro!\n\n"
-"Korisničko ime: Korisničko ime bi trebalo da se sastoji samo od malih/velikih slova i brojki.\n\n"
+msgstr "Root-lozinka: Ova lozinka će biti korištena za administratora. Zapamtite je dobro!\n"
+"Korisničko ime: Korisničko ime bi trebalo da se sastoji samo od malih/velikih slova i brojki.\n"
 "Važno: Sve lozinke moraju se sastojati od 6 do 20 slova!"
 
 #: install-gui.glade:1515(property)
@@ -170,11 +170,11 @@ msgid "Network"
 msgstr "Umrežavanje"
 
 #: install-gui.glade:1709(property)
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
-msgstr "Upisali ste sve informacije koje su potrebne za start sidux-instalacije.\n\n"
-"Možete provjeriti ili promijeniti opcije sa \"Prev\" Button.\n"
+msgstr "Upisali ste sve informacije koje su potrebne za start sidux-instalacije.\n"
+"Možete provjeriti ili promijeniti opcije sa \"Prev\" Button."
 "Ako je sve u redu za vas, startujete instalaciju sa klikom na \"Startuj instalaciju\"."
 
 #: install-gui.glade:1800(property)
@@ -242,8 +242,8 @@ msgid "start services"
 msgstr "Startovati servise"
 
 #: install-gui.glade:1559(property) 
-msgid "<big><b> Timezone </b></big>"
-msgstr "<big><b> Vremenska Zona </b></big>"
+msgid "<big> Timezone </big>"
+msgstr "<big> Vremenska Zona </big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"

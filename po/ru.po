@@ -126,9 +126,9 @@ msgid "Installation-target"
 msgstr "место инсталляции"
 
 #: install-gui.glade:957(property)
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "менеджер загрузчика: менеджер загрузчика позволяет выбирать ту основную операционную систему, которую хотят загрузить при запуске компа.\n\n"
+msgstr "менеджер загрузчика: менеджер загрузчика позволяет выбирать ту основную операционную систему, которую хотят загрузить при запуске компа.\n"
 " Инсталляционное место: MBR (Главная загрузочная запись) или корневой раздел"
 
 #: install-gui.glade:1033(property)
@@ -160,11 +160,11 @@ msgid "Username:"
 msgstr "Имя пользователя:"
 
 #: install-gui.glade:1481(property)
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "пароль root: Этот пароль используется для администратора. Сохранить в памяти!\n\n"
-"Имя пользователя: имя пользователя должно только состоять из маленьких букв (и чисел).\n\n"
+msgstr "пароль root: Этот пароль используется для администратора. Сохранить в памяти!\n"
+"Имя пользователя: имя пользователя должно только состоять из маленьких букв (и чисел).\n"
 "Важно: Длина всех паролей должна быть между 6 и 20 знаков!"
 
 #: install-gui.glade:1515(property)
@@ -180,12 +180,12 @@ msgid "Network"
 msgstr "локальная сеть"
 
 #: install-gui.glade:1709(property)
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
 msgstr ""
-"Все необходимые данные в системе, можно запустить установку sidux.\n\n"
-"Проверить данные или изменить опции еще раз при нажатием кнопку \"назад \".\n\n"
+"Все необходимые данные в системе, можно запустить установку sidux.\n"
+"Проверить данные или изменить опции еще раз при нажатием кнопку \"назад \".\n"
 "Если все правильно, начинать инсталляцию, нажимая кнопку \"Запуск установки \"."
 
 #: install-gui.glade:1800(property)
@@ -257,8 +257,8 @@ msgid "start services"
 msgstr "запуск служб"
 
 #: install-gui.glade:1559(property)
-msgid "<big><b> Timezone </b></big>"
-msgstr "<big><b> Часовой пояс </b></big>"
+msgid "<big> Timezone </big>"
+msgstr "<big> Часовой пояс </big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"

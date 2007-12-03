@@ -35,7 +35,6 @@ create_window_main (void)
   GtkWidget *label_wellcome;
   GtkWidget *image1;
   GtkWidget *next;
-  GtkWidget *exit;
   GtkWidget *prev;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
@@ -50,11 +49,11 @@ create_window_main (void)
   GtkWidget *hseparator20;
   GtkWidget *image19;
   GtkWidget *label_wellcome_2;
+  GtkWidget *label_wellcome_red;
   GtkWidget *button_usb;
   GtkWidget *eventbox1;
   GtkWidget *fixed16;
   GtkWidget *label48;
-  GtkWidget *label_wellcome_red;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -91,7 +90,6 @@ create_window_main (void)
   GtkWidget *vseparator3;
   GtkWidget *hseparator9;
   GtkWidget *hseparator10;
-  GtkWidget *label13;
   GtkWidget *hseparator19;
   GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
@@ -103,9 +101,11 @@ create_window_main (void)
   GtkWidget *fixed14;
   GtkWidget *combobox_lang;
   GtkWidget *label43;
+  GtkWidget *label13;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *hseparator5;
+  GtkWidget *label16;
   GtkWidget *frame1;
   GtkWidget *alignment5;
   GtkWidget *fixed8;
@@ -115,21 +115,20 @@ create_window_main (void)
   GtkWidget *entry_username;
   GtkWidget *entry_pw;
   GtkWidget *entry_pw_again;
-  GtkWidget *label26;
-  GtkWidget *label27;
-  GtkWidget *label28;
-  GtkWidget *label29;
-  GtkWidget *label18;
-  GtkWidget *label21;
-  GtkWidget *hseparator6;
-  GtkWidget *image_root_pw;
   GtkWidget *image_rootpw_again;
+  GtkWidget *image_root_pw;
+  GtkWidget *hseparator6;
   GtkWidget *image_realname;
   GtkWidget *image_username;
   GtkWidget *image_pw;
   GtkWidget *image_pw_again;
+  GtkWidget *label18;
+  GtkWidget *label21;
+  GtkWidget *label26;
+  GtkWidget *label27;
+  GtkWidget *label28;
+  GtkWidget *label29;
   GtkWidget *label25;
-  GtkWidget *label16;
   GtkWidget *label4;
   GtkWidget *fixed_network;
   GtkWidget *hostname;
@@ -155,21 +154,22 @@ create_window_main (void)
   GtkWidget *radiobutton1;
   GtkWidget *hseparator17;
   GtkWidget *checkbutton_metapackages;
-  GtkWidget *button_install;
-  GtkWidget *alignment13;
-  GtkWidget *hbox8;
-  GtkWidget *image22;
-  GtkWidget *label52;
-  GtkWidget *label33;
   GtkWidget *hseparator15;
   GtkWidget *vseparator8;
   GtkWidget *vseparator7;
   GtkWidget *hseparator16;
   GtkWidget *checkbutton_force;
   GtkWidget *image16;
-  GtkWidget *label37;
   GtkWidget *label_rootpart_warning;
+  GtkWidget *button_install;
+  GtkWidget *alignment13;
+  GtkWidget *hbox8;
+  GtkWidget *image22;
+  GtkWidget *label52;
+  GtkWidget *label37;
+  GtkWidget *label33;
   GtkWidget *label6;
+  GtkWidget *exit;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -204,20 +204,13 @@ create_window_main (void)
   next = gtk_button_new_from_stock ("gtk-go-forward");
   gtk_widget_show (next);
   gtk_fixed_put (GTK_FIXED (fixed1), next, 544, 488);
-  gtk_widget_set_size_request (next, 116, 28);
+  gtk_widget_set_size_request (next, 140, 28);
   GTK_WIDGET_UNSET_FLAGS (next, GTK_CAN_FOCUS);
-
-  exit = gtk_button_new_from_stock ("gtk-quit");
-  gtk_widget_show (exit);
-  gtk_fixed_put (GTK_FIXED (fixed1), exit, 32, 488);
-  gtk_widget_set_size_request (exit, 116, 28);
-  GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
-  gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
 
   prev = gtk_button_new_from_stock ("gtk-go-back");
   gtk_widget_show (prev);
-  gtk_fixed_put (GTK_FIXED (fixed1), prev, 416, 488);
-  gtk_widget_set_size_request (prev, 116, 28);
+  gtk_fixed_put (GTK_FIXED (fixed1), prev, 381, 488);
+  gtk_widget_set_size_request (prev, 140, 28);
   GTK_WIDGET_UNSET_FLAGS (prev, GTK_CAN_FOCUS);
   gtk_button_set_focus_on_click (GTK_BUTTON (prev), FALSE);
 
@@ -225,6 +218,7 @@ create_window_main (void)
   gtk_widget_show (notebook1);
   gtk_fixed_put (GTK_FIXED (fixed1), notebook1, 0, 56);
   gtk_widget_set_size_request (notebook1, 690, 417);
+  gtk_notebook_set_scrollable (GTK_NOTEBOOK (notebook1), TRUE);
 
   fixed2 = gtk_fixed_new ();
   gtk_widget_show (fixed2);
@@ -291,10 +285,18 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
 
+  label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
+  gtk_widget_show (label_wellcome_red);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
+  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
+  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
+
   button_usb = gtk_button_new ();
   gtk_widget_show (button_usb);
   gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 250, 302);
-  gtk_widget_set_size_request (button_usb, 198, 34);
+  gtk_widget_set_size_request (button_usb, 222, 35);
   gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled sidux_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg sidux)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
 
   eventbox1 = gtk_event_box_new ();
@@ -305,20 +307,12 @@ create_window_main (void)
   gtk_widget_show (fixed16);
   gtk_container_add (GTK_CONTAINER (eventbox1), fixed16);
 
-  label48 = gtk_label_new (_("<span foreground=\"#0022ff\" font_desc=\"Bold\">install fromiso into USB</span>"));
+  label48 = gtk_label_new (_("<span foreground=\"#0022ff\">install fromiso into USB</span>"));
   gtk_widget_show (label48);
   gtk_fixed_put (GTK_FIXED (fixed16), label48, 0, 0);
-  gtk_widget_set_size_request (label48, 188, 24);
+  gtk_widget_set_size_request (label48, 212, 25);
   gtk_label_set_use_markup (GTK_LABEL (label48), TRUE);
   gtk_label_set_justify (GTK_LABEL (label48), GTK_JUSTIFY_CENTER);
-
-  label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
-  gtk_widget_show (label_wellcome_red);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
-  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
-  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -489,7 +483,7 @@ create_window_main (void)
   gtk_misc_set_alignment (GTK_MISC (label_tz), 0.5, 0);
   gtk_label_set_ellipsize (GTK_LABEL (label_tz), PANGO_ELLIPSIZE_MIDDLE);
 
-  label39 = gtk_label_new (_("<big><b> Timezone </b></big>"));
+  label39 = gtk_label_new (_("<big> Timezone </big>"));
   gtk_widget_show (label39);
   gtk_frame_set_label_widget (GTK_FRAME (frame3), label39);
   gtk_label_set_use_markup (GTK_LABEL (label39), TRUE);
@@ -513,14 +507,6 @@ create_window_main (void)
   gtk_widget_show (hseparator10);
   gtk_fixed_put (GTK_FIXED (fixed4), hseparator10, 16, 232);
   gtk_widget_set_size_request (hseparator10, 656, 16);
-
-  label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\nInstallation-target: MBR (Master Boot Record) or root-partition"));
-  gtk_widget_show (label13);
-  gtk_fixed_put (GTK_FIXED (fixed4), label13, 24, 24);
-  gtk_widget_set_size_request (label13, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
 
   hseparator19 = gtk_hseparator_new ();
   gtk_widget_show (hseparator19);
@@ -572,10 +558,18 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed14), combobox_lang, 8, 24);
   gtk_widget_set_size_request (combobox_lang, 280, 28);
 
-  label43 = gtk_label_new (_("<big><b> Language </b></big>"));
+  label43 = gtk_label_new (_("<big> Language </big>"));
   gtk_widget_show (label43);
   gtk_frame_set_label_widget (GTK_FRAME (frame5), label43);
   gtk_label_set_use_markup (GTK_LABEL (label43), TRUE);
+
+  label13 = gtk_label_new (_("Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\nInstallation-target: MBR (Master Boot Record) or root-partition"));
+  gtk_widget_show (label13);
+  gtk_fixed_put (GTK_FIXED (fixed4), label13, 24, 24);
+  gtk_widget_set_size_request (label13, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label13), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label13), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label13), 0, 0.3);
 
   label3 = gtk_label_new (_("Grub/Timezone"));
   gtk_widget_show (label3);
@@ -590,10 +584,18 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 16, 96);
   gtk_widget_set_size_request (hseparator5, 640, 16);
 
+  label16 = gtk_label_new (_("Root-password: This password will be used for the administrator. Do not forget it!\nUsername: The username should consist of lower case letters (and numbers) only.\nImportant: All passwords have to be between 6 and 20 characters long!"));
+  gtk_widget_show (label16);
+  gtk_fixed_put (GTK_FIXED (fixed5), label16, 16, 8);
+  gtk_widget_set_size_request (label16, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label16), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label16), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label16), 0, 0.5);
+
   frame1 = gtk_frame_new (NULL);
   gtk_widget_show (frame1);
-  gtk_fixed_put (GTK_FIXED (fixed5), frame1, 96, 120);
-  gtk_widget_set_size_request (frame1, 464, 240);
+  gtk_fixed_put (GTK_FIXED (fixed5), frame1, 88, 120);
+  gtk_widget_set_size_request (frame1, 500, 240);
   gtk_frame_set_shadow_type (GTK_FRAME (frame1), GTK_SHADOW_IN);
 
   alignment5 = gtk_alignment_new (0.5, 0.5, 1, 1);
@@ -607,125 +609,117 @@ create_window_main (void)
 
   entry_rootpw = gtk_entry_new ();
   gtk_widget_show (entry_rootpw);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw, 184, 0);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw, 224, 0);
   gtk_widget_set_size_request (entry_rootpw, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_rootpw), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_rootpw), FALSE);
 
   entry_rootpw_again = gtk_entry_new ();
   gtk_widget_show (entry_rootpw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw_again, 184, 32);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw_again, 224, 32);
   gtk_widget_set_size_request (entry_rootpw_again, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_rootpw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_rootpw_again), FALSE);
 
   entry_realname = gtk_entry_new ();
   gtk_widget_show (entry_realname);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_realname, 184, 88);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_realname, 224, 88);
   gtk_widget_set_size_request (entry_realname, 216, 24);
 
   entry_username = gtk_entry_new ();
   gtk_widget_show (entry_username);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_username, 184, 120);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_username, 224, 120);
   gtk_widget_set_size_request (entry_username, 216, 24);
 
   entry_pw = gtk_entry_new ();
   gtk_widget_show (entry_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw, 184, 160);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw, 224, 160);
   gtk_widget_set_size_request (entry_pw, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw), FALSE);
 
   entry_pw_again = gtk_entry_new ();
   gtk_widget_show (entry_pw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw_again, 184, 192);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw_again, 224, 192);
   gtk_widget_set_size_request (entry_pw_again, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw_again), FALSE);
 
-  label26 = gtk_label_new (_("Realname:"));
-  gtk_widget_show (label26);
-  gtk_fixed_put (GTK_FIXED (fixed8), label26, 0, 88);
-  gtk_widget_set_size_request (label26, 184, 24);
-  gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
+  image_rootpw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_rootpw_again);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_rootpw_again, 448, 34);
+  gtk_widget_set_size_request (image_rootpw_again, 21, 21);
 
-  label27 = gtk_label_new (_("Username:"));
-  gtk_widget_show (label27);
-  gtk_fixed_put (GTK_FIXED (fixed8), label27, 0, 120);
-  gtk_widget_set_size_request (label27, 184, 24);
-  gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
+  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_root_pw);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 448, 2);
+  gtk_widget_set_size_request (image_root_pw, 21, 21);
 
-  label28 = gtk_label_new (_("Password:"));
-  gtk_widget_show (label28);
-  gtk_fixed_put (GTK_FIXED (fixed8), label28, 0, 160);
-  gtk_widget_set_size_request (label28, 184, 24);
-  gtk_misc_set_alignment (GTK_MISC (label28), 0, 0.5);
+  hseparator6 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator6);
+  gtk_fixed_put (GTK_FIXED (fixed8), hseparator6, 0, 64);
+  gtk_widget_set_size_request (hseparator6, 480, 16);
 
-  label29 = gtk_label_new (_("Password again:"));
-  gtk_widget_show (label29);
-  gtk_fixed_put (GTK_FIXED (fixed8), label29, 0, 192);
-  gtk_widget_set_size_request (label29, 184, 24);
-  gtk_misc_set_alignment (GTK_MISC (label29), 0, 0.5);
+  image_realname = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_realname);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_realname, 448, 90);
+  gtk_widget_set_size_request (image_realname, 21, 21);
+
+  image_username = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_username);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_username, 448, 122);
+  gtk_widget_set_size_request (image_username, 21, 21);
+
+  image_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_pw);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_pw, 448, 162);
+  gtk_widget_set_size_request (image_pw, 21, 21);
+
+  image_pw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_pw_again);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_pw_again, 448, 194);
+  gtk_widget_set_size_request (image_pw_again, 21, 21);
 
   label18 = gtk_label_new (_("Root-password:"));
   gtk_widget_show (label18);
   gtk_fixed_put (GTK_FIXED (fixed8), label18, 0, 0);
-  gtk_widget_set_size_request (label18, 184, 24);
+  gtk_widget_set_size_request (label18, 220, 24);
   gtk_misc_set_alignment (GTK_MISC (label18), 0, 0.5);
 
   label21 = gtk_label_new (_("Root-password again:"));
   gtk_widget_show (label21);
   gtk_fixed_put (GTK_FIXED (fixed8), label21, 0, 32);
-  gtk_widget_set_size_request (label21, 184, 24);
+  gtk_widget_set_size_request (label21, 220, 24);
   gtk_misc_set_alignment (GTK_MISC (label21), 0, 0.5);
 
-  hseparator6 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed8), hseparator6, 0, 64);
-  gtk_widget_set_size_request (hseparator6, 440, 16);
+  label26 = gtk_label_new (_("Realname:"));
+  gtk_widget_show (label26);
+  gtk_fixed_put (GTK_FIXED (fixed8), label26, 0, 88);
+  gtk_widget_set_size_request (label26, 220, 24);
+  gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
 
-  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_root_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 408, 2);
-  gtk_widget_set_size_request (image_root_pw, 21, 21);
+  label27 = gtk_label_new (_("Username:"));
+  gtk_widget_show (label27);
+  gtk_fixed_put (GTK_FIXED (fixed8), label27, 0, 120);
+  gtk_widget_set_size_request (label27, 220, 24);
+  gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
 
-  image_rootpw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_rootpw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_rootpw_again, 408, 34);
-  gtk_widget_set_size_request (image_rootpw_again, 21, 21);
+  label28 = gtk_label_new (_("Password:"));
+  gtk_widget_show (label28);
+  gtk_fixed_put (GTK_FIXED (fixed8), label28, 0, 160);
+  gtk_widget_set_size_request (label28, 220, 24);
+  gtk_misc_set_alignment (GTK_MISC (label28), 0, 0.5);
 
-  image_realname = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_realname);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_realname, 408, 90);
-  gtk_widget_set_size_request (image_realname, 21, 21);
-
-  image_username = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_username);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_username, 408, 122);
-  gtk_widget_set_size_request (image_username, 21, 21);
-
-  image_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_pw, 408, 160);
-  gtk_widget_set_size_request (image_pw, 21, 21);
-
-  image_pw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_pw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_pw_again, 408, 194);
-  gtk_widget_set_size_request (image_pw_again, 21, 21);
+  label29 = gtk_label_new (_("Password again:"));
+  gtk_widget_show (label29);
+  gtk_fixed_put (GTK_FIXED (fixed8), label29, 0, 192);
+  gtk_widget_set_size_request (label29, 220, 24);
+  gtk_misc_set_alignment (GTK_MISC (label29), 0, 0.5);
 
   label25 = gtk_label_new ("");
   gtk_widget_show (label25);
   gtk_frame_set_label_widget (GTK_FRAME (frame1), label25);
   gtk_label_set_use_markup (GTK_LABEL (label25), TRUE);
-
-  label16 = gtk_label_new (_("Root-password: This password will be used for the administrator. Do not forget it!\n\nUsername: The username should consist of lower case letters (and numbers) only.\n\nImportant: All passwords have to be between 6 and 20 characters long!"));
-  gtk_widget_show (label16);
-  gtk_fixed_put (GTK_FIXED (fixed5), label16, 16, 8);
-  gtk_widget_set_size_request (label16, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label16), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label16), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label16), 0, 0.5);
 
   label4 = gtk_label_new (_("User"));
   gtk_widget_show (label4);
@@ -849,37 +843,8 @@ create_window_main (void)
   checkbutton_metapackages = gtk_check_button_new_with_mnemonic (_("Install additional\nMetapackages"));
   gtk_widget_show (checkbutton_metapackages);
   gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 112, 184);
-  gtk_widget_set_size_request (checkbutton_metapackages, 232, 56);
+  gtk_widget_set_size_request (checkbutton_metapackages, 400, 56);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_metapackages), TRUE);
-
-  button_install = gtk_button_new ();
-  gtk_widget_show (button_install);
-  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 232, 325);
-  gtk_widget_set_size_request (button_install, 200, 34);
-
-  alignment13 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment13);
-  gtk_container_add (GTK_CONTAINER (button_install), alignment13);
-
-  hbox8 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox8);
-  gtk_container_add (GTK_CONTAINER (alignment13), hbox8);
-
-  image22 = gtk_image_new_from_stock ("gtk-save", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image22);
-  gtk_box_pack_start (GTK_BOX (hbox8), image22, FALSE, FALSE, 0);
-
-  label52 = gtk_label_new_with_mnemonic (_("Save config & Next"));
-  gtk_widget_show (label52);
-  gtk_box_pack_start (GTK_BOX (hbox8), label52, FALSE, FALSE, 0);
-
-  label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\n\nYou can check or change your Options once again by pressing the \"Prev\" Button.\n\nIf everything is correct for you, pressing \"Save config & Next\"."));
-  gtk_widget_show (label33);
-  gtk_fixed_put (GTK_FIXED (fixed7), label33, 16, 8);
-  gtk_widget_set_size_request (label33, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label33), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label33), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label33), 0, 0.5);
 
   hseparator15 = gtk_hseparator_new ();
   gtk_widget_show (hseparator15);
@@ -904,19 +869,13 @@ create_window_main (void)
   checkbutton_force = gtk_check_button_new_with_mnemonic (_("Force Installation\n(Ignore RAM-/Partition-Check, etc.)"));
   gtk_widget_show (checkbutton_force);
   gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_force, 112, 136);
-  gtk_widget_set_size_request (checkbutton_force, 232, 56);
+  gtk_widget_set_size_request (checkbutton_force, 400, 56);
 
   image16 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image16);
-  gtk_fixed_put (GTK_FIXED (fixed7), image16, 200, 272);
+  gtk_fixed_put (GTK_FIXED (fixed7), image16, 180, 272);
   gtk_widget_set_size_request (image16, 24, 32);
   gtk_misc_set_alignment (GTK_MISC (image16), 0, 0.42);
-
-  label37 = gtk_label_new (_("Root-Partition"));
-  gtk_widget_show (label37);
-  gtk_fixed_put (GTK_FIXED (fixed7), label37, 224, 272);
-  gtk_widget_set_size_request (label37, 112, 32);
-  gtk_misc_set_alignment (GTK_MISC (label37), 0, 0.52);
 
   label_rootpart_warning = gtk_label_new (_("error"));
   gtk_widget_show (label_rootpart_warning);
@@ -924,9 +883,51 @@ create_window_main (void)
   gtk_widget_set_size_request (label_rootpart_warning, 144, 32);
   gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
 
+  button_install = gtk_button_new ();
+  gtk_widget_show (button_install);
+  gtk_fixed_put (GTK_FIXED (fixed7), button_install, 185, 320);
+  gtk_widget_set_size_request (button_install, 274, 36);
+
+  alignment13 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment13);
+  gtk_container_add (GTK_CONTAINER (button_install), alignment13);
+
+  hbox8 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox8);
+  gtk_container_add (GTK_CONTAINER (alignment13), hbox8);
+
+  image22 = gtk_image_new_from_stock ("gtk-save", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image22);
+  gtk_box_pack_start (GTK_BOX (hbox8), image22, FALSE, FALSE, 0);
+
+  label52 = gtk_label_new_with_mnemonic (_("Save config & Next"));
+  gtk_widget_show (label52);
+  gtk_box_pack_start (GTK_BOX (hbox8), label52, FALSE, FALSE, 0);
+
+  label37 = gtk_label_new (_("Root-Partition"));
+  gtk_widget_show (label37);
+  gtk_fixed_put (GTK_FIXED (fixed7), label37, 204, 272);
+  gtk_widget_set_size_request (label37, 132, 32);
+  gtk_misc_set_alignment (GTK_MISC (label37), 0, 0.52);
+
+  label33 = gtk_label_new (_("You provided all Information neccessary to start the sidux-Installation.\nYou can check or change your Options once again by pressing the \"Prev\" Button.\nIf everything is correct for you, pressing \"Save config & Next\"."));
+  gtk_widget_show (label33);
+  gtk_fixed_put (GTK_FIXED (fixed7), label33, 16, 8);
+  gtk_widget_set_size_request (label33, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label33), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label33), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label33), 0, 0.5);
+
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
+
+  exit = gtk_button_new_from_stock ("gtk-quit");
+  gtk_widget_show (exit);
+  gtk_fixed_put (GTK_FIXED (fixed1), exit, 10, 488);
+  gtk_widget_set_size_request (exit, 140, 28);
+  GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
+  gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
 
   g_signal_connect ((gpointer) window_main, "delete_event",
                     G_CALLBACK (on_window_main_delete_event),
@@ -936,9 +937,6 @@ create_window_main (void)
                     NULL);
   g_signal_connect ((gpointer) next, "clicked",
                     G_CALLBACK (on_next_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) exit, "clicked",
-                    G_CALLBACK (on_exit_clicked),
                     NULL);
   g_signal_connect ((gpointer) prev, "clicked",
                     G_CALLBACK (on_prev_clicked),
@@ -994,6 +992,9 @@ create_window_main (void)
   g_signal_connect ((gpointer) button_install, "clicked",
                     G_CALLBACK (on_button_install_clicked),
                     NULL);
+  g_signal_connect ((gpointer) exit, "clicked",
+                    G_CALLBACK (on_exit_clicked),
+                    NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, window_main, "window_main");
@@ -1001,7 +1002,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome, "label_wellcome");
   GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
   GLADE_HOOKUP_OBJECT (window_main, next, "next");
-  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
   GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
@@ -1016,11 +1016,11 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator20, "hseparator20");
   GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, eventbox1, "eventbox1");
   GLADE_HOOKUP_OBJECT (window_main, fixed16, "fixed16");
   GLADE_HOOKUP_OBJECT (window_main, label48, "label48");
-  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
@@ -1056,7 +1056,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, vseparator3, "vseparator3");
   GLADE_HOOKUP_OBJECT (window_main, hseparator9, "hseparator9");
   GLADE_HOOKUP_OBJECT (window_main, hseparator10, "hseparator10");
-  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, hseparator19, "hseparator19");
   GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
@@ -1068,9 +1067,11 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
   GLADE_HOOKUP_OBJECT (window_main, combobox_lang, "combobox_lang");
   GLADE_HOOKUP_OBJECT (window_main, label43, "label43");
+  GLADE_HOOKUP_OBJECT (window_main, label13, "label13");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, hseparator5, "hseparator5");
+  GLADE_HOOKUP_OBJECT (window_main, label16, "label16");
   GLADE_HOOKUP_OBJECT (window_main, frame1, "frame1");
   GLADE_HOOKUP_OBJECT (window_main, alignment5, "alignment5");
   GLADE_HOOKUP_OBJECT (window_main, fixed8, "fixed8");
@@ -1080,21 +1081,20 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, entry_username, "entry_username");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw, "entry_pw");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw_again, "entry_pw_again");
-  GLADE_HOOKUP_OBJECT (window_main, label26, "label26");
-  GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
-  GLADE_HOOKUP_OBJECT (window_main, label28, "label28");
-  GLADE_HOOKUP_OBJECT (window_main, label29, "label29");
-  GLADE_HOOKUP_OBJECT (window_main, label18, "label18");
-  GLADE_HOOKUP_OBJECT (window_main, label21, "label21");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
-  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
   GLADE_HOOKUP_OBJECT (window_main, image_rootpw_again, "image_rootpw_again");
+  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
   GLADE_HOOKUP_OBJECT (window_main, image_realname, "image_realname");
   GLADE_HOOKUP_OBJECT (window_main, image_username, "image_username");
   GLADE_HOOKUP_OBJECT (window_main, image_pw, "image_pw");
   GLADE_HOOKUP_OBJECT (window_main, image_pw_again, "image_pw_again");
+  GLADE_HOOKUP_OBJECT (window_main, label18, "label18");
+  GLADE_HOOKUP_OBJECT (window_main, label21, "label21");
+  GLADE_HOOKUP_OBJECT (window_main, label26, "label26");
+  GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
+  GLADE_HOOKUP_OBJECT (window_main, label28, "label28");
+  GLADE_HOOKUP_OBJECT (window_main, label29, "label29");
   GLADE_HOOKUP_OBJECT (window_main, label25, "label25");
-  GLADE_HOOKUP_OBJECT (window_main, label16, "label16");
   GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
   GLADE_HOOKUP_OBJECT (window_main, fixed_network, "fixed_network");
   GLADE_HOOKUP_OBJECT (window_main, hostname, "hostname");
@@ -1119,21 +1119,22 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, radiobutton1, "radiobutton1");
   GLADE_HOOKUP_OBJECT (window_main, hseparator17, "hseparator17");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_metapackages, "checkbutton_metapackages");
-  GLADE_HOOKUP_OBJECT (window_main, button_install, "button_install");
-  GLADE_HOOKUP_OBJECT (window_main, alignment13, "alignment13");
-  GLADE_HOOKUP_OBJECT (window_main, hbox8, "hbox8");
-  GLADE_HOOKUP_OBJECT (window_main, image22, "image22");
-  GLADE_HOOKUP_OBJECT (window_main, label52, "label52");
-  GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
   GLADE_HOOKUP_OBJECT (window_main, hseparator15, "hseparator15");
   GLADE_HOOKUP_OBJECT (window_main, vseparator8, "vseparator8");
   GLADE_HOOKUP_OBJECT (window_main, vseparator7, "vseparator7");
   GLADE_HOOKUP_OBJECT (window_main, hseparator16, "hseparator16");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_force, "checkbutton_force");
   GLADE_HOOKUP_OBJECT (window_main, image16, "image16");
-  GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
+  GLADE_HOOKUP_OBJECT (window_main, button_install, "button_install");
+  GLADE_HOOKUP_OBJECT (window_main, alignment13, "alignment13");
+  GLADE_HOOKUP_OBJECT (window_main, hbox8, "hbox8");
+  GLADE_HOOKUP_OBJECT (window_main, image22, "image22");
+  GLADE_HOOKUP_OBJECT (window_main, label52, "label52");
+  GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
+  GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
+  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 
   return window_main;
@@ -1223,11 +1224,11 @@ create_install_progressbar (void)
   GtkWidget *fixed6;
   GtkWidget *label_generally2;
   GtkWidget *hseparator5;
-  GtkWidget *label_fifo;
   GtkWidget *label1;
   GtkWidget *label_clock;
-  GtkWidget *label2;
   GtkWidget *image6;
+  GtkWidget *label2;
+  GtkWidget *label_fifo;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
@@ -1279,7 +1280,7 @@ create_install_progressbar (void)
   gtk_widget_show (fixed6);
   gtk_container_add (GTK_CONTAINER (viewport3), fixed6);
 
-  label_generally2 = gtk_label_new (_("<span foreground=\"#a4a58b\" font_desc=\"Sans Bold 14\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"12\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"11\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list.d/debian.list and /etc/apt/sources.list.d/sidux.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">You can add contrib and non-free with metapackage-installer, \n<i>\"smxi\"</i> script or <i>\"siduxcc</i>.</span>\n\n\n<b><u>firmware</u></b>\n\nWhich firmware might be required to employ affected hardware can be determined with the following device/ firmware enumeration or by using the newly developed <b>fw-detect</b> script (packaged in configure-networkcard).\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ATi Radeon graphics:</span>\nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -N radeon</b>'\n3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with Kernel 2.6.23. Depending on the particular chipset \"xmodule=vesa\" or \"xmodule=fbdev\" as cheatcode might be in order for later Radeon X1xxx models.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Nvidia  graphics:</span> \nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -h</b>' to see available options\n 3d acceleration isn't possible with free drivers yet, please use get-sidux-binary-gfx to fetch install scripts for these cards.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Atheros/ \"madwifi\" wlan:</span>\nm-a a-i madwifi\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Atmel AT76c50x 11 MBit/s wlan:</span>\napt-get install atmel-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Broadcom/ bcm43xx wlan:</span>\napt-get install bcm43xx-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Eagle USB ADSL modem:</span>\nfetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):</span>\nfetch the needed firmeware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Intel ipw2100, 11 MBit/s wlan:</span>\napt-get install ipw2100-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Intel ipw2200, 54 MBit/s wlan:</span>\napt-get install ipw2200-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:</span>\napt-get install firmware-iwlwifi\n\nplease remove iwlwifi-ucode and iwlwifi-3945, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Intel ipw4965/ iwlwifi, draft-n wlan:</span>\napt-get install firmware-iwl4965\n\nplease remove iwlwifi-4965, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Intersil prism54, 54 MBit/s wlan:</span>\nfetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* RaLink rt61 54 MBit/s wlan:</span>\napt-get install rt61-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* RaLink rt73 54 MBit/s wlan:</span>\napt-get install rt73-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:</span>\nfetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ZyDAS zd1201 11 MBit/s wlan:</span>\nfetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 11\">* ZyDAS zd1211 54 MBit/s wlan:</span>\napt-get install zd1211-firmware\n\n\nWe try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. \n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>How to get involved:</u></b>\nGetting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. We will gladly discuss any dfsg- free patches and contributions. Especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJose Tadeu Barros (ceti)\nMichiel de Boer (locsmif)\nJoaquim Boura (x-un-i)\nMikhail Burov (von_Selbst)\nAlessio Giustini (alessiog75)\nStefan R. Eissens (eislon)\nRoland Engert (RoEn)\nBernard Gray (cleary)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nRichard Holt (Richard)\nHarald Hope (h2)\nHarzG\nMarkus Huber (hubi)\nAedan Kelly (etorix)\nLady_Cuddles\nLatino\nStefan Lippers-Hollmann (slh)\nPhilippe Masson (LjanA)\nKel Modderman (kelmo)\nKoslow\nMarkus M\303\274ller (moto)\nmaslot\nGabriel Palade (ladepa)\nGerald Prock (raider700)\nSteven J. Robinson (cathbard)\nPhilipp Rudolph (Zophod)\nDinko Sabo (cobra)\nFlorian Schneider (hathe)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nTrevor Walkley (bluewater)\nNiall Walsh (bfree)\nAndreas Weber (webera)\nFabian Wuertz (xadras)\nzerby\nzonker\nzulu9\n\nOn behalf of the sidux team:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
+  label_generally2 = gtk_label_new (_("<span foreground=\"#a4a58b\" font_desc=\"12\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"11\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"10\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list.d/debian.list and /etc/apt/sources.list.d/sidux.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">You can add contrib and non-free with metapackage-installer, \n<i>\"smxi\"</i> script or <i>\"siduxcc</i>.</span>\n\n\n<b><u>firmware</u></b>\n\nWhich firmware might be required to employ affected hardware can be determined with the following device/ firmware enumeration or by using the newly developed <b>fw-detect</b> script (packaged in configure-networkcard).\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ATi Radeon graphics:</span>\nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -N radeon</b>'\n3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with Kernel 2.6.23. Depending on the particular chipset \"xmodule=vesa\" or \"xmodule=fbdev\" as cheatcode might be in order for later Radeon X1xxx models.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Nvidia  graphics:</span> \nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -h</b>' to see available options\n 3d acceleration isn't possible with free drivers yet, please use get-sidux-binary-gfx to fetch install scripts for these cards.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Atheros/ \"madwifi\" wlan:</span>\nm-a a-i madwifi\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Atmel AT76c50x 11 MBit/s wlan:</span>\napt-get install atmel-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Broadcom/ bcm43xx wlan:</span>\napt-get install bcm43xx-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Eagle USB ADSL modem:</span>\nfetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):</span>\nfetch the needed firmeware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw2100, 11 MBit/s wlan:</span>\napt-get install ipw2100-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw2200, 54 MBit/s wlan:</span>\napt-get install ipw2200-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:</span>\napt-get install firmware-iwlwifi\n\nplease remove iwlwifi-ucode and iwlwifi-3945, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw4965/ iwlwifi, draft-n wlan:</span>\napt-get install firmware-iwl4965\n\nplease remove iwlwifi-4965, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intersil prism54, 54 MBit/s wlan:</span>\nfetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* RaLink rt61 54 MBit/s wlan:</span>\napt-get install rt61-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* RaLink rt73 54 MBit/s wlan:</span>\napt-get install rt73-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:</span>\nfetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ZyDAS zd1201 11 MBit/s wlan:</span>\nfetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ZyDAS zd1211 54 MBit/s wlan:</span>\napt-get install zd1211-firmware\n\n\nWe try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. \n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>How to get involved:</u></b>\nGetting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. We will gladly discuss any dfsg- free patches and contributions. Especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJose Tadeu Barros (ceti)\nMichiel de Boer (locsmif)\nJoaquim Boura (x-un-i)\nMikhail Burov (von_Selbst)\nAlessio Giustini (alessiog75)\nStefan R. Eissens (eislon)\nRoland Engert (RoEn)\nBernard Gray (cleary)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nRichard Holt (Richard)\nHarald Hope (h2)\nHarzG\nMarkus Huber (hubi)\nAedan Kelly (etorix)\nLady_Cuddles\nLatino\nStefan Lippers-Hollmann (slh)\nPhilippe Masson (LjanA)\nKel Modderman (kelmo)\nKoslow\nMarkus M\303\274ller (moto)\nmaslot\nGabriel Palade (ladepa)\nGerald Prock (raider700)\nSteven J. Robinson (cathbard)\nPhilipp Rudolph (Zophod)\nDinko Sabo (cobra)\nFlorian Schneider (hathe)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nTrevor Walkley (bluewater)\nNiall Walsh (bfree)\nAndreas Weber (webera)\nFabian Wuertz (xadras)\nzerby\nzonker\nzulu9\n\nOn behalf of the sidux team:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
   gtk_widget_show (label_generally2);
   gtk_fixed_put (GTK_FIXED (fixed6), label_generally2, 8, 8);
   gtk_widget_set_size_request (label_generally2, 560, 4000);
@@ -1291,14 +1292,6 @@ create_install_progressbar (void)
   gtk_widget_show (hseparator5);
   gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 0, 288);
   gtk_widget_set_size_request (hseparator5, 600, 17);
-
-  label_fifo = gtk_label_new (_("<big><b>sidux-installer started</b></big>"));
-  gtk_widget_show (label_fifo);
-  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 312);
-  gtk_widget_set_size_request (label_fifo, 494, 41);
-  gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
 
   label1 = gtk_label_new (_("Completed Operations:"));
   gtk_widget_show (label1);
@@ -1313,6 +1306,11 @@ create_install_progressbar (void)
   gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
 
+  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
+  gtk_widget_show (image6);
+  gtk_fixed_put (GTK_FIXED (fixed5), image6, 360, 0);
+  gtk_widget_set_size_request (image6, 241, 56);
+
   label2 = gtk_label_new (_("Current\nOperation:"));
   gtk_widget_show (label2);
   gtk_fixed_put (GTK_FIXED (fixed5), label2, 0, 312);
@@ -1320,10 +1318,13 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
 
-  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
-  gtk_widget_show (image6);
-  gtk_fixed_put (GTK_FIXED (fixed5), image6, 360, 0);
-  gtk_widget_set_size_request (image6, 241, 56);
+  label_fifo = gtk_label_new (_("<b>sidux-installer started</b>"));
+  gtk_widget_show (label_fifo);
+  gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 312);
+  gtk_widget_set_size_request (label_fifo, 494, 41);
+  gtk_label_set_use_markup (GTK_LABEL (label_fifo), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
 
   g_signal_connect ((gpointer) install_progressbar, "delete_event",
                     G_CALLBACK (on_install_progressbar_delete_event),
@@ -1343,11 +1344,11 @@ create_install_progressbar (void)
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
   GLADE_HOOKUP_OBJECT (install_progressbar, hseparator5, "hseparator5");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
   GLADE_HOOKUP_OBJECT (install_progressbar, label1, "label1");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
   GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
 
   return install_progressbar;
 }
@@ -1462,8 +1463,8 @@ create_dialog_keyb_change (void)
   GdkPixbuf *dialog_keyb_change_icon_pixbuf;
   GtkWidget *dialog_vbox3;
   GtkWidget *fixed15;
-  GtkWidget *label44;
   GtkWidget *image18;
+  GtkWidget *label44;
   GtkWidget *dialog_action_area3;
   GtkWidget *okbutton2;
 
@@ -1484,18 +1485,18 @@ create_dialog_keyb_change (void)
   gtk_widget_show (fixed15);
   gtk_box_pack_start (GTK_BOX (dialog_vbox3), fixed15, TRUE, TRUE, 0);
 
-  label44 = gtk_label_new (_("<span foreground=\"red\" font_desc=\"Sans Bold 14\">The keyboardlayout of the installed system does not match the current layout.\n\nYou might have problems typing your password!</span>"));
+  image18 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_DIALOG);
+  gtk_widget_show (image18);
+  gtk_fixed_put (GTK_FIXED (fixed15), image18, 8, 16);
+  gtk_widget_set_size_request (image18, 72, 72);
+
+  label44 = gtk_label_new (_("<span foreground=\"red\" font_desc=\"Sans Bold 10\">The keyboardlayout of the installed system does not match the current layout.\n\nYou might have problems typing your password!</span>"));
   gtk_widget_show (label44);
   gtk_fixed_put (GTK_FIXED (fixed15), label44, 88, 8);
   gtk_widget_set_size_request (label44, 296, 136);
   gtk_label_set_use_markup (GTK_LABEL (label44), TRUE);
   gtk_label_set_line_wrap (GTK_LABEL (label44), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label44), 0.5, 0.25);
-
-  image18 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_DIALOG);
-  gtk_widget_show (image18);
-  gtk_fixed_put (GTK_FIXED (fixed15), image18, 8, 16);
-  gtk_widget_set_size_request (image18, 72, 72);
 
   dialog_action_area3 = GTK_DIALOG (dialog_keyb_change)->action_area;
   gtk_widget_show (dialog_action_area3);
@@ -1514,8 +1515,8 @@ create_dialog_keyb_change (void)
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_keyb_change, dialog_keyb_change, "dialog_keyb_change");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_keyb_change, dialog_vbox3, "dialog_vbox3");
   GLADE_HOOKUP_OBJECT (dialog_keyb_change, fixed15, "fixed15");
-  GLADE_HOOKUP_OBJECT (dialog_keyb_change, label44, "label44");
   GLADE_HOOKUP_OBJECT (dialog_keyb_change, image18, "image18");
+  GLADE_HOOKUP_OBJECT (dialog_keyb_change, label44, "label44");
   GLADE_HOOKUP_OBJECT_NO_REF (dialog_keyb_change, dialog_action_area3, "dialog_action_area3");
   GLADE_HOOKUP_OBJECT (dialog_keyb_change, okbutton2, "okbutton2");
 
@@ -1565,8 +1566,8 @@ create_install_window (void)
 
   button_edit_configuration = gtk_button_new ();
   gtk_widget_show (button_edit_configuration);
-  gtk_fixed_put (GTK_FIXED (fixed17), button_edit_configuration, 16, 0);
-  gtk_widget_set_size_request (button_edit_configuration, 203, 35);
+  gtk_fixed_put (GTK_FIXED (fixed17), button_edit_configuration, 0, 0);
+  gtk_widget_set_size_request (button_edit_configuration, 246, 35);
 
   alignment12 = gtk_alignment_new (0.5, 0.5, 0, 0);
   gtk_widget_show (alignment12);
@@ -1592,14 +1593,14 @@ create_install_window (void)
   button1 = gtk_button_new_from_stock ("gtk-quit");
   gtk_widget_show (button1);
   gtk_fixed_put (GTK_FIXED (fixed17), button1, 0, 216);
-  gtk_widget_set_size_request (button1, 116, 28);
+  gtk_widget_set_size_request (button1, 140, 28);
   GTK_WIDGET_UNSET_FLAGS (button1, GTK_CAN_FOCUS);
   gtk_button_set_focus_on_click (GTK_BUTTON (button1), FALSE);
 
   button_install_now_back = gtk_button_new_from_stock ("gtk-go-back");
   gtk_widget_show (button_install_now_back);
-  gtk_fixed_put (GTK_FIXED (fixed17), button_install_now_back, 360, 216);
-  gtk_widget_set_size_request (button_install_now_back, 116, 28);
+  gtk_fixed_put (GTK_FIXED (fixed17), button_install_now_back, 340, 216);
+  gtk_widget_set_size_request (button_install_now_back, 140, 28);
   GTK_WIDGET_UNSET_FLAGS (button_install_now_back, GTK_CAN_FOCUS);
   gtk_button_set_focus_on_click (GTK_BUTTON (button_install_now_back), FALSE);
 
@@ -1639,7 +1640,7 @@ create_install_window (void)
 
   label51 = gtk_label_new (_("not necessary,\n<b>be careful !!!</b>"));
   gtk_widget_show (label51);
-  gtk_fixed_put (GTK_FIXED (fixed17), label51, 232, 4);
+  gtk_fixed_put (GTK_FIXED (fixed17), label51, 250, 4);
   gtk_widget_set_size_request (label51, 248, 49);
   gtk_label_set_use_markup (GTK_LABEL (label51), TRUE);
   gtk_label_set_line_wrap (GTK_LABEL (label51), TRUE);
