@@ -1,8 +1,9 @@
 install-gui (0.4.2) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * update to Standards-Version 3.7.3, no changes necessary.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 25 Nov 2007 21:44:31 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 13:51:14 +0100
 
 install-gui (0.4.1) unstable; urgency=low
 
