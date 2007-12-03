@@ -1,8 +1,8 @@
-install-gui (0.4.3) UNRELEASED; urgency=low
+install-gui (0.4.3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix hints for RaLink cards.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 16:44:38 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 21:59:38 +0100
 
 install-gui (0.4.2) unstable; urgency=low
 
