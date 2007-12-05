@@ -1,8 +1,12 @@
 install-gui (0.4.4) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 22:02:15 +0100
+  [ Horst Tritremmel ]
+  * add values from combobox_hd (see gparted) to combobox_installplace 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 05 Dec 2007 22:30:30 +0100
 
 install-gui (0.4.3) unstable; urgency=low
 

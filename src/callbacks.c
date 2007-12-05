@@ -38,7 +38,7 @@
 
 
 
-char scanparttmp[80];
+char scanparttmp[80], hd_tmp[80];;
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
@@ -59,6 +59,67 @@ enum
   COL_FS,
   COL_MOUNTP
 } ;
+
+
+void
+combobox_hd_read (GtkWidget       *widget)
+{
+
+   int fd;
+
+   strcpy(hd_tmp, "/tmp/harddisk.XXXXXX");
+   fd = mkstemp(hd_tmp);  // make a tempfile
+
+   if( fd ) {
+            // create the shell system command
+            strncpy(systemcallstr, HD_SCAN, BUF_LEN);
+            strncat(systemcallstr, hd_tmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"======= harddisk call =======\n\";printf \"", BUF_LEN);
+            strncat(systemcallstr, hd_tmp, BUF_LEN);
+            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
+            strncat(systemcallstr, hd_tmp, BUF_LEN);
+            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+
+            system(systemcallstr);  // write the harddisktable to the tempfile
+            close(fd);
+   }
+   else  {
+            perror("mkstemp(hd_tmp)");
+   }
+
+}
+
+
+void
+combobox_hd_set  (GtkWidget       *widget,
+                  const gchar     *combobox_name)
+{
+   FILE* fp;
+
+   char partition[80];
+
+   GtkWidget *combobox = lookup_widget (GTK_WIDGET (widget), combobox_name);
+
+   // read the scanpartition temp file
+   fp=fopen(hd_tmp, "r");
+   if( fp == NULL ) {
+       strncpy(partition, "tmp file error", BUF_LEN);
+       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), partition);
+   }
+   else {
+
+       // append to combo_box
+       fseek( fp, 0L, SEEK_SET );
+       while (fscanf(fp, "%s", partition) != EOF) {
+
+          //printf("%s %s\n", "combobox setzen, partition");
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), partition);
+          gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+       }
+    }
+    fclose(fp);
+
+}
 
 
 void
@@ -287,7 +348,8 @@ void read_partitions(GtkComboBox     *combobox)
      * ============================================================= */
      GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
      is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
-
+     // add values from combobox hd (see gparted) to combobox_installplace
+     combobox_hd_set  (GTK_WIDGET (combobox_installplace), "combobox_installplace");
    }
 
 }
@@ -545,6 +607,9 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
    // fill the combobox_installplace
    GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
    is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
+   // add values from combobox hd (see gparted) to combobox_installplace
+   combobox_hd_set  (GTK_WIDGET (combobox_installplace), "combobox_installplace");
+
 
    // change the label-rootpart-warning
    GtkWidget* label_rootpart_warning = lookup_widget( GTK_WIDGET( combobox ), "label_rootpart_warning" );
@@ -1448,59 +1513,6 @@ on_button_tz_clicked                   (GtkButton       *button,
 }
 
 
-void
-combobox_hd_read (GtkWidget       *widget)
-{
-
-   FILE* fp;
-
-   char partition[80], hd_tmp[80];
-   int fd;
-
-   GtkWidget *combobox = lookup_widget (GTK_WIDGET (widget), "combobox_hd");
-
-   strcpy(hd_tmp, "/tmp/harddisk.XXXXXX");
-   fd = mkstemp(hd_tmp);  // make a tempfile
-
-   if( fd ) {
-            // create the shell system command
-            strncpy(systemcallstr, HD_SCAN, BUF_LEN);
-            strncat(systemcallstr, hd_tmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"======= harddisk call =======\n\";printf \"", BUF_LEN);
-            strncat(systemcallstr, hd_tmp, BUF_LEN);
-            strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
-            strncat(systemcallstr, hd_tmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
-
-            system(systemcallstr);  // write the harddisktable to the tempfile
-            close(fd);
-   }
-   else  {
-            perror("mkstemp(hd_tmp)");
-   }
-
-   // read the scanpartition temp file
-   fp=fopen(hd_tmp, "r");
-   if( fp == NULL ) {
-       strncpy(partition, "tmp file error", BUF_LEN);
-       gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), partition);
-   }
-   else {
-
-       // append to combo_box
-       fseek( fp, 0L, SEEK_SET );
-       while (fscanf(fp, "%s", partition) != EOF) {
-
-          //printf("%s %s\n", "combobox setzen, partition");
-          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), partition);
-          gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
-       }
-    }
-    fclose(fp);
-    unlink(hd_tmp);
-}
-
-
 void read_language(GtkComboBox     *combobox) 
 {
   /* ======================================================= *
@@ -1689,6 +1701,12 @@ on_window_main_realize                 (GtkWidget       *widget,
 		    G_CALLBACK(cell_edit_cb),
 		    model);
 
+  /* ============================================================= *
+   *             fill the combobox_hd  (harddisc)                  *
+   * ============================================================= */
+   combobox_hd_read (GTK_WIDGET (widget));
+   combobox_hd_set  (GTK_WIDGET (widget), "combobox_hd");
+
 
   /* ============================================================ *
    *                   fill the root partition combo box          *
@@ -1731,12 +1749,6 @@ on_window_main_realize                 (GtkWidget       *widget,
    *                      fill the label_tz                        *
    * ============================================================= */
    timezone_read (GTK_WIDGET (widget));
-
-
-  /* ============================================================= *
-   *             fill the combobox_hd  (harddisc)                  *
-   * ============================================================= */
-   combobox_hd_read (GTK_WIDGET (widget));
 
 
   /* ============================================================= *
