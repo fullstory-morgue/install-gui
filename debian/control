@@ -10,7 +10,7 @@ Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
 Package: install-gui
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.0.6), install-meta (>= 0.1.18), fll-live-initscripts (>= 2.0.64)
+Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.2.1), install-meta (>= 0.1.18), fll-live-initscripts (>= 2.0.64)
 Recommends: install-usb-gui
 Description: sidux install-gui for fll-installer
  This is an sidux install-gui who makes it easy to configure the config file
