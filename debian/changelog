@@ -6,7 +6,11 @@ install-gui (0.5.1) UNRELEASED; urgency=low
   [ Joaquim Boura ]
   * fixed missing quotes
 
- -- Joaquim Boura <x-un-i@sidux.com>  Fri, 07 Dec 2007 18:30:44 +0100
+  [ Horst Tritremmel ]
+  * fixed missing quotes in glade-file
+  * dont allow jfs format
+
+ -- Horst Tritremmel <hjt@sidux.com>  Fri, 07 Dec 2007 21:19:09 +0100
 
 install-gui (0.5.0) unstable; urgency=low
 

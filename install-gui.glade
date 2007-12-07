@@ -2667,7 +2667,7 @@ The ISO is completely based on Debian Sid, enriched and stabilized with sidux' o
 sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list.d/debian.list and /etc/apt/sources.list.d/sidux.list&lt;/b&gt; and ensure internet access.
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;You can add contrib and non-free with metapackage-installer, 
-&lt;i&gt;&quot;smxi&quot;&lt;/i&gt; script or &lt;i&gt;&quot;siduxcc&lt;/i&gt;.&lt;/span&gt;
+&lt;i&gt;&quot;smxi&quot;&lt;/i&gt; script or &lt;i&gt;&quot;siduxcc&quot;&lt;/i&gt;.&lt;/span&gt;
 
 
 &lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
@@ -2793,7 +2793,7 @@ On behalf of the sidux team:
      Stefan Lippers-Hollmann (slh) 
 &lt;/span&gt;
 </property>
-		      <property name="use_underline">False</property>
+		      <property name="use_underline">True</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
 		      <property name="wrap">True</property>

@@ -1730,7 +1730,7 @@ on_window_main_realize                 (GtkWidget       *widget,
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext3");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext2");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "reiserfs");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
+   //gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
 
    gtk_combo_box_set_active( GTK_COMBO_BOX(format_combo),0);
 
