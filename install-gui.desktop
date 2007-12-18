@@ -5,6 +5,13 @@ Exec=su-me /usr/bin/install-gui
 Icon=sidux
 
 Name=sidux-installer
+Name[de]=sidux-installer
+Name[pt]=instalar o sidux
+Name[de]=instalar o sidux
+Name[ru]=sidux-инсталлятор
 Comment=Install sidux to hd
-
+Comment[de]=installiert sidux auf Festplatte
+Comment[pt]=instala o sidux no disco 
+Comment[pt_BR]=instala o sidux no disco
+Comment[ru]=Инсталляция sidux на жесткий диск
 Categories=sidux
