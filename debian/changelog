@@ -1,9 +1,5 @@
-install-gui (0.5.2) UNRELEASED; urgency=low
+install-gui (0.5.2) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * Translation thanks to RoEn
 
  -- Joaquim Boura <x-un-i@sidux.com>  Tue, 18 Dec 2007 13:23:12 +0100
