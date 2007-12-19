@@ -1,8 +1,12 @@
 install-gui (0.5.3) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 19 Dec 2007 11:24:31 +0100
+  [ Horst Tritremmel ]
+  * search in treeview1 (mountpoints of other partitions) disabled
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 19 Dec 2007 20:46:20 +0100
 
 install-gui (0.5.2) unstable; urgency=low
 
