@@ -1,3 +1,9 @@
+install-gui (0.5.4) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 20 Dec 2007 14:24:21 +0100
+
 install-gui (0.5.3) unstable; urgency=low
 
   * search in treeview1 (mountpoints of other partitions) disabled
