@@ -1,10 +1,6 @@
-install-gui (0.5.4) UNRELEASED; urgency=low
+install-gui (0.5.4) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
-  * fixing cut+paste typo
+  * fixing cut+paste typo in .desktop localisation.
 
  -- Joaquim Boura <x-un-i@sidux.com>  Wed, 26 Dec 2007 17:18:59 +0100
 
