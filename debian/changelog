@@ -1,3 +1,9 @@
+install-gui (0.5.5) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 26 Dec 2007 19:59:08 +0100
+
 install-gui (0.5.4) unstable; urgency=low
 
   * fixing cut+paste typo in .desktop localisation.
