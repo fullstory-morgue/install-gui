@@ -1,8 +1,12 @@
 install-gui (0.5.4) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 20 Dec 2007 14:24:21 +0100
+  [ Joaquim Boura ]
+  * fixing cut+paste typo
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Wed, 26 Dec 2007 17:18:59 +0100
 
 install-gui (0.5.3) unstable; urgency=low
 
