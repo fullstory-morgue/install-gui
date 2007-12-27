@@ -26,7 +26,9 @@
 #define FILENAME ".sidconf"
 #define TARGET_MNT_POINT "/media/hdinstall"
 
-#define HD_SCAN                   "fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
+#define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
+#define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
+
 #define SCANPARTITIONS            "fll_fshelper --install-gui 2>/dev/null > "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
@@ -62,7 +64,8 @@ enum
 
 
 void
-combobox_hd_read (GtkWidget       *widget)
+combobox_hd_read (GtkWidget       *widget,
+                  const gchar     *combobox_name)
 {
 
    int fd;
@@ -72,7 +75,13 @@ combobox_hd_read (GtkWidget       *widget)
 
    if( fd ) {
             // create the shell system command
-            strncpy(systemcallstr, HD_SCAN, BUF_LEN);
+            if( strcmp(combobox_name, "combobox_hd") == 0 ) {  // devices with usbdevices (combobox_hd)
+                  strncpy(systemcallstr, HD_SCAN, BUF_LEN);
+            }
+            else {   // devices without usbdevices (combobox_installplace)
+                  strncpy(systemcallstr, HD_SCAN_NO_USB, BUF_LEN);
+            }
+
             strncat(systemcallstr, hd_tmp, BUF_LEN);
             strncat(systemcallstr, "; printf \"======= harddisk call =======\n\";printf \"", BUF_LEN);
             strncat(systemcallstr, hd_tmp, BUF_LEN);
@@ -100,6 +109,9 @@ combobox_hd_set  (GtkWidget       *widget,
 
    GtkWidget *combobox = lookup_widget (GTK_WIDGET (widget), combobox_name);
 
+   // create the tempfile icludes name of devices  /dev/sda, /dev/sdb, ...
+   combobox_hd_read (GTK_WIDGET (widget), combobox_name);
+
    // read the scanpartition temp file
    fp=fopen(hd_tmp, "r");
    if( fp == NULL ) {
@@ -118,6 +130,9 @@ combobox_hd_set  (GtkWidget       *widget,
        }
     }
     fclose(fp);
+
+    //remove the tempfile
+    unlink( hd_tmp );
 
 }
 
@@ -173,6 +188,8 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
           // no usb device found
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+          // add values from combobox hd (see gparted) to combobox_installplace
+          combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
       }
       else {
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
@@ -349,7 +366,7 @@ void read_partitions(GtkComboBox     *combobox)
      GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
      is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
      // add values from combobox hd (see gparted) to combobox_installplace
-     combobox_hd_set  (GTK_WIDGET (combobox_installplace), "combobox_installplace");
+     //combobox_hd_set  (GTK_WIDGET (combobox_installplace), "combobox_installplace");
    }
 
 }
@@ -607,8 +624,6 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
    // fill the combobox_installplace
    GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
    is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
-   // add values from combobox hd (see gparted) to combobox_installplace
-   combobox_hd_set  (GTK_WIDGET (combobox_installplace), "combobox_installplace");
 
 
    // change the label-rootpart-warning
@@ -1704,7 +1719,6 @@ on_window_main_realize                 (GtkWidget       *widget,
   /* ============================================================= *
    *             fill the combobox_hd  (harddisc)                  *
    * ============================================================= */
-   combobox_hd_read (GTK_WIDGET (widget));
    combobox_hd_set  (GTK_WIDGET (widget), "combobox_hd");
 
 

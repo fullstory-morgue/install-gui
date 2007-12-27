@@ -1,8 +1,14 @@
 install-gui (0.5.5) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 26 Dec 2007 19:59:08 +0100
+  [ Horst Tritremmel ]
+  * put no usb-devices to Installation-target combobox
+  * show only partiton entry in Installation-target combobox if a usb-device
+    is selcted in root-partiton combobox
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 27 Dec 2007 10:29:38 +0100
 
 install-gui (0.5.4) unstable; urgency=low
 
