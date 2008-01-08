@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=su-me /usr/bin/install-gui
+Exec=su-to-root -X -c /usr/bin/install-gui
 Icon=sidux
 
 Name=sidux-installer
@@ -14,4 +14,4 @@ Comment[de]=installiert sidux auf Festplatte
 Comment[pt]=instala o sidux no disco 
 Comment[pt_BR]=instala o sidux no disco
 Comment[ru]=Инсталляция sidux на жесткий диск
-Categories=sidux
+Categories=System;
