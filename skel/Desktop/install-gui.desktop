@@ -1,7 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=sidux-installer
-Exec=sudo /usr/bin/install-gui
-Icon=/usr/share/pixmaps/sidux-inst-conf.png
-Type=Application
-Comment=Install sidux to hd

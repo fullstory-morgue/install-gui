@@ -1,8 +1,8 @@
-install-gui (0.6.1) UNRELEASED; urgency=low
+install-gui (0.6.1) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * don't duplicate *.desktop files.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 08 Jan 2008 21:08:58 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 08 Jan 2008 23:50:02 +0100
 
 install-gui (0.6.0) unstable; urgency=low
 
