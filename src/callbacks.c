@@ -38,6 +38,8 @@
 //${LANGUAGE} is set in /etc/default/fll-locales
 #define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANGUAGE}\n\";sed -ie \"s/^${LANGUAGE},/DEFAULT_${LANGUAGE},/\" "
 
+#define HOSTNAME_ALLOWED_CHAR "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
 
 
 char scanparttmp[80], hd_tmp[80];;
@@ -492,6 +494,23 @@ on_entry_pw_again_changed              (GtkEditable     *editable,
    else {
        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
    }
+}
+
+
+void
+on_hostname_changed                    (GtkEditable     *editable,
+                                        gpointer         user_data)
+{
+   char hostname[BUF_LEN];
+
+   GtkWidget* hostname_entry = lookup_widget ( GTK_WIDGET (window_main), "hostname");
+   strcpy(hostname, gtk_entry_get_text(GTK_ENTRY(hostname_entry)));
+
+  int pos = strspn(hostname, HOSTNAME_ALLOWED_CHAR);
+
+  if ( pos < strlen(hostname) )
+     printf("FEHLER an Stelle %d !\n", pos);
+
 }
 
 

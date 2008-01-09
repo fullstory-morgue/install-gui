@@ -981,6 +981,9 @@ create_window_main (void)
   g_signal_connect ((gpointer) entry_pw_again, "changed",
                     G_CALLBACK (on_entry_pw_again_changed),
                     NULL);
+  g_signal_connect ((gpointer) hostname, "changed",
+                    G_CALLBACK (on_hostname_changed),
+                    NULL);
   g_signal_connect ((gpointer) radiobutton3, "toggled",
                     G_CALLBACK (on_radiobutton3_toggled),
                     NULL);

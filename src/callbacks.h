@@ -286,3 +286,7 @@ on_entry_pw_changed                    (GtkEditable     *editable,
 void
 on_entry_pw_again_changed              (GtkEditable     *editable,
                                         gpointer         user_data);
+
+void
+on_hostname_changed                    (GtkEditable     *editable,
+                                        gpointer         user_data);
