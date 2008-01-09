@@ -1,3 +1,4 @@
-install-gui.desktop	etc/skel/Desktop(
+install-gui.desktop	etc/skel/Desktop/
 install-gui.desktop	usr/share/applications/sidux/
 pixmaps/*.png		usr/share/pixmaps/
+icons			usr/share/
