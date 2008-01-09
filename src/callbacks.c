@@ -38,15 +38,15 @@
 //${LANGUAGE} is set in /etc/default/fll-locales
 #define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANGUAGE}\n\";sed -ie \"s/^${LANGUAGE},/DEFAULT_${LANGUAGE},/\" "
 
-#define HOSTNAME_ALLOWED_CHAR "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-
+#define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
 
 
 char scanparttmp[80], hd_tmp[80];;
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
-int  counter, leaved_user_page, i = 0, partitions_counter = 0;
+int  counter, leaved_user_page, i = 0, partitions_counter = 0, hostname_ok = 1;
 //int do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar, *window_main;
  
@@ -501,16 +501,59 @@ void
 on_hostname_changed                    (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-   char hostname[BUF_LEN];
+   char hostname[BUF_LEN], hostname_allowed[BUF_LEN], hostname_first_char[1];
+   int pos;
+
+   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_hostname");
+   GtkWidget* label_hostname_error = lookup_widget( GTK_WIDGET ( window_main ), "label_hostname_error" );
 
    GtkWidget* hostname_entry = lookup_widget ( GTK_WIDGET (window_main), "hostname");
    strcpy(hostname, gtk_entry_get_text(GTK_ENTRY(hostname_entry)));
 
-  int pos = strspn(hostname, HOSTNAME_ALLOWED_CHAR);
+   strncpy ( hostname_allowed, HOSTNAME_ALLOWED_CHAR_0, BUF_LEN);
+   strncat ( hostname_allowed, HOSTNAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
 
-  if ( pos < strlen(hostname) )
-     printf("FEHLER an Stelle %d !\n", pos);
 
+   // check 1. character from hostname
+   strncpy ( hostname_first_char, hostname, 1);
+   pos = strspn(hostname_first_char, HOSTNAME_ALLOWED_CHAR_0);
+   if ( pos < 1 && strlen( hostname ) > 0 ) {
+     gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+
+     printf("Hostname Error position 1 !\n");
+     gtk_label_set_markup ( GTK_LABEL( label_hostname_error ), "<span foreground=\"red\">ERROR: A-Za-z</span>" );
+
+     hostname_ok = 0;
+     return;
+   }
+
+   // check other characters from hostname
+   pos = strspn(hostname, hostname_allowed);
+   if ( pos < strlen(hostname) ) {
+     gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+
+     printf("Hostname ERROR position %d !\n", pos);
+     gtk_label_set_markup ( GTK_LABEL( label_hostname_error ), "<span foreground=\"red\">ERROR: A-Za-z0-9.-</span>" );
+
+     hostname_ok = 0;
+     return;
+   }
+
+   // hostname empty?
+   if ( strlen(hostname) < 1) {
+     gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+
+     printf("Hostname empty !\n");
+     gtk_label_set_markup ( GTK_LABEL( label_hostname_error ), "<span foreground=\"red\">ERROR: empty</span>" );
+
+     hostname_ok = 0;
+     return;
+   }
+
+   gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   gtk_label_set_text ( GTK_LABEL( label_hostname_error ), "" );
+
+   hostname_ok = 1;
 }
 
 
@@ -1237,6 +1280,7 @@ on_button_install_clicked              (GtkButton       *button,
    *                      read the widgets                    *
    * ======================================================== */
    GtkToggleButton *radiobutton;
+   GtkWidget *mainW, *dialog;
 
    //password_check
    if( password_check(GTK_WIDGET (button)) < 1 ) {
@@ -1247,10 +1291,25 @@ on_button_install_clicked              (GtkButton       *button,
            return;
    }
 
+   // hostname check
+   if( hostname_ok < 1 ) {
+
+           // Message Dialog root partition empty
+           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n", "Hostname wrong!");
+           gtk_dialog_run (GTK_DIALOG (dialog));
+           gtk_widget_destroy (dialog);
+
+           return;
+   }
+
    // root partition check
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
    if( hd_choice == NULL ) {
-           GtkWidget *mainW, *dialog;
 
            // Message Dialog root partition empty
            mainW = lookup_widget (GTK_WIDGET (button), "window_main");

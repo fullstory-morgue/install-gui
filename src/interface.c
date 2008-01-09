@@ -116,7 +116,6 @@ create_window_main (void)
   GtkWidget *entry_pw;
   GtkWidget *entry_pw_again;
   GtkWidget *image_rootpw_again;
-  GtkWidget *image_root_pw;
   GtkWidget *hseparator6;
   GtkWidget *image_realname;
   GtkWidget *image_username;
@@ -128,23 +127,26 @@ create_window_main (void)
   GtkWidget *label27;
   GtkWidget *label28;
   GtkWidget *label29;
+  GtkWidget *image_root_pw;
   GtkWidget *label25;
   GtkWidget *label4;
   GtkWidget *fixed_network;
   GtkWidget *hostname;
   GtkWidget *hseparator11;
-  GtkWidget *hseparator12;
-  GtkWidget *vseparator5;
-  GtkWidget *hseparator13;
-  GtkWidget *vseparator6;
+  GtkWidget *label31;
   GtkWidget *label32;
+  GtkWidget *vseparator5;
+  GtkWidget *vseparator6;
+  GtkWidget *hseparator12;
+  GtkWidget *hseparator13;
   GtkWidget *frame2;
   GtkWidget *alignment7;
   GtkWidget *fixed10;
   GtkWidget *checkbutton_ssh;
   GtkWidget *checkbutton_printsystem;
   GtkWidget *label38;
-  GtkWidget *label31;
+  GtkWidget *image_hostname;
+  GtkWidget *label_hostname_error;
   GtkWidget *label5;
   GtkWidget *fixed7;
   GtkWidget *hseparator14;
@@ -651,11 +653,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed8), image_rootpw_again, 448, 34);
   gtk_widget_set_size_request (image_rootpw_again, 21, 21);
 
-  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_root_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 448, 2);
-  gtk_widget_set_size_request (image_root_pw, 21, 21);
-
   hseparator6 = gtk_hseparator_new ();
   gtk_widget_show (hseparator6);
   gtk_fixed_put (GTK_FIXED (fixed8), hseparator6, 0, 64);
@@ -717,6 +714,11 @@ create_window_main (void)
   gtk_widget_set_size_request (label29, 220, 24);
   gtk_misc_set_alignment (GTK_MISC (label29), 0, 0.5);
 
+  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_root_pw);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 448, 2);
+  gtk_widget_set_size_request (image_root_pw, 21, 21);
+
   label25 = gtk_label_new ("");
   gtk_widget_show (label25);
   gtk_frame_set_label_widget (GTK_FRAME (frame1), label25);
@@ -732,7 +734,7 @@ create_window_main (void)
 
   hostname = gtk_entry_new ();
   gtk_widget_show (hostname);
-  gtk_fixed_put (GTK_FIXED (fixed_network), hostname, 264, 160);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hostname, 264, 152);
   gtk_widget_set_size_request (hostname, 232, 24);
   gtk_entry_set_text (GTK_ENTRY (hostname), _("siduxbox"));
 
@@ -741,36 +743,44 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed_network), hseparator11, 16, 96);
   gtk_widget_set_size_request (hseparator11, 640, 16);
 
-  hseparator12 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator12);
-  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator12, 120, 128);
-  gtk_widget_set_size_request (hseparator12, 408, 16);
-
-  vseparator5 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator5);
-  gtk_fixed_put (GTK_FIXED (fixed_network), vseparator5, 112, 136);
-  gtk_widget_set_size_request (vseparator5, 16, 80);
-
-  hseparator13 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator13);
-  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator13, 120, 208);
-  gtk_widget_set_size_request (hseparator13, 408, 16);
-
-  vseparator6 = gtk_vseparator_new ();
-  gtk_widget_show (vseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed_network), vseparator6, 520, 136);
-  gtk_widget_set_size_request (vseparator6, 16, 80);
+  label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
+  gtk_widget_show (label31);
+  gtk_fixed_put (GTK_FIXED (fixed_network), label31, 16, 8);
+  gtk_widget_set_size_request (label31, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
 
   label32 = gtk_label_new (_("Hostname:"));
   gtk_widget_show (label32);
-  gtk_fixed_put (GTK_FIXED (fixed_network), label32, 128, 160);
+  gtk_fixed_put (GTK_FIXED (fixed_network), label32, 128, 152);
   gtk_widget_set_size_request (label32, 128, 24);
   gtk_misc_set_alignment (GTK_MISC (label32), 0.04, 0.5);
 
+  vseparator5 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator5);
+  gtk_fixed_put (GTK_FIXED (fixed_network), vseparator5, 88, 120);
+  gtk_widget_set_size_request (vseparator5, 16, 96);
+
+  vseparator6 = gtk_vseparator_new ();
+  gtk_widget_show (vseparator6);
+  gtk_fixed_put (GTK_FIXED (fixed_network), vseparator6, 544, 120);
+  gtk_widget_set_size_request (vseparator6, 16, 96);
+
+  hseparator12 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator12);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator12, 96, 112);
+  gtk_widget_set_size_request (hseparator12, 456, 16);
+
+  hseparator13 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator13);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator13, 96, 208);
+  gtk_widget_set_size_request (hseparator13, 456, 16);
+
   frame2 = gtk_frame_new (NULL);
   gtk_widget_show (frame2);
-  gtk_fixed_put (GTK_FIXED (fixed_network), frame2, 120, 232);
-  gtk_widget_set_size_request (frame2, 408, 120);
+  gtk_fixed_put (GTK_FIXED (fixed_network), frame2, 96, 240);
+  gtk_widget_set_size_request (frame2, 456, 104);
 
   alignment7 = gtk_alignment_new (0.5, 0.5, 1, 1);
   gtk_widget_show (alignment7);
@@ -784,25 +794,28 @@ create_window_main (void)
   checkbutton_ssh = gtk_check_button_new_with_mnemonic (_("ssh (Secure shell client and server)"));
   gtk_widget_show (checkbutton_ssh);
   gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_ssh, 8, 48);
-  gtk_widget_set_size_request (checkbutton_ssh, 376, 32);
+  gtk_widget_set_size_request (checkbutton_ssh, 424, 32);
 
   checkbutton_printsystem = gtk_check_button_new_with_mnemonic (_("cupsys (Printing System)"));
   gtk_widget_show (checkbutton_printsystem);
-  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_printsystem, 8, 16);
-  gtk_widget_set_size_request (checkbutton_printsystem, 376, 32);
+  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_printsystem, 8, 8);
+  gtk_widget_set_size_request (checkbutton_printsystem, 424, 32);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_printsystem), TRUE);
 
   label38 = gtk_label_new (_("start services"));
   gtk_widget_show (label38);
   gtk_frame_set_label_widget (GTK_FRAME (frame2), label38);
 
-  label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
-  gtk_widget_show (label31);
-  gtk_fixed_put (GTK_FIXED (fixed_network), label31, 16, 8);
-  gtk_widget_set_size_request (label31, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
+  image_hostname = gtk_image_new_from_stock ("gtk-apply", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_hostname);
+  gtk_fixed_put (GTK_FIXED (fixed_network), image_hostname, 504, 154);
+  gtk_widget_set_size_request (image_hostname, 21, 21);
+
+  label_hostname_error = gtk_label_new ("");
+  gtk_widget_show (label_hostname_error);
+  gtk_fixed_put (GTK_FIXED (fixed_network), label_hostname_error, 96, 176);
+  gtk_widget_set_size_request (label_hostname_error, 456, 40);
+  gtk_label_set_use_markup (GTK_LABEL (label_hostname_error), TRUE);
 
   label5 = gtk_label_new (_("Network"));
   gtk_widget_show (label5);
@@ -1086,7 +1099,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, entry_pw, "entry_pw");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw_again, "entry_pw_again");
   GLADE_HOOKUP_OBJECT (window_main, image_rootpw_again, "image_rootpw_again");
-  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
   GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
   GLADE_HOOKUP_OBJECT (window_main, image_realname, "image_realname");
   GLADE_HOOKUP_OBJECT (window_main, image_username, "image_username");
@@ -1098,23 +1110,26 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
   GLADE_HOOKUP_OBJECT (window_main, label28, "label28");
   GLADE_HOOKUP_OBJECT (window_main, label29, "label29");
+  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
   GLADE_HOOKUP_OBJECT (window_main, label25, "label25");
   GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
   GLADE_HOOKUP_OBJECT (window_main, fixed_network, "fixed_network");
   GLADE_HOOKUP_OBJECT (window_main, hostname, "hostname");
   GLADE_HOOKUP_OBJECT (window_main, hseparator11, "hseparator11");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator12, "hseparator12");
-  GLADE_HOOKUP_OBJECT (window_main, vseparator5, "vseparator5");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator13, "hseparator13");
-  GLADE_HOOKUP_OBJECT (window_main, vseparator6, "vseparator6");
+  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
   GLADE_HOOKUP_OBJECT (window_main, label32, "label32");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator5, "vseparator5");
+  GLADE_HOOKUP_OBJECT (window_main, vseparator6, "vseparator6");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator12, "hseparator12");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator13, "hseparator13");
   GLADE_HOOKUP_OBJECT (window_main, frame2, "frame2");
   GLADE_HOOKUP_OBJECT (window_main, alignment7, "alignment7");
   GLADE_HOOKUP_OBJECT (window_main, fixed10, "fixed10");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_ssh, "checkbutton_ssh");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_printsystem, "checkbutton_printsystem");
   GLADE_HOOKUP_OBJECT (window_main, label38, "label38");
-  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
+  GLADE_HOOKUP_OBJECT (window_main, image_hostname, "image_hostname");
+  GLADE_HOOKUP_OBJECT (window_main, label_hostname_error, "label_hostname_error");
   GLADE_HOOKUP_OBJECT (window_main, label5, "label5");
   GLADE_HOOKUP_OBJECT (window_main, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (window_main, hseparator14, "hseparator14");
