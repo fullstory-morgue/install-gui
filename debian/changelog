@@ -1,9 +1,5 @@
-install-gui (0.6.3) UNRELEASED; urgency=low
+install-gui (0.6.3) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * Hostname check added
 
  -- Horst Tritremmel <hjt@sidux.com>  Wed, 09 Jan 2008 20:28:12 +0100
