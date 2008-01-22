@@ -1,9 +1,12 @@
-install-gui (0.6.6) UNRELEASED; urgency=low
+install-gui (0.6.6) unstable; urgency=low
 
-  * NOT RELEASED YET
   * remove old icons, not complete yet.
+  * add new artwork from the sidux-art team.
+  * add create-icons target in debian/rules.
+  * create icons.
+  * rework debian/copyright to be machine readable.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 17:09:13 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 17:22:31 +0100
 
 install-gui (0.6.5) unstable; urgency=low
 
