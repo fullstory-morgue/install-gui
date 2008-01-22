@@ -1,8 +1,8 @@
-install-gui (0.6.7) UNRELEASED; urgency=low
+install-gui (0.6.7) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix icon reference in XDG desktop file.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 17:25:37 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 17:46:26 +0100
 
 install-gui (0.6.6) unstable; urgency=low
 
