@@ -34,8 +34,8 @@ msgstr "Program ten zainstaluje system sidux na  twardy dysk."
 #: install-gui.glade:505(property)
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
 "sidux-website: http://sidux.com"
-msgstr "Jeśli potrzebujesz pomocy podczas instalacji, odwiedź stronę internetową siduksa, Wiki lub Chat!\n\n"
-"Strona internetowa siduksa: http://sidux.com "
+msgstr "Jeśli potrzebujesz pomocy podczas instalacji, odwiedź stronę internetową sidux, Wiki lub Chat!\n\n"
+"Strona internetowa sidux: http://sidux.com "
 
 #: install-gui.glade:537(property)
 msgid "Welcome"
