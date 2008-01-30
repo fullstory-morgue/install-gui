@@ -11,7 +11,7 @@
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">sidux-inst-conf.png</property>
+  <property name="icon">install-gui.png</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -2505,7 +2505,7 @@ If everything is correct for you, pressing &quot;Save config &amp; Next&quot;.</
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">sidux-inst-conf.png</property>
+  <property name="icon">install-gui.png</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -2615,7 +2615,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">sidux-inst-conf.png</property>
+  <property name="icon">install-gui.png</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -3013,7 +3013,7 @@ Operation:</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">sidux-inst-conf.png</property>
+  <property name="icon">install-gui.png</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -3200,7 +3200,7 @@ Operation:</property>
   <property name="modal">False</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">sidux-inst-conf.png</property>
+  <property name="icon">install-gui.png</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -3311,7 +3311,7 @@ You might have problems typing your password!&lt;/span&gt;</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">sidux-inst-conf.png</property>
+  <property name="icon">install-gui.png</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>

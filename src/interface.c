@@ -180,7 +180,7 @@ create_window_main (void)
   gtk_window_set_title (GTK_WINDOW (window_main), _("sidux HD-Installation"));
   gtk_window_set_position (GTK_WINDOW (window_main), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (window_main), FALSE);
-  window_main_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  window_main_icon_pixbuf = create_pixbuf ("install-gui.png");
   if (window_main_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (window_main), window_main_icon_pixbuf);
@@ -1175,7 +1175,7 @@ create_dialog_no_root (void)
   gtk_window_set_title (GTK_WINDOW (dialog_no_root), _("only root"));
   gtk_window_set_position (GTK_WINDOW (dialog_no_root), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (dialog_no_root), FALSE);
-  dialog_no_root_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  dialog_no_root_icon_pixbuf = create_pixbuf ("install-gui.png");
   if (dialog_no_root_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_no_root), dialog_no_root_icon_pixbuf);
@@ -1253,7 +1253,7 @@ create_install_progressbar (void)
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
   gtk_window_set_position (GTK_WINDOW (install_progressbar), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_progressbar), FALSE);
-  install_progressbar_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  install_progressbar_icon_pixbuf = create_pixbuf ("install-gui.png");
   if (install_progressbar_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (install_progressbar), install_progressbar_icon_pixbuf);
@@ -1391,7 +1391,7 @@ create_dialog_end (void)
   gtk_window_set_title (GTK_WINDOW (dialog_end), _("Installation successful"));
   gtk_window_set_position (GTK_WINDOW (dialog_end), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (dialog_end), FALSE);
-  dialog_end_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  dialog_end_icon_pixbuf = create_pixbuf ("install-gui.png");
   if (dialog_end_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_end), dialog_end_icon_pixbuf);
@@ -1489,7 +1489,7 @@ create_dialog_keyb_change (void)
 
   dialog_keyb_change = gtk_dialog_new ();
   gtk_window_set_title (GTK_WINDOW (dialog_keyb_change), _("Keyboard Info"));
-  dialog_keyb_change_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  dialog_keyb_change_icon_pixbuf = create_pixbuf ("install-gui.png");
   if (dialog_keyb_change_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_keyb_change), dialog_keyb_change_icon_pixbuf);
@@ -1570,7 +1570,7 @@ create_install_window (void)
   gtk_window_set_title (GTK_WINDOW (install_window), _("sidux HD-Installation"));
   gtk_window_set_position (GTK_WINDOW (install_window), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_window), FALSE);
-  install_window_icon_pixbuf = create_pixbuf ("sidux-inst-conf.png");
+  install_window_icon_pixbuf = create_pixbuf ("install-gui.png");
   if (install_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (install_window), install_window_icon_pixbuf);
