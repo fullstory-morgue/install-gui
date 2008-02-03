@@ -1,0 +1,300 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2007-11-24 10:07+0900\n"
+"PO-Revision-Date: 2008-02-01 20:53+0100\n"
+"Last-Translator: sach <sachs@infoseek.jp>  modified by muchan <muchan.m@gmail.com>\n"
+"Language-Team: JAPANESE <sachs@simosnet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install-gui.glade:8(property) 
+msgid "sidux HD-Installation"
+msgstr "sidux HDインストール"
+
+#: install-gui.glade:78(property) 
+msgid "exit"
+msgstr "終了"
+
+#: install-gui.glade:275(property) 
+msgid "Welcome to the sidux HD-Installation"
+msgstr "sidux HDインストールへようこそ"
+
+#: install-gui.glade:425(property) 
+msgid "sidux takes no responsibility for data loss or hardware damage."
+msgstr "siduxはデータ損失やハードウア障害に責任を負いません."
+
+#: install-gui.glade:452(property)
+msgid "This application will install sidux to your harddisk."
+msgstr "このアプリケーションはハードディスクへsiduxをインストールします."
+
+#: install-gui.glade:505(property) 
+msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
+"sidux-website: http://sidux.com"
+msgstr "インストールに関して困った時は、siduxのウェブサイト、Wiki、フォーラムやチャットを訪れてください!\n\n"
+"sidux-ウェブサイト: http://sidux.com"
+
+#: install-gui.glade:537(property) 
+msgid "Welcome"
+msgstr "ようこそ"
+
+#: install-gui.glade:589(property) 
+msgid "options are:\n"
+"========\n"
+"/boot\n"
+"/home\n"
+"/opt\n"
+"/root\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+msgstr "オプション:\n"
+"========\n"
+"/boot\n"
+"/home\n"
+"/opt\n"
+"/root\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+
+#: install-gui.glade:624(property) 
+msgid "!!!!!! be careful !!!!!!!\n"
+"Do it, if you don't have a linux partition.\n"
+"Read the Manual before. (see the Manual Button on the Desktop)"
+msgstr "!!!!!! 注意 !!!!!!!\n"
+"Linuxパーティションが存在しない時は実行します。\n"
+"その前に一度マニュアルを読んでください.(デスクトップ上にマニュアルボタンがあります)"
+
+#: install-gui.glade:672(property)
+msgid "Start Part.- manager"
+msgstr "パーティション設定"
+
+#: install-gui.glade:710(property) 
+msgid "Root-Partition"
+msgstr "ルートパーティション"
+
+#: install-gui.glade:736(property) 
+msgid "Mountpoints of other Partitions"
+msgstr "他のパーティションのマウントポイント"
+
+#: install-gui.glade:762(property) 
+msgid "Example:\n"
+"------------\n"
+"A seperate\n"
+"home-partition:\n"
+"/home"
+msgstr "例:\n"
+"------------\n"
+"以下に分割する\n"
+"ホームパーティション:\n"
+"/home"
+
+#: install-gui.glade:810(property) 
+msgid "Set mountpoints of other Partitions\n"
+"(will not be formatted automatically)"
+msgstr "他のパーティションのマウントポイントをセットしてください\n"
+"(自動的にはフォーマットされません)"
+
+#: install-gui.glade:847(property) 
+msgid "format with"
+msgstr "formatする"
+
+#: install-gui.glade:870(property) 
+msgid "Partitioning"
+msgstr "パーティション"
+
+#: install-gui.glade:912(property) 
+msgid "create a bootdisk"
+msgstr "ブートディスクを作成"
+
+#: install-gui.glade:931(property) 
+msgid "Installation-target"
+msgstr "インストール先"
+
+#: install-gui.glade:957(property) 
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+"Installation-target: MBR (Master Boot Record) or root-partition"
+msgstr "ブートマネージャー: ブートマネージャーは開始時ブートしたいOSを選択します.\n\n"
+"インストール先: MBR (Master Boot Record) または ルートパーティション"
+
+#: install-gui.glade:1033(property) 
+msgid "Bootmanager"
+msgstr "ブートマネージャー"
+
+#: install-gui.glade:1280(property) 
+msgid "Root-password:"
+msgstr "ルートパスワード:"
+
+#: install-gui.glade:1306(property) 
+msgid "Root-password again:"
+msgstr "ルートパスワード再入力:"
+
+#: install-gui.glade:1332(property) 
+msgid "Realname:"
+msgstr "本名:"
+
+#: install-gui.glade:1358(property) 
+msgid "Password:"
+msgstr "パスワード:"
+
+#: install-gui.glade:1384(property) 
+msgid "Password again:"
+msgstr "パスワード再入力:"
+
+#: install-gui.glade:1410(property) 
+msgid "Username:"
+msgstr "ユーザー名:"
+
+#: install-gui.glade:1481(property) 
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+"Important: All passwords have to be between 6 and 20 characters long!"
+msgstr "ルートパスワード: このパスワードはシステム管理者が使います. 決して忘れないように!\n\n"
+"ユーザー名: ユーザー名は小文字英字と数字のみです.\n\n"
+"重要: どのパスワードも6文字以上２０文字以下でなければなりません!"
+
+#: install-gui.glade:1515(property) 
+msgid "User"
+msgstr "ユーザー"
+
+#: install-gui.glade:1564(property) 
+msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
+msgstr "ホスト名: ホスト名は小文字英字と数字のみを使い、数字から始まってはなりません."
+
+#: install-gui.glade:1680(property) 
+msgid "Network"
+msgstr "ネットワーク"
+
+#: install-gui.glade:1709(property) 
+msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+"If everything is correct for you, pressing \"Save config & Next\"."
+msgstr "siduxのインストールを始めるのに必要な情報はすべて入力されました。\n\n"
+"\"戻る\" ボタンを押せば、オプションをもう一度チェックしたり変更したりできます.\n\n"
+"すべて正しければ、 \"設定を保存して次へ\" を押してください."
+
+#: install-gui.glade:1800(property) 
+msgid "Save configuration\n"
+"only (~/.sidconf)"
+msgstr "設定を保存\n"
+"only (~/.sidconf)"
+
+#: install-gui.glade:1821(property) 
+msgid "Start sidux-Installer-Script\n"
+"without configuration\n"
+"(this configuration will be lost)"
+msgstr "siduxのインストールスクリプトを\n"
+"設定なしで開始\n"
+"(この設定は失われます)"
+
+#: install-gui.glade:1844(property) 
+msgid "Save configuration\n"
+"and start installation"
+msgstr "設定を保存\n"
+"してインストール開始"
+
+#: install-gui.glade:1866(property) 
+msgid "Force Installation\n"
+"(Ignore RAM-/Partition-Check, etc.)"
+msgstr "強制インストール\n"
+"(RAM,パーティションなどのチェックを無視)"
+
+#: install-gui.glade:1929(property) 
+msgid "Begin Installation"
+msgstr "インストール開始"
+
+#: install-gui.glade:1970(property) 
+msgid "Installation"
+msgstr "インストール"
+
+#: install-gui.glade:1980(property) 
+msgid "Next"
+msgstr "次へ"
+
+#: install-gui.glade:1990(property) 
+msgid "Prev"
+msgstr "前へ"
+
+#: install-gui.glade:1578(property) 
+msgid "Install additional\n"
+"Metapackages"
+msgstr "追加インストール\n"
+"メタパッケージ"
+
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr "ホストネーム"
+
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr "起動時にパーティションをマウントする"
+
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (Secure shell Client and Server)"
+
+#: install-gui.glade:1537(property) 
+msgid "cupsys (Printing System)"
+msgstr "cupsys (印刷システム)"
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr "サービス スタート"
+
+#: install-gui.glade:1559(property) 
+msgid "<big> Timezone </big>"
+msgstr "<big> タイムゾーン </big>"
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr "ルートパスワードが違います!"
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr "ルートパスワードが短かすぎます!"
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr "本名が空です!"
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr "ユーザー名が空です!"
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr "パスワードが違います!"
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr "パスワードが短かすぎます!"
+
+#: install-gui.glade:3417(property) 
+msgid "Edit Configuration"
+msgstr "設定を変更"
+
+#: install-gui.glade:3497(property) 
+msgid "not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr "必要ありません,\n"
+"<b>注意 !!!</b>"
+
+#: install-gui.glade:3455(property) 
+msgid "Installation with progressbar\n"
+"(default)"
+msgstr "プログレスバー付きインストール\n"
+"(デフォルト)"
+
+#: install-gui.glade:3476(property) 
+msgid "Installation with terminal\n"
+"(debug modus)"
+msgstr "端末でインストール\n"
+"(デバッグモード)"
+
+#: install-gui.glade:2108(property) 
+msgid "Save config & Next"
+msgstr "設定保存して次へ"
+
+
