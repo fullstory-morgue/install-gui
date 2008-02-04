@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=su-to-root -X -c /usr/bin/install-gui
+Exec=su-to-root -X -c /usr/bin/install-gui.bash
 Icon=install-gui
 Name=sidux-installer
 GenericName=Install sidux to hd

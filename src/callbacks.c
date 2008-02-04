@@ -1458,7 +1458,7 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
                                         gpointer         user_data)
 {
 
-   int password_failed;
+   int password_failed, pages;
    //int leaved_page;
 
    GtkWidget *notebook1;
@@ -1471,7 +1471,10 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
 
       GtkWidget *button_next = lookup_widget(GTK_WIDGET (notebook),"next");
 
-      if( page_num < 5 )
+      pages = gtk_notebook_get_n_pages ( GTK_NOTEBOOK (notebook1));
+
+
+      if( page_num < --pages )
           gtk_widget_show ( GTK_WIDGET (button_next) );
       else
           gtk_widget_hide ( GTK_WIDGET (button_next) );
@@ -1750,6 +1753,18 @@ on_window_main_realize                 (GtkWidget       *widget,
    treeview1   = lookup_widget (GTK_WIDGET (widget), "treeview1");
    model = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, GTK_TYPE_STRING);
 
+
+   // ############################################################################
+   // #                            firmware needeed?                             #
+   // ############################################################################
+   if( strncmp( getenv("FLL_FIRMWARE"), "", BUF_LEN ) == 0 ) {  // NO firmware
+	GtkWidget *notebook1 = lookup_widget (GTK_WIDGET (widget), "notebook1");
+	gtk_notebook_remove_page( GTK_NOTEBOOK(notebook1), 5 );
+   }
+   else {
+	GtkWidget* label_firmware = lookup_widget( GTK_WIDGET ( widget ), "label_firmware" );
+	gtk_label_set_markup ( GTK_LABEL( label_firmware ), getenv("FLL_FIRMWARE") );
+   }
 
 
    gtk_tree_view_set_model(GTK_TREE_VIEW(treeview1), GTK_TREE_MODEL (model));

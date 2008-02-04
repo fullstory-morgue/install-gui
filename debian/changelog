@@ -6,7 +6,10 @@ install-gui (0.6.10) UNRELEASED; urgency=low
   [ Joaquim Boura ]
   * japanese text file. Thks to muchan
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 03 Feb 2008 15:45:55 +0100
+  [ Horst Tritremmel ]
+  * Firmware Notebookpage added
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 04 Feb 2008 17:07:57 +0100
 
 install-gui (0.6.9) unstable; urgency=low
 

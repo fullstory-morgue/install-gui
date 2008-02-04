@@ -36,6 +36,7 @@ create_window_main (void)
   GtkWidget *image1;
   GtkWidget *next;
   GtkWidget *prev;
+  GtkWidget *exit;
   GtkWidget *notebook1;
   GtkWidget *fixed2;
   GtkWidget *hseparator2;
@@ -49,11 +50,11 @@ create_window_main (void)
   GtkWidget *hseparator20;
   GtkWidget *image19;
   GtkWidget *label_wellcome_2;
-  GtkWidget *label_wellcome_red;
   GtkWidget *button_usb;
   GtkWidget *eventbox1;
   GtkWidget *fixed16;
   GtkWidget *label48;
+  GtkWidget *label_wellcome_red;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -132,8 +133,6 @@ create_window_main (void)
   GtkWidget *label4;
   GtkWidget *fixed_network;
   GtkWidget *hostname;
-  GtkWidget *hseparator11;
-  GtkWidget *label31;
   GtkWidget *label32;
   GtkWidget *vseparator5;
   GtkWidget *vseparator6;
@@ -147,7 +146,16 @@ create_window_main (void)
   GtkWidget *label38;
   GtkWidget *image_hostname;
   GtkWidget *label_hostname_error;
+  GtkWidget *label31;
+  GtkWidget *hseparator11;
   GtkWidget *label5;
+  GtkWidget *fixed19;
+  GtkWidget *scrolledwindow4;
+  GtkWidget *viewport4;
+  GtkWidget *fixed20;
+  GtkWidget *label_firmware;
+  GtkWidget *hseparator24;
+  GtkWidget *label60;
   GtkWidget *fixed7;
   GtkWidget *hseparator14;
   GtkWidget *radiobutton3;
@@ -171,7 +179,6 @@ create_window_main (void)
   GtkWidget *label37;
   GtkWidget *label33;
   GtkWidget *label6;
-  GtkWidget *exit;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -215,6 +222,13 @@ create_window_main (void)
   gtk_widget_set_size_request (prev, 140, 28);
   GTK_WIDGET_UNSET_FLAGS (prev, GTK_CAN_FOCUS);
   gtk_button_set_focus_on_click (GTK_BUTTON (prev), FALSE);
+
+  exit = gtk_button_new_from_stock ("gtk-quit");
+  gtk_widget_show (exit);
+  gtk_fixed_put (GTK_FIXED (fixed1), exit, 10, 488);
+  gtk_widget_set_size_request (exit, 140, 28);
+  GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
+  gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
 
   notebook1 = gtk_notebook_new ();
   gtk_widget_show (notebook1);
@@ -287,14 +301,6 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
 
-  label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
-  gtk_widget_show (label_wellcome_red);
-  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
-  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
-  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
-
   button_usb = gtk_button_new ();
   gtk_widget_show (button_usb);
   gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 250, 302);
@@ -315,6 +321,14 @@ create_window_main (void)
   gtk_widget_set_size_request (label48, 212, 25);
   gtk_label_set_use_markup (GTK_LABEL (label48), TRUE);
   gtk_label_set_justify (GTK_LABEL (label48), GTK_JUSTIFY_CENTER);
+
+  label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
+  gtk_widget_show (label_wellcome_red);
+  gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
+  gtk_widget_set_size_request (label_wellcome_red, 568, 80);
+  gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -738,19 +752,6 @@ create_window_main (void)
   gtk_widget_set_size_request (hostname, 232, 24);
   gtk_entry_set_text (GTK_ENTRY (hostname), _("siduxbox"));
 
-  hseparator11 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator11);
-  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator11, 16, 96);
-  gtk_widget_set_size_request (hseparator11, 640, 16);
-
-  label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
-  gtk_widget_show (label31);
-  gtk_fixed_put (GTK_FIXED (fixed_network), label31, 16, 8);
-  gtk_widget_set_size_request (label31, 640, 88);
-  gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
-  gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
-
   label32 = gtk_label_new (_("Hostname:"));
   gtk_widget_show (label32);
   gtk_fixed_put (GTK_FIXED (fixed_network), label32, 128, 152);
@@ -817,9 +818,60 @@ create_window_main (void)
   gtk_widget_set_size_request (label_hostname_error, 456, 40);
   gtk_label_set_use_markup (GTK_LABEL (label_hostname_error), TRUE);
 
+  label31 = gtk_label_new (_("Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."));
+  gtk_widget_show (label31);
+  gtk_fixed_put (GTK_FIXED (fixed_network), label31, 16, 8);
+  gtk_widget_set_size_request (label31, 640, 88);
+  gtk_label_set_justify (GTK_LABEL (label31), GTK_JUSTIFY_CENTER);
+  gtk_label_set_line_wrap (GTK_LABEL (label31), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label31), 0, 0.5);
+
+  hseparator11 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator11);
+  gtk_fixed_put (GTK_FIXED (fixed_network), hseparator11, 16, 96);
+  gtk_widget_set_size_request (hseparator11, 640, 16);
+
   label5 = gtk_label_new (_("Network"));
   gtk_widget_show (label5);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 4), label5);
+
+  fixed19 = gtk_fixed_new ();
+  gtk_widget_show (fixed19);
+  gtk_container_add (GTK_CONTAINER (notebook1), fixed19);
+  gtk_container_set_border_width (GTK_CONTAINER (fixed19), 15);
+
+  scrolledwindow4 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow4);
+  gtk_fixed_put (GTK_FIXED (fixed19), scrolledwindow4, 16, 0);
+  gtk_widget_set_size_request (scrolledwindow4, 633, 305);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow4), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow4), GTK_SHADOW_IN);
+
+  viewport4 = gtk_viewport_new (NULL, NULL);
+  gtk_widget_show (viewport4);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow4), viewport4);
+  gtk_viewport_set_shadow_type (GTK_VIEWPORT (viewport4), GTK_SHADOW_ETCHED_IN);
+
+  fixed20 = gtk_fixed_new ();
+  gtk_widget_show (fixed20);
+  gtk_container_add (GTK_CONTAINER (viewport4), fixed20);
+
+  label_firmware = gtk_label_new_with_mnemonic ("");
+  gtk_widget_show (label_firmware);
+  gtk_fixed_put (GTK_FIXED (fixed20), label_firmware, 8, 8);
+  gtk_widget_set_size_request (label_firmware, 592, 4000);
+  gtk_label_set_use_markup (GTK_LABEL (label_firmware), TRUE);
+  gtk_label_set_line_wrap (GTK_LABEL (label_firmware), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_firmware), 0, 0);
+
+  hseparator24 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator24);
+  gtk_fixed_put (GTK_FIXED (fixed19), hseparator24, 16, 312);
+  gtk_widget_set_size_request (hseparator24, 633, 16);
+
+  label60 = gtk_label_new (_("Firmware"));
+  gtk_widget_show (label60);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label60);
 
   fixed7 = gtk_fixed_new ();
   gtk_widget_show (fixed7);
@@ -934,14 +986,7 @@ create_window_main (void)
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
-  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 5), label6);
-
-  exit = gtk_button_new_from_stock ("gtk-quit");
-  gtk_widget_show (exit);
-  gtk_fixed_put (GTK_FIXED (fixed1), exit, 10, 488);
-  gtk_widget_set_size_request (exit, 140, 28);
-  GTK_WIDGET_UNSET_FLAGS (exit, GTK_CAN_FOCUS);
-  gtk_button_set_focus_on_click (GTK_BUTTON (exit), FALSE);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 6), label6);
 
   g_signal_connect ((gpointer) window_main, "delete_event",
                     G_CALLBACK (on_window_main_delete_event),
@@ -954,6 +999,9 @@ create_window_main (void)
                     NULL);
   g_signal_connect ((gpointer) prev, "clicked",
                     G_CALLBACK (on_prev_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) exit, "clicked",
+                    G_CALLBACK (on_exit_clicked),
                     NULL);
   g_signal_connect_after ((gpointer) notebook1, "switch_page",
                           G_CALLBACK (on_notebook1_switch_page),
@@ -1009,9 +1057,6 @@ create_window_main (void)
   g_signal_connect ((gpointer) button_install, "clicked",
                     G_CALLBACK (on_button_install_clicked),
                     NULL);
-  g_signal_connect ((gpointer) exit, "clicked",
-                    G_CALLBACK (on_exit_clicked),
-                    NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, window_main, "window_main");
@@ -1020,6 +1065,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, image1, "image1");
   GLADE_HOOKUP_OBJECT (window_main, next, "next");
   GLADE_HOOKUP_OBJECT (window_main, prev, "prev");
+  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT (window_main, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (window_main, fixed2, "fixed2");
   GLADE_HOOKUP_OBJECT (window_main, hseparator2, "hseparator2");
@@ -1033,11 +1079,11 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator20, "hseparator20");
   GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
-  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, eventbox1, "eventbox1");
   GLADE_HOOKUP_OBJECT (window_main, fixed16, "fixed16");
   GLADE_HOOKUP_OBJECT (window_main, label48, "label48");
+  GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
@@ -1115,8 +1161,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
   GLADE_HOOKUP_OBJECT (window_main, fixed_network, "fixed_network");
   GLADE_HOOKUP_OBJECT (window_main, hostname, "hostname");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator11, "hseparator11");
-  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
   GLADE_HOOKUP_OBJECT (window_main, label32, "label32");
   GLADE_HOOKUP_OBJECT (window_main, vseparator5, "vseparator5");
   GLADE_HOOKUP_OBJECT (window_main, vseparator6, "vseparator6");
@@ -1130,7 +1174,16 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label38, "label38");
   GLADE_HOOKUP_OBJECT (window_main, image_hostname, "image_hostname");
   GLADE_HOOKUP_OBJECT (window_main, label_hostname_error, "label_hostname_error");
+  GLADE_HOOKUP_OBJECT (window_main, label31, "label31");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator11, "hseparator11");
   GLADE_HOOKUP_OBJECT (window_main, label5, "label5");
+  GLADE_HOOKUP_OBJECT (window_main, fixed19, "fixed19");
+  GLADE_HOOKUP_OBJECT (window_main, scrolledwindow4, "scrolledwindow4");
+  GLADE_HOOKUP_OBJECT (window_main, viewport4, "viewport4");
+  GLADE_HOOKUP_OBJECT (window_main, fixed20, "fixed20");
+  GLADE_HOOKUP_OBJECT (window_main, label_firmware, "label_firmware");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator24, "hseparator24");
+  GLADE_HOOKUP_OBJECT (window_main, label60, "label60");
   GLADE_HOOKUP_OBJECT (window_main, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (window_main, hseparator14, "hseparator14");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton3, "radiobutton3");
@@ -1153,7 +1206,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
-  GLADE_HOOKUP_OBJECT (window_main, exit, "exit");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 
   return window_main;
@@ -1699,5 +1751,98 @@ create_install_window (void)
   GLADE_HOOKUP_OBJECT (install_window, label51, "label51");
 
   return install_window;
+}
+
+GtkWidget*
+create_dialog_no_bash (void)
+{
+  GtkWidget *dialog_no_bash;
+  GdkPixbuf *dialog_no_bash_icon_pixbuf;
+  GtkWidget *vbox1;
+  GtkWidget *fixed18;
+  GtkWidget *label55;
+  GtkWidget *image23;
+  GtkWidget *label53;
+  GtkWidget *label56;
+  GtkWidget *hbuttonbox1;
+  GtkWidget *button2;
+
+  dialog_no_bash = gtk_dialog_new ();
+  gtk_window_set_title (GTK_WINDOW (dialog_no_bash), _("FLL_FIRMWARE variable not found"));
+  gtk_window_set_position (GTK_WINDOW (dialog_no_bash), GTK_WIN_POS_CENTER);
+  gtk_window_set_resizable (GTK_WINDOW (dialog_no_bash), FALSE);
+  dialog_no_bash_icon_pixbuf = create_pixbuf ("install-gui.png");
+  if (dialog_no_bash_icon_pixbuf)
+    {
+      gtk_window_set_icon (GTK_WINDOW (dialog_no_bash), dialog_no_bash_icon_pixbuf);
+      gdk_pixbuf_unref (dialog_no_bash_icon_pixbuf);
+    }
+  gtk_window_set_type_hint (GTK_WINDOW (dialog_no_bash), GDK_WINDOW_TYPE_HINT_DIALOG);
+  gtk_window_set_gravity (GTK_WINDOW (dialog_no_bash), GDK_GRAVITY_CENTER);
+
+  vbox1 = GTK_DIALOG (dialog_no_bash)->vbox;
+  gtk_widget_show (vbox1);
+
+  fixed18 = gtk_fixed_new ();
+  gtk_widget_show (fixed18);
+  gtk_box_pack_start (GTK_BOX (vbox1), fixed18, TRUE, TRUE, 0);
+
+  label55 = gtk_label_new ("");
+  gtk_widget_show (label55);
+  gtk_fixed_put (GTK_FIXED (fixed18), label55, 8, 270);
+  gtk_widget_set_size_request (label55, 496, 22);
+  gtk_label_set_use_markup (GTK_LABEL (label55), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label55), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label55), 0.5, 0);
+
+  image23 = create_pixmap (dialog_no_bash, "sidux-logo.png");
+  gtk_widget_show (image23);
+  gtk_fixed_put (GTK_FIXED (fixed18), image23, 8, 8);
+  gtk_widget_set_size_request (image23, 488, 168);
+
+  label53 = gtk_label_new (_("<big><b>http://sidux.com</b></big>"));
+  gtk_widget_show (label53);
+  gtk_fixed_put (GTK_FIXED (fixed18), label53, 8, 176);
+  gtk_widget_set_size_request (label53, 496, 24);
+  gtk_label_set_use_markup (GTK_LABEL (label53), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label53), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label53), 0.5, 0.03);
+
+  label56 = gtk_label_new (_("<span foreground=\"red\" font_desc=\"14\">getenv FLL_FIRMWARE isn't defined.\nPlease start with \"install-gui.bash\"\n</span>"));
+  gtk_widget_show (label56);
+  gtk_fixed_put (GTK_FIXED (fixed18), label56, 0, 216);
+  gtk_widget_set_size_request (label56, 504, 56);
+  gtk_label_set_use_markup (GTK_LABEL (label56), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label56), GTK_JUSTIFY_CENTER);
+  gtk_misc_set_alignment (GTK_MISC (label56), 0.5, 0);
+
+  hbuttonbox1 = GTK_DIALOG (dialog_no_bash)->action_area;
+  gtk_widget_show (hbuttonbox1);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (hbuttonbox1), GTK_BUTTONBOX_END);
+
+  button2 = gtk_button_new_with_mnemonic (_("OK"));
+  gtk_widget_show (button2);
+  gtk_dialog_add_action_widget (GTK_DIALOG (dialog_no_bash), button2, GTK_RESPONSE_OK);
+  GTK_WIDGET_SET_FLAGS (button2, GTK_CAN_DEFAULT);
+
+  g_signal_connect ((gpointer) dialog_no_bash, "delete_event",
+                    G_CALLBACK (on_dialog_end_delete_event),
+                    NULL);
+  g_signal_connect ((gpointer) button2, "clicked",
+                    G_CALLBACK (on_success_exit_button_clicked),
+                    NULL);
+
+  /* Store pointers to all widgets, for use by lookup_widget(). */
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_no_bash, dialog_no_bash, "dialog_no_bash");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_no_bash, vbox1, "vbox1");
+  GLADE_HOOKUP_OBJECT (dialog_no_bash, fixed18, "fixed18");
+  GLADE_HOOKUP_OBJECT (dialog_no_bash, label55, "label55");
+  GLADE_HOOKUP_OBJECT (dialog_no_bash, image23, "image23");
+  GLADE_HOOKUP_OBJECT (dialog_no_bash, label53, "label53");
+  GLADE_HOOKUP_OBJECT (dialog_no_bash, label56, "label56");
+  GLADE_HOOKUP_OBJECT_NO_REF (dialog_no_bash, hbuttonbox1, "hbuttonbox1");
+  GLADE_HOOKUP_OBJECT (dialog_no_bash, button2, "button2");
+
+  return dialog_no_bash;
 }
 

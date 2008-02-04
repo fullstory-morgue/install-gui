@@ -44,12 +44,22 @@ main (int argc, char *argv[])
      gtk_widget_show (dialog_no_root);
    }
    else {
-     window_main = create_window_main ();
-     gtk_widget_show (window_main);
+	if (!getenv("FLL_FIRMWARE")) {
+
+		printf("getenv FLL_FIRMWARE isn't defined\nPlease start with install-gui.bash !!!\n");
+
+		GtkWidget* dialog_no_bash = create_dialog_no_bash ();
+		gtk_widget_show (dialog_no_bash);
+	}
+	else {
+		window_main = create_window_main ();
+		gtk_widget_show (window_main);
+	}
    }
 
    gtk_main ();
 
    return 0;
+
 }
 
