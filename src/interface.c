@@ -163,7 +163,6 @@ create_window_main (void)
   GtkWidget *radiobutton2;
   GtkWidget *radiobutton1;
   GtkWidget *hseparator17;
-  GtkWidget *checkbutton_metapackages;
   GtkWidget *hseparator15;
   GtkWidget *vseparator8;
   GtkWidget *vseparator7;
@@ -178,6 +177,7 @@ create_window_main (void)
   GtkWidget *label52;
   GtkWidget *label37;
   GtkWidget *label33;
+  GtkWidget *checkbutton_metapackages;
   GtkWidget *label6;
   GtkTooltips *tooltips;
 
@@ -906,12 +906,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed7), hseparator17, 96, 240);
   gtk_widget_set_size_request (hseparator17, 472, 16);
 
-  checkbutton_metapackages = gtk_check_button_new_with_mnemonic (_("Install additional\nMetapackages"));
-  gtk_widget_show (checkbutton_metapackages);
-  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 112, 184);
-  gtk_widget_set_size_request (checkbutton_metapackages, 400, 56);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_metapackages), TRUE);
-
   hseparator15 = gtk_hseparator_new ();
   gtk_widget_show (hseparator15);
   gtk_fixed_put (GTK_FIXED (fixed7), hseparator15, 96, 120);
@@ -983,6 +977,10 @@ create_window_main (void)
   gtk_label_set_justify (GTK_LABEL (label33), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label33), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label33), 0, 0.5);
+
+  checkbutton_metapackages = gtk_check_button_new_with_mnemonic (_("Install additional\nMetapackages"));
+  gtk_fixed_put (GTK_FIXED (fixed7), checkbutton_metapackages, 112, 184);
+  gtk_widget_set_size_request (checkbutton_metapackages, 400, 56);
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
@@ -1190,7 +1188,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, radiobutton2, "radiobutton2");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton1, "radiobutton1");
   GLADE_HOOKUP_OBJECT (window_main, hseparator17, "hseparator17");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_metapackages, "checkbutton_metapackages");
   GLADE_HOOKUP_OBJECT (window_main, hseparator15, "hseparator15");
   GLADE_HOOKUP_OBJECT (window_main, vseparator8, "vseparator8");
   GLADE_HOOKUP_OBJECT (window_main, vseparator7, "vseparator7");
@@ -1205,6 +1202,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label52, "label52");
   GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, label33, "label33");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_metapackages, "checkbutton_metapackages");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 

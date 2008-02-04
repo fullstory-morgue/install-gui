@@ -2294,27 +2294,6 @@ only (~/.sidconf)</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkCheckButton" id="checkbutton_metapackages">
-		  <property name="width_request">400</property>
-		  <property name="height_request">56</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">Install additional
-Metapackages</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <property name="active">True</property>
-		  <property name="inconsistent">False</property>
-		  <property name="draw_indicator">True</property>
-		</widget>
-		<packing>
-		  <property name="x">112</property>
-		  <property name="y">184</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkHSeparator" id="hseparator15">
 		  <property name="width_request">472</property>
 		  <property name="height_request">16</property>
@@ -2558,6 +2537,26 @@ If everything is correct for you, pressing &quot;Save config &amp; Next&quot;.</
 		<packing>
 		  <property name="x">16</property>
 		  <property name="y">8</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkCheckButton" id="checkbutton_metapackages">
+		  <property name="width_request">400</property>
+		  <property name="height_request">56</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">Install additional
+Metapackages</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <property name="active">False</property>
+		  <property name="inconsistent">False</property>
+		  <property name="draw_indicator">True</property>
+		</widget>
+		<packing>
+		  <property name="x">112</property>
+		  <property name="y">184</property>
 		</packing>
 	      </child>
 	    </widget>
