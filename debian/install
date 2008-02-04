@@ -4,5 +4,4 @@ icons/install-gui.svg		usr/share/icons/hicolor/scalable/apps/
 icons/hicolor.install-gui/*	usr/share/icons/hicolor/
 icons/pixmaps.install-gui/*	usr/share/pixmaps/
 scripts/install-gui.bash	usr/bin/
-scripts/nonfree			usr/sbin/
-
+scripts/nonfree			usr/share/install-gui/

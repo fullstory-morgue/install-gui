@@ -1,7 +1,4 @@
-install-gui (0.6.10) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.6.10) unstable; urgency=low
 
   [ Joaquim Boura ]
   * japanese text file. Thks to muchan
@@ -10,9 +7,13 @@ install-gui (0.6.10) UNRELEASED; urgency=low
   * Firmware Notebookpage added
   * control fixed
   * nonfree script added
-  * don't start install-meta 
+  * don't start install-meta
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 04 Feb 2008 22:31:17 +0100
+  [ Stefan Lippers-Hollmann ]
+  * install "nonfree" to usr/share/install-gui/, it shouldn't be a user
+    accessible command.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 05 Feb 2008 00:34:15 +0100
 
 install-gui (0.6.9) unstable; urgency=low
 
