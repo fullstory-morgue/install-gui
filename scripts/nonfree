@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DEST="/etc/apt/sources.list"
+
+# populate sources.list.d
+rm -f ${DEST}.d/*
+
+cat >> "${DEST}.d/debian.list" \
+<<EOF
+deb http://ftp.debian.org/debian/ sid main contrib non-free
+#deb-src http://ftp.debian.org/debian/ sid main contrib non-free
+EOF
+
+cat >> "${DEST}.d/sidux.list" \
+<<EOF
+deb http://sidux.com/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
+#deb-src http://sidux.com/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
+EOF
