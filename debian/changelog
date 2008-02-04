@@ -8,8 +8,9 @@ install-gui (0.6.10) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * Firmware Notebookpage added
+  * control fixed 
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 04 Feb 2008 17:07:57 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 04 Feb 2008 20:07:35 +0100
 
 install-gui (0.6.9) unstable; urgency=low
 
