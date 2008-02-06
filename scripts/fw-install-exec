@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#add non-free
+printf "add non-free sources ...\n"
+/usr/share/install-gui/nonfree
+apt-get update
+
+# install firmware
+printf "install firmware ...\n"
+for fw in $(fw-detect -y ); do
+	printf "${fw}\n"
+	fw-detect -i $fw
+done 

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export SSFT_FRONTEND=zenity
+
+INETCONN=$(which inetconn) ||	INETCONN="/usr/bin/inetconn"
+
+# connection test
+printf "Internet connection test ...\n"
+source $INETCONN
+if [ "$connection" -eq 0 ]
+	then
+		exit 1
+fi
+
+x-terminal-emulator -e /usr/share/install-gui/fw-install-exec &

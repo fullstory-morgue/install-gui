@@ -1,8 +1,12 @@
 install-gui (0.6.11) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 05 Feb 2008 00:37:04 +0100
+  [ Horst Tritremmel ]
+  * firmware install button added
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 06 Feb 2008 12:36:57 +0100
 
 install-gui (0.6.10) unstable; urgency=low
 

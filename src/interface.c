@@ -155,6 +155,8 @@ create_window_main (void)
   GtkWidget *fixed20;
   GtkWidget *label_firmware;
   GtkWidget *hseparator24;
+  GtkWidget *button_installfw;
+  GtkWidget *label_fw;
   GtkWidget *label60;
   GtkWidget *fixed7;
   GtkWidget *hseparator14;
@@ -860,14 +862,26 @@ create_window_main (void)
   gtk_widget_show (label_firmware);
   gtk_fixed_put (GTK_FIXED (fixed20), label_firmware, 8, 8);
   gtk_widget_set_size_request (label_firmware, 592, 4000);
-  gtk_label_set_use_markup (GTK_LABEL (label_firmware), TRUE);
+  GTK_WIDGET_SET_FLAGS (label_firmware, GTK_CAN_FOCUS);
   gtk_label_set_line_wrap (GTK_LABEL (label_firmware), TRUE);
+  gtk_label_set_selectable (GTK_LABEL (label_firmware), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_firmware), 0, 0);
 
   hseparator24 = gtk_hseparator_new ();
   gtk_widget_show (hseparator24);
   gtk_fixed_put (GTK_FIXED (fixed19), hseparator24, 16, 312);
   gtk_widget_set_size_request (hseparator24, 633, 16);
+
+  button_installfw = gtk_button_new_from_stock ("gtk-execute");
+  gtk_widget_show (button_installfw);
+  gtk_fixed_put (GTK_FIXED (fixed19), button_installfw, 456, 331);
+  gtk_widget_set_size_request (button_installfw, 176, 30);
+
+  label_fw = gtk_label_new (_("<span foreground=\"#0022ff\">Installable driver found. Installation add non-free sources</span>"));
+  gtk_widget_show (label_fw);
+  gtk_fixed_put (GTK_FIXED (fixed19), label_fw, 18, 331);
+  gtk_widget_set_size_request (label_fw, 434, 30);
+  gtk_label_set_use_markup (GTK_LABEL (label_fw), TRUE);
 
   label60 = gtk_label_new (_("Firmware"));
   gtk_widget_show (label60);
@@ -1043,6 +1057,9 @@ create_window_main (void)
   g_signal_connect ((gpointer) hostname, "changed",
                     G_CALLBACK (on_hostname_changed),
                     NULL);
+  g_signal_connect ((gpointer) button_installfw, "clicked",
+                    G_CALLBACK (on_button_installfw_clicked),
+                    NULL);
   g_signal_connect ((gpointer) radiobutton3, "toggled",
                     G_CALLBACK (on_radiobutton3_toggled),
                     NULL);
@@ -1181,6 +1198,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, fixed20, "fixed20");
   GLADE_HOOKUP_OBJECT (window_main, label_firmware, "label_firmware");
   GLADE_HOOKUP_OBJECT (window_main, hseparator24, "hseparator24");
+  GLADE_HOOKUP_OBJECT (window_main, button_installfw, "button_installfw");
+  GLADE_HOOKUP_OBJECT (window_main, label_fw, "label_fw");
   GLADE_HOOKUP_OBJECT (window_main, label60, "label60");
   GLADE_HOOKUP_OBJECT (window_main, fixed7, "fixed7");
   GLADE_HOOKUP_OBJECT (window_main, hseparator14, "hseparator14");

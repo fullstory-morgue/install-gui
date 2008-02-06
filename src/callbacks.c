@@ -33,6 +33,7 @@
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
+#define INSTALL_FIRMWARE_BASH     "/usr/share/install-gui/fw-install"
 
 #define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
 //${LANGUAGE} is set in /etc/default/fll-locales
@@ -1724,6 +1725,12 @@ on_button_usb_clicked                  (GtkButton       *button,
 }
 
 
+void
+on_button_installfw_clicked            (GtkButton       *button,
+                                        gpointer         user_data)
+{
+	system(INSTALL_FIRMWARE_BASH);
+}
 
 
 void
@@ -1764,6 +1771,18 @@ on_window_main_realize                 (GtkWidget       *widget,
    else {
 	GtkWidget* label_firmware = lookup_widget( GTK_WIDGET ( widget ), "label_firmware" );
 	gtk_label_set_markup ( GTK_LABEL( label_firmware ), getenv("FLL_FIRMWARE") );
+
+	// installable firmware?
+	
+	if (!getenv("FLL_FIRMWARE_INSTALL")) {
+		fprintf(stderr, "install-gui.bash: FLL_FIRMWARE_INSTALL isn't defined\n");
+	}
+	else if( strlen(getenv("FLL_FIRMWARE_INSTALL")) < 1 ) { 
+		GtkWidget *button_installfw = lookup_widget(GTK_WIDGET (widget),"button_installfw");
+		GtkWidget *label_fw = lookup_widget(GTK_WIDGET (widget),"label_fw");
+		gtk_widget_hide ( GTK_WIDGET (button_installfw) );
+		gtk_widget_hide ( GTK_WIDGET (label_fw) );
+	}
    }
 
 
@@ -1908,24 +1927,6 @@ on_window_main_realize                 (GtkWidget       *widget,
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
    pango_font_description_free (font_desc);
 }
-
-
-/*
-void
-on_window_main_show                    (GtkWidget       *widget,
-                                        gpointer         user_data)
-{
-
- if( do_it_at_first_time < 1 ) {
-
-   do_it_at_first_time = 1;  // only at start
-
-
- }
-
-}
-*/
-
 
 
 /**************************************************************************
@@ -2171,4 +2172,6 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    system( install_call );
 
 }
+
+
 

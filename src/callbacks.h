@@ -290,3 +290,7 @@ on_entry_pw_again_changed              (GtkEditable     *editable,
 void
 on_hostname_changed                    (GtkEditable     *editable,
                                         gpointer         user_data);
+
+void
+on_button_installfw_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
