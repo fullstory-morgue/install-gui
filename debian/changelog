@@ -1,8 +1,12 @@
 install-gui (0.6.12) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 07 Feb 2008 22:07:01 +0100
+  [ Bernard Gray ]
+  * update install-gui.svg icon to display correctly in kde3/4 
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Tue, 12 Feb 2008 14:08:35 +1100
 
 install-gui (0.6.11) unstable; urgency=low
 
