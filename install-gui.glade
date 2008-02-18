@@ -2890,7 +2890,7 @@ apt-get install bcm43xx-fwcutter
 fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):&lt;/span&gt;
-fetch the needed firmeware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.
+fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Intel ipw2100, 11 MBit/s wlan:&lt;/span&gt;
 apt-get install ipw2100-firmware

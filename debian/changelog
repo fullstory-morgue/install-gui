@@ -1,8 +1,8 @@
-install-gui (0.6.13) UNRELEASED; urgency=low
+install-gui (0.6.13) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix typo.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 12 Feb 2008 23:00:27 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 18 Feb 2008 16:02:49 +0100
 
 install-gui (0.6.12) unstable; urgency=low
 
