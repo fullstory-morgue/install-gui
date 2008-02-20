@@ -1,3 +1,9 @@
+install-gui (0.6.15) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 20 Feb 2008 13:04:51 +0100
+
 install-gui (0.6.14) unstable; urgency=low
 
   * s/install-gui/install-gui.bash in install-gui.menu
