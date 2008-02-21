@@ -1,8 +1,13 @@
 install-gui (0.6.16) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 20 Feb 2008 23:05:29 +0100
+  [ Bernard Gray ]
+  * add updated svg version of sidux-inst-conf.png icon
+  * add updated svg version of install-usb.png icon
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Thu, 21 Feb 2008 23:45:47 +1100
 
 install-gui (0.6.15) unstable; urgency=low
 
