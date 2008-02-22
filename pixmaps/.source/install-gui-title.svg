@@ -18,7 +18,7 @@
    sodipodi:docname="install-gui-title.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
-   inkscape:export-filename="/home/bernie/svn/svn.berlios.de-fullstory/install-gui/trunk/pixmaps/install-gui-title.png"
+   inkscape:export-filename="/home/bgray/svn/svn.berlios.de-fullstory/install-gui/trunk/pixmaps/install-gui-title.png"
    inkscape:export-xdpi="42"
    inkscape:export-ydpi="42"
    style="display:inline;enable-background:new">
@@ -35,8 +35,8 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer16"
      inkscape:window-width="1400"
-     inkscape:window-height="988"
-     inkscape:window-x="0"
+     inkscape:window-height="983"
+     inkscape:window-x="270"
      inkscape:window-y="0"
      height="1200px"
      width="1600px"
@@ -63,6 +63,13 @@
   </sodipodi:namedview>
   <defs
      id="defs5552">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-50 : 600 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="700 : 600 : 1"
+       inkscape:persp3d-origin="300 : 400 : 1"
+       id="perspective225" />
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="-50 : 600 : 1"
@@ -348,18 +355,6 @@
        x2="228.87393"
        y2="11.835818"
        gradientTransform="matrix(1.5995757,0,0,1.5995757,-190.95574,697.74016)" />
-    <filter
-       id="filter5293"
-       height="1.4222628"
-       y="-0.21113142"
-       width="1.0452975"
-       x="-0.022648772"
-       inkscape:collect="always">
-      <feGaussianBlur
-         id="feGaussianBlur5295"
-         stdDeviation="2.9120882"
-         inkscape:collect="always" />
-    </filter>
     <linearGradient
        y2="11.835818"
        x2="228.87393"
@@ -527,35 +522,35 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-        <dc:date />
+        <dc:title></dc:title>
+        <dc:date></dc:date>
         <dc:creator>
           <cc:Agent>
-            <dc:title />
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:creator>
         <dc:rights>
           <cc:Agent>
-            <dc:title />
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:rights>
         <dc:publisher>
           <cc:Agent>
-            <dc:title />
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:publisher>
-        <dc:identifier />
-        <dc:source />
-        <dc:relation />
-        <dc:language />
+        <dc:identifier></dc:identifier>
+        <dc:source></dc:source>
+        <dc:relation></dc:relation>
+        <dc:language></dc:language>
         <dc:subject>
           <rdf:Bag />
         </dc:subject>
-        <dc:coverage />
-        <dc:description />
+        <dc:coverage></dc:coverage>
+        <dc:description></dc:description>
         <dc:contributor>
           <cc:Agent>
-            <dc:title />
+            <dc:title></dc:title>
           </cc:Agent>
         </dc:contributor>
         <cc:license
@@ -1306,18 +1301,6 @@
        inkscape:export-filename="/home/bernie/software/sidux-art/gaia/ksplash-logo.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <text
-       xml:space="preserve"
-       style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:FreeSans;-inkscape-font-specification:FreeSans"
-       x="966.75189"
-       y="202.42967"
-       id="text3048"
-       transform="translate(-184.31341,690.12861)"><tspan
-         sodipodi:role="line"
-         id="tspan3050"
-         x="966.75189"
-         y="202.42967"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans">HD Installation</tspan></text>
     <g
        id="g4563"
        inkscape:label="dark"
