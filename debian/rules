@@ -107,6 +107,14 @@ create-icons::
 		convert icons/hicolor.$${f}/32x32/apps/$${f}.png icons/pixmaps.$${f}/$${f}.xpm ; \
 		convert icons/hicolor.$${f}/16x16/apps/$${f}.png icons/pixmaps.$${f}/$${f}-16.xpm ; \
 	done
+	for f in install-usb-gui sidux-inst-conf; do \
+		mkdir -p "$(CURDIR)/pixmaps" ; \
+		[ -r  $(CURDIR)/icons/$${f}.svg ] || false ; \
+		inkscape --export-width=48 \
+			 --export-height=48 \
+			 --export-png="$(CURDIR)/pixmaps/$${f}.png" \
+				$(CURDIR)/icons/$${f}.svg ; \
+	done
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install

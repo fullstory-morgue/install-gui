@@ -290,7 +290,7 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), hseparator20, 24, 272);
   gtk_widget_set_size_request (hseparator20, 624, 16);
 
-  image19 = create_pixmap (window_main, "install-usb-icon.png");
+  image19 = create_pixmap (window_main, "install-usb-gui.png");
   gtk_widget_show (image19);
   gtk_fixed_put (GTK_FIXED (fixed2), image19, 167, 288);
   gtk_widget_set_size_request (image19, 64, 56);

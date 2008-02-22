@@ -270,7 +270,7 @@
 		  <property name="width_request">64</property>
 		  <property name="height_request">56</property>
 		  <property name="visible">True</property>
-		  <property name="pixbuf">install-usb-icon.png</property>
+		  <property name="pixbuf">install-usb-gui.png</property>
 		  <property name="xalign">0.5</property>
 		  <property name="yalign">0.5</property>
 		  <property name="xpad">0</property>

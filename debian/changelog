@@ -1,15 +1,16 @@
-install-gui (0.6.16) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.6.16) unstable; urgency=low
 
   [ Bernard Gray ]
   * add updated svg version of sidux-inst-conf.png icon
   * add updated svg version of install-usb.png icon
   * add updated nyx themed logos (svg and bitmap)
-  * cleanup install-gui-title logo 
+  * cleanup install-gui-title logo
 
- -- Bernard Gray <bernard.gray@gmail.com>  Fri, 22 Feb 2008 17:23:09 +1100
+  [ Stefan Lippers-Hollmann ]
+  * hook up new svg icons into the create-icons target.
+  * generate PNG graphics.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 22 Feb 2008 13:11:14 +0100
 
 install-gui (0.6.15) unstable; urgency=low
 
