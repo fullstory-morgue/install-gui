@@ -1,8 +1,12 @@
 install-gui (0.6.17) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 22 Feb 2008 13:15:35 +0100
+  [ Bernard Gray ]
+  * change canvas size for install-gui-title source to correct export size
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Sat, 23 Feb 2008 23:47:14 +1100
 
 install-gui (0.6.16) unstable; urgency=low
 
