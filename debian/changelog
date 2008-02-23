@@ -1,9 +1,5 @@
-install-gui (0.6.17) UNRELEASED; urgency=low
+install-gui (0.6.17) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Bernard Gray ]
   * change canvas size for install-gui-title source to correct export size
 
  -- Bernard Gray <bernard.gray@gmail.com>  Sat, 23 Feb 2008 23:47:14 +1100
