@@ -1,8 +1,12 @@
 install-gui (0.6.18) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 23 Feb 2008 23:28:16 +0100
+  [ Bernard Gray ]
+  * reduce install-gui-title logo  
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Mon, 25 Feb 2008 11:54:00 +1100
 
 install-gui (0.6.17) unstable; urgency=low
 
