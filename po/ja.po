@@ -11,7 +11,7 @@ msgstr ""
 
 #: install-gui.glade:8(property) 
 msgid "sidux HD-Installation"
-msgstr "sidux HDインストール"
+msgstr "sidux HD-Installation"
 
 #: install-gui.glade:78(property) 
 msgid "exit"
