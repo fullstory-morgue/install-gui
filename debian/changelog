@@ -1,9 +1,5 @@
-install-gui (0.6.19) UNRELEASED; urgency=low
+install-gui (0.6.19) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * minimal ja font for kde does not support font used on window title so
     changed to plain english (muchan)
   * some more fixes in ja language file. (muchan)
