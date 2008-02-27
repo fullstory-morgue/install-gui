@@ -114,9 +114,9 @@ msgid "Installation-target"
 msgstr "インストール先"
 
 #: install-gui.glade:957(property) 
-msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n\n"
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
 "Installation-target: MBR (Master Boot Record) or root-partition"
-msgstr "ブートマネージャー: ブートマネージャーは開始時ブートしたいOSを選択します.\n\n"
+msgstr "ブートマネージャー: ブートマネージャーは開始時ブートしたいOSを選択します.\n"
 "インストール先: MBR (Master Boot Record) または ルートパーティション"
 
 #: install-gui.glade:1033(property) 
@@ -148,10 +148,10 @@ msgid "Username:"
 msgstr "ユーザー名:"
 
 #: install-gui.glade:1481(property) 
-msgid "Root-password: This password will be used for the administrator. Do not forget it!\n\n"
-"Username: The username should consist of lower case letters (and numbers) only.\n\n"
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
 "Important: All passwords have to be between 6 and 20 characters long!"
-msgstr "ルートパスワード: このパスワードはシステム管理者が使います. 決して忘れないように!\n\n"
+msgstr "ルートパスワード: このパスワードはシステム管理者が使います. 決して忘れないように!\n"
 "ユーザー名: ユーザー名は小文字英字と数字のみです.\n\n"
 "重要: どのパスワードも6文字以上２０文字以下でなければなりません!"
 
@@ -168,11 +168,11 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the sidux-Installation.\n\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n\n"
+msgid "You provided all Information neccessary to start the sidux-Installation.\n"
+"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
 "If everything is correct for you, pressing \"Save config & Next\"."
-msgstr "siduxのインストールを始めるのに必要な情報はすべて入力されました。\n\n"
-"\"戻る\" ボタンを押せば、オプションをもう一度チェックしたり変更したりできます.\n\n"
+msgstr "siduxのインストールを始めるのに必要な情報はすべて入力されました。\n"
+"\"戻る\" ボタンを押せば、オプションをもう一度チェックしたり変更したりできます.\n"
 "すべて正しければ、 \"設定を保存して次へ\" を押してください."
 
 #: install-gui.glade:1800(property) 
@@ -222,10 +222,6 @@ msgid "Install additional\n"
 "Metapackages"
 msgstr "追加インストール\n"
 "メタパッケージ"
-
-#: install-gui.glade:663(property) 
-msgid "Hostname:"
-msgstr "ホストネーム"
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"
