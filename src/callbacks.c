@@ -918,11 +918,12 @@ on_button_gparted_clicked              (GtkButton       *button,
           gtk_main_iteration ();
 
    //disable kde automount
-   strncpy(kdeconfdir, getenv("HOME"), 256);
-   strncat(kdeconfdir, "/.kde/share/config/", 256);
+   //strncpy(kdeconfdir, getenv("HOME"), 256);
+   //strncat(kdeconfdir, "/.kde/share/config/", 256);
+   strncpy(kdeconfdir, "/home/sidux/.kde/share/config/", 256);
 
    if (chdir(kdeconfdir) < 0) {
-         printf("failed change to $HOME/.kde/share/config/\n");
+         printf("failed change to /home/sidux/.kde/share/config/\n");
    }
    else {
       stream = fopen( "medianotifierrc", "w+" );
@@ -1459,7 +1460,8 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
                                         gpointer         user_data)
 {
 
-   int password_failed, pages;
+   int pages;
+   //int password_failed;
    //int leaved_page;
 
    GtkWidget *notebook1;
@@ -1483,7 +1485,7 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
 
 
       // password_check
-      if(page_num == 3) {
+/*      if(page_num == 3) {
             leaved_user_page = 1;
       }
 
@@ -1495,7 +1497,7 @@ on_notebook1_switch_page               (GtkNotebook     *notebook,
                  gtk_notebook_set_current_page( GTK_NOTEBOOK(notebook1), 3 );
           }
       }
-
+*/
 }
 
 
