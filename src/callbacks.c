@@ -36,8 +36,8 @@
 #define INSTALL_FIRMWARE_BASH     "/usr/share/install-gui/fw-install"
 
 #define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
-//${LANGUAGE} is set in /etc/default/fll-locales
-#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANGUAGE}\n\";sed -ie \"s/^${LANGUAGE},/DEFAULT_${LANGUAGE},/\" "
+//${LANG} is set in /etc/default/fll-locales
+#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
 
 #define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
