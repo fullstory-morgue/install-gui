@@ -1,9 +1,5 @@
-install-gui (0.6.21) UNRELEASED; urgency=low
+install-gui (0.6.21) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Kel Modderman ]
   * /etc/default/fll-locales defines LANG and not LANGUAGE. Modify callbacks.c
     accordingly.
 
