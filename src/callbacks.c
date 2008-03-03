@@ -997,7 +997,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    system("udevtrigger");
 
 
-   system("rm -f ${HOME}/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll_fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
+   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";fll_fshelper --write-fstab --make-mountpoints");  // create the fstab and start kde automount again
 
 
    /* remove the tempfile */
