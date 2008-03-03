@@ -1,9 +1,5 @@
-install-gui (0.6.22) UNRELEASED; urgency=low
+install-gui (0.6.22) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * medianotifierrc path hardcoded to /home/sidux/.kde/...
   * no password check directly in tab
   * label in progressbar updated 
