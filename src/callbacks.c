@@ -21,6 +21,8 @@
 #include "inotify.h"
 #include "inotify-syscalls.h"
 
+#define COLOR    "#455459"
+
 #define BUF_LEN    1024
 
 #define FILENAME ".sidconf"
@@ -819,7 +821,7 @@ on_exit_clicked                        (GtkButton       *button,
    gtk_main_quit();
 }
 
-
+/*
 void
 start_install_meta()
 
@@ -842,14 +844,14 @@ start_install_meta()
 
    system(sh_call);
 }
-
+*/
 
 void
 on_success_exit_button_clicked         (GtkButton       *button,
                                         gpointer         user_data)
 {
    // start install-meta
-   start_install_meta ();
+   //start_install_meta ();
 
    // remove the tempfile
    unlink(scanparttmp);
@@ -867,7 +869,7 @@ on_dialog_end_delete_event             (GtkWidget       *widget,
                                         gpointer         user_data)
 {
    // start install-meta
-   start_install_meta ();
+   //start_install_meta ();
 
    // remove the tempfile
    unlink(scanparttmp);
@@ -1560,7 +1562,9 @@ timezone_read (GtkWidget       *widget)
       fseek(  tz_file, 0L, SEEK_SET );
       fscanf( tz_file, "%[^\n]\n", tz);
 
-      strncpy( tz_markup, "<span foreground=\"#484540\" font_desc=\"12\">", 256);
+      strncpy( tz_markup, "<span foreground=\"", 256);
+      strncat( tz_markup, COLOR, 256);
+      strncat( tz_markup, "\" font_desc=\"12\">", 256);
       strncat( tz_markup, tz, 256);
       strncat( tz_markup, "</span>", 256);
 
@@ -1890,7 +1894,7 @@ on_window_main_realize                 (GtkWidget       *widget,
    pango_font_description_free (font_desc);
 
    label = lookup_widget ( GTK_WIDGET (widget), "label_wellcome_install");
-   gdk_color_parse ("darkblue", &color);
+   gdk_color_parse (COLOR, &color);
    gtk_widget_modify_fg ( GTK_WIDGET(label), GTK_STATE_NORMAL, &color);
    font_desc = pango_font_description_from_string ("12");
    gtk_widget_modify_font ( GTK_WIDGET(label), font_desc);
@@ -2122,7 +2126,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_NORMAL, &color);
    //gdk_color_parse ("IndianRed4", &color);
-   gdk_color_parse ("#484540", &color);
+   gdk_color_parse (COLOR, &color);
    gtk_widget_modify_bg (pprogres, GTK_STATE_PRELIGHT, &color);
 
    pprogres2 = lookup_widget(GTK_WIDGET(widget), "progressbar2");
@@ -2131,7 +2135,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    // set color of ProgressBar
    gdk_color_parse ("gray70", &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_NORMAL, &color);
-   gdk_color_parse ("#484540", &color);
+   gdk_color_parse (COLOR, &color);
    gtk_widget_modify_bg (pprogres2, GTK_STATE_PRELIGHT, &color);
 
    // label_clock
@@ -2174,6 +2178,5 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    system( install_call );
 
 }
-
 
 

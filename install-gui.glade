@@ -11,7 +11,7 @@
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -311,72 +311,6 @@ sidux-website: http://sidux.com</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkButton" id="button_usb">
-		  <property name="width_request">222</property>
-		  <property name="height_request">35</property>
-		  <property name="visible">True</property>
-		  <property name="tooltip" translatable="yes">* we create one  partiton on the usb-device (all data will be lost)
-* make it bootable
-* format it with ext3 (labeled sidux_from_usb)
-* install grub into it
-* copy the message file into the grub dirs
-* create directory for iso, kernel, initrd (eg sidux)
-* copy the files (iso, kernel, initrd) into there.
-* create the menu.lst file on it
-
-* enable the &quot;persist checkbox&quot;, if you want save your changes</property>
-		  <property name="can_focus">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <signal name="clicked" handler="on_button_usb_clicked" last_modification_time="Sat, 08 Sep 2007 20:24:26 GMT"/>
-
-		  <child>
-		    <widget class="GtkEventBox" id="eventbox1">
-		      <property name="visible">True</property>
-		      <property name="visible_window">True</property>
-		      <property name="above_child">False</property>
-
-		      <child>
-			<widget class="GtkFixed" id="fixed16">
-			  <property name="visible">True</property>
-
-			  <child>
-			    <widget class="GtkLabel" id="label48">
-			      <property name="width_request">212</property>
-			      <property name="height_request">25</property>
-			      <property name="visible">True</property>
-			      <property name="label" translatable="yes">&lt;span foreground=&quot;#0022ff&quot;&gt;install fromiso into USB&lt;/span&gt;</property>
-			      <property name="use_underline">False</property>
-			      <property name="use_markup">True</property>
-			      <property name="justify">GTK_JUSTIFY_CENTER</property>
-			      <property name="wrap">False</property>
-			      <property name="selectable">False</property>
-			      <property name="xalign">0.5</property>
-			      <property name="yalign">0.5</property>
-			      <property name="xpad">0</property>
-			      <property name="ypad">0</property>
-			      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-			      <property name="width_chars">-1</property>
-			      <property name="single_line_mode">False</property>
-			      <property name="angle">0</property>
-			    </widget>
-			    <packing>
-			      <property name="x">0</property>
-			      <property name="y">0</property>
-			    </packing>
-			  </child>
-			</widget>
-		      </child>
-		    </widget>
-		  </child>
-		</widget>
-		<packing>
-		  <property name="x">250</property>
-		  <property name="y">302</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkLabel" id="label_wellcome_red">
 		  <property name="width_request">568</property>
 		  <property name="height_request">80</property>
@@ -399,6 +333,34 @@ sidux-website: http://sidux.com</property>
 		<packing>
 		  <property name="x">72</property>
 		  <property name="y">96</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkButton" id="button_usb">
+		  <property name="width_request">240</property>
+		  <property name="height_request">36</property>
+		  <property name="visible">True</property>
+		  <property name="tooltip" translatable="yes">* we create one  partiton on the usb-device (all data will be lost)
+* make it bootable
+* format it with ext3 (labeled sidux_from_usb)
+* install grub into it
+* copy the message file into the grub dirs
+* create directory for iso, kernel, initrd (eg sidux)
+* copy the files (iso, kernel, initrd) into there.
+* create the menu.lst file on it
+
+* enable the &quot;persist checkbox&quot;, if you want save your changes</property>
+		  <property name="can_focus">True</property>
+		  <property name="label" translatable="yes">install fromiso into USB</property>
+		  <property name="use_underline">True</property>
+		  <property name="relief">GTK_RELIEF_NORMAL</property>
+		  <property name="focus_on_click">True</property>
+		  <signal name="clicked" handler="on_button_usb_clicked" last_modification_time="Mon, 03 Mar 2008 09:58:39 GMT"/>
+		</widget>
+		<packing>
+		  <property name="x">240</property>
+		  <property name="y">296</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -2206,7 +2168,7 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 		  <property name="yalign">0.5</property>
 		  <property name="xpad">0</property>
 		  <property name="ypad">0</property>
-		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_MIDDLE</property>
 		  <property name="width_chars">-1</property>
 		  <property name="single_line_mode">False</property>
 		  <property name="angle">0</property>
@@ -2651,7 +2613,7 @@ Metapackages</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -2761,7 +2723,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -2811,9 +2773,126 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
       </child>
 
       <child>
-	<widget class="GtkHSeparator" id="hseparator6">
-	  <property name="width_request">600</property>
+	<widget class="GtkLabel" id="label1">
+	  <property name="width_request">257</property>
+	  <property name="height_request">24</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Completed Operations:</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">392</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_clock">
+	  <property name="width_request">217</property>
+	  <property name="height_request">25</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">00:00:00</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">True</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">256</property>
+	  <property name="y">392</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label2">
+	  <property name="width_request">105</property>
+	  <property name="height_request">41</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Current
+Operation:</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">True</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">312</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkLabel" id="label_fifo">
+	  <property name="width_request">494</property>
+	  <property name="height_request">41</property>
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">&lt;b&gt;sidux-installer started&lt;/b&gt;</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">True</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">True</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0</property>
+	  <property name="yalign">0</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="x">104</property>
+	  <property name="y">312</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkHSeparator" id="hseparator5">
+	  <property name="width_request">598</property>
 	  <property name="height_request">17</property>
+	  <property name="visible">True</property>
+	</widget>
+	<packing>
+	  <property name="x">0</property>
+	  <property name="y">296</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkHSeparator" id="hseparator6">
+	  <property name="width_request">598</property>
+	  <property name="height_request">16</property>
 	  <property name="visible">True</property>
 	</widget>
 	<packing>
@@ -2823,31 +2902,43 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
       </child>
 
       <child>
-	<widget class="GtkScrolledWindow" id="scrolledwindow3">
+	<widget class="GtkImage" id="image6">
+	  <property name="width_request">241</property>
+	  <property name="height_request">56</property>
+	  <property name="visible">True</property>
+	  <property name="pixbuf">install-gui-title.png</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+	<packing>
+	  <property name="x">360</property>
+	  <property name="y">0</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkScrolledWindow" id="scrolledwindow5">
+	  <property name="border_width">5</property>
 	  <property name="width_request">601</property>
-	  <property name="height_request">209</property>
+	  <property name="height_request">225</property>
 	  <property name="visible">True</property>
 	  <property name="can_focus">True</property>
-	  <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
+	  <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
 	  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
-	  <property name="shadow_type">GTK_SHADOW_IN</property>
+	  <property name="shadow_type">GTK_SHADOW_OUT</property>
 	  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
 
 	  <child>
-	    <widget class="GtkViewport" id="viewport3">
+	    <widget class="GtkViewport" id="viewport5">
 	      <property name="visible">True</property>
-	      <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+	      <property name="shadow_type">GTK_SHADOW_IN</property>
 
 	      <child>
-		<widget class="GtkFixed" id="fixed6">
+		<widget class="GtkLabel" id="label_generally2">
 		  <property name="visible">True</property>
-
-		  <child>
-		    <widget class="GtkLabel" id="label_generally2">
-		      <property name="width_request">560</property>
-		      <property name="height_request">4000</property>
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span foreground=&quot;#a4a58b&quot; font_desc=&quot;12&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
+		  <property name="label" translatable="yes">&lt;span foreground=&quot;#455459&quot; font_desc=&quot;12&quot;&gt;What is sidux? - Debian Hot and Spicy!&lt;/span&gt;
 
 &lt;span font_desc=&quot;11&quot;&gt;&lt;b&gt;sidux&lt;/b&gt; is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.
 The ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.&lt;/span&gt;
@@ -2927,7 +3018,8 @@ fetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc10
 apt-get install zd1211-firmware
 
 
-We try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. 
+&lt;b&gt;Hints for Upgraders:&lt;/b&gt;
+sidux tries hard to provide seamless upgrade path for debian and sidux' own packages, nevertheless a few things remain that could be improved with manual interaction.
 
 
 &lt;b&gt;&lt;u&gt;Disclaimer:&lt;/u&gt;&lt;/b&gt;
@@ -2936,7 +3028,8 @@ This is experimental software. Use at your own risk. The sidux project, its deve
 
 
 &lt;b&gt;&lt;u&gt;How to get involved:&lt;/u&gt;&lt;/b&gt;
-Getting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. We will gladly discuss any dfsg- free patches and contributions. Especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations.
+Getting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. 
+We will gladly discuss any dfsg-free patches and contributions, especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations. 
 
 
 &lt;b&gt;&lt;u&gt;Special thanks go to the entire sidux development team:&lt;/u&gt;&lt;/b&gt;
@@ -2945,6 +3038,7 @@ Jose Tadeu Barros (ceti)
 Michiel de Boer (locsmif)
 Joaquim Boura (x-un-i)
 Mikhail Burov (von_Selbst)
+David Creedy (klaymen)
 Alessio Giustini (alessiog75)
 Stefan R. Eissens (eislon)
 Roland Engert (RoEn)
@@ -2963,13 +3057,14 @@ Philippe Masson (LjanA)
 Kel Modderman (kelmo)
 Koslow
 Markus Müller (moto)
-maslot
+muchan
 Gabriel Palade (ladepa)
 Gerald Prock (raider700)
 Steven J. Robinson (cathbard)
 Philipp Rudolph (Zophod)
 Dinko Sabo (cobra)
 Florian Schneider (hathe)
+Daniel-S-P
 Ferdi Thommes (devil)
 Horst Tritremmel (hjt)
 Trevor Walkley (bluewater)
@@ -2980,29 +3075,25 @@ zerby
 zonker
 zulu9
 
+Thanks to Hetzner Online AG for sponsoring sidux.com.
+
+
 On behalf of the sidux team:
      Stefan Lippers-Hollmann (slh) 
-&lt;/span&gt;
-</property>
-		      <property name="use_underline">True</property>
-		      <property name="use_markup">True</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">True</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		      <property name="width_chars">-1</property>
-		      <property name="single_line_mode">False</property>
-		      <property name="angle">0</property>
-		    </widget>
-		    <packing>
-		      <property name="x">8</property>
-		      <property name="y">8</property>
-		    </packing>
-		  </child>
+&lt;/span&gt;</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">True</property>
+		  <property name="justify">GTK_JUSTIFY_FILL</property>
+		  <property name="wrap">True</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0</property>
+		  <property name="yalign">0</property>
+		  <property name="xpad">20</property>
+		  <property name="ypad">10</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">0</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
 		</widget>
 	      </child>
 	    </widget>
@@ -3011,140 +3102,6 @@ On behalf of the sidux team:
 	<packing>
 	  <property name="x">0</property>
 	  <property name="y">72</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkHSeparator" id="hseparator5">
-	  <property name="width_request">600</property>
-	  <property name="height_request">17</property>
-	  <property name="visible">True</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">288</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label1">
-	  <property name="width_request">257</property>
-	  <property name="height_request">24</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Completed Operations:</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">392</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label_clock">
-	  <property name="width_request">217</property>
-	  <property name="height_request">25</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">00:00:00</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">True</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">False</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">256</property>
-	  <property name="y">392</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkImage" id="image6">
-	  <property name="width_request">241</property>
-	  <property name="height_request">56</property>
-	  <property name="visible">True</property>
-	  <property name="pixbuf">install-gui-title.png</property>
-	  <property name="xalign">0.5</property>
-	  <property name="yalign">0.5</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	</widget>
-	<packing>
-	  <property name="x">360</property>
-	  <property name="y">0</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label2">
-	  <property name="width_request">105</property>
-	  <property name="height_request">41</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">Current
-Operation:</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">False</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">True</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">0</property>
-	  <property name="y">312</property>
-	</packing>
-      </child>
-
-      <child>
-	<widget class="GtkLabel" id="label_fifo">
-	  <property name="width_request">494</property>
-	  <property name="height_request">41</property>
-	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">&lt;b&gt;sidux-installer started&lt;/b&gt;</property>
-	  <property name="use_underline">False</property>
-	  <property name="use_markup">True</property>
-	  <property name="justify">GTK_JUSTIFY_LEFT</property>
-	  <property name="wrap">True</property>
-	  <property name="selectable">False</property>
-	  <property name="xalign">0</property>
-	  <property name="yalign">0</property>
-	  <property name="xpad">0</property>
-	  <property name="ypad">0</property>
-	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-	  <property name="width_chars">-1</property>
-	  <property name="single_line_mode">False</property>
-	  <property name="angle">0</property>
-	</widget>
-	<packing>
-	  <property name="x">104</property>
-	  <property name="y">312</property>
 	</packing>
       </child>
     </widget>
@@ -3159,7 +3116,7 @@ Operation:</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -3346,7 +3303,7 @@ Operation:</property>
   <property name="modal">False</property>
   <property name="resizable">True</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -3457,7 +3414,7 @@ You might have problems typing your password!&lt;/span&gt;</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>
@@ -3756,7 +3713,7 @@ You might have problems typing your password!&lt;/span&gt;</property>
   <property name="modal">False</property>
   <property name="resizable">False</property>
   <property name="destroy_with_parent">False</property>
-  <property name="icon">install-gui.png</property>
+  <property name="icon">install-gui-16.xpm</property>
   <property name="decorated">True</property>
   <property name="skip_taskbar_hint">False</property>
   <property name="skip_pager_hint">False</property>

@@ -50,11 +50,8 @@ create_window_main (void)
   GtkWidget *hseparator20;
   GtkWidget *image19;
   GtkWidget *label_wellcome_2;
-  GtkWidget *button_usb;
-  GtkWidget *eventbox1;
-  GtkWidget *fixed16;
-  GtkWidget *label48;
   GtkWidget *label_wellcome_red;
+  GtkWidget *button_usb;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *format_combo;
@@ -189,7 +186,7 @@ create_window_main (void)
   gtk_window_set_title (GTK_WINDOW (window_main), _("sidux HD-Installation"));
   gtk_window_set_position (GTK_WINDOW (window_main), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (window_main), FALSE);
-  window_main_icon_pixbuf = create_pixbuf ("install-gui.png");
+  window_main_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (window_main_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (window_main), window_main_icon_pixbuf);
@@ -303,27 +300,6 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
 
-  button_usb = gtk_button_new ();
-  gtk_widget_show (button_usb);
-  gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 250, 302);
-  gtk_widget_set_size_request (button_usb, 222, 35);
-  gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled sidux_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg sidux)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
-
-  eventbox1 = gtk_event_box_new ();
-  gtk_widget_show (eventbox1);
-  gtk_container_add (GTK_CONTAINER (button_usb), eventbox1);
-
-  fixed16 = gtk_fixed_new ();
-  gtk_widget_show (fixed16);
-  gtk_container_add (GTK_CONTAINER (eventbox1), fixed16);
-
-  label48 = gtk_label_new (_("<span foreground=\"#0022ff\">install fromiso into USB</span>"));
-  gtk_widget_show (label48);
-  gtk_fixed_put (GTK_FIXED (fixed16), label48, 0, 0);
-  gtk_widget_set_size_request (label48, 212, 25);
-  gtk_label_set_use_markup (GTK_LABEL (label48), TRUE);
-  gtk_label_set_justify (GTK_LABEL (label48), GTK_JUSTIFY_CENTER);
-
   label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
   gtk_widget_show (label_wellcome_red);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
@@ -331,6 +307,12 @@ create_window_main (void)
   gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
+
+  button_usb = gtk_button_new_with_mnemonic (_("install fromiso into USB"));
+  gtk_widget_show (button_usb);
+  gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 240, 296);
+  gtk_widget_set_size_request (button_usb, 240, 36);
+  gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled sidux_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg sidux)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -882,6 +864,7 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed19), label_fw, 18, 331);
   gtk_widget_set_size_request (label_fw, 434, 30);
   gtk_label_set_use_markup (GTK_LABEL (label_fw), TRUE);
+  gtk_label_set_ellipsize (GTK_LABEL (label_fw), PANGO_ELLIPSIZE_MIDDLE);
 
   label60 = gtk_label_new (_("Firmware"));
   gtk_widget_show (label60);
@@ -1094,11 +1077,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator20, "hseparator20");
   GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
-  GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
-  GLADE_HOOKUP_OBJECT (window_main, eventbox1, "eventbox1");
-  GLADE_HOOKUP_OBJECT (window_main, fixed16, "fixed16");
-  GLADE_HOOKUP_OBJECT (window_main, label48, "label48");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
+  GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
@@ -1244,7 +1224,7 @@ create_dialog_no_root (void)
   gtk_window_set_title (GTK_WINDOW (dialog_no_root), _("only root"));
   gtk_window_set_position (GTK_WINDOW (dialog_no_root), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (dialog_no_root), FALSE);
-  dialog_no_root_icon_pixbuf = create_pixbuf ("install-gui.png");
+  dialog_no_root_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (dialog_no_root_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_no_root), dialog_no_root_icon_pixbuf);
@@ -1306,23 +1286,22 @@ create_install_progressbar (void)
   GtkWidget *fixed5;
   GtkWidget *progressbar1;
   GtkWidget *progressbar2;
-  GtkWidget *hseparator6;
-  GtkWidget *scrolledwindow3;
-  GtkWidget *viewport3;
-  GtkWidget *fixed6;
-  GtkWidget *label_generally2;
-  GtkWidget *hseparator5;
   GtkWidget *label1;
   GtkWidget *label_clock;
-  GtkWidget *image6;
   GtkWidget *label2;
   GtkWidget *label_fifo;
+  GtkWidget *hseparator5;
+  GtkWidget *hseparator6;
+  GtkWidget *image6;
+  GtkWidget *scrolledwindow5;
+  GtkWidget *viewport5;
+  GtkWidget *label_generally2;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
   gtk_window_set_position (GTK_WINDOW (install_progressbar), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_progressbar), FALSE);
-  install_progressbar_icon_pixbuf = create_pixbuf ("install-gui.png");
+  install_progressbar_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (install_progressbar_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (install_progressbar), install_progressbar_icon_pixbuf);
@@ -1347,40 +1326,6 @@ create_install_progressbar (void)
   gtk_widget_set_size_request (progressbar2, 600, 25);
   gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar2), 0.01);
 
-  hseparator6 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator6);
-  gtk_fixed_put (GTK_FIXED (fixed5), hseparator6, 0, 56);
-  gtk_widget_set_size_request (hseparator6, 600, 17);
-
-  scrolledwindow3 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_show (scrolledwindow3);
-  gtk_fixed_put (GTK_FIXED (fixed5), scrolledwindow3, 0, 72);
-  gtk_widget_set_size_request (scrolledwindow3, 601, 209);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow3), GTK_SHADOW_IN);
-
-  viewport3 = gtk_viewport_new (NULL, NULL);
-  gtk_widget_show (viewport3);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow3), viewport3);
-  gtk_viewport_set_shadow_type (GTK_VIEWPORT (viewport3), GTK_SHADOW_ETCHED_IN);
-
-  fixed6 = gtk_fixed_new ();
-  gtk_widget_show (fixed6);
-  gtk_container_add (GTK_CONTAINER (viewport3), fixed6);
-
-  label_generally2 = gtk_label_new_with_mnemonic (_("<span foreground=\"#a4a58b\" font_desc=\"12\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"11\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"10\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list.d/debian.list and /etc/apt/sources.list.d/sidux.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">You can add contrib and non-free with metapackage-installer, \n<i>\"smxi\"</i> script or <i>\"siduxcc\"</i>.</span>\n\n\n<b><u>firmware</u></b>\n\nWhich firmware might be required to employ affected hardware can be determined with the following device/ firmware enumeration or by using the newly developed <b>fw-detect</b> script (packaged in configure-networkcard).\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ATi Radeon graphics:</span>\nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -N radeon</b>'\n3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with Kernel 2.6.23. Depending on the particular chipset \"xmodule=vesa\" or \"xmodule=fbdev\" as cheatcode might be in order for later Radeon X1xxx models.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Nvidia  graphics:</span> \nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -h</b>' to see available options\n 3d acceleration isn't possible with free drivers yet, please use get-sidux-binary-gfx to fetch install scripts for these cards.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Atheros/ \"madwifi\" wlan:</span>\nm-a a-i madwifi\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Atmel AT76c50x 11 MBit/s wlan:</span>\napt-get install atmel-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Broadcom/ bcm43xx wlan:</span>\napt-get install bcm43xx-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Eagle USB ADSL modem:</span>\nfetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):</span>\nfetch the needed firmeware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw2100, 11 MBit/s wlan:</span>\napt-get install ipw2100-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw2200, 54 MBit/s wlan:</span>\napt-get install ipw2200-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:</span>\napt-get install firmware-iwlwifi\n\nplease remove iwlwifi-ucode and iwlwifi-3945, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw4965/ iwlwifi, draft-n wlan:</span>\napt-get install firmware-iwl4965\n\nplease remove iwlwifi-4965, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intersil prism54, 54 MBit/s wlan:</span>\nfetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* RaLink rt61 54 MBit/s wlan:</span>\napt-get install rt61-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* RaLink rt73 54 MBit/s wlan:</span>\napt-get install rt73-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:</span>\nfetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ZyDAS zd1201 11 MBit/s wlan:</span>\nfetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ZyDAS zd1211 54 MBit/s wlan:</span>\napt-get install zd1211-firmware\n\n\nWe try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. \n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>How to get involved:</u></b>\nGetting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. We will gladly discuss any dfsg- free patches and contributions. Especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations.\n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJose Tadeu Barros (ceti)\nMichiel de Boer (locsmif)\nJoaquim Boura (x-un-i)\nMikhail Burov (von_Selbst)\nAlessio Giustini (alessiog75)\nStefan R. Eissens (eislon)\nRoland Engert (RoEn)\nBernard Gray (cleary)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nRichard Holt (Richard)\nHarald Hope (h2)\nHarzG\nMarkus Huber (hubi)\nAedan Kelly (etorix)\nLady_Cuddles\nLatino\nStefan Lippers-Hollmann (slh)\nPhilippe Masson (LjanA)\nKel Modderman (kelmo)\nKoslow\nMarkus M\303\274ller (moto)\nmaslot\nGabriel Palade (ladepa)\nGerald Prock (raider700)\nSteven J. Robinson (cathbard)\nPhilipp Rudolph (Zophod)\nDinko Sabo (cobra)\nFlorian Schneider (hathe)\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nTrevor Walkley (bluewater)\nNiall Walsh (bfree)\nAndreas Weber (webera)\nFabian Wuertz (xadras)\nzerby\nzonker\nzulu9\n\nOn behalf of the sidux team:\n     Stefan Lippers-Hollmann (slh) \n</span>\n"));
-  gtk_widget_show (label_generally2);
-  gtk_fixed_put (GTK_FIXED (fixed6), label_generally2, 8, 8);
-  gtk_widget_set_size_request (label_generally2, 560, 4000);
-  gtk_label_set_use_markup (GTK_LABEL (label_generally2), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (label_generally2), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label_generally2), 0, 0);
-
-  hseparator5 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator5);
-  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 0, 288);
-  gtk_widget_set_size_request (hseparator5, 600, 17);
-
   label1 = gtk_label_new (_("Completed Operations:"));
   gtk_widget_show (label1);
   gtk_fixed_put (GTK_FIXED (fixed5), label1, 0, 392);
@@ -1393,11 +1338,6 @@ create_install_progressbar (void)
   gtk_widget_set_size_request (label_clock, 217, 25);
   gtk_label_set_use_markup (GTK_LABEL (label_clock), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_clock), 0, 0);
-
-  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
-  gtk_widget_show (image6);
-  gtk_fixed_put (GTK_FIXED (fixed5), image6, 360, 0);
-  gtk_widget_set_size_request (image6, 241, 56);
 
   label2 = gtk_label_new (_("Current\nOperation:"));
   gtk_widget_show (label2);
@@ -1414,6 +1354,43 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_fifo), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_fifo), 0, 0);
 
+  hseparator5 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator5);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator5, 0, 296);
+  gtk_widget_set_size_request (hseparator5, 598, 17);
+
+  hseparator6 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator6);
+  gtk_fixed_put (GTK_FIXED (fixed5), hseparator6, 0, 56);
+  gtk_widget_set_size_request (hseparator6, 598, 16);
+
+  image6 = create_pixmap (install_progressbar, "install-gui-title.png");
+  gtk_widget_show (image6);
+  gtk_fixed_put (GTK_FIXED (fixed5), image6, 360, 0);
+  gtk_widget_set_size_request (image6, 241, 56);
+
+  scrolledwindow5 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow5);
+  gtk_fixed_put (GTK_FIXED (fixed5), scrolledwindow5, 0, 72);
+  gtk_widget_set_size_request (scrolledwindow5, 601, 225);
+  gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow5), 5);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow5), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow5), GTK_SHADOW_OUT);
+
+  viewport5 = gtk_viewport_new (NULL, NULL);
+  gtk_widget_show (viewport5);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow5), viewport5);
+
+  label_generally2 = gtk_label_new (_("<span foreground=\"#455459\" font_desc=\"12\">What is sidux? - Debian Hot and Spicy!</span>\n\n<span font_desc=\"11\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"10\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list.d/debian.list and /etc/apt/sources.list.d/sidux.list</b> and ensure internet access.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">You can add contrib and non-free with metapackage-installer, \n<i>\"smxi\"</i> script or <i>\"siduxcc\"</i>.</span>\n\n\n<b><u>firmware</u></b>\n\nWhich firmware might be required to employ affected hardware can be determined with the following device/ firmware enumeration or by using the newly developed <b>fw-detect</b> script (packaged in configure-networkcard).\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ATi Radeon graphics:</span>\nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -N radeon</b>'\n3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with Kernel 2.6.23. Depending on the particular chipset \"xmodule=vesa\" or \"xmodule=fbdev\" as cheatcode might be in order for later Radeon X1xxx models.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Nvidia  graphics:</span> \nsee http://manual.sidux.com/en/hw-dev-hw-dri-en.htm\ntype '<b>get-sidux-binary-gfx; install-binary-gfx -a</b>' or\ntype '<b>sgfxi -h</b>' to see available options\n 3d acceleration isn't possible with free drivers yet, please use get-sidux-binary-gfx to fetch install scripts for these cards.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Atheros/ \"madwifi\" wlan:</span>\nm-a a-i madwifi\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Atmel AT76c50x 11 MBit/s wlan:</span>\napt-get install atmel-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Broadcom/ bcm43xx wlan:</span>\napt-get install bcm43xx-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Eagle USB ADSL modem:</span>\nfetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):</span>\nfetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw2100, 11 MBit/s wlan:</span>\napt-get install ipw2100-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw2200, 54 MBit/s wlan:</span>\napt-get install ipw2200-firmware\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:</span>\napt-get install firmware-iwlwifi\n\nplease remove iwlwifi-ucode and iwlwifi-3945, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intel ipw4965/ iwlwifi, draft-n wlan:</span>\napt-get install firmware-iwl4965\n\nplease remove iwlwifi-4965, if already installed.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Intersil prism54, 54 MBit/s wlan:</span>\nfetch the firmware from http://prism54.org/firmware/ and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* RaLink rt61 54 MBit/s wlan:</span>\napt-get install rt61-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* RaLink rt73 54 MBit/s wlan:</span>\napt-get install rt73-fwcutter\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:</span>\nfetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ZyDAS zd1201 11 MBit/s wlan:</span>\nfetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.\n\n<span foreground=\"darkblue\" font_desc=\"Sans Bold 10\">* ZyDAS zd1211 54 MBit/s wlan:</span>\napt-get install zd1211-firmware\n\n\n<b>Hints for Upgraders:</b>\nsidux tries hard to provide seamless upgrade path for debian and sidux' own packages, nevertheless a few things remain that could be improved with manual interaction.\n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>How to get involved:</u></b>\nGetting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. \nWe will gladly discuss any dfsg-free patches and contributions, especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations. \n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\nJose Tadeu Barros (ceti)\nMichiel de Boer (locsmif)\nJoaquim Boura (x-un-i)\nMikhail Burov (von_Selbst)\nDavid Creedy (klaymen)\nAlessio Giustini (alessiog75)\nStefan R. Eissens (eislon)\nRoland Engert (RoEn)\nBernard Gray (cleary)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nRichard Holt (Richard)\nHarald Hope (h2)\nHarzG\nMarkus Huber (hubi)\nAedan Kelly (etorix)\nLady_Cuddles\nLatino\nStefan Lippers-Hollmann (slh)\nPhilippe Masson (LjanA)\nKel Modderman (kelmo)\nKoslow\nMarkus M\303\274ller (moto)\nmuchan\nGabriel Palade (ladepa)\nGerald Prock (raider700)\nSteven J. Robinson (cathbard)\nPhilipp Rudolph (Zophod)\nDinko Sabo (cobra)\nFlorian Schneider (hathe)\nDaniel-S-P\nFerdi Thommes (devil)\nHorst Tritremmel (hjt)\nTrevor Walkley (bluewater)\nNiall Walsh (bfree)\nAndreas Weber (webera)\nFabian Wuertz (xadras)\nzerby\nzonker\nzulu9\n\nThanks to Hetzner Online AG for sponsoring sidux.com.\n\n\nOn behalf of the sidux team:\n     Stefan Lippers-Hollmann (slh) \n</span>"));
+  gtk_widget_show (label_generally2);
+  gtk_container_add (GTK_CONTAINER (viewport5), label_generally2);
+  gtk_label_set_use_markup (GTK_LABEL (label_generally2), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label_generally2), GTK_JUSTIFY_FILL);
+  gtk_label_set_line_wrap (GTK_LABEL (label_generally2), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label_generally2), 0, 0);
+  gtk_misc_set_padding (GTK_MISC (label_generally2), 20, 10);
+  gtk_label_set_width_chars (GTK_LABEL (label_generally2), 0);
+
   g_signal_connect ((gpointer) install_progressbar, "delete_event",
                     G_CALLBACK (on_install_progressbar_delete_event),
                     NULL);
@@ -1426,17 +1403,16 @@ create_install_progressbar (void)
   GLADE_HOOKUP_OBJECT (install_progressbar, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (install_progressbar, progressbar1, "progressbar1");
   GLADE_HOOKUP_OBJECT (install_progressbar, progressbar2, "progressbar2");
-  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator6, "hseparator6");
-  GLADE_HOOKUP_OBJECT (install_progressbar, scrolledwindow3, "scrolledwindow3");
-  GLADE_HOOKUP_OBJECT (install_progressbar, viewport3, "viewport3");
-  GLADE_HOOKUP_OBJECT (install_progressbar, fixed6, "fixed6");
-  GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
-  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator5, "hseparator5");
   GLADE_HOOKUP_OBJECT (install_progressbar, label1, "label1");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_clock, "label_clock");
-  GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
   GLADE_HOOKUP_OBJECT (install_progressbar, label2, "label2");
   GLADE_HOOKUP_OBJECT (install_progressbar, label_fifo, "label_fifo");
+  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator5, "hseparator5");
+  GLADE_HOOKUP_OBJECT (install_progressbar, hseparator6, "hseparator6");
+  GLADE_HOOKUP_OBJECT (install_progressbar, image6, "image6");
+  GLADE_HOOKUP_OBJECT (install_progressbar, scrolledwindow5, "scrolledwindow5");
+  GLADE_HOOKUP_OBJECT (install_progressbar, viewport5, "viewport5");
+  GLADE_HOOKUP_OBJECT (install_progressbar, label_generally2, "label_generally2");
 
   return install_progressbar;
 }
@@ -1460,7 +1436,7 @@ create_dialog_end (void)
   gtk_window_set_title (GTK_WINDOW (dialog_end), _("Installation successful"));
   gtk_window_set_position (GTK_WINDOW (dialog_end), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (dialog_end), FALSE);
-  dialog_end_icon_pixbuf = create_pixbuf ("install-gui.png");
+  dialog_end_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (dialog_end_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_end), dialog_end_icon_pixbuf);
@@ -1558,7 +1534,7 @@ create_dialog_keyb_change (void)
 
   dialog_keyb_change = gtk_dialog_new ();
   gtk_window_set_title (GTK_WINDOW (dialog_keyb_change), _("Keyboard Info"));
-  dialog_keyb_change_icon_pixbuf = create_pixbuf ("install-gui.png");
+  dialog_keyb_change_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (dialog_keyb_change_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_keyb_change), dialog_keyb_change_icon_pixbuf);
@@ -1639,7 +1615,7 @@ create_install_window (void)
   gtk_window_set_title (GTK_WINDOW (install_window), _("sidux HD-Installation"));
   gtk_window_set_position (GTK_WINDOW (install_window), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_window), FALSE);
-  install_window_icon_pixbuf = create_pixbuf ("install-gui.png");
+  install_window_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (install_window_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (install_window), install_window_icon_pixbuf);
@@ -1788,7 +1764,7 @@ create_dialog_no_bash (void)
   gtk_window_set_title (GTK_WINDOW (dialog_no_bash), _("FLL_FIRMWARE variable not found"));
   gtk_window_set_position (GTK_WINDOW (dialog_no_bash), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (dialog_no_bash), FALSE);
-  dialog_no_bash_icon_pixbuf = create_pixbuf ("install-gui.png");
+  dialog_no_bash_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
   if (dialog_no_bash_icon_pixbuf)
     {
       gtk_window_set_icon (GTK_WINDOW (dialog_no_bash), dialog_no_bash_icon_pixbuf);

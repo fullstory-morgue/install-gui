@@ -6,8 +6,12 @@ install-gui (0.6.22) UNRELEASED; urgency=low
   [ Horst Tritremmel ]
   * medianotifierrc path hardcoded to /home/sidux/.kde/...
   * no password check directly in tab
+  * label in progressbar updated 
+  * icon changed to xpm
+  * install_from_iso button fixed
+  * changed to nyx colors
 
- -- Horst Tritremmel <hjt@sidux.com>  Sun, 02 Mar 2008 22:28:24 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 03 Mar 2008 11:11:59 +0100
 
 install-gui (0.6.21) unstable; urgency=low
 
