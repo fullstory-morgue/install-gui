@@ -10,8 +10,10 @@ install-gui (0.6.22) UNRELEASED; urgency=low
   * icon changed to xpm
   * install_from_iso button fixed
   * changed to nyx colors
+  * install-gui-forward.png, install-gui-exit.png, install-gui-back.png removed 
+  * progressbar_info.png, terminal_info.png removed
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 03 Mar 2008 11:11:59 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 03 Mar 2008 11:20:53 +0100
 
 install-gui (0.6.21) unstable; urgency=low
 
