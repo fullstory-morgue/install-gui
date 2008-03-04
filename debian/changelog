@@ -1,8 +1,13 @@
 install-gui (0.6.23) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Mar 2008 15:34:09 +0100
+  [ Horst Tritremmel ]
+  * remove INSTALL_META from config file
+  * HD_AUTO added to REGISTERED in config file
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 04 Mar 2008 20:41:52 +0100
 
 install-gui (0.6.22) unstable; urgency=low
 

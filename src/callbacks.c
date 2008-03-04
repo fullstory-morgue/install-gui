@@ -1090,7 +1090,7 @@ save_config            (GtkButton       *button)
       else
       {
          fprintf( stream, "%s\n\n%s\n%s\n%s\n%s\n%s\n%s", 
-"REGISTERED=' SYSTEM_MODULE HD_MODULE HD_FORMAT HD_FSTYPE HD_CHOICE HD_MAP HD_IGNORECHECK SWAP_MODULE SWAP_AUTODETECT SWAP_CHOICES NAME_MODULE NAME_NAME USER_MODULE USER_NAME USERPASS_MODULE USERPASS_CRYPT ROOTPASS_MODULE ROOTPASS_CRYPT HOST_MODULE HOST_NAME SERVICES_MODULE SERVICES_START BOOT_MODULE BOOT_LOADER BOOT_DISK BOOT_WHERE AUTOLOGIN_MODULE INSTALL_READY'", 
+"REGISTERED=' SYSTEM_MODULE HD_MODULE HD_FORMAT HD_FSTYPE HD_CHOICE HD_MAP HD_IGNORECHECK SWAP_MODULE SWAP_AUTODETECT SWAP_CHOICES NAME_MODULE NAME_NAME USER_MODULE USER_NAME USERPASS_MODULE USERPASS_CRYPT ROOTPASS_MODULE ROOTPASS_CRYPT HOST_MODULE HOST_NAME SERVICES_MODULE SERVICES_START BOOT_MODULE BOOT_LOADER BOOT_DISK BOOT_WHERE AUTOLOGIN_MODULE INSTALL_READY HD_AUTO'", 
 
 "SYSTEM_MODULE='configured'",
 "HD_MODULE='configured'",
@@ -1190,25 +1190,16 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
              fprintf( stream, "no'\n");
          }
 
-       fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s", 
+       fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n\n", 
 "\n# Where the Boot-Loader will be installed",
 "# Possible are: mbr|partition",
 "# Default value is: mbr",
 "BOOT_WHERE='",
 gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_installplace"))),
 "AUTOLOGIN_MODULE='configured'",
-"INSTALL_READY='yes'",
-"# Install aditional metapackages. Default value is: yes",
-"INSTALL_META='"
+"INSTALL_READY='yes'"
          );
 
-         checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_metapackages"));
-         if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
-             fprintf( stream, "yes'\n");
-         }
-         else {
-             fprintf( stream, "no'\n");
-         }
 
        fprintf( stream, "\n%s\n%s", 
 "# mount partitions on boot. Default value is: yes",
@@ -1223,19 +1214,6 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
              fprintf( stream, "no'\n");
          }
 
-
-        // Language 
-/*        default_lang = strtok(gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_lang"))), ",");
-        default_country = strtok(NULL, ",");
-
-        fprintf( stream, "\n%s\n%s%s'\n%s%s'\n", 
-"# locale",
-"HD_LANG='",
-        default_lang,
-"HD_LANG_COUNTRY='",
-        default_country
-       );
-*/
 
         fclose( stream );
       }
