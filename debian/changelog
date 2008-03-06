@@ -1,3 +1,9 @@
+install-gui (0.6.24) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 06 Mar 2008 23:46:27 +0100
+
 install-gui (0.6.23) unstable; urgency=low
 
   * remove INSTALL_META from config file
