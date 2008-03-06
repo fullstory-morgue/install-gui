@@ -1,9 +1,5 @@
-install-gui (0.6.23) UNRELEASED; urgency=low
+install-gui (0.6.23) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * remove INSTALL_META from config file
   * HD_AUTO added to REGISTERED in config file
 
