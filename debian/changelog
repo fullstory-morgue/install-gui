@@ -1,3 +1,9 @@
+install-gui (0.6.25) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Mar 2008 20:56:50 +0100
+
 install-gui (0.6.24) unstable; urgency=low
 
   * corrected the pt language files. Thanks to Rui Umbelino (VaMPiRiC_CRoW)
