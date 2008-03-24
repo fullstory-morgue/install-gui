@@ -1,8 +1,10 @@
 install-gui (0.6.25) UNRELEASED; urgency=low
 
-  * NOT RELEASED YET
+  * callbacks.c:
+    - improve the use of udevtrigger, add a note that one day soon a change is
+      needed for udevadm
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Mar 2008 20:56:50 +0100
+ -- Kel Modderman <kel@otaku42.de>  Mon, 24 Mar 2008 17:18:13 +1000
 
 install-gui (0.6.24) unstable; urgency=low
 
