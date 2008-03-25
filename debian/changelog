@@ -1,4 +1,4 @@
-install-gui (0.6.25) UNRELEASED; urgency=low
+install-gui (0.6.25) unstable; urgency=low
 
   * callbacks.c:
     - improve the use of udevtrigger, add a note that one day soon a change is
