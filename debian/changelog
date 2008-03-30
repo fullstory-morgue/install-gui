@@ -1,8 +1,12 @@
 install-gui (0.6.26) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 25 Mar 2008 01:40:04 +0100
+  [ Joaquim Boura ]
+  * some fixes in the pt language file. Thanks to Rui Umbelino (VaMPiRiC_CRoW)
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Mon, 31 Mar 2008 00:48:31 +0200
 
 install-gui (0.6.25) unstable; urgency=low
 

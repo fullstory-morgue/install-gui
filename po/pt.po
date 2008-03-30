@@ -85,11 +85,11 @@ msgstr ""
 
 #: install-gui.glade:710(property)
 msgid "Root-Partition"
-msgstr "Partição de Raíz"
+msgstr "Partição Raíz:"
 
 #: install-gui.glade:736(property)
 msgid "Mountpoints of other Partitions"
-msgstr "Pontos de montagem (mountpoints) de outras Partições"
+msgstr "Pontos de montagem de outras Partições:"
 
 #: install-gui.glade:762(property)
 msgid ""
@@ -111,11 +111,11 @@ msgid ""
 "(will not be formatted automatically)"
 msgstr ""
 "Definir pontos de montagem (mountpoints) de outras Partições\n"
-"(não serão formatados automaticamente)"
+"(não serão formatadas automaticamente)"
 
 #: install-gui.glade:847(property)
 msgid "format with"
-msgstr "formatar com"
+msgstr "formatar com:"
 
 #: install-gui.glade:870(property)
 msgid "Partitioning"
@@ -123,11 +123,11 @@ msgstr "Particionamento"
 
 #: install-gui.glade:912(property)
 msgid "create a bootdisk"
-msgstr "criar um disco de arranque"
+msgstr "criar disco de arranque"
 
 #: install-gui.glade:931(property)
 msgid "Installation-target"
-msgstr "Local de instalação"
+msgstr "Local de instalação:"
 
 #: install-gui.glade:957(property)
 msgid ""
@@ -135,19 +135,19 @@ msgid ""
 "Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr ""
 "Gestor de arranque (boot manager): permite-lhe escolher o Sistema Operativo que deseja iniciar no arranque.\n"
-"Local de instalação: MBR (Master Boot Record) ou partição raíz"
+"Local de instalação: MBR (Master Boot Record) ou partição raíz."
 
 #: install-gui.glade:1033(property)
 msgid "Bootmanager"
-msgstr "Gestor de arranque"
+msgstr "Gestor de arranque:"
 
 #: install-gui.glade:1280(property)
 msgid "Root-password:"
-msgstr "Senha de super-utilizador (root):"
+msgstr "Senha de super-utilizador:"
 
 #: install-gui.glade:1306(property)
 msgid "Root-password again:"
-msgstr "Senha de super-utilizador (root) de novo:"
+msgstr "Senha de super-utilizador de novo:"
 
 #: install-gui.glade:1332(property)
 msgid "Realname:"
@@ -194,7 +194,7 @@ msgid ""
 "If everything is correct for you, pressing \"Save config & Next\"."
 msgstr ""
 "Forneceu toda a informação necessária para iniciar a Instalação do sidux.\n"
-"Pode verificar ou modificar as Opções novamente pressionando o botão \"Anterior\".\n"
+"Pode verificar ou modificar as Opções novamente pressionando o botão \"Retroceder\".\n"
 "Se entende que está tudo correcto, pressione o botão \"Guardar Configuração & Seguinte\"."
 
 #: install-gui.glade:1800(property)
