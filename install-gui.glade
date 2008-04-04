@@ -2958,15 +2958,12 @@ Which firmware might be required to employ affected hardware can be determined w
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* ATi Radeon graphics:&lt;/span&gt;
 see http://manual.sidux.com/en/hw-dev-hw-dri-en.htm
-type '&lt;b&gt;get-sidux-binary-gfx; install-binary-gfx -a&lt;/b&gt;' or
 type '&lt;b&gt;sgfxi -N radeon&lt;/b&gt;'
 3d acceleration for older cards up to r35x should work, newer Radeon X1xxx cards need non-free drivers for accelerated performance which are not yet compatible with Kernel 2.6.23. Depending on the particular chipset &quot;xmodule=vesa&quot; or &quot;xmodule=fbdev&quot; as cheatcode might be in order for later Radeon X1xxx models.
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Nvidia  graphics:&lt;/span&gt; 
 see http://manual.sidux.com/en/hw-dev-hw-dri-en.htm
-type '&lt;b&gt;get-sidux-binary-gfx; install-binary-gfx -a&lt;/b&gt;' or
 type '&lt;b&gt;sgfxi -h&lt;/b&gt;' to see available options
- 3d acceleration isn't possible with free drivers yet, please use get-sidux-binary-gfx to fetch install scripts for these cards.
 
 &lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Atheros/ &quot;madwifi&quot; wlan:&lt;/span&gt;
 m-a a-i madwifi

@@ -1,8 +1,12 @@
 install-gui (0.6.27) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 31 Mar 2008 03:02:21 +0200
+  [ Horst Tritremmel ]
+  * get-sidux-binary-gfx text removed from progressbar window
+
+ -- Horst Tritremmel <hjt@sidux.com>  Fri, 04 Apr 2008 21:58:51 +0200
 
 install-gui (0.6.26) unstable; urgency=low
 
