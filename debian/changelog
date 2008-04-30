@@ -1,3 +1,9 @@
+install-gui (0.6.28+nmu1) UNRELEASED; urgency=low
+
+  * bad fr translation fixed
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Wed, 30 Apr 2008 19:23:59 +0200
+
 install-gui (0.6.28) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
