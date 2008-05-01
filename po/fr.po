@@ -164,7 +164,7 @@ msgstr "Utilisateur"
 
 #: install-gui.glade:1564(property) 
 msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
-msgstr "Nom de machine: Composé de lettres minuscules et de chiffres seulement. Ne peut pas commencer avec un chiffre."
+msgstr "Nom de la machine: Composé de lettres minuscules et de chiffres seulement. Ne peut pas commencer avec un chiffre."
 
 #: install-gui.glade:1680(property) 
 msgid "Network"
@@ -222,7 +222,7 @@ msgstr "Précédent"
 
 #: install-gui.glade:663(property) 
 msgid "Hostname:"
-msgstr "Nom de machine:"
+msgstr "Nom de la machine:"
 
 #: install-gui.glade:1578(property) 
 msgid "Install additional\n"
