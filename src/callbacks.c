@@ -31,7 +31,8 @@
 #define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 #define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
 
-#define SCANPARTITIONS            "fll_fshelper --install-gui 2>/dev/null > "
+//#define SCANPARTITIONS            "fll_fshelper --install-gui 2>/dev/null > "
+#define SCANPARTITIONS "LANG=C fdisk -l|grep -e ^/dev/ |grep -v -e Extended -e swap|tr -s \"*\" \" \" | awk '{printf \"%s,%s\\n\", $1,$6}' > "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
@@ -39,20 +40,20 @@
 
 #define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
 //${LANG} is set in /etc/default/fll-locales
-#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
+//#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
 
 #define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
 
 
-char scanparttmp[80], hd_tmp[80];;
+char scanparttmp[80], hd_tmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
 int  counter, leaved_user_page, i = 0, partitions_counter = 0, hostname_ok = 1;
 //int do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar, *window_main;
- 
+
 
 // progressbar
 char FILE_NAME[256];
@@ -261,7 +262,6 @@ foreach_func (GtkTreeModel *model,
               gpointer      user_data)
 {
   gchar *ptr_dev, *ptr_fs, *slash, *tree_path_str;
-
   /* Note: here we use 'iter' and not '&iter', because we did not allocate
    *  the iter on the stack and are already getting the pointer to a tree iter */
 
@@ -344,24 +344,25 @@ void read_partitions(GtkComboBox     *combobox)
 
        fseek( fp, 0L, SEEK_SET );
        while (fscanf(fp, "%s", partition) != EOF) {
-
           //printf("%s %s\n", "combobox setzen, partition");
 
           // example of partition  /dev/dm-0,ext3  
           // example of partition  /dev/hda1,ext3
+          
           ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
           ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
-          if( strncmp(ptr_fs, "reiser", 6) == 0 ||
-              strncmp(ptr_fs, "ext", 3) == 0 ||
-              strcmp(ptr_fs, "jfs") == 0 ) {
+          //if( strncmp(ptr_fs, "reiser", 6) == 0 ||
+          //    strncmp(ptr_fs, "ext", 3) == 0 ||
+          //    strcmp(ptr_fs, "jfs") == 0 ) {
 
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), ptr_dev);
               gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
 
               partitions_counter++;
-          }
+          //}
      }
+     gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
 
      fclose(fp);
 
