@@ -1,7 +1,6 @@
-install-gui (0.6.30) UNRELEASED; urgency=low
+install-gui (0.6.30) unstable; urgency=low
 
   [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
   * list python as dependency.
 
   [ Horst Tritremmel ]
