@@ -31,8 +31,8 @@
 #define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 #define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
 
-//#define SCANPARTITIONS            "fll_fshelper --install-gui 2>/dev/null > "
-#define SCANPARTITIONS "LANG=C fdisk -l|grep -e ^/dev/ |grep -v -e Extended -e swap|tr -s \"*\" \" \" | awk '{printf \"%s,%s\\n\", $1,$6}' > "
+//#define SCANPARTITIONS           "fll_fshelper --install-gui 2>/dev/null > "
+#define SCANPARTITIONS             "/usr/share/install-gui/disk.py 2>/dev/null > "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
@@ -346,23 +346,23 @@ void read_partitions(GtkComboBox     *combobox)
        while (fscanf(fp, "%s", partition) != EOF) {
           //printf("%s %s\n", "combobox setzen, partition");
 
-          // example of partition  /dev/dm-0,ext3  
+          // example of partition  /dev/dm-0,ext3
           // example of partition  /dev/hda1,ext3
-          
           ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
           ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
-          //if( strncmp(ptr_fs, "reiser", 6) == 0 ||
-          //    strncmp(ptr_fs, "ext", 3) == 0 ||
-          //    strcmp(ptr_fs, "jfs") == 0 ) {
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), ptr_dev);
+          //gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), 0);
 
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), ptr_dev);
-              gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+          if( strncmp(ptr_fs, "reiser", 6) == 0 ||
+              strncmp(ptr_fs, "ext", 3) == 0 ||
+              strcmp(ptr_fs, "jfs") == 0 ) {
 
-              partitions_counter++;
-          //}
+                    gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), partitions_counter);
+          }
+          partitions_counter++;
      }
-     gtk_combo_box_set_active(GTK_COMBO_BOX(combobox),0);
+
 
      fclose(fp);
 
@@ -700,9 +700,13 @@ on_rootpartcombo_changed               (GtkComboBox     *combobox,
 
 
    // change also the  / (rootpartition) entry in the treeview, set the treeview new
-   g_signal_connect ((gpointer) rootpartcombo, "changed",
+   /* g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),
-                    NULL);
+                    NULL);  */
+
+   // change also the  / (rootpartition) entry in the treeview, set the treeview new
+   GtkWidget *toggle = lookup_widget ( GTK_WIDGET (combobox), "checkbutton_mountpoints");
+   on_checkbutton_mountpoints_toggled (GTK_TOGGLE_BUTTON (toggle), NULL);
 
 }
 
@@ -715,8 +719,6 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
    FILE* fp;
 
    GtkTreeIter iter_tb;
-   GtkWidget *rootpartcombo;
-   gchar *rootpart;
 
    char partition[80];
    char slash[80];
@@ -726,7 +728,6 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
    GtkWidget *toggle = lookup_widget ( GTK_WIDGET (togglebutton), "checkbutton_mountpoints");
    GtkWidget *treeview1 = lookup_widget (GTK_WIDGET (togglebutton), "treeview1");
    GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW(treeview1));
-   rootpartcombo = lookup_widget (GTK_WIDGET (togglebutton), "rootpartcombo");
 
    gboolean enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (toggle));
 
@@ -735,38 +736,47 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
         gtk_list_store_clear ( GTK_LIST_STORE (model) );  //make treeview empty
 
 
-        /* get the partitiontable from scanpart tempfile */
+        // get the partitiontable from scanpart tempfile 
         fp=fopen(scanparttmp, "r");
         if( fp == NULL ) {
            strcpy(partition, "tmp file error");
         }
-        else {
-            rootpart = gtk_combo_box_get_active_text(GTK_COMBO_BOX (rootpartcombo));
+       else {
+            gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (togglebutton), "rootpartcombo")));
 
             fseek( fp, 0L, SEEK_SET );
             while (fscanf(fp, "%s", partition) != EOF) {
 
-                /* Append a row and fill in some data */
+                // Append a row and fill in some data
                 gtk_list_store_append ( GTK_LIST_STORE (model), &iter_tb);
 
                 // example of partition  /dev/hda1-ext3
                 ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
                 ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
-                if( strcmp(ptr_dev, rootpart) == 0 ) {
-                        strcpy(slash, "/");
-                  }
+                if( hd_choice == NULL ) {
+                    strcpy(slash, "");
+                    printf("rootpartcombo = NULL\n");
+                }
                 else {
+                    if( strcmp(ptr_dev, hd_choice) == 0 ) {
+                        strcpy(slash, "/");
+                    }
+                    else {
                         strcpy(slash, "");
-                  }
+                    }
+                }
 
                 gtk_list_store_set ( GTK_LIST_STORE (model), &iter_tb,
                          COL_DEVICE, ptr_dev,
                          COL_FS,     ptr_fs,
                          COL_MOUNTP, slash,
                          -1);
+
             }
+
             fclose(fp);
+
         }
 
 
@@ -774,6 +784,7 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
    else {
         gtk_list_store_clear (GTK_LIST_STORE (model) );
    }
+
 }
 
 
@@ -1863,6 +1874,12 @@ on_window_main_realize                 (GtkWidget       *widget,
    *                      fill the label_tz                        *
    * ============================================================= */
    timezone_read (GTK_WIDGET (widget));
+
+
+   // set the treeview on start
+   GtkWidget *toggle = lookup_widget ( GTK_WIDGET (widget), "checkbutton_mountpoints");
+   on_checkbutton_mountpoints_toggled (GTK_TOGGLE_BUTTON (toggle), NULL);
+
 
 
   /* ============================================================= *

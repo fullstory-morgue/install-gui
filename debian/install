@@ -6,3 +6,4 @@ icons/pixmaps.install-gui/*	usr/share/pixmaps/
 scripts/install-gui.bash	usr/bin/
 scripts/nonfree			usr/share/install-gui/
 scripts/fw-install*		usr/share/install-gui/
+scripts/disk.py			usr/share/install-gui/

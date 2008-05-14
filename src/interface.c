@@ -54,8 +54,6 @@ create_window_main (void)
   GtkWidget *button_usb;
   GtkWidget *label1;
   GtkWidget *fixed3;
-  GtkWidget *format_combo;
-  GtkWidget *label8;
   GtkWidget *label35;
   GtkWidget *frame4;
   GtkWidget *alignment9;
@@ -69,13 +67,16 @@ create_window_main (void)
   GtkWidget *label40;
   GtkWidget *scrolledwindow1;
   GtkWidget *treeview1;
-  GtkWidget *label7;
-  GtkWidget *checkbutton_format_with;
-  GtkWidget *checkbutton_automount;
   GtkWidget *hseparator1;
-  GtkWidget *checkbutton_mountpoints;
-  GtkWidget *rootpartcombo;
+  GtkWidget *label8;
+  GtkWidget *checkbutton_automount;
   GtkWidget *label_changed;
+  GtkWidget *rootpartcombo;
+  GtkWidget *format_combo;
+  GtkWidget *label7;
+  GtkWidget *checkbutton_mountpoints;
+  GtkWidget *rootpartlabel;
+  GtkWidget *checkbutton_format_with;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *frame3;
@@ -322,18 +323,6 @@ create_window_main (void)
   gtk_widget_show (fixed3);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed3);
 
-  format_combo = gtk_combo_box_new_text ();
-  gtk_widget_show (format_combo);
-  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 488, 64);
-  gtk_widget_set_size_request (format_combo, 186, 28);
-
-  label8 = gtk_label_new (_("Mountpoints of other Partitions"));
-  gtk_widget_show (label8);
-  gtk_fixed_put (GTK_FIXED (fixed3), label8, 16, 224);
-  gtk_widget_set_size_request (label8, 144, 40);
-  gtk_label_set_line_wrap (GTK_LABEL (label8), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label8), 0, 0);
-
   label35 = gtk_label_new (_("Example:\n------------\nA seperate\nhome-partition:\n/home"));
   gtk_widget_show (label35);
   gtk_fixed_put (GTK_FIXED (fixed3), label35, 16, 272);
@@ -408,44 +397,64 @@ create_window_main (void)
   gtk_tree_view_set_hover_selection (GTK_TREE_VIEW (treeview1), TRUE);
   gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
 
-  label7 = gtk_label_new (_("Root-Partition"));
-  gtk_widget_show (label7);
-  gtk_fixed_put (GTK_FIXED (fixed3), label7, 176, 24);
-  gtk_widget_set_size_request (label7, 120, 28);
-  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
-
-  checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
-  gtk_widget_show (checkbutton_format_with);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 176, 64);
-  gtk_widget_set_size_request (checkbutton_format_with, 310, 28);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
-
-  checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
-  gtk_widget_show (checkbutton_automount);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 176, 92);
-  gtk_widget_set_size_request (checkbutton_automount, 496, 36);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
-
   hseparator1 = gtk_hseparator_new ();
   gtk_widget_show (hseparator1);
   gtk_fixed_put (GTK_FIXED (fixed3), hseparator1, 174, 126);
   gtk_widget_set_size_request (hseparator1, 500, 16);
 
-  checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
-  gtk_widget_show (checkbutton_mountpoints);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 176, 138);
-  gtk_widget_set_size_request (checkbutton_mountpoints, 496, 48);
+  label8 = gtk_label_new (_("Mountpoints of other Partitions"));
+  gtk_widget_show (label8);
+  gtk_fixed_put (GTK_FIXED (fixed3), label8, 16, 224);
+  gtk_widget_set_size_request (label8, 144, 40);
+  gtk_label_set_line_wrap (GTK_LABEL (label8), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label8), 0, 0);
 
-  rootpartcombo = gtk_combo_box_new_text ();
-  gtk_widget_show (rootpartcombo);
-  gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 296, 24);
-  gtk_widget_set_size_request (rootpartcombo, 378, 28);
+  checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
+  gtk_widget_show (checkbutton_automount);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 176, 96);
+  gtk_widget_set_size_request (checkbutton_automount, 496, 32);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
 
   label_changed = gtk_label_new ("");
   gtk_widget_show (label_changed);
   gtk_fixed_put (GTK_FIXED (fixed3), label_changed, 296, 0);
   gtk_widget_set_size_request (label_changed, 360, 24);
   gtk_misc_set_alignment (GTK_MISC (label_changed), 0, 0.5);
+
+  rootpartcombo = gtk_combo_box_new_text ();
+  gtk_widget_show (rootpartcombo);
+  gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 344, 24);
+  gtk_widget_set_size_request (rootpartcombo, 240, 28);
+
+  format_combo = gtk_combo_box_new_text ();
+  gtk_widget_show (format_combo);
+  gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 344, 64);
+  gtk_widget_set_size_request (format_combo, 240, 28);
+
+  label7 = gtk_label_new (_("Root-Partition"));
+  gtk_widget_show (label7);
+  gtk_fixed_put (GTK_FIXED (fixed3), label7, 176, 24);
+  gtk_widget_set_size_request (label7, 166, 28);
+  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
+
+  checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
+  gtk_widget_show (checkbutton_mountpoints);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 176, 136);
+  gtk_widget_set_size_request (checkbutton_mountpoints, 496, 48);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_mountpoints), TRUE);
+
+  rootpartlabel = gtk_label_new ("");
+  gtk_widget_show (rootpartlabel);
+  gtk_fixed_put (GTK_FIXED (fixed3), rootpartlabel, 592, 24);
+  gtk_widget_set_size_request (rootpartlabel, 94, 28);
+  gtk_label_set_use_markup (GTK_LABEL (rootpartlabel), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (rootpartlabel), 0, 0.5);
+
+  checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
+  gtk_widget_show (checkbutton_format_with);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 176, 64);
+  gtk_widget_set_size_request (checkbutton_format_with, 166, 28);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
 
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
@@ -1007,11 +1016,11 @@ create_window_main (void)
   g_signal_connect ((gpointer) button_gparted, "clicked",
                     G_CALLBACK (on_button_gparted_clicked),
                     NULL);
-  g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
-                    G_CALLBACK (on_checkbutton_mountpoints_toggled),
-                    NULL);
   g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_rootpartcombo_changed),
+                    NULL);
+  g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
+                    G_CALLBACK (on_checkbutton_mountpoints_toggled),
                     NULL);
   g_signal_connect ((gpointer) button_tz, "clicked",
                     G_CALLBACK (on_button_tz_clicked),
@@ -1081,8 +1090,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
-  GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
-  GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
   GLADE_HOOKUP_OBJECT (window_main, label35, "label35");
   GLADE_HOOKUP_OBJECT (window_main, frame4, "frame4");
   GLADE_HOOKUP_OBJECT (window_main, alignment9, "alignment9");
@@ -1095,13 +1102,16 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, label40, "label40");
   GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
   GLADE_HOOKUP_OBJECT (window_main, treeview1, "treeview1");
-  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
   GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
-  GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
+  GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
   GLADE_HOOKUP_OBJECT (window_main, label_changed, "label_changed");
+  GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
+  GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
+  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
+  GLADE_HOOKUP_OBJECT (window_main, rootpartlabel, "rootpartlabel");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
   GLADE_HOOKUP_OBJECT (window_main, label2, "label2");
   GLADE_HOOKUP_OBJECT (window_main, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window_main, frame3, "frame3");
