@@ -6,8 +6,9 @@ install-gui (0.6.29) UNRELEASED; urgency=low
   [ Horst Tritremmel ]
   * allow unformated devices 
   * disk.py added 
+  * udevinfo instead of /sys/block/..../device 
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 14 May 2008 11:20:10 +0200
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 14 May 2008 15:49:48 +0200
 
 install-gui (0.6.28) unstable; urgency=low
 

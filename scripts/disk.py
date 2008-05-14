@@ -6,6 +6,7 @@ __copyright__ = '(C) 2008 Horst Tritremmel <hjt@sidux.com>'
 __license__   = 'GPLv2 or any later version'
 
 import os
+from optparse import OptionParser
 from subprocess import *
 
 PROC_PARTITIONS = '/proc/partitions'
@@ -80,10 +81,52 @@ class Diskinfo(object):
 
 
 if __name__ == '__main__':
+    ''' option parser'''
+    parser = OptionParser("disk.py [Option]")
+    parser.add_option("-d", "--disk", action="store_true", 
+                  dest="disk", default=False,
+                  help="print all disk devices")
+
+    parser.add_option("-p", "--partition", action="store_true", 
+                  dest="partition", default=False,
+                  help="print all partition devices")
+
+    parser.add_option("-n", "--nousb", action="store_true", 
+                  dest="nousb", default=False,
+                  help="print all disk devices without usb")
+
+    (options, args) = parser.parse_args()
+
+    opt_disk     = options.disk
+    opt_partiton = options.partition
+    opt_nousb    = options.nousb
+
+    # opt_partition as default
+    if opt_disk     == False and \
+       opt_partiton == False and \
+       opt_nousb    == False:
+            opt_partiton = True
+
+
+    ''' start main '''
     partitions = Diskinfo().partitions()
 
-    for p in partitions:
-        if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
-        Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap':
-            print '%s,%s' % (p,  Diskinfo().udevinfo(p).get('ID_FS_TYPE'))
+    ''' print all disk devices '''
+    if opt_disk == True:
+        for p in partitions:
+         if Diskinfo().udevinfo(p).get('TYP') == 'disk':
+                print '%s' % (p)
 
+    ''' print all partition devices '''
+    if opt_partiton == True:
+        for p in partitions:
+         if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
+         Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap':
+                print '%s,%s,%s' % (p, Diskinfo().udevinfo(p).get('ID_FS_TYPE'), Diskinfo().udevinfo(p).get('ID_BUS'))
+
+    ''' print all disk devices without usb '''
+    if opt_nousb == True:
+        for p in partitions:
+         if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
+         Diskinfo().udevinfo(p).get('ID_BUS') != 'usb':
+                print '%s' % (p)
