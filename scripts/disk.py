@@ -95,15 +95,22 @@ if __name__ == '__main__':
                   dest="nousb", default=False,
                   help="print all disk devices without usb")
 
+    parser.add_option("-u", "--usb", dest="usb",
+                      type = 'string', metavar = '<device>',
+                      help="[--usb=sdX], is the <disk device> a usb device")
+
     (options, args) = parser.parse_args()
 
     opt_disk     = options.disk
     opt_partiton = options.partition
     opt_nousb    = options.nousb
+    opt_usb      = options.usb
+
 
     # opt_partition as default
     if opt_disk     == False and \
        opt_partiton == False and \
+       opt_usb      == None  and \
        opt_nousb    == False:
             opt_partiton = True
 
@@ -114,19 +121,25 @@ if __name__ == '__main__':
     ''' print all disk devices '''
     if opt_disk == True:
         for p in partitions:
-         if Diskinfo().udevinfo(p).get('TYP') == 'disk':
+            if Diskinfo().udevinfo(p).get('TYP') == 'disk':
                 print '%s' % (p)
 
     ''' print all partition devices '''
     if opt_partiton == True:
         for p in partitions:
-         if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
-         Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap':
+            if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
+            Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap':
                 print '%s,%s,%s' % (p, Diskinfo().udevinfo(p).get('ID_FS_TYPE'), Diskinfo().udevinfo(p).get('ID_BUS'))
 
     ''' print all disk devices without usb '''
     if opt_nousb == True:
         for p in partitions:
-         if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
-         Diskinfo().udevinfo(p).get('ID_BUS') != 'usb':
+            if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
+            Diskinfo().udevinfo(p).get('ID_BUS') != 'usb':
+                print '%s' % (p)
+
+    if opt_usb != None:
+        p = '/dev/%s' % (opt_usb)
+        if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
+        Diskinfo().udevinfo(p).get('ID_BUS') == 'usb':
                 print '%s' % (p)

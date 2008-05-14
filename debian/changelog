@@ -1,9 +1,13 @@
 install-gui (0.6.30) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
   * list python as dependency.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 14 May 2008 16:13:33 +0200
+  [ Horst Tritremmel ]
+  * another /sys/block/..../device call found and changed 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 14 May 2008 16:26:18 +0200
 
 install-gui (0.6.29) unstable; urgency=low
 

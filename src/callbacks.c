@@ -34,6 +34,7 @@
 //#define SCANPARTITIONS           "fll_fshelper --install-gui 2>/dev/null > "
 #define HD_SCAN                    "/usr/share/install-gui/disk.py -d  > "
 #define HD_SCAN_NO_USB             "/usr/share/install-gui/disk.py -n  > "    // without usb devices
+#define HD_SCAN_USB                "/usr/share/install-gui/disk.py -u "
 #define SCANPARTITIONS             "/usr/share/install-gui/disk.py -p  > "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
@@ -172,9 +173,9 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
       if( fd ) {
                // create the shell system command (scanpartitions)
-              strcpy(device, "ls -l /sys/block/");
+              strcpy(device, HD_SCAN_USB);
               strncat(device, entry2, 3);
-              strcat(device, "/device | grep usb > ");
+              strcat(device, " > ");
               strcat(device, usbdevicetmp);
 
               system(device);
