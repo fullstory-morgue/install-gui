@@ -23,6 +23,7 @@ class Diskinfo(object):
         self.procfile = open(PROC_PARTITIONS, 'r')
         self.procnames = [ '/dev/%s' % (self.p.split()[3]) for self.p in self.procfile.readlines()[2:] ]
         self.procfile.close()
+        self.procnames.remove("/dev/loop0")
 
         return self.procnames
 

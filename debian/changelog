@@ -1,8 +1,12 @@
 install-gui (0.6.31) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 14 May 2008 17:09:39 +0200
+  [ Horst Tritremmel ]
+  * dont show /dev/loop0 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 14 May 2008 22:37:54 +0200
 
 install-gui (0.6.30) unstable; urgency=low
 
