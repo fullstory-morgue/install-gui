@@ -1,9 +1,5 @@
-install-gui (0.6.29) UNRELEASED; urgency=low
+install-gui (0.6.29) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * allow unformated devices 
   * disk.py added 
   * udevinfo instead of /sys/block/..../device 
