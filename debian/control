@@ -10,7 +10,7 @@ Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
 Package: install-gui
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.2.1), sidux-scripts (>= 0.2.6), fll-live-initscripts (>= 2.0.64)
+Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.2.1), python, sidux-scripts (>= 0.2.6), fll-live-initscripts (>= 2.0.64)
 Conflicts: sidux-xdg
 Recommends: install-usb-gui, menu, gparted
 Description: sidux install-gui for fll-installer
