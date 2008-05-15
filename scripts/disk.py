@@ -23,7 +23,6 @@ class Diskinfo(object):
         self.procfile = open(PROC_PARTITIONS, 'r')
         self.procnames = [ '/dev/%s' % (self.p.split()[3]) for self.p in self.procfile.readlines()[2:] ]
         self.procfile.close()
-        self.procnames.remove("/dev/loop0")
 
         return self.procnames
 
@@ -81,6 +80,17 @@ class Diskinfo(object):
         return self.count
 
 
+def fdisk(partition):
+    ''' return len of <fdisk -l> call '''
+    cmd = [ 'fdisk', '-l', partition ]
+    c = Popen(cmd, stdout = PIPE, stderr = STDOUT, close_fds = True)
+    callback = c.communicate()[0]
+    if not c.returncode == 0:
+        print 'Error: %s' % ( ' '.join(cmd) )
+
+    return len(callback)
+
+
 if __name__ == '__main__':
     ''' option parser'''
     parser = OptionParser("disk.py [Option]")
@@ -119,26 +129,35 @@ if __name__ == '__main__':
     ''' start main '''
     partitions = Diskinfo().partitions()
 
-    ''' print all disk devices '''
+    ''' print all disk devices, option: -d '''
     if opt_disk == True:
         for p in partitions:
             if Diskinfo().udevinfo(p).get('TYP') == 'disk':
-                print '%s' % (p)
+                if Diskinfo().udevinfo(p).get('ID_BUS') != None:
+                    print '%s' % (p)
 
-    ''' print all partition devices '''
+    ''' print all partition devices, option: -p '''
     if opt_partiton == True:
         for p in partitions:
             if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
             Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap':
-                print '%s,%s,%s' % (p, Diskinfo().udevinfo(p).get('ID_FS_TYPE'), Diskinfo().udevinfo(p).get('ID_BUS'))
+                len_of_fdisk_call = fdisk(p)
+                if len_of_fdisk_call > 0:
+                    print '%s,%s,%s' % (
+                            p, 
+                            Diskinfo().udevinfo(p).get('ID_FS_TYPE'), 
+                            Diskinfo().udevinfo(p).get('ID_BUS')
+                        )
 
-    ''' print all disk devices without usb '''
+    ''' print all disk devices without usb, option: -n '''
     if opt_nousb == True:
         for p in partitions:
             if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
             Diskinfo().udevinfo(p).get('ID_BUS') != 'usb':
-                print '%s' % (p)
+                if Diskinfo().udevinfo(p).get('ID_BUS') != None:
+                    print '%s' % (p)
 
+    ''' is the <disk device> a usb device, option: -u <device> '''
     if opt_usb != None:
         p = '/dev/%s' % (opt_usb)
         if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
