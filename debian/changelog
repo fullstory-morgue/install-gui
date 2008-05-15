@@ -6,7 +6,7 @@ install-gui (0.6.32) UNRELEASED; urgency=low
 
 install-gui (0.6.31) unstable; urgency=low
 
-  * dont show /dev/loop0 
+  * don't show /dev/loop0 
   * disk.py bug fix 
 
  -- Horst Tritremmel <hjt@sidux.com>  Thu, 15 May 2008 10:35:52 +0200
