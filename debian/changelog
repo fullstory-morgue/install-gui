@@ -1,9 +1,5 @@
-install-gui (0.6.31) UNRELEASED; urgency=low
+install-gui (0.6.31) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * dont show /dev/loop0 
   * disk.py bug fix 
 
