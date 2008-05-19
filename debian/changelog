@@ -1,3 +1,9 @@
+install-gui (0.6.33) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 19 May 2008 14:41:00 +0200
+
 install-gui (0.6.32) unstable; urgency=low
 
   * src/callbacks.c:
