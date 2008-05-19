@@ -1,4 +1,4 @@
-install-gui (0.6.32) UNRELEASED; urgency=low
+install-gui (0.6.32) unstable; urgency=low
 
   * src/callbacks.c:
     - use /etc/init.d/fll-fstab and not fll_fshelper
