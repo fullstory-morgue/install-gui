@@ -1,8 +1,9 @@
 install-gui (0.6.32) UNRELEASED; urgency=low
 
-  * NOT RELEASED YET
+  * src/callbacks.c:
+    - use /etc/init.d/fll-fstab and not fll_fshelper
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 15 May 2008 13:16:27 +0200
+ -- Kel Modderman <kel@otaku42.de>  Mon, 19 May 2008 11:31:04 +1000
 
 install-gui (0.6.31) unstable; urgency=low
 
