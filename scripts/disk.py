@@ -6,6 +6,9 @@ __copyright__ = '(C) 2008 Horst Tritremmel <hjt@sidux.com>'
 __license__   = 'GPLv2 or any later version'
 
 import os
+import glob
+import volumeid
+from stat import *
 from optparse import OptionParser
 from subprocess import *
 
@@ -64,6 +67,29 @@ class Diskinfo(object):
                 continue
 
         return self.dict_udevinfo
+
+
+    def lvm(self):
+        lvm = glob.glob('/dev/mapper/*')
+        for l in lvm:
+            try:
+                mode = os.stat(l)[ST_MODE]
+                if S_ISBLK(mode) == 0:
+                    continue
+
+                vid = volumeid.VolId(l)
+                if vid.type() != 'swap' and \
+                   vid.usage() == 'filesystem':
+                    print '%s,%s,%s,%s' % ( 
+                        vid.dev,
+                        vid.type(),
+                        vid.usage(),
+                        vid.uuid_enc()
+                        #vid.label_enc()
+                    )
+            except volumeid.error, e:
+                print 'E: %s' % e
+                pass
 
 
     def partition_count(self):
@@ -136,18 +162,25 @@ if __name__ == '__main__':
                 if Diskinfo().udevinfo(p).get('ID_BUS') != None:
                     print '%s' % (p)
 
+
     ''' print all partition devices, option: -p '''
     if opt_partiton == True:
         for p in partitions:
             if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
-            Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap':
+            Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap'  and \
+            Diskinfo().udevinfo(p).get('ID_FS_USAGE') == 'filesystem':
                 len_of_fdisk_call = fdisk(p)
                 if len_of_fdisk_call > 0:
-                    print '%s,%s,%s' % (
-                            p, 
-                            Diskinfo().udevinfo(p).get('ID_FS_TYPE'), 
-                            Diskinfo().udevinfo(p).get('ID_BUS')
+                    print '%s,%s,%s,%s' % (
+                            p,
+                            Diskinfo().udevinfo(p).get('ID_FS_TYPE'),
+                            Diskinfo().udevinfo(p).get('ID_FS_USAGE'),
+                            Diskinfo().udevinfo(p).get('ID_FS_UUID')
                         )
+
+        # output lvm devices
+        Diskinfo().lvm()
+
 
     ''' print all disk devices without usb, option: -n '''
     if opt_nousb == True:
@@ -160,6 +193,7 @@ if __name__ == '__main__':
     ''' is the <disk device> a usb device, option: -u <device> '''
     if opt_usb != None:
         p = '/dev/%s' % (opt_usb)
+        #print p
         if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
         Diskinfo().udevinfo(p).get('ID_BUS') == 'usb':
                 print '%s' % (p)
