@@ -6,7 +6,11 @@ install-gui (0.6.33) UNRELEASED; urgency=low
   [ hjt ]
   * !!! DO NOT RELEASE !!!
 
- -- hjt <hjt@siduxbox>  Wed, 21 May 2008 15:41:23 +0200
+  [ Kel Modderman ]
+  * Remove all reference to fll_fshelper.
+  * Call /etc/init.d/fll-resume start when returning from partitioning tool.
+
+ -- Kel Modderman <kel@otaku42.de>  Thu, 22 May 2008 15:04:38 +1000
 
 install-gui (0.6.32) unstable; urgency=low
 

@@ -31,7 +31,6 @@
 //#define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 //#define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
 
-//#define SCANPARTITIONS           "fll_fshelper --install-gui 2>/dev/null > "
 #define HD_SCAN                    "/usr/share/install-gui/disk.py -d  > "
 #define HD_SCAN_NO_USB             "/usr/share/install-gui/disk.py -n  > "    // without usb devices
 #define HD_SCAN_USB                "/usr/share/install-gui/disk.py -u "
@@ -1015,7 +1014,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    // maybe use access("/usr/sbin/udevadm", X_OK) ?
 
 
-   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";/etc/init.d/fll-fstab start");  // create the fstab and start kde automount again
+   system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";/etc/init.d/fll-fstab start;/etc/init.d/fll-resume start");  // create the fstab and start kde automount again
 
 
    /* remove the tempfile */
