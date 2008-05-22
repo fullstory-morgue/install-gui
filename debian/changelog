@@ -1,3 +1,11 @@
+install-gui (0.6.33+nmu1) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * similar to kde don't allow thunar popup windows when creating/rearranging
+    the partitions for the installer.
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Thu, 22 May 2008 16:01:18 +0200
+
 install-gui (0.6.33) UNRELEASED; urgency=low
 
   [ Stefan Lippers-Hollmann ]

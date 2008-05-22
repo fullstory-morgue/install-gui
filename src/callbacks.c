@@ -933,13 +933,14 @@ on_button_gparted_clicked              (GtkButton       *button,
    while (gtk_events_pending ())
           gtk_main_iteration ();
 
-   //disable kde automount
+   //disable kde/thunar automount
    //strncpy(kdeconfdir, getenv("HOME"), 256);
    //strncat(kdeconfdir, "/.kde/share/config/", 256);
    strncpy(kdeconfdir, "/home/sidux/.kde/share/config/", 256);
 
    if (chdir(kdeconfdir) < 0) {
          printf("failed change to /home/sidux/.kde/share/config/\n");
+         system(". /etc/default/distro; user_home=$(getent passwd ${FLL_LIVE_USER} | cut -d : -f6); if [ -e ${user_home}/.config/Thunar/volmanrc ]; then sed -i -e 's/AutomountDrivers=TRUE/AutomountDrivers=FALSE' -e 's/AutomountMedia=TRUE/AutomountMedia=FALSE/' -e 's/Autobrowse=FALSE' ${user_home}/.config/Thunar/volmanrc ; fi");
    }
    else {
       stream = fopen( "medianotifierrc", "w+" );
@@ -1014,6 +1015,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    // maybe use access("/usr/sbin/udevadm", X_OK) ?
 
 
+   system (". /etc/default/distro; user_home=$(getent passwd ${FLL_LIVE_USER} | cut -d : -f6)    if [ -e ${user_home}/.config/Thunar/volmanrc ]; then sed -i -e 's/AutomountDrivers=FALSE/AutomountDrivers=TRUE' -e 's/AutomountMedia=FALSE/AutomountMedia=TRUE/' -e 's/Autobrowse=TRUE' ${user_home}/.config/Thunar/volmanrc ; fi");
    system("rm -f /home/sidux/.kde/share/config/medianotifierrc;printf \"\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\ncreate fstab\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\";/etc/init.d/fll-fstab start;/etc/init.d/fll-resume start");  // create the fstab and start kde automount again
 
 
