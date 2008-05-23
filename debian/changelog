@@ -1,22 +1,18 @@
-install-gui (0.6.33+nmu1) UNRELEASED; urgency=low
-
-  * Non-maintainer upload.
-  * similar to kde don't allow thunar popup windows when creating/rearranging
-    the partitions for the installer.
-
- -- Joaquim Boura <x-un-i@sidux.com>  Thu, 22 May 2008 16:01:18 +0200
-
 install-gui (0.6.33) UNRELEASED; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
-
-  [ hjt ]
   * !!! DO NOT RELEASE !!!
+
+  [ Stefan Lippers-Hollmann ]
+  * add x-un-i to uploaders.
 
   [ Kel Modderman ]
   * Remove all reference to fll_fshelper.
   * Call /etc/init.d/fll-resume start when returning from partitioning tool.
+
+  [ Joaquim Boura ]
+  * similar to kde don't allow thunar popup windows when creating/rearranging
+    the partitions for the installer.
 
  -- Kel Modderman <kel@otaku42.de>  Thu, 22 May 2008 15:04:38 +1000
 
