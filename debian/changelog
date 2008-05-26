@@ -15,8 +15,9 @@ install-gui (0.6.33) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * allow lvm partitions added, pls test 
+  * Abort message added for backend, thx to x-un-i 
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 26 May 2008 15:19:00 +0200
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 26 May 2008 16:35:22 +0200
 
 install-gui (0.6.32) unstable; urgency=low
 

@@ -40,6 +40,9 @@
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
 #define INSTALL_FIRMWARE_BASH     "/usr/share/install-gui/fw-install"
 
+// Abort message from backend
+#define ABORT_MESSAGE             "Abort:"
+
 #define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
 //${LANG} is set in /etc/default/fll-locales
 //#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
@@ -1975,6 +1978,7 @@ f_notify(GIOChannel    *source,
    char buf[BUF_LEN], *assign;
    int len, i;
    FILE *watched_file;
+   GtkWidget *mainW, *dialog;
 
 
    while (gtk_events_pending ())
@@ -2011,6 +2015,25 @@ f_notify(GIOChannel    *source,
 
              }
 
+             // Abort from backend
+             if( strncmp ( column, ABORT_MESSAGE, 6 ) == 0 ) {
+
+                  //hide the progressbar window
+                  gtk_widget_hide ( install_progressbar );
+
+                  // start dialog_abort
+                  mainW = lookup_widget (GTK_WIDGET (pprogres), "window_main");
+                  dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n", column);
+                  gtk_dialog_run (GTK_DIALOG (dialog));
+                  gtk_widget_destroy (dialog);
+
+                  gtk_main_quit();
+
+             }
 
              assign = strtok( column, "=");
 
