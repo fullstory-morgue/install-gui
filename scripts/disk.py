@@ -42,7 +42,6 @@ class Diskinfo(object):
         ''' top-level device path /sys/block (for disk or partiton) '''
         self.sysblock = os.listdir(SYS_BLOCK)
 
-
         if self.device in self.sysblock:
             ''' disk '''
             self.dict_udevinfo['TYP'] = 'disk'
@@ -55,7 +54,8 @@ class Diskinfo(object):
         self.c = Popen(self.cmd, stdout = PIPE, stderr = STDOUT, close_fds = True)
         self.udevinfo = self.c.communicate()[0].split('\n')
         if not self.c.returncode == 0:
-            print 'Error: %s' % ( ' '.join(self.cmd) )
+            pass
+            #print 'Error: %s' % ( ' '.join(self.cmd) )
 
 
         ''' split udevinfo and create dict '''
@@ -68,7 +68,7 @@ class Diskinfo(object):
 
         return self.dict_udevinfo
 
-
+    """
     def lvm(self):
         lvm = glob.glob('/dev/mapper/*')
         for l in lvm:
@@ -84,13 +84,12 @@ class Diskinfo(object):
                         vid.dev,
                         vid.type(),
                         vid.usage(),
-                        vid.uuid_enc()
-                        #vid.label_enc()
+                        vid.uuid_enc(),
                     )
             except volumeid.error, e:
                 print 'E: %s' % e
                 pass
-
+    """
 
     def partition_count(self):
         '''
@@ -159,7 +158,8 @@ if __name__ == '__main__':
     if opt_disk == True:
         for p in partitions:
             if Diskinfo().udevinfo(p).get('TYP') == 'disk':
-                if Diskinfo().udevinfo(p).get('ID_BUS') != None:
+                if Diskinfo().udevinfo(p).get('ID_BUS') != None or \
+                   '/dev/dm' in p:
                     print '%s' % (p)
 
 
@@ -171,15 +171,27 @@ if __name__ == '__main__':
             Diskinfo().udevinfo(p).get('ID_FS_USAGE') == 'filesystem':
                 len_of_fdisk_call = fdisk(p)
                 if len_of_fdisk_call > 0:
-                    print '%s,%s,%s,%s' % (
+                    print '%s,%s,%s,%s,norm' % (
                             p,
                             Diskinfo().udevinfo(p).get('ID_FS_TYPE'),
                             Diskinfo().udevinfo(p).get('ID_FS_USAGE'),
                             Diskinfo().udevinfo(p).get('ID_FS_UUID')
                         )
 
+            # lvm devices
+            if 'dm-' in p:
+                vid = volumeid.VolId(p)
+                if vid.type() != 'swap' and \
+                   vid.usage() == 'filesystem':
+                    print '%s,%s,%s,%s,lvm' % ( 
+                        vid.dev,
+                        vid.type(),
+                        vid.usage(),
+                        vid.uuid_enc(),
+                    )
+
         # output lvm devices
-        Diskinfo().lvm()
+        #Diskinfo().lvm()
 
 
     ''' print all disk devices without usb, option: -n '''
@@ -193,7 +205,7 @@ if __name__ == '__main__':
     ''' is the <disk device> a usb device, option: -u <device> '''
     if opt_usb != None:
         p = '/dev/%s' % (opt_usb)
-        #print p
+
         if Diskinfo().udevinfo(p).get('TYP') == 'disk' and \
-        Diskinfo().udevinfo(p).get('ID_BUS') == 'usb':
+           Diskinfo().udevinfo(p).get('ID_BUS') == 'usb':
                 print '%s' % (p)

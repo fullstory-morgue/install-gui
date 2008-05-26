@@ -1,7 +1,6 @@
 install-gui (0.6.33) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
-  * !!! DO NOT RELEASE !!!
 
   [ Stefan Lippers-Hollmann ]
   * add x-un-i to uploaders.
@@ -14,7 +13,10 @@ install-gui (0.6.33) UNRELEASED; urgency=low
   * similar to kde don't allow thunar popup windows when creating/rearranging
     the partitions for the installer.
 
- -- Kel Modderman <kel@otaku42.de>  Thu, 22 May 2008 15:04:38 +1000
+  [ Horst Tritremmel ]
+  * allow lvm partitions added, pls test 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 26 May 2008 15:19:00 +0200
 
 install-gui (0.6.32) unstable; urgency=low
 

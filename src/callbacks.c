@@ -78,6 +78,8 @@ combobox_hd_read (GtkWidget       *widget,
 
    int fd;
 
+   printf("--> in combobox_hd_read\n");
+
    strcpy(hd_tmp, "/tmp/harddisk.XXXXXX");
    fd = mkstemp(hd_tmp);  // make a tempfile
 
@@ -117,6 +119,8 @@ combobox_hd_set  (GtkWidget       *widget,
 
    GtkWidget *combobox = lookup_widget (GTK_WIDGET (widget), combobox_name);
 
+   printf("--> in combobox_hd_set\n");
+
    // create the tempfile icludes name of devices  /dev/sda, /dev/sdb, ...
    combobox_hd_read (GTK_WIDGET (widget), combobox_name);
 
@@ -149,6 +153,8 @@ void
 is_the_device_a_usbdevice (GtkComboBox     *combobox)
 {
 
+ printf("--> in is_the_device_a_usbdevice\n");
+ 
  if ( partitions_counter > 0 ) {
 
   // is the selected install device a usb device, then only grub to partition
@@ -307,6 +313,7 @@ void read_partitions(GtkComboBox     *combobox)
    char *ptr_dev, *ptr_fs;
    int fd;
 
+   printf("--> in read_partitions\n");
 
    strcpy(scanparttmp, "/tmp/scanpartitions-gui.XXXXXX");
    fd = mkstemp(scanparttmp);  // make a tempfile
@@ -1327,7 +1334,22 @@ on_button_install_clicked              (GtkButton       *button,
            gtk_widget_destroy (dialog);
 
            return;
-   }
+    }
+
+    if( strncmp ( hd_choice, "/dev/dm-", 8 ) == 0 ) {
+    // check if a lvm device = rootpartition then he must have a boot device selected
+        mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+        dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_INFO,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n%s\n\n%s", "LVM Rootpartition found!",
+                                                  "------------------------------",
+                                                  "INFO: You need a seperate /boot (non LVM) partition");
+        gtk_dialog_run (GTK_DIALOG (dialog));
+        gtk_widget_destroy (dialog);
+    }
+
 
 
   /* ======================================================== *
