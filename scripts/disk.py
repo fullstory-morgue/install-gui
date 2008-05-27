@@ -8,6 +8,7 @@ __license__   = 'GPLv2 or any later version'
 import os
 import glob
 import volumeid
+import logging
 from stat import *
 from optparse import OptionParser
 from subprocess import *
@@ -15,9 +16,21 @@ from subprocess import *
 PROC_PARTITIONS = '/proc/partitions'
 SYS_BLOCK       = '/sys/block'
 UDEVINFO_CMD    = 'udevinfo --query=env --name='
+LOG_FILE        = '/tmp/install-gui.log'
 
 
 class Diskinfo(object):
+    def __init__(self):
+        '''setup logging'''
+        self.log = logging.getLogger('disk.py in install-gui')
+        self.log.setLevel(logging.DEBUG)
+        logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(name)s %(levelname)s %(message)s',
+                    datefmt='%m-%d %H:%M',
+                    filename=LOG_FILE,
+                    filemode='w')
+
+
     def partitions(self):
         '''
         open and read procfile
@@ -27,6 +40,7 @@ class Diskinfo(object):
         self.procnames = [ '/dev/%s' % (self.p.split()[3]) for self.p in self.procfile.readlines()[2:] ]
         self.procfile.close()
 
+        self.log.debug('def partitions, procnames: %s\n' % (self.procnames) )
         return self.procnames
 
 
@@ -54,8 +68,8 @@ class Diskinfo(object):
         self.c = Popen(self.cmd, stdout = PIPE, stderr = STDOUT, close_fds = True)
         self.udevinfo = self.c.communicate()[0].split('\n')
         if not self.c.returncode == 0:
+            self.log.debug('Error: %s' % ( ' '.join(self.cmd) ))
             pass
-            #print 'Error: %s' % ( ' '.join(self.cmd) )
 
 
         ''' split udevinfo and create dict '''
@@ -66,6 +80,7 @@ class Diskinfo(object):
             else:
                 continue
 
+        self.log.debug('def udevinfo, device: %s\n dict_udevinfo: %s\n' % (self.device, self.dict_udevinfo) )
         return self.dict_udevinfo
 
     """
@@ -105,15 +120,16 @@ class Diskinfo(object):
         return self.count
 
 
-def fdisk(partition):
-    ''' return len of <fdisk -l> call '''
-    cmd = [ 'fdisk', '-l', partition ]
-    c = Popen(cmd, stdout = PIPE, stderr = STDOUT, close_fds = True)
-    callback = c.communicate()[0]
-    if not c.returncode == 0:
-        print 'Error: %s' % ( ' '.join(cmd) )
+    def fdisk(self, partition):
+        ''' return len of <fdisk -l> call '''
+        self.cmd = [ 'fdisk', '-l', partition ]
+        self.c = Popen(self.cmd, stdout = PIPE, stderr = STDOUT, close_fds = True)
+        self.callback = self.c.communicate()[0]
+        if not self.c.returncode == 0:
+            self.log.debug( 'Error: %s' % ( ' '.join(self.cmd) ) )
 
-    return len(callback)
+        self.log.debug('def fdisk, callback: %s\n' % (self.callback) )
+        return len(self.callback)
 
 
 if __name__ == '__main__':
@@ -159,7 +175,7 @@ if __name__ == '__main__':
         for p in partitions:
             if Diskinfo().udevinfo(p).get('TYP') == 'disk':
                 if Diskinfo().udevinfo(p).get('ID_BUS') != None or \
-                   '/dev/dm' in p:
+                   'dm-' in p:
                     print '%s' % (p)
 
 
@@ -169,7 +185,7 @@ if __name__ == '__main__':
             if Diskinfo().udevinfo(p).get('TYP') == 'partition' and \
             Diskinfo().udevinfo(p).get('ID_FS_TYPE') != 'swap'  and \
             Diskinfo().udevinfo(p).get('ID_FS_USAGE') == 'filesystem':
-                len_of_fdisk_call = fdisk(p)
+                len_of_fdisk_call = Diskinfo().fdisk(p)
                 if len_of_fdisk_call > 0:
                     print '%s,%s,%s,%s,norm' % (
                             p,
