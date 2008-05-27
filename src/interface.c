@@ -309,7 +309,7 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
 
-  button_usb = gtk_button_new_with_mnemonic (_("install fromiso into USB"));
+  button_usb = gtk_button_new_with_mnemonic (_("live-usbstick installer"));
   gtk_widget_show (button_usb);
   gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 240, 296);
   gtk_widget_set_size_request (button_usb, 240, 36);

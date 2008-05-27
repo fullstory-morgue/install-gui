@@ -1,8 +1,12 @@
 install-gui (0.6.34) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 27 May 2008 02:10:37 +0200
+  [ Horst Tritremmel ]
+  * s/install fromiso into USB/live-usbstick installer/ 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Tue, 27 May 2008 09:28:29 +0200
 
 install-gui (0.6.33) unstable; urgency=low
 
