@@ -1,9 +1,5 @@
-install-gui (0.6.35) UNRELEASED; urgency=low
+install-gui (0.6.35) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * added logging module to disk.py
 
  -- Horst Tritremmel <hjt@sidux.com>  Tue, 27 May 2008 12:43:04 +0200
