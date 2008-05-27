@@ -1,6 +1,4 @@
-install-gui (0.6.33) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
+install-gui (0.6.33) unstable; urgency=low
 
   [ Stefan Lippers-Hollmann ]
   * add x-un-i to uploaders.
