@@ -100,7 +100,7 @@ combobox_hd_read (GtkWidget       *widget,
             strncat(systemcallstr, hd_tmp, BUF_LEN);
             strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
             strncat(systemcallstr, hd_tmp, BUF_LEN);
-            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+            //strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
 
             system(systemcallstr);  // write the harddisktable to the tempfile
             close(fd);
@@ -118,7 +118,7 @@ combobox_hd_set  (GtkWidget       *widget,
 {
    FILE* fp;
 
-   char partition[80];
+   char partition[BUF_LEN];
 
    GtkWidget *combobox = lookup_widget (GTK_WIDGET (widget), combobox_name);
 
@@ -161,7 +161,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
  if ( partitions_counter > 0 ) {
 
   // is the selected install device a usb device, then only grub to partition
-   char device[80], usbdevicetmp[80];
+   char device[BUF_LEN], usbdevicetmp[BUF_LEN];
    char *entry1, *entry2 = "";
    int fd, len;
 
@@ -312,11 +312,11 @@ void read_partitions(GtkComboBox     *combobox)
    * ======================================================= */
    FILE* fp;
 
-   char partition[80];
+   char partition[BUF_LEN];
    char *ptr_dev, *ptr_fs;
    int fd;
 
-   printf("--> in read_partitions\n");
+   //printf("--> in read_partitions\n");
 
    strcpy(scanparttmp, "/tmp/scanpartitions-gui.XXXXXX");
    fd = mkstemp(scanparttmp);  // make a tempfile
@@ -329,7 +329,7 @@ void read_partitions(GtkComboBox     *combobox)
             strncat(systemcallstr, scanparttmp, BUF_LEN);
             strncat(systemcallstr, "\n\"; printf \"__________________________________\n\"; cat ", BUF_LEN);
             strncat(systemcallstr, scanparttmp, BUF_LEN);
-            //strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
+            strncat(systemcallstr, "; printf \"====================================\n\"", BUF_LEN);
 
             system(systemcallstr);  // write the partitiontable to the tempfile
             close(fd);
@@ -1278,7 +1278,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       //awk '/^\/dev\//{print $1}' /proc/swaps
       strcpy(systemcall, "sed -ie \"s#__swapchoices__#$(awk '/^\\/dev\\//{print $1}' /proc/swaps | head -1)#\" $HOME/");
       strcat(systemcall, FILENAME);
-      //printf("%s\n", systemcall);
+      //("%s\n", systemcall);
       system(systemcall);
 }
 

@@ -1,8 +1,12 @@
 install-gui (0.6.36) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 27 May 2008 15:43:16 +0200
+  [ Horst Tritremmel ]
+  * use long names for lvm (/dev/mapper/...) 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 28 May 2008 11:18:23 +0200
 
 install-gui (0.6.35) unstable; urgency=low
 
