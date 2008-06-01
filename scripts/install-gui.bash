@@ -5,4 +5,4 @@ export SSFT_FRONTEND="text"
 export FLL_FIRMWARE=$(fw-detect <<< $'\n' | grep -v "ENTER")
 export FLL_FIRMWARE_INSTALL=$(fw-detect -y)
 
-exec install-gui
+exec /usr/bin/hal-lock --interface org.freedesktop.Hal.Device.Storage --exclusive --run install-gui
