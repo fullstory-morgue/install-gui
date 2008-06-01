@@ -1,5 +1,9 @@
-install-gui (0.6.37) unstable; urgency=low
+install-gui (0.6.37) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
+  * NOT RELEASED YET
+
+  [ Joaquim Boura ]
   * call install-gui through hal-lock. Moved code from popup blockers away
     from callbacks.c into an external callable shell script.
 
