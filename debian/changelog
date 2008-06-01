@@ -1,3 +1,9 @@
+install-gui (0.6.38) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 02 Jun 2008 00:56:33 +0200
+
 install-gui (0.6.37) unstable; urgency=low
 
   * call install-gui through hal-lock. Moved code from popup blockers away
