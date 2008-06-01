@@ -8,3 +8,4 @@ scripts/nonfree			usr/share/install-gui/
 scripts/fw-install*		usr/share/install-gui/
 scripts/disk.py			usr/share/install-gui/
 scripts/automount*		usr/share/install-gui/
+scripts/cfdisk*			usr/share/install-gui/

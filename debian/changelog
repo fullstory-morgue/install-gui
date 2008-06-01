@@ -6,8 +6,10 @@ install-gui (0.6.37) UNRELEASED; urgency=low
   [ Joaquim Boura ]
   * call install-gui through hal-lock. Moved code from popup blockers away
     from callbacks.c into an external callable shell script.
+  * use a wrapper to call cfdisk/fdisk so we call mkfs.ext3 or mkswap on the
+    newly created partitions
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 01 Jun 2008 10:37:26 +0200
+ -- Joaquim Boura <x-un-i@sidux.com>  Mon, 02 Jun 2008 00:19:00 +0200
 
 install-gui (0.6.36) unstable; urgency=low
 

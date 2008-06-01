@@ -47,10 +47,10 @@ if [ -s $PARTITION_AFTER -a -s $PARTITION_BEFORE ]; then
 		else
 			case $id in
 			82)
-				echo mkswap ${part}
+				mkswap ${part}
 				;;
 			83)
-				echo mkfs.ext2 ${part}
+				mkfs.ext2 ${part}
 				;;
 			*)
 				echo "Skipping ${part} ..."
@@ -63,10 +63,10 @@ elif [ -s $PARTITION_AFTER -a ! -s $PARTITION_BEFORE ]; then
 	while read part id; do
 		case $id in
 		82)
-			echo mkswap ${part}
+			mkswap ${part}
 			;;
 		83)
-			echo mkfs.ext2 ${part}
+			mkfs.ext2 ${part}
 			;;
 		*)
 			echo "Skipping ${part} ..."

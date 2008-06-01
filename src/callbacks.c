@@ -934,8 +934,7 @@ on_button_gparted_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
     FILE *stream;
-    char sh_command[80];
-    char kdeconfdir[256];
+    char sh_command[256];
 
    // hide the main window after gparted has done
    //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
@@ -969,13 +968,13 @@ on_button_gparted_clicked              (GtkButton       *button,
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
        //start cfdisk
        if (hd != NULL) {
-           strncpy(sh_command, "x-terminal-emulator -e cfdisk ", 80);
-           strncat(sh_command, hd, 80);
+           strncpy(sh_command, "x-terminal-emulator -e /usr/share/install-gui/cfdisk_wrapper.sh cfdisk ", 256);
+           strncat(sh_command, hd, 256);
 
            system(sh_command);
        }
        else {
-           system("x-terminal-emulator -e cfdisk");
+           system("gparted");
        }
 
    }
@@ -984,8 +983,8 @@ on_button_gparted_clicked              (GtkButton       *button,
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
        //start fdisk
        if (hd != NULL) {
-           strncpy(sh_command, "x-terminal-emulator -e fdisk ", 80);
-           strncat(sh_command, hd, 80);
+           strncpy(sh_command, "x-terminal-emulator -e /usr/share/install-gui/cfdisk_wrapper.sh fdisk ", 256);
+           strncat(sh_command, hd, 256);
 
            system(sh_command);
        }
