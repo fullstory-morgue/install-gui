@@ -170,7 +170,7 @@ msgstr "ネットワーク"
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n"
-"If everything is correct for you, pressing \"Save config & Next\"."
+"If everything is correct for you, press \"Save config & Next\"."
 msgstr "siduxのインストールを始めるのに必要な情報はすべて入力されました。\n"
 "\"戻る\" ボタンを押せば、オプションをもう一度チェックしたり変更したりできます.\n"
 "すべて正しければ、 \"設定を保存して次へ\" を押してください."

@@ -172,7 +172,7 @@ msgstr "网络"
 #: install-gui.glade:1709(property) 
 msgid "You provided all Information neccessary to start the sidux-Installation.\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n"
-"If everything is correct for you, pressing \"Save config & Next\"."
+"If everything is correct for you, press \"Save config & Next\"."
 msgstr "您需要提供必要的信息以开始 sidux 的安装程序.\n"
 "您可以通过按\"上一步\"的改变您的选择.\n"
 "如果一切正常，您可以按下\"开始安装\"来开始安装."

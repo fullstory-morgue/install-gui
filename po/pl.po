@@ -178,7 +178,7 @@ msgstr "Sieć"
 #: install-gui.glade:1709(property)
 msgid "You provided all Information neccessary to start the sidux-Installation.\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n"
-"If everything is correct for you, pressing \"Save config & Next\"."
+"If everything is correct for you, press \"Save config & Next\"."
 msgstr "Podałeś wszystkie niezbędne dane, aby rozpocząć instalację systemu sidux. Możesz sprawdzić lub zmienić wybrane opcje poprzez kliknięcie przycisku \"Poprzedni\".\n"
 "Jeśli wybrane opcje są poprawne, rozpocznij instalację klikając \"Rozpocznij instalację\"."
 

@@ -933,7 +933,7 @@ void
 on_button_gparted_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
-    FILE *stream;
+    //FILE *stream;
     char sh_command[256];
 
    // hide the main window after gparted has done
@@ -1414,14 +1414,15 @@ on_button_install_now_clicked          (GtkButton       *button,
     gtk_widget_hide ( install_window );
 
     // start install with progressbar
-    GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(button),"radiobutton_install_now1");
-    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
+    //GtkWidget* radiobutton = lookup_widget( GTK_WIDGET(button),"radiobutton_install_now1");
+    //if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
 
-          install_progressbar = create_install_progressbar ();
-          gtk_widget_show (install_progressbar);
-     }
+    install_progressbar = create_install_progressbar ();
+    gtk_widget_show (install_progressbar);
+     //}
 
      // start install with terminal
+     /*
      else {
            system(INSTALL_SH_WITH_TERMINAL);
 
@@ -1431,7 +1432,7 @@ on_button_install_now_clicked          (GtkButton       *button,
            gtk_main_quit ();
 
      }
-
+     */
 
     // remove the tempfile
     unlink(scanparttmp);

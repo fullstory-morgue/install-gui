@@ -182,7 +182,7 @@ msgstr "локальная сеть"
 #: install-gui.glade:1709(property)
 msgid "You provided all Information neccessary to start the sidux-Installation.\n"
 "You can check or change your Options once again by pressing the \"Prev\" Button.\n"
-"If everything is correct for you, pressing \"Save config & Next\"."
+"If everything is correct for you, press \"Save config & Next\"."
 msgstr ""
 "Все необходимые данные в системе, можно запустить установку sidux.\n"
 "Проверить данные или изменить опции еще раз при нажатием кнопку \"назад \".\n"
