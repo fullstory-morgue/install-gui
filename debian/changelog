@@ -1,9 +1,5 @@
-install-gui (0.6.39) UNRELEASED; urgency=low
+install-gui (0.6.39) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * gui improvements, thx to cleary
 
  -- Horst Tritremmel <hjt@sidux.com>  Fri, 13 Jun 2008 11:23:57 +0200
