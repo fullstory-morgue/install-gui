@@ -1,3 +1,9 @@
+install-gui (0.6.40) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 14 Jun 2008 00:21:18 +0200
+
 install-gui (0.6.39) unstable; urgency=low
 
   * gui improvements, thx to cleary
