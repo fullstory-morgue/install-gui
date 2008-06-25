@@ -1049,7 +1049,7 @@ save_config            (GtkButton       *button)
 
       checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_printsystem"));
       if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
-         strncat(services, "cupsys", 17);
+         strncat(services, "cups", 17);
       }
 
       checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_ssh"));
@@ -1157,8 +1157,8 @@ uname,
 "HOST_NAME='",
 gtk_entry_get_text(GTK_ENTRY( lookup_widget(GTK_WIDGET(button), "hostname") )),
 "SERVICES_MODULE='configured'",
-"# Possible services are for now: cupsys smail ssh samba",
-"# Default value is: cupsys",
+"# Possible services are for now: cups smail ssh samba",
+"# Default value is: cups",
 "SERVICES_START=",
 services,
 "BOOT_MODULE='configured'",

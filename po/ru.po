@@ -249,7 +249,7 @@ msgid "ssh (Secure shell client and server)"
 msgstr "ssh (клиенты и северы протокола ssh)"
 
 #: install-gui.glade:1537(property) 
-msgid "cupsys (Printing System)"
+msgid "cups (Printing System)"
 msgstr "cups (система выдачи на печать)"
 
 #: install-gui.glade:1558(property) 

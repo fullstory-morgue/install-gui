@@ -234,8 +234,8 @@ msgid "ssh (Secure shell client and server)"
 msgstr "ssh (Cliente y servidor de ssh)"
 
 #: install-gui.glade:1537(property) 
-msgid "cupsys (Printing System)"
-msgstr "cupsys (Sistema de impresoras)"
+msgid "cups (Printing System)"
+msgstr "cups (Sistema de impresoras)"
 
 #: install-gui.glade:1558(property) 
 msgid "start services"

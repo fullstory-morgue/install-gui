@@ -788,7 +788,7 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_ssh, 8, 48);
   gtk_widget_set_size_request (checkbutton_ssh, 424, 32);
 
-  checkbutton_printsystem = gtk_check_button_new_with_mnemonic (_("cupsys (Printing System)"));
+  checkbutton_printsystem = gtk_check_button_new_with_mnemonic (_("cups (Printing System)"));
   gtk_widget_show (checkbutton_printsystem);
   gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_printsystem, 8, 8);
   gtk_widget_set_size_request (checkbutton_printsystem, 424, 32);

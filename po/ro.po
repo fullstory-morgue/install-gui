@@ -237,8 +237,8 @@ msgid "ssh (Secure shell client and server)"
 msgstr "ssh (Asigura cochilia clientului si a serverului)"
 
 #: install-gui.glade:1537(property) 
-msgid "cupsys (Printing System)"
-msgstr "cupsys (Sistem de printare)"
+msgid "cups (Printing System)"
+msgstr "cups (Sistem de printare)"
 
 #: install-gui.glade:1558(property) 
 msgid "start services"
