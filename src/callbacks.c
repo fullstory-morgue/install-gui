@@ -47,15 +47,15 @@
 //${LANG} is set in /etc/default/fll-locales
 //#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
 
-#define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-#define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
+#define NAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#define NAME_ALLOWED_CHAR_OTHERS "0123456789-."
 
 
 char scanparttmp[80], hd_tmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
-int  counter, leaved_user_page, i = 0, partitions_counter = 0, hostname_ok = 1;
+int  counter, leaved_user_page, i = 0, partitions_counter = 0, hostname_ok = 1, username_ok = 1;
 //int do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar, *window_main;
 
@@ -456,17 +456,48 @@ void
 on_entry_username_changed              (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-   GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_username");
-   GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_username");
+    char username_allowed[BUF_LEN], username[BUF_LEN];
+    int pos;
 
-   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+    GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_username");
+    GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_username");
 
-   if( strlen( rootpw ) < 1 ) {
-       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
-   }
-   else {
-       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
-   }
+    // username empty?
+    strncpy(username, gtk_entry_get_text(GTK_ENTRY(entry)), BUF_LEN);
+
+
+    if( strlen( username ) < 1 ) {
+        username_ok = 0;
+    }
+    else {
+        username_ok = 1;
+    }
+
+
+    // allowed char in Username
+    if( username_ok > 0 ) {
+        strncpy ( username_allowed, NAME_ALLOWED_CHAR_0, BUF_LEN);
+        strncat ( username_allowed, NAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
+
+        // check characters from usertname
+
+        pos = strspn(username, username_allowed);
+        if ( pos < strlen(username) ) {
+            printf("Username ERROR, not allowed characters, use only A-Za-z0-9.-\n");
+            username_ok = 0;
+        }
+        else {
+            username_ok = 1;
+        }
+    }
+
+    // set image
+    if( username_ok < 1 ) {
+        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+    }
+    else {
+        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+    }
 }
 
 
@@ -526,13 +557,13 @@ on_hostname_changed                    (GtkEditable     *editable,
    GtkWidget* hostname_entry = lookup_widget ( GTK_WIDGET (window_main), "hostname");
    strcpy(hostname, gtk_entry_get_text(GTK_ENTRY(hostname_entry)));
 
-   strncpy ( hostname_allowed, HOSTNAME_ALLOWED_CHAR_0, BUF_LEN);
-   strncat ( hostname_allowed, HOSTNAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
+   strncpy ( hostname_allowed, NAME_ALLOWED_CHAR_0, BUF_LEN);
+   strncat ( hostname_allowed, NAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
 
 
    // check 1. character from hostname
    strncpy ( hostname_first_char, hostname, 1);
-   pos = strspn(hostname_first_char, HOSTNAME_ALLOWED_CHAR_0);
+   pos = strspn(hostname_first_char, NAME_ALLOWED_CHAR_0);
    if ( pos < 1 && strlen( hostname ) > 0 ) {
      gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
 
@@ -648,6 +679,7 @@ password_check(GtkWidget     *button)
           gtk_widget_destroy (dialog);
           return 0;
       }
+
 
       // Password check
       entry = lookup_widget(GTK_WIDGET(button), "entry_pw");
@@ -1273,6 +1305,22 @@ on_button_install_clicked              (GtkButton       *button,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
                                   "%s\n", "Hostname wrong!");
+           gtk_dialog_run (GTK_DIALOG (dialog));
+           gtk_widget_destroy (dialog);
+
+           return;
+   }
+
+   // hostname check
+   if( username_ok < 1 ) {
+
+           // Message Dialog root partition empty
+           mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+           dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s\n", "Username wrong, use only A-Za-z0-9.-");
            gtk_dialog_run (GTK_DIALOG (dialog));
            gtk_widget_destroy (dialog);
 
