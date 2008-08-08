@@ -47,9 +47,9 @@
 //${LANG} is set in /etc/default/fll-locales
 //#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
 
-#define NAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-#define NAME_ALLOWED_CHAR_OTHERS "0123456789-."
-
+#define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
+#define USERNAME_ALLOWED_CHAR        "abcdefghijklmnopqrstuvwxyz0123456789-."
 
 char scanparttmp[80], hd_tmp[80];
 char systemcallstr[BUF_LEN];
@@ -456,8 +456,8 @@ void
 on_entry_username_changed              (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-    char username_allowed[BUF_LEN], username[BUF_LEN];
-    int pos;
+    char username[BUF_LEN];
+    int  pos;
 
     GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_username");
     GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_username");
@@ -476,14 +476,11 @@ on_entry_username_changed              (GtkEditable     *editable,
 
     // allowed char in Username
     if( username_ok > 0 ) {
-        strncpy ( username_allowed, NAME_ALLOWED_CHAR_0, BUF_LEN);
-        strncat ( username_allowed, NAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
-
         // check characters from usertname
 
-        pos = strspn(username, username_allowed);
+        pos = strspn(username, USERNAME_ALLOWED_CHAR);
         if ( pos < strlen(username) ) {
-            printf("Username ERROR, not allowed characters, use only A-Za-z0-9.-\n");
+            printf("Username ERROR, not allowed characters, use only a-z0-9.-\n");
             username_ok = 0;
         }
         else {
@@ -557,13 +554,13 @@ on_hostname_changed                    (GtkEditable     *editable,
    GtkWidget* hostname_entry = lookup_widget ( GTK_WIDGET (window_main), "hostname");
    strcpy(hostname, gtk_entry_get_text(GTK_ENTRY(hostname_entry)));
 
-   strncpy ( hostname_allowed, NAME_ALLOWED_CHAR_0, BUF_LEN);
-   strncat ( hostname_allowed, NAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
+   strncpy ( hostname_allowed, HOSTNAME_ALLOWED_CHAR_0, BUF_LEN);
+   strncat ( hostname_allowed, HOSTNAME_ALLOWED_CHAR_OTHERS, BUF_LEN);
 
 
    // check 1. character from hostname
    strncpy ( hostname_first_char, hostname, 1);
-   pos = strspn(hostname_first_char, NAME_ALLOWED_CHAR_0);
+   pos = strspn(hostname_first_char, HOSTNAME_ALLOWED_CHAR_0);
    if ( pos < 1 && strlen( hostname ) > 0 ) {
      gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
 
@@ -1320,7 +1317,7 @@ on_button_install_clicked              (GtkButton       *button,
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_CLOSE,
-                                  "%s\n", "Username wrong, use only A-Za-z0-9.-");
+                                  "%s\n", "Username wrong, use only a-z0-9.-");
            gtk_dialog_run (GTK_DIALOG (dialog));
            gtk_widget_destroy (dialog);
 
