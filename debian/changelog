@@ -1,8 +1,12 @@
 install-gui (0.6.44) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 14 Sep 2008 03:02:36 +0200
+  [ Joaquim Boura ]
+  * udevtrigger doesnot exist anymore
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Sun, 14 Sep 2008 11:28:40 +0200
 
 install-gui (0.6.43) unstable; urgency=low
 

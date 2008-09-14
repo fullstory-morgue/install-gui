@@ -38,7 +38,7 @@ EOF
 # reenable automount in xfce or medianotifier popup in KDE
 function reenable()
 {
-	udevtrigger --subsystem-match=block
+	udevadm trigger --subsystem-match=block
 	udevsettle --timeout=30
 	if [ ! -d "${user_kde_config_dir}" ]; then
 		if [ -e "${user_xfce_volmanrc}" ]; then 
