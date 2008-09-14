@@ -1,9 +1,5 @@
-install-gui (0.6.45) UNRELEASED; urgency=low
+install-gui (0.6.45) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * mv icons/pixmaps.install-gui/* to usr/share/install-gui/pixmaps/ 
 
  -- Horst Tritremmel <hjt@sidux.com>  Sun, 14 Sep 2008 21:26:31 +0200
