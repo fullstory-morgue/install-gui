@@ -1,9 +1,5 @@
-install-gui (0.6.44) UNRELEASED; urgency=low
+install-gui (0.6.44) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * udevtrigger doesnot exist anymore
 
  -- Joaquim Boura <x-un-i@sidux.com>  Sun, 14 Sep 2008 11:28:40 +0200
