@@ -1,8 +1,8 @@
-install-gui (0.6.43) UNRELEASED; urgency=low
+install-gui (0.6.43) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix typo, seperate --> separate, thanks to etorix.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 09 Aug 2008 02:28:41 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 14 Sep 2008 03:00:08 +0200
 
 install-gui (0.6.42) unstable; urgency=low
 

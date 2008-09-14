@@ -1354,7 +1354,7 @@ on_button_install_clicked              (GtkButton       *button,
                                   GTK_BUTTONS_CLOSE,
                                   "%s\n%s\n\n%s", "LVM Rootpartition found!",
                                                   "------------------------------",
-                                                  "INFO: You need a seperate /boot (non LVM) partition");
+                                                  "INFO: You need a separate /boot (non LVM) partition");
         gtk_dialog_run (GTK_DIALOG (dialog));
         gtk_widget_destroy (dialog);
     }

@@ -592,7 +592,7 @@ sidux-website: http://sidux.com</property>
 		  <property name="visible">True</property>
 		  <property name="label" translatable="yes">Example:
 ------------
-A seperate
+A separate
 home-partition:
 /home</property>
 		  <property name="use_underline">False</property>

@@ -84,7 +84,7 @@ msgstr "其他分区的挂载点"
 #: install-gui.glade:762(property) 
 msgid "Example:\n"
 "------------\n"
-"A seperate\n"
+"A separate\n"
 "home-partition:\n"
 "/home"
 msgstr "例如:\n"

@@ -387,7 +387,7 @@ create_window_main (void)
   gtk_widget_set_size_request (checkbutton_format_with, 166, 28);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
 
-  label35 = gtk_label_new (_("Example:\n------------\nA seperate\nhome-partition:\n/home"));
+  label35 = gtk_label_new (_("Example:\n------------\nA separate\nhome-partition:\n/home"));
   gtk_widget_show (label35);
   gtk_fixed_put (GTK_FIXED (fixed3), label35, 16, 272);
   gtk_widget_set_size_request (label35, 144, 112);
