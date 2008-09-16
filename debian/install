@@ -3,6 +3,7 @@ pixmaps/*.png			usr/share/install-gui/pixmaps/
 icons/install-gui.svg		usr/share/icons/hicolor/scalable/apps/
 icons/hicolor.install-gui/*	usr/share/icons/hicolor/
 icons/pixmaps.install-gui/*	usr/share/install-gui/pixmaps/
+icons/pixmaps.install-gui/*	usr/share/pixmaps/
 scripts/install-gui.bash	usr/bin/
 scripts/nonfree			usr/share/install-gui/
 scripts/fw-install*		usr/share/install-gui/

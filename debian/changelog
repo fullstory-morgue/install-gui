@@ -7,7 +7,10 @@ install-gui (0.6.46) unstable; urgency=low
   [ Horst Tritremmel ]
   * hide service cups 
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 16 Sep 2008 20:45:09 +0200
+  [ Stefan Lippers-Hollmann ]
+  * fix icons for Debian menu system.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 17 Sep 2008 00:15:01 +0200
 
 install-gui (0.6.45) unstable; urgency=low
 
