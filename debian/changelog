@@ -1,8 +1,13 @@
 install-gui (0.6.46) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 14 Sep 2008 21:47:26 +0200
+  [ Bernard Gray ]
+  * update install-gui icon svg - slight mods to help it display better at low res
+    - also vacuum deps
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Tue, 16 Sep 2008 13:35:12 +1000
 
 install-gui (0.6.45) unstable; urgency=low
 
