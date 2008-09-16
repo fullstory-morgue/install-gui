@@ -1,7 +1,4 @@
-install-gui (0.6.46) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.6.46) unstable; urgency=low
 
   [ Bernard Gray ]
   * update install-gui icon svg - slight mods to help it display better at low res
