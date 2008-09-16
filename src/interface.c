@@ -804,14 +804,12 @@ create_window_main (void)
 
   checkbutton_ssh = gtk_check_button_new_with_mnemonic (_("ssh (Secure shell client and server)"));
   gtk_widget_show (checkbutton_ssh);
-  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_ssh, 8, 48);
+  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_ssh, 0, 8);
   gtk_widget_set_size_request (checkbutton_ssh, 424, 32);
 
   checkbutton_printsystem = gtk_check_button_new_with_mnemonic (_("cups (Printing System)"));
-  gtk_widget_show (checkbutton_printsystem);
-  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_printsystem, 8, 8);
+  gtk_fixed_put (GTK_FIXED (fixed10), checkbutton_printsystem, 0, 48);
   gtk_widget_set_size_request (checkbutton_printsystem, 424, 32);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_printsystem), TRUE);
 
   label38 = gtk_label_new (_("start services"));
   gtk_widget_show (label38);
