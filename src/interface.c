@@ -54,18 +54,10 @@ create_window_main (void)
   GtkWidget *button_usb;
   GtkWidget *label1;
   GtkWidget *fixed3;
-  GtkWidget *scrolledwindow1;
-  GtkWidget *treeview1;
-  GtkWidget *hseparator1;
-  GtkWidget *checkbutton_automount;
   GtkWidget *rootpartcombo;
   GtkWidget *format_combo;
-  GtkWidget *label7;
-  GtkWidget *checkbutton_mountpoints;
   GtkWidget *rootpartlabel;
-  GtkWidget *checkbutton_format_with;
   GtkWidget *label35;
-  GtkWidget *label8;
   GtkWidget *label_changed;
   GtkWidget *frame4;
   GtkWidget *alignment9;
@@ -77,6 +69,14 @@ create_window_main (void)
   GtkWidget *radiobutton_part2;
   GtkWidget *radiobutton_part1;
   GtkWidget *label40;
+  GtkWidget *scrolledwindow1;
+  GtkWidget *treeview1;
+  GtkWidget *checkbutton_mountpoints;
+  GtkWidget *hseparator1;
+  GtkWidget *checkbutton_format_with;
+  GtkWidget *label7;
+  GtkWidget *checkbutton_automount;
+  GtkWidget *label8;
   GtkWidget *label2;
   GtkWidget *fixed4;
   GtkWidget *vseparator4;
@@ -87,7 +87,6 @@ create_window_main (void)
   GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
   GtkWidget *label15;
-  GtkWidget *label14;
   GtkWidget *checkbutton_bootdisk;
   GtkWidget *frame5;
   GtkWidget *alignment10;
@@ -101,6 +100,7 @@ create_window_main (void)
   GtkWidget *button_tz;
   GtkWidget *label_tz;
   GtkWidget *label39;
+  GtkWidget *label14;
   GtkWidget *label3;
   GtkWidget *fixed5;
   GtkWidget *hseparator5;
@@ -114,6 +114,7 @@ create_window_main (void)
   GtkWidget *entry_username;
   GtkWidget *entry_pw;
   GtkWidget *entry_pw_again;
+  GtkWidget *image_root_pw;
   GtkWidget *image_rootpw_again;
   GtkWidget *hseparator6;
   GtkWidget *image_realname;
@@ -121,12 +122,11 @@ create_window_main (void)
   GtkWidget *image_pw;
   GtkWidget *image_pw_again;
   GtkWidget *label18;
-  GtkWidget *label21;
+  GtkWidget *label26;
+  GtkWidget *label27;
   GtkWidget *label28;
   GtkWidget *label29;
-  GtkWidget *image_root_pw;
-  GtkWidget *label27;
-  GtkWidget *label26;
+  GtkWidget *label21;
   GtkWidget *label25;
   GtkWidget *label61;
   GtkWidget *label4;
@@ -179,9 +179,9 @@ create_window_main (void)
   GtkWidget *hseparator15;
   GtkWidget *vseparator8;
   GtkWidget *vseparator7;
-  GtkWidget *label_rootpart_warning;
-  GtkWidget *label37;
   GtkWidget *image16;
+  GtkWidget *label37;
+  GtkWidget *label_rootpart_warning;
   GtkWidget *label6;
   GtkTooltips *tooltips;
 
@@ -327,31 +327,6 @@ create_window_main (void)
   gtk_widget_show (fixed3);
   gtk_container_add (GTK_CONTAINER (notebook1), fixed3);
 
-  scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
-  gtk_widget_show (scrolledwindow1);
-  gtk_fixed_put (GTK_FIXED (fixed3), scrolledwindow1, 176, 192);
-  gtk_widget_set_size_request (scrolledwindow1, 496, 184);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-
-  treeview1 = gtk_tree_view_new ();
-  gtk_widget_show (treeview1);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
-  gtk_widget_set_size_request (treeview1, 248, 136);
-  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview1), FALSE);
-  gtk_tree_view_set_hover_selection (GTK_TREE_VIEW (treeview1), TRUE);
-  gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
-
-  hseparator1 = gtk_hseparator_new ();
-  gtk_widget_show (hseparator1);
-  gtk_fixed_put (GTK_FIXED (fixed3), hseparator1, 174, 126);
-  gtk_widget_set_size_request (hseparator1, 500, 16);
-
-  checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
-  gtk_widget_show (checkbutton_automount);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 176, 96);
-  gtk_widget_set_size_request (checkbutton_automount, 496, 32);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
-
   rootpartcombo = gtk_combo_box_new_text ();
   gtk_widget_show (rootpartcombo);
   gtk_fixed_put (GTK_FIXED (fixed3), rootpartcombo, 344, 24);
@@ -362,18 +337,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed3), format_combo, 344, 64);
   gtk_widget_set_size_request (format_combo, 240, 28);
 
-  label7 = gtk_label_new (_("Root-Partition"));
-  gtk_widget_show (label7);
-  gtk_fixed_put (GTK_FIXED (fixed3), label7, 176, 24);
-  gtk_widget_set_size_request (label7, 166, 28);
-  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
-
-  checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
-  gtk_widget_show (checkbutton_mountpoints);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 176, 136);
-  gtk_widget_set_size_request (checkbutton_mountpoints, 496, 48);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_mountpoints), TRUE);
-
   rootpartlabel = gtk_label_new ("");
   gtk_widget_show (rootpartlabel);
   gtk_fixed_put (GTK_FIXED (fixed3), rootpartlabel, 592, 24);
@@ -381,25 +344,12 @@ create_window_main (void)
   gtk_label_set_use_markup (GTK_LABEL (rootpartlabel), TRUE);
   gtk_misc_set_alignment (GTK_MISC (rootpartlabel), 0, 0.5);
 
-  checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
-  gtk_widget_show (checkbutton_format_with);
-  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 176, 64);
-  gtk_widget_set_size_request (checkbutton_format_with, 166, 28);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
-
   label35 = gtk_label_new (_("Example:\n------------\nA separate\nhome-partition:\n/home"));
   gtk_widget_show (label35);
   gtk_fixed_put (GTK_FIXED (fixed3), label35, 16, 272);
   gtk_widget_set_size_request (label35, 144, 112);
   gtk_label_set_line_wrap (GTK_LABEL (label35), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label35), 0, 0);
-
-  label8 = gtk_label_new (_("Mountpoints of other Partitions"));
-  gtk_widget_show (label8);
-  gtk_fixed_put (GTK_FIXED (fixed3), label8, 16, 224);
-  gtk_widget_set_size_request (label8, 144, 40);
-  gtk_label_set_line_wrap (GTK_LABEL (label8), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (label8), 0, 0);
 
   label_changed = gtk_label_new ("");
   gtk_widget_show (label_changed);
@@ -460,6 +410,56 @@ create_window_main (void)
   gtk_frame_set_label_widget (GTK_FRAME (frame4), label40);
   gtk_label_set_use_markup (GTK_LABEL (label40), TRUE);
 
+  scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow1);
+  gtk_fixed_put (GTK_FIXED (fixed3), scrolledwindow1, 169, 192);
+  gtk_widget_set_size_request (scrolledwindow1, 505, 184);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+
+  treeview1 = gtk_tree_view_new ();
+  gtk_widget_show (treeview1);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
+  gtk_widget_set_size_request (treeview1, 248, 136);
+  gtk_tree_view_set_enable_search (GTK_TREE_VIEW (treeview1), FALSE);
+  gtk_tree_view_set_hover_selection (GTK_TREE_VIEW (treeview1), TRUE);
+  gtk_tree_view_set_hover_expand (GTK_TREE_VIEW (treeview1), TRUE);
+
+  checkbutton_mountpoints = gtk_check_button_new_with_mnemonic (_("Set mountpoints of other Partitions\n(will not be formatted automatically)"));
+  gtk_widget_show (checkbutton_mountpoints);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_mountpoints, 169, 136);
+  gtk_widget_set_size_request (checkbutton_mountpoints, 505, 48);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_mountpoints), TRUE);
+
+  hseparator1 = gtk_hseparator_new ();
+  gtk_widget_show (hseparator1);
+  gtk_fixed_put (GTK_FIXED (fixed3), hseparator1, 169, 126);
+  gtk_widget_set_size_request (hseparator1, 505, 16);
+
+  checkbutton_format_with = gtk_check_button_new_with_mnemonic (_("format with"));
+  gtk_widget_show (checkbutton_format_with);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_format_with, 169, 64);
+  gtk_widget_set_size_request (checkbutton_format_with, 174, 28);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_format_with), TRUE);
+
+  label7 = gtk_label_new (_("Root-Partition"));
+  gtk_widget_show (label7);
+  gtk_fixed_put (GTK_FIXED (fixed3), label7, 169, 24);
+  gtk_widget_set_size_request (label7, 175, 28);
+  gtk_misc_set_alignment (GTK_MISC (label7), 0, 0.5);
+
+  checkbutton_automount = gtk_check_button_new_with_mnemonic (_("mount partitions on boot"));
+  gtk_widget_show (checkbutton_automount);
+  gtk_fixed_put (GTK_FIXED (fixed3), checkbutton_automount, 169, 96);
+  gtk_widget_set_size_request (checkbutton_automount, 520, 32);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton_automount), TRUE);
+
+  label8 = gtk_label_new (_("Mountpoints of other Partitions"));
+  gtk_widget_show (label8);
+  gtk_fixed_put (GTK_FIXED (fixed3), label8, 16, 215);
+  gtk_widget_set_size_request (label8, 144, 60);
+  gtk_label_set_line_wrap (GTK_LABEL (label8), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label8), 0, 0);
+
   label2 = gtk_label_new (_("Partitioning"));
   gtk_widget_show (label2);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 1), label2);
@@ -508,12 +508,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 168);
   gtk_widget_set_size_request (label15, 256, 28);
   gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
-
-  label14 = gtk_label_new (_("Bootmanager"));
-  gtk_widget_show (label14);
-  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 128);
-  gtk_widget_set_size_request (label14, 256, 28);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0.5);
 
   checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
   gtk_widget_show (checkbutton_bootdisk);
@@ -586,6 +580,13 @@ create_window_main (void)
   gtk_frame_set_label_widget (GTK_FRAME (frame3), label39);
   gtk_label_set_use_markup (GTK_LABEL (label39), TRUE);
 
+  label14 = gtk_label_new (_("Bootmanager"));
+  gtk_widget_show (label14);
+  gtk_fixed_put (GTK_FIXED (fixed4), label14, 96, 130);
+  gtk_widget_set_size_request (label14, 256, 42);
+  gtk_label_set_line_wrap (GTK_LABEL (label14), TRUE);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0);
+
   label3 = gtk_label_new (_("Grub/Timezone"));
   gtk_widget_show (label3);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label3);
@@ -624,7 +625,7 @@ create_window_main (void)
 
   entry_rootpw = gtk_entry_new ();
   gtk_widget_show (entry_rootpw);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw, 224, 0);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw, 250, 0);
   gtk_widget_set_size_request (entry_rootpw, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_rootpw), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_rootpw), FALSE);
@@ -632,7 +633,7 @@ create_window_main (void)
 
   entry_rootpw_again = gtk_entry_new ();
   gtk_widget_show (entry_rootpw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw_again, 224, 32);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_rootpw_again, 250, 32);
   gtk_widget_set_size_request (entry_rootpw_again, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_rootpw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_rootpw_again), FALSE);
@@ -640,18 +641,18 @@ create_window_main (void)
 
   entry_realname = gtk_entry_new ();
   gtk_widget_show (entry_realname);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_realname, 224, 88);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_realname, 250, 88);
   gtk_widget_set_size_request (entry_realname, 216, 24);
 
   entry_username = gtk_entry_new ();
   gtk_widget_show (entry_username);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_username, 224, 120);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_username, 250, 120);
   gtk_widget_set_size_request (entry_username, 216, 24);
   gtk_tooltips_set_tip (tooltips, entry_username, _("only a-z0-9,-"), NULL);
 
   entry_pw = gtk_entry_new ();
   gtk_widget_show (entry_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw, 224, 160);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw, 250, 160);
   gtk_widget_set_size_request (entry_pw, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw), FALSE);
@@ -659,82 +660,82 @@ create_window_main (void)
 
   entry_pw_again = gtk_entry_new ();
   gtk_widget_show (entry_pw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw_again, 224, 192);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry_pw_again, 250, 192);
   gtk_widget_set_size_request (entry_pw_again, 216, 24);
   gtk_entry_set_max_length (GTK_ENTRY (entry_pw_again), 20);
   gtk_entry_set_visibility (GTK_ENTRY (entry_pw_again), FALSE);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry_pw_again), 9679);
 
+  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image_root_pw);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 470, 0);
+  gtk_widget_set_size_request (image_root_pw, 21, 21);
+
   image_rootpw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image_rootpw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_rootpw_again, 448, 34);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_rootpw_again, 470, 34);
   gtk_widget_set_size_request (image_rootpw_again, 21, 21);
 
   hseparator6 = gtk_hseparator_new ();
   gtk_widget_show (hseparator6);
   gtk_fixed_put (GTK_FIXED (fixed8), hseparator6, 0, 64);
-  gtk_widget_set_size_request (hseparator6, 480, 16);
+  gtk_widget_set_size_request (hseparator6, 490, 16);
 
   image_realname = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image_realname);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_realname, 448, 90);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_realname, 470, 90);
   gtk_widget_set_size_request (image_realname, 21, 21);
 
   image_username = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image_username);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_username, 448, 122);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_username, 470, 122);
   gtk_widget_set_size_request (image_username, 21, 21);
 
   image_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_pw, 448, 162);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_pw, 470, 162);
   gtk_widget_set_size_request (image_pw, 21, 21);
 
   image_pw_again = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image_pw_again);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_pw_again, 448, 194);
+  gtk_fixed_put (GTK_FIXED (fixed8), image_pw_again, 470, 194);
   gtk_widget_set_size_request (image_pw_again, 21, 21);
 
   label18 = gtk_label_new (_("Root-password:"));
   gtk_widget_show (label18);
   gtk_fixed_put (GTK_FIXED (fixed8), label18, 0, 0);
-  gtk_widget_set_size_request (label18, 220, 24);
+  gtk_widget_set_size_request (label18, 250, 24);
   gtk_misc_set_alignment (GTK_MISC (label18), 0, 0.5);
 
-  label21 = gtk_label_new (_("Root-password again:"));
-  gtk_widget_show (label21);
-  gtk_fixed_put (GTK_FIXED (fixed8), label21, 0, 32);
-  gtk_widget_set_size_request (label21, 220, 24);
-  gtk_misc_set_alignment (GTK_MISC (label21), 0, 0.5);
+  label26 = gtk_label_new (_("Realname:"));
+  gtk_widget_show (label26);
+  gtk_fixed_put (GTK_FIXED (fixed8), label26, 0, 88);
+  gtk_widget_set_size_request (label26, 250, 24);
+  gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
+
+  label27 = gtk_label_new (_("Username:"));
+  gtk_widget_show (label27);
+  gtk_fixed_put (GTK_FIXED (fixed8), label27, 0, 120);
+  gtk_widget_set_size_request (label27, 250, 24);
+  gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
 
   label28 = gtk_label_new (_("Password:"));
   gtk_widget_show (label28);
   gtk_fixed_put (GTK_FIXED (fixed8), label28, 0, 160);
-  gtk_widget_set_size_request (label28, 220, 24);
+  gtk_widget_set_size_request (label28, 250, 24);
   gtk_misc_set_alignment (GTK_MISC (label28), 0, 0.5);
 
   label29 = gtk_label_new (_("Password again:"));
   gtk_widget_show (label29);
   gtk_fixed_put (GTK_FIXED (fixed8), label29, 0, 192);
-  gtk_widget_set_size_request (label29, 220, 24);
+  gtk_widget_set_size_request (label29, 250, 24);
   gtk_misc_set_alignment (GTK_MISC (label29), 0, 0.5);
 
-  image_root_pw = gtk_image_new_from_stock ("gtk-cancel", GTK_ICON_SIZE_BUTTON);
-  gtk_widget_show (image_root_pw);
-  gtk_fixed_put (GTK_FIXED (fixed8), image_root_pw, 448, 2);
-  gtk_widget_set_size_request (image_root_pw, 21, 21);
-
-  label27 = gtk_label_new (_("Username:"));
-  gtk_widget_show (label27);
-  gtk_fixed_put (GTK_FIXED (fixed8), label27, 0, 120);
-  gtk_widget_set_size_request (label27, 220, 24);
-  gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
-
-  label26 = gtk_label_new (_("Realname:"));
-  gtk_widget_show (label26);
-  gtk_fixed_put (GTK_FIXED (fixed8), label26, 0, 88);
-  gtk_widget_set_size_request (label26, 220, 24);
-  gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
+  label21 = gtk_label_new (_("Root-password again:"));
+  gtk_widget_show (label21);
+  gtk_fixed_put (GTK_FIXED (fixed8), label21, 0, 32);
+  gtk_widget_set_size_request (label21, 250, 24);
+  gtk_misc_set_alignment (GTK_MISC (label21), 0, 0.5);
 
   label25 = gtk_label_new ("");
   gtk_widget_show (label25);
@@ -744,7 +745,7 @@ create_window_main (void)
   label61 = gtk_label_new (_("<i>only a-z0-9,-</i>"));
   gtk_widget_show (label61);
   gtk_fixed_put (GTK_FIXED (fixed5), label61, 102, 272);
-  gtk_widget_set_size_request (label61, 108, 24);
+  gtk_widget_set_size_request (label61, 250, 24);
   gtk_label_set_use_markup (GTK_LABEL (label61), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label61), 0, 0.5);
 
@@ -1000,23 +1001,23 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed7), vseparator7, 560, 136);
   gtk_widget_set_size_request (vseparator7, 16, 72);
 
-  label_rootpart_warning = gtk_label_new (_("error"));
-  gtk_widget_show (label_rootpart_warning);
-  gtk_fixed_put (GTK_FIXED (fixed7), label_rootpart_warning, 270, 256);
-  gtk_widget_set_size_request (label_rootpart_warning, 298, 32);
-  gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
-
-  label37 = gtk_label_new (_("Root-Partition"));
-  gtk_widget_show (label37);
-  gtk_fixed_put (GTK_FIXED (fixed7), label37, 135, 256);
-  gtk_widget_set_size_request (label37, 132, 32);
-  gtk_misc_set_alignment (GTK_MISC (label37), 0, 0.52);
-
   image16 = gtk_image_new_from_stock ("gtk-dialog-warning", GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image16);
   gtk_fixed_put (GTK_FIXED (fixed7), image16, 115, 256);
   gtk_widget_set_size_request (image16, 24, 32);
   gtk_misc_set_alignment (GTK_MISC (image16), 0, 0.42);
+
+  label37 = gtk_label_new (_("Root-Partition"));
+  gtk_widget_show (label37);
+  gtk_fixed_put (GTK_FIXED (fixed7), label37, 135, 256);
+  gtk_widget_set_size_request (label37, 158, 32);
+  gtk_misc_set_alignment (GTK_MISC (label37), 0, 0.52);
+
+  label_rootpart_warning = gtk_label_new (_("error"));
+  gtk_widget_show (label_rootpart_warning);
+  gtk_fixed_put (GTK_FIXED (fixed7), label_rootpart_warning, 299, 256);
+  gtk_widget_set_size_request (label_rootpart_warning, 271, 32);
+  gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
 
   label6 = gtk_label_new (_("Installation"));
   gtk_widget_show (label6);
@@ -1046,11 +1047,11 @@ create_window_main (void)
   g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_rootpartcombo_changed),
                     NULL);
-  g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
-                    G_CALLBACK (on_checkbutton_mountpoints_toggled),
-                    NULL);
   g_signal_connect ((gpointer) button_gparted, "clicked",
                     G_CALLBACK (on_button_gparted_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
+                    G_CALLBACK (on_checkbutton_mountpoints_toggled),
                     NULL);
   g_signal_connect ((gpointer) combobox_lang, "changed",
                     G_CALLBACK (on_combobox_lang_changed),
@@ -1120,18 +1121,10 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
-  GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (window_main, treeview1, "treeview1");
-  GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
   GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
   GLADE_HOOKUP_OBJECT (window_main, format_combo, "format_combo");
-  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
   GLADE_HOOKUP_OBJECT (window_main, rootpartlabel, "rootpartlabel");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
   GLADE_HOOKUP_OBJECT (window_main, label35, "label35");
-  GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
   GLADE_HOOKUP_OBJECT (window_main, label_changed, "label_changed");
   GLADE_HOOKUP_OBJECT (window_main, frame4, "frame4");
   GLADE_HOOKUP_OBJECT (window_main, alignment9, "alignment9");
@@ -1142,6 +1135,14 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, radiobutton_part2, "radiobutton_part2");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton_part1, "radiobutton_part1");
   GLADE_HOOKUP_OBJECT (window_main, label40, "label40");
+  GLADE_HOOKUP_OBJECT (window_main, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (window_main, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_mountpoints, "checkbutton_mountpoints");
+  GLADE_HOOKUP_OBJECT (window_main, hseparator1, "hseparator1");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_format_with, "checkbutton_format_with");
+  GLADE_HOOKUP_OBJECT (window_main, label7, "label7");
+  GLADE_HOOKUP_OBJECT (window_main, checkbutton_automount, "checkbutton_automount");
+  GLADE_HOOKUP_OBJECT (window_main, label8, "label8");
   GLADE_HOOKUP_OBJECT (window_main, label2, "label2");
   GLADE_HOOKUP_OBJECT (window_main, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (window_main, vseparator4, "vseparator4");
@@ -1152,7 +1153,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
   GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
-  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
   GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
   GLADE_HOOKUP_OBJECT (window_main, frame5, "frame5");
   GLADE_HOOKUP_OBJECT (window_main, alignment10, "alignment10");
@@ -1166,6 +1166,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, button_tz, "button_tz");
   GLADE_HOOKUP_OBJECT (window_main, label_tz, "label_tz");
   GLADE_HOOKUP_OBJECT (window_main, label39, "label39");
+  GLADE_HOOKUP_OBJECT (window_main, label14, "label14");
   GLADE_HOOKUP_OBJECT (window_main, label3, "label3");
   GLADE_HOOKUP_OBJECT (window_main, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (window_main, hseparator5, "hseparator5");
@@ -1179,6 +1180,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, entry_username, "entry_username");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw, "entry_pw");
   GLADE_HOOKUP_OBJECT (window_main, entry_pw_again, "entry_pw_again");
+  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
   GLADE_HOOKUP_OBJECT (window_main, image_rootpw_again, "image_rootpw_again");
   GLADE_HOOKUP_OBJECT (window_main, hseparator6, "hseparator6");
   GLADE_HOOKUP_OBJECT (window_main, image_realname, "image_realname");
@@ -1186,12 +1188,11 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, image_pw, "image_pw");
   GLADE_HOOKUP_OBJECT (window_main, image_pw_again, "image_pw_again");
   GLADE_HOOKUP_OBJECT (window_main, label18, "label18");
-  GLADE_HOOKUP_OBJECT (window_main, label21, "label21");
+  GLADE_HOOKUP_OBJECT (window_main, label26, "label26");
+  GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
   GLADE_HOOKUP_OBJECT (window_main, label28, "label28");
   GLADE_HOOKUP_OBJECT (window_main, label29, "label29");
-  GLADE_HOOKUP_OBJECT (window_main, image_root_pw, "image_root_pw");
-  GLADE_HOOKUP_OBJECT (window_main, label27, "label27");
-  GLADE_HOOKUP_OBJECT (window_main, label26, "label26");
+  GLADE_HOOKUP_OBJECT (window_main, label21, "label21");
   GLADE_HOOKUP_OBJECT (window_main, label25, "label25");
   GLADE_HOOKUP_OBJECT (window_main, label61, "label61");
   GLADE_HOOKUP_OBJECT (window_main, label4, "label4");
@@ -1243,9 +1244,9 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, hseparator15, "hseparator15");
   GLADE_HOOKUP_OBJECT (window_main, vseparator8, "vseparator8");
   GLADE_HOOKUP_OBJECT (window_main, vseparator7, "vseparator7");
-  GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
-  GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
   GLADE_HOOKUP_OBJECT (window_main, image16, "image16");
+  GLADE_HOOKUP_OBJECT (window_main, label37, "label37");
+  GLADE_HOOKUP_OBJECT (window_main, label_rootpart_warning, "label_rootpart_warning");
   GLADE_HOOKUP_OBJECT (window_main, label6, "label6");
   GLADE_HOOKUP_OBJECT_NO_REF (window_main, tooltips, "tooltips");
 

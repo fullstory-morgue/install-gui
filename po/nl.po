@@ -109,7 +109,8 @@ msgstr ""
 msgid ""
 "Set mountpoints of other Partitions\n"
 "(will not be formatted automatically)"
-msgstr "Stel aankoppelpunten ('mountpoints') in (worden niet automatisch geformatteerd)"
+msgstr "Stel aankoppelpunten ('mountpoints') in\n"
+"(worden niet automatisch geformatteerd)"
 
 #: install-gui.glade:847(property)
 msgid "format with"

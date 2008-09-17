@@ -1,8 +1,12 @@
 install-gui (0.6.47) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 17 Sep 2008 00:30:50 +0200
+  [ Horst Tritremmel ]
+  * larger size for some widgets 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 17 Sep 2008 20:12:38 +0200
 
 install-gui (0.6.46) unstable; urgency=low
 
