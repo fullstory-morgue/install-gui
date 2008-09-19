@@ -1,3 +1,9 @@
+install-gui (0.6.49) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 19 Sep 2008 22:47:23 +0200
+
 install-gui (0.6.48) unstable; urgency=low
 
   * modify install-gui to display better for tiny fluxbox menu item
