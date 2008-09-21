@@ -1,3 +1,9 @@
+install-gui (0.6.50) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 21 Sep 2008 18:15:22 +0200
+
 install-gui (0.6.49) unstable; urgency=low
 
   * update russian translations, thanks to RoEn.
