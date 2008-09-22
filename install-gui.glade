@@ -2357,34 +2357,6 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkLabel" id="label33">
-		  <property name="width_request">640</property>
-		  <property name="height_request">88</property>
-		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">You provided all Information neccessary to start the sidux-Installation.
-You can check or change your Options once again by pressing the &quot;Prev&quot; Button.
-If everything is correct for you, press &quot;Save config &amp; Next&quot;.</property>
-		  <property name="use_underline">False</property>
-		  <property name="use_markup">False</property>
-		  <property name="justify">GTK_JUSTIFY_CENTER</property>
-		  <property name="wrap">True</property>
-		  <property name="selectable">False</property>
-		  <property name="xalign">0</property>
-		  <property name="yalign">0.5</property>
-		  <property name="xpad">0</property>
-		  <property name="ypad">0</property>
-		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		  <property name="width_chars">-1</property>
-		  <property name="single_line_mode">False</property>
-		  <property name="angle">0</property>
-		</widget>
-		<packing>
-		  <property name="x">16</property>
-		  <property name="y">8</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkRadioButton" id="radiobutton1">
 		  <property name="width_request">208</property>
 		  <property name="height_request">56</property>
@@ -2652,6 +2624,34 @@ Metapackages</property>
 		<packing>
 		  <property name="x">299</property>
 		  <property name="y">256</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkLabel" id="label33">
+		  <property name="width_request">640</property>
+		  <property name="height_request">88</property>
+		  <property name="visible">True</property>
+		  <property name="label" translatable="yes">You have provided all the required information for a sidux-install.
+To check again or change anything press &quot;&lt;-Back&quot;.
+If everything is correct for you, press &quot;Save config &amp; Next&quot;.</property>
+		  <property name="use_underline">False</property>
+		  <property name="use_markup">False</property>
+		  <property name="justify">GTK_JUSTIFY_CENTER</property>
+		  <property name="wrap">True</property>
+		  <property name="selectable">False</property>
+		  <property name="xalign">0</property>
+		  <property name="yalign">0.5</property>
+		  <property name="xpad">0</property>
+		  <property name="ypad">0</property>
+		  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		  <property name="width_chars">-1</property>
+		  <property name="single_line_mode">False</property>
+		  <property name="angle">0</property>
+		</widget>
+		<packing>
+		  <property name="x">16</property>
+		  <property name="y">8</property>
 		</packing>
 	      </child>
 	    </widget>
@@ -3041,73 +3041,79 @@ sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to a
 
 &lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
 
-Which firmware might be required to employ affected hardware can be determined with the following device/ firmware enumeration or by using the newly developed &lt;b&gt;fw-detect&lt;/b&gt; script (packaged in configure-networkcard).
+ The required firmware can be determined with the following device/ firmware enumeration or by using the newly developed fw-detect script (packaged in configure-networkcard).
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* ATi Radeon graphics:&lt;/span&gt;
-see http://manual.sidux.com/en/hw-dev-hw-dri-en.htm
-type '&lt;b&gt;sgfxi -N radeon&lt;/b&gt;'
+&lt;b&gt;ATi Radeon graphics:&lt;/b&gt;
 3d acceleration for older cards up to r35x should work with free drivers, newer Radeon X1xxx cards need non-free drivers for accelerated performance, which currently aren't compatible with current kernels.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Nvidia  graphics:&lt;/span&gt; 
-see http://manual.sidux.com/en/hw-dev-hw-dri-en.htm
-type '&lt;b&gt;sgfxi -h&lt;/b&gt;' to see available options
-
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Atheros/ &quot;madwifi&quot; wlan:&lt;/span&gt;
-m-a a-i madwifi
-
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Atmel AT76c50x 11 MBit/s wlan:&lt;/span&gt;
+&lt;b&gt;Atmel AT76c50x 11 MBit/s wlan:&lt;/b&gt;
 apt-get install atmel-firmware
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Broadcom, b43/ b43legacy wlan:&lt;/span&gt;
+&lt;b&gt;Broadcom, b43/ b43legacy wlan:&lt;/b&gt;
 apt-get install b43-fwcutter
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Broadcom Blutonium Bluetooth chipset (BCM2033):&lt;/span&gt;
+&lt;b&gt;Broadcom Blutonium Bluetooth chipset (BCM2033):&lt;/b&gt;
 apt-get install bluez-firmware
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Eagle USB ADSL modem:&lt;/span&gt;
-fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.
+&lt;b&gt;Eagle USB ADSL modem:&lt;/b&gt;
+fetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ 
+ and place it under /lib/firmware/.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* DVB firmware for various full featured DVB TV cards (most budget cards won't need this):&lt;/span&gt;
+&lt;b&gt;DVB firmware for various full featured DVB TV cards (most budget cards won't need this):&lt;/b&gt;
 fetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* IVTV firmware:&lt;/span&gt;
-fetch the firmware from http://dl.ivtvdriver.org/ivtv/firmware/ and place it under /lib/firmware/. 
+&lt;b&gt;IVTV firmware:&lt;/b&gt;
+fetch the firmware from http://dl.ivtvdriver.org/ivtv/firmware/ and place it under /lib/firmware/.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Intel ipw2100, 11 MBit/s wlan:&lt;/span&gt;
+&lt;b&gt;Intel ipw2100, 11 MBit/s wlan:&lt;/b&gt;
 apt-get install ipw2100-firmware
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Intel ipw2200, 54 MBit/s wlan:&lt;/span&gt;
+&lt;b&gt;Intel ipw2200, 54 MBit/s wlan:&lt;/b&gt;
 apt-get install ipw2200-firmware
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:&lt;/span&gt;
+&lt;b&gt;Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:&lt;/b&gt;
 apt-get install firmware-iwlwifi
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Intel ipw4965/ iwlwifi, draft-n wlan:&lt;/span&gt;
+&lt;b&gt;Intel ipw4965/ iwlwifi, draft-n wlan:&lt;/b&gt;
 apt-get install firmware-iwlwifi
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Intersil prism54, 54 MBit/s wlan:&lt;/span&gt;
-fetch the firmware from http://jbnote.free.fr/prism54usb/ and place it under /lib/firmware/. 
+&lt;b&gt;Intersil prism54 (p54pci/ p54usb), 54 MBit/s wlan:&lt;/b&gt;
+fetch the firmware from http://jbnote.free.fr/prism54usb/ and place it under /lib/firmware/.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* RaLink rt61 and rt73 54 MBit/s wlan:&lt;/span&gt;
+&lt;b&gt;nVidia graphics:&lt;/b&gt;
+3d acceleration isn't possible with free drivers yet.
+
+&lt;b&gt;RaLink rt61 and rt73 54 MBit/s wlan:&lt;/b&gt;
 apt-get install firmware-ralink
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Ricoh R5U870 OEM webcams:&lt;/span&gt;
-fetch the firmware from http://mediati.org/r5u870/r5u870-0.11.0.tar.gz and copy the &quot;r5u870_*.fw&quot; files to /lib/firmware/. 
-
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:&lt;/span&gt;
+&lt;b&gt;Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:&lt;/b&gt;
 m-a a-i acx100
-and fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/. 
+and fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* ZyDAS zd1201 11 MBit/s wlan:&lt;/span&gt;
+&lt;b&gt;ZyDAS zd1201 11 MBit/s wlan:&lt;/b&gt;
 fetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.
 
-&lt;span foreground=&quot;darkblue&quot; font_desc=&quot;Sans Bold 10&quot;&gt;* ZyDAS zd1211 54 MBit/s wlan:&lt;/span&gt;
-apt-get install zd1211-firmware
+&lt;b&gt;ZyDAS zd1211 54 MBit/s wlan:&lt;/b&gt;
+apt-get install zd1211-firmware 
 
-* We try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. 
+
+We try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. 
+
 
 &lt;b&gt;Hints for Upgraders:&lt;/b&gt;
 sidux tries hard to provide seamless upgrade path for debian and sidux' own packages, nevertheless a few things remain that could be improved with manual interaction.
+
+
+&lt;b&gt;Broadcom b43 wlan&lt;/b&gt;
+
+Kernels &gt;2.6.25 require firmware revisions ≥4.150.10.5 (internal revision &quot;410.2160 (2007-05-26 15:32:10)&quot;) of the Broadcom firmware, while older ones (up to kernel 2.6.24) required 4.80.53.0 (internal revision &quot;351.126 (2006-07-29 05:54:02)&quot;), which has been installed by older b43-fwcutter revisions. b43-fwcutter cannot upgrade existing firmware images on its own, so upgrading needs manual intervention.
+
+dpkg --purge b43-fwcutter
+rm -rf /lib/firmware/b43 /lib/firmware/b43legacy
+apt-get update
+apt-get install b43-fwcutter
+
+This change is not strictly required for Ουρέα and kernel 2.6.26 (but strongly recommended), but is pending for Πόντος and kernel 2.6.27. 
 
 
 &lt;b&gt;&lt;u&gt;Disclaimer:&lt;/u&gt;&lt;/b&gt;
@@ -3124,7 +3130,6 @@ We will gladly discuss any dfsg-free patches and contributions, especially regar
 
 &lt;b&gt;Developers:&lt;/b&gt;
 Joaquim Boura (x-un-i)
-Harald Hope (h2)
 Bernard Gray (cleary)
 Aedan Kelly (etorix)
 Stefan Lippers-Hollmann (slh)
@@ -3149,7 +3154,7 @@ Dinko Sabo (cobra)
 Trevor Walkley (bluewater)
 zerby
 zonker
-zulu9
+zulu9 
 
 &lt;b&gt;Art Team:&lt;/b&gt;
 David Creedy (klaymen)
@@ -3165,7 +3170,7 @@ Gerald Prock (raider700)
 Ferdi Thommes (devil)
 Florian Schneider (hathe)
 Torsten Wohlfarth (towo|)
-sidux e.V. 
+sidux e.V.
 
 Thanks to Hetzner Online AG for sponsoring sidux.com.
 

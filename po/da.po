@@ -170,8 +170,8 @@ msgid "Network"
 msgstr "Netværk"
 
 #: install-gui.glade:1709(property) 
-msgid "You provided all Information neccessary to start the sidux-Installation.\n"
-"You can check or change your Options once again by pressing the \"Prev\" Button.\n"
+msgid "You have provided all the required information for a sidux-install.\n"
+"To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
 msgstr "Du har indtastet alt den nødvendige information og kan nu starte sidux installationen.\n"
 "Du kan kontrollere eller ændre dine indstillinger igen ved at trykke \"Forrige\" knappen.\n"
