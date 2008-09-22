@@ -1,9 +1,5 @@
-install-gui (0.6.50) UNRELEASED; urgency=low
+install-gui (0.6.50) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * on the final page, installation text changed 
   * Release notes updated 
 
