@@ -3041,7 +3041,7 @@ sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to a
 
 &lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
 
- The required firmware can be determined with the following device/ firmware enumeration or by using the newly developed fw-detect script (packaged in configure-networkcard).
+The required firmware can be determined with the following device/ firmware enumeration or by using the newly developed fw-detect script (packaged in configure-networkcard).
 
 &lt;b&gt;ATi Radeon graphics:&lt;/b&gt;
 3d acceleration for older cards up to r35x should work with free drivers, newer Radeon X1xxx cards need non-free drivers for accelerated performance, which currently aren't compatible with current kernels.
