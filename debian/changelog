@@ -1,3 +1,9 @@
+install-gui (0.6.53) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 28 Sep 2008 20:54:41 +0200
+
 install-gui (0.6.52) unstable; urgency=low
 
   * function to escape special shell chars in passwords
