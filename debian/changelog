@@ -1,8 +1,12 @@
 install-gui (0.6.52) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 22 Sep 2008 19:32:04 +0200
+  [ Joaquim Boura ]
+  * function to escape special shell chars in passwords
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Sun, 28 Sep 2008 19:21:41 +0200
 
 install-gui (0.6.51) unstable; urgency=low
 

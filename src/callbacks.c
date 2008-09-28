@@ -74,6 +74,36 @@ enum
 } ;
 
 
+// help function to escape special shell chars
+
+char * escape_chars(char * pwd, char * new_str)
+{
+   char ch;
+   int i, j=0;
+
+   for ( i= 0; i< strlen(pwd); i++) {
+      ch = pwd[i];
+      if ( ch == '!'  || ch == '\"'  || ch == '$'   || 
+	   ch == '%'  || ch == '&'   || ch == '{'   || 
+	   ch == '('  || ch == '['   || ch == ')'   ||
+	   ch == ']'  || ch == '='   || ch == '}'   || 
+	   ch == '?'  || ch == '\\'  || ch == '*'   || 
+	   ch == '+'  || ch == '~'   || ch == '\''  || ch == '´' ||
+	   ch == '#'  || ch == '>'   || ch == '<'   || ch == '`' ||
+	   ch == '|'  || ch == ';'   || ch == '-'   || ch == ' '   
+         ) {
+         new_str[j++] = '\\';
+         new_str[j++] = ch;     
+      }
+      else {
+         new_str[j++] = ch;
+      }
+   }
+   new_str[j] = '\0';
+   return (new_str);
+}
+
+
 void
 combobox_hd_read (GtkWidget       *widget,
                   const gchar     *combobox_name)
@@ -1243,25 +1273,33 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       * ==================================================================== */
 
       //__userpass_crypt__
-      strcpy(systemcall, "sed -ie \"s%__userpass_crypt__%$(mkpasswd --hash=md5 \"");
-      strcat(systemcall, pw);
-      strcat(systemcall, "\")%\" $HOME/");
+      strcpy(systemcall, "sed -ie \"s%__userpass_crypt__%$(mkpasswd --hash=md5 ");
+      
+      char *new_pw = (char *) malloc(2 * strlen((char *)pw) * sizeof(char));
+      strcat(systemcall, escape_chars(pw, new_pw));
+      free(new_pw);
+
+      strcat(systemcall, ")%\" $HOME/");
       strcat(systemcall, FILENAME);
-      //printf("%s\n", systemcall);
+      // printf("%s\n", systemcall);
       system(systemcall);
 
       //__rootpass_crypt__
-      strcpy(systemcall, "sed -ie \"s%__rootpass_crypt__%$(mkpasswd --hash=md5 \"");
-      strcat(systemcall, rootpw);
-      strcat(systemcall, "\")%\" $HOME/");
+      strcpy(systemcall, "sed -ie \"s%__rootpass_crypt__%$(mkpasswd --hash=md5 ");
+
+      char *new_rootpw = (char *) malloc(2 * strlen((char *)rootpw) * sizeof(char));
+      strcat(systemcall, escape_chars(rootpw, new_rootpw));
+      free (new_rootpw);
+
+      strcat(systemcall, ")%\" $HOME/");
       strcat(systemcall, FILENAME);
-      //printf("%s\n", systemcall);
+      // printf("%s\n", systemcall);
       system(systemcall);
 
       //  change $ to \$
       strcpy(systemcall, "sed -ie 's%\\$%\\\\\\$%g' $HOME/");
       strcat(systemcall, FILENAME);
-      //printf("%s\n", systemcall);
+      // printf("%s\n", systemcall);
       system(systemcall);
 
       //__swapchoices__
@@ -2233,5 +2271,6 @@ on_install_progressbar_realize         (GtkWidget       *widget,
    system( install_call );
 
 }
+
 
 
