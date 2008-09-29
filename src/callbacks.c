@@ -50,12 +50,13 @@
 #define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
 #define USERNAME_ALLOWED_CHAR        "abcdefghijklmnopqrstuvwxyz0123456789-."
+#define NAME_NAME_NOT_ALLOWED_CHARS ":=,"
 
 char scanparttmp[80], hd_tmp[80];
 char systemcallstr[BUF_LEN];
 char mountpoints_config[512];
 char rootpw[21], rootpw_a[21], pw[21], pw_a[21], nname[80], uname[80], lang_default[80], progressclock[80], install_call_tmp[80];
-int  counter, leaved_user_page, i = 0, partitions_counter = 0, hostname_ok = 1, username_ok = 1;
+int  counter, leaved_user_page, i = 0, partitions_counter = 0, hostname_ok = 1, longname_ok = 1, username_ok = 1;
 //int do_it_at_first_time = 0;
 GtkWidget *label_changed, *install_progressbar, *window_main;
 
@@ -468,16 +469,38 @@ void
 on_entry_realname_changed              (GtkEditable     *editable,
                                         gpointer         user_data)
 {
+   char longname[BUF_LEN];
+
    GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_realname");
    GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_realname");
 
    strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
 
-   if( strlen( rootpw ) < 1 ) {
+   /*   if( strlen( rootpw ) < 1 ) {
        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
    }
    else {
        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+   }
+   */
+   // longname empty?
+   strncpy(longname, gtk_entry_get_text(GTK_ENTRY(entry)), BUF_LEN);
+   if( strlen( longname ) < 1 ) {
+       longname_ok = 0;
+   }
+   else {
+       if (strpbrk(longname,NAME_NAME_NOT_ALLOWED_CHARS) == NULL) {
+	 longname_ok = 1;
+       }
+       else 
+	 longname_ok = 0;
+   }
+
+   if( longname_ok < 1) {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+   }
+   else {
+       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);     
    }
 }
 
@@ -1188,7 +1211,7 @@ mountpoints_config,
          else {
              fprintf( stream, "no'\n");
          }
-
+      char * new_nname = (char *) malloc(2 * strlen((char *)nname) * sizeof(char));	 
       fprintf( stream, 
 "\n%s\n%s\n%s\n%s\n%s\n%s\n\%s\n%s\n\n%s\n%s%s'\n\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s\n\n\
 %s\n%s%s'\n\n%s\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n%s%s'\n%s\n%s\n%s\n%s", 
@@ -1203,8 +1226,8 @@ mountpoints_config,
 "# This value will be checked by function module_swap_check",
 "SWAP_CHOICES='__swapchoices__'",
 "NAME_MODULE='configured'",
-"NAME_NAME='",
-nname,
+"NAME_NAME=",
+	       escape_chars(nname, new_nname),
 "USER_MODULE='configured'",
 "USER_NAME='",
 uname,
@@ -1230,7 +1253,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
 "# Possible are: yes|no",
 "# Default value is: yes",
 "BOOT_DISK='");
-
+      free (new_nname);
          checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_bootdisk"));
          if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
              fprintf( stream, "yes'\n");
