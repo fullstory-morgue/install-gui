@@ -1,14 +1,8 @@
-install-gui (0.6.53) UNRELEASED; urgency=low
+install-gui (0.6.53) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
-  * *** DO NOT UPLOAD ***
   * filter bad characters in real user name
     variable NAME_NAME must be written without any quotes!!
   * dropped last quote from NAME_NAME 
-
 
  -- Joaquim Boura <x-un-i@sidux.com>  Mon, 06 Oct 2008 21:29:08 +0200
 
