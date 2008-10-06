@@ -1213,7 +1213,7 @@ mountpoints_config,
          }
       char * new_nname = (char *) malloc(2 * strlen((char *)nname) * sizeof(char));	 
       fprintf( stream, 
-"\n%s\n%s\n%s\n%s\n%s\n%s\n\%s\n%s\n\n%s\n%s%s'\n\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s\n\n\
+"\n%s\n%s\n%s\n%s\n%s\n%s\n\%s\n%s\n\n%s\n%s%s\n\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s\n\n\
 %s\n%s%s'\n\n%s\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n%s%s'\n%s\n%s\n%s\n%s", 
 
 "SWAP_MODULE='configured'",
