@@ -1,9 +1,5 @@
-install-gui (0.6.55) UNRELEASED; urgency=low
+install-gui (0.6.55) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * added script to umount all partitions before installing
 
  -- Joaquim Boura <x-un-i@sidux.com>  Wed, 08 Oct 2008 00:07:38 +0200
