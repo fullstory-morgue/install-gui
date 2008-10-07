@@ -50,7 +50,8 @@
 #define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
 #define USERNAME_ALLOWED_CHAR        "abcdefghijklmnopqrstuvwxyz0123456789-."
-#define NAME_NAME_NOT_ALLOWED_CHARS ":=,"
+#define NAME_NAME_NOT_ALLOWED_CHARS  "^°!\"§$%&/(){}[]=?`+*~#;:=,><|-_\\"
+
 
 char scanparttmp[80], hd_tmp[80];
 char systemcallstr[BUF_LEN];
@@ -89,7 +90,7 @@ char * escape_chars(char * pwd, char * new_str)
 	   ch == '('  || ch == '['   || ch == ')'   ||
 	   ch == ']'  || ch == '='   || ch == '}'   || 
 	   ch == '?'  || ch == '\\'  || ch == '*'   || 
-	   ch == '+'  || ch == '~'   || ch == '\''  || ch == '´' ||
+	   ch == '+'  || ch == '~'   || ch == '\''  || 
 	   ch == '#'  || ch == '>'   || ch == '<'   || ch == '`' ||
 	   ch == '|'  || ch == ';'   || ch == '-'   || ch == ' '   
          ) {

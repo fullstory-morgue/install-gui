@@ -1,8 +1,12 @@
 install-gui (0.6.54) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 06 Oct 2008 21:33:27 +0200
+  [ Joaquim Boura ]
+  * enhanced list of forbidden chracters in longname
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Tue, 07 Oct 2008 18:19:46 +0200
 
 install-gui (0.6.53) unstable; urgency=low
 
