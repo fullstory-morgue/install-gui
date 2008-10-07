@@ -1,3 +1,9 @@
+install-gui (0.6.55) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 07 Oct 2008 18:42:19 +0200
+
 install-gui (0.6.54) unstable; urgency=low
 
   * enhanced list of forbidden chracters in longname
