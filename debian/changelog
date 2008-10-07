@@ -1,3 +1,9 @@
+install-gui (0.6.56) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 08 Oct 2008 00:24:30 +0200
+
 install-gui (0.6.55) unstable; urgency=low
 
   * added script to umount all partitions before installing
