@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/bash
 #
 # (C) 2008 Joaquim Boura <x-un-i@sidux.com>
 #
@@ -21,21 +21,41 @@
 # found in /usr/share/common-licenses/GPL.
 #
 #--------------------------------------------------------------------------
-#Simple script to umount all partitions before the installer starts his work
+# Simple script to umount all partitions before the installer starts his work
+# or to return 1 if any partition is mounted and could not be umounted
+# called with one parameter ( value does not matter) just inquiries if there 
+# is at least one partition mounted returning 1 in this case.
 #--------------------------------------------------------------------------
  
-function umount_all_drives
+function umount_all_drives()
 {
 	local ok=0
+	local do_it=$1
 	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
 
 	awk '/\/dev/{print $1":"$3}'  /etc/fstab > $TempFile
 
 	while IFS=: read device typ; do 
 		case "$typ" in 
-		swap) swapoff "$device" ;; 
-		ext2|ext3|reiserfs|vfat|jfs|xfs|ntfs) umount "$device" 
-			ok=$? 
+		swap) 
+			if swapon -s | grep -q "^$device "  ; then
+				if [ "$do_it" = "check" ]; then 
+					ok=1
+				else
+					swapoff "$device" 
+					ok=$? 
+				fi
+			fi
+			;;	
+		ext2|ext3|reiserfs|vfat|jfs|xfs|ntfs) 
+			if mount | grep -q "^$device "; then
+				if [ "$do_it" = "check" ]; then 
+					ok=1
+				else
+					umount "$device" 
+					ok=$? 
+				fi
+			fi
 			;;	
 		 auto|udf*)  
 			ok=0
@@ -55,7 +75,12 @@ function umount_all_drives
 	return $ok
 }
 
-if umount_all_drives ; then
+if [ $# -eq 1 ] ; then
+	par="check"
+else
+	par="doit"
+fi
+if umount_all_drives $par; then
 	exit 0	
 else
 	exit 1 
