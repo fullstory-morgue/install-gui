@@ -25,6 +25,7 @@
 # or to return 1 if any partition is mounted and could not be umounted
 # called with one parameter ( value does not matter) just inquiries if there 
 # is at least one partition mounted returning 1 in this case.
+# when only swap is mounted then return 2
 #--------------------------------------------------------------------------
  
 function umount_all_drives()
@@ -33,16 +34,20 @@ function umount_all_drives()
 	local do_it=$1
 	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
 
-	awk '/\/dev/{print $1":"$3}'  /etc/fstab > $TempFile
+	mount | awk '/^\/dev/{print $1":"$3":"$5}' > $TempFile
 
-	while IFS=: read device typ; do 
+	while IFS=: read device mountpoint typ; do 
 		case "$typ" in 
 		swap) 
 			if swapon -s | grep -q "^$device "  ; then
 				if [ "$do_it" = "check" ]; then 
-					ok=1
+					if [ "$ok" -eq 0 ]; then
+						ok=1
+					else
+						ok=3
+					fi
 				else
-					swapoff "$device" 
+					swapoff "/dev/$device" 
 					ok=$? 
 				fi
 			fi
@@ -52,7 +57,7 @@ function umount_all_drives()
 				if [ "$do_it" = "check" ]; then 
 					ok=1
 				else
-					umount "$device" 
+					umount "$mountpoint" 
 					ok=$? 
 				fi
 			fi
@@ -67,11 +72,14 @@ function umount_all_drives()
 			ok=0 # ignore device is not mounted or was sucessfuly umounted
 		elif [ "$ok" -eq 1 ]; then  # device busy
 			break
+		elif [ "$ok" -eq 3 ]; then  # device busy
+			: # do nothing
 		else
 			break  # some other errorcode
 		fi
 	done< $TempFile
 	test -e ${TempFile} && rm -f ${TempFile} 
+	
 	return $ok
 }
 
