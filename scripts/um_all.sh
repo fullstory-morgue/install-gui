@@ -65,6 +65,9 @@ function umount_all_drives()
 		 auto|udf*)  
 			ok=0
 			;;# nothing to do skip
+		squashfs|iso9660)
+			ok=0
+			;;
 		*)
 			ok=255 # unknow reason
 		esac
