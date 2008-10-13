@@ -1,8 +1,13 @@
 install-gui (0.6.58) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 13 Oct 2008 22:33:22 +0200
+  [ Joaquim Boura ]
+  * fixed handling of swap partitions
+    activate all swap partitions after partition is done
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Mon, 13 Oct 2008 23:12:28 +0200
 
 install-gui (0.6.57) unstable; urgency=low
 

@@ -51,7 +51,8 @@ function reenable()
 		 rm -f "${user_kde_medianotifierrc}"
 	fi
 	/etc/init.d/fll-fstab start
-	/etc/init.d/fll-resume start
+	# also reactivate swap devices
+	swapon -a
 }
 
 

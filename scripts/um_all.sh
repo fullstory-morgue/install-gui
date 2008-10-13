@@ -38,20 +38,6 @@ function umount_all_drives()
 
 	while IFS=: read device mountpoint typ; do 
 		case "$typ" in 
-		swap) 
-			if swapon -s | grep -q "^$device "  ; then
-				if [ "$do_it" = "check" ]; then 
-					if [ "$ok" -eq 0 ]; then
-						ok=1
-					else
-						ok=3
-					fi
-				else
-					swapoff "/dev/$device" 
-					ok=$? 
-				fi
-			fi
-			;;	
 		ext2|ext3|reiserfs|vfat|jfs|xfs|ntfs) 
 			if mount | grep -q "^$device "; then
 				if [ "$do_it" = "check" ]; then 
@@ -75,12 +61,31 @@ function umount_all_drives()
 			ok=0 # ignore device is not mounted or was sucessfuly umounted
 		elif [ "$ok" -eq 1 ]; then  # device busy
 			break
-		elif [ "$ok" -eq 3 ]; then  # device busy
-			: # do nothing
 		else
 			break  # some other errorcode
 		fi
 	done< $TempFile
+	test -e ${TempFile} && rm -f ${TempFile} 
+
+	# now handle aktive swap devices 
+	swapon -s | awk '/^\/dev/{print $1}' > $TempFile
+	if [ "$do_it" = "check" ]; then
+		if [ "$ok" -eq 0 ]; then
+			[ -s "$TempFile" ] && ok=2
+		fi
+	else
+		if [ "$ok" -eq 0 ]; then
+			if [ -s "$TempFile" ]; then
+				while read part ; do
+					swapoff $part
+					if [ "$?" -ne 0 ];then
+						ok=1
+						break;
+					fi
+				done < $TempFile
+			fi
+		fi
+	fi
 	test -e ${TempFile} && rm -f ${TempFile} 
 	
 	return $ok
@@ -91,8 +96,9 @@ if [ $# -eq 1 ] ; then
 else
 	par="doit"
 fi
-if umount_all_drives $par; then
-	exit 0	
-else
-	exit 1 
-fi
+
+umount_all_drives $par
+rc=$?
+
+exit $rc
+
