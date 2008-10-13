@@ -6,8 +6,9 @@ install-gui (0.6.58) UNRELEASED; urgency=low
   [ Joaquim Boura ]
   * fixed handling of swap partitions
     activate all swap partitions after partition is done
+  * disable/enable swaps on the automount popup disabler/enabler
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 13 Oct 2008 23:12:28 +0200
+ -- Joaquim Boura <x-un-i@sidux.com>  Mon, 13 Oct 2008 23:22:11 +0200
 
 install-gui (0.6.57) unstable; urgency=low
 

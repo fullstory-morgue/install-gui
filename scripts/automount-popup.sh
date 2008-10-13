@@ -12,6 +12,20 @@ user_kde_medianotifierrc="${user_kde_config_dir}/medianotifierrc"
 user_xfce_volmanrc="${user_home}/.config/Thunar/volmanrc"
 # gnome ??
 
+#--------------------------------------------------------
+# disable all swaps
+function disable_all_swaps()
+{
+	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
+
+	swapon -s | awk '/^\/dev/{print $1}' > $TempFile
+	if [ -s "$TempFile" ]; then
+		while read part ; do
+			swapoff $part
+		done < $TempFile
+	fi
+        test -e ${TempFile} && rm -f ${TempFile}
+}
 
 #--------------------------------------------------------
 # disable automount in xfce or medianotifier popup in KDE
@@ -32,6 +46,8 @@ media/hdd_unmounted=#NothinAction
 media/removable_unmounted=#NothinAction
 EOF
 	fi
+
+	disable_all_swaps
 }
 
 #---------------------------------------------------------
