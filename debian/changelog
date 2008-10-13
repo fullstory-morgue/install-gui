@@ -1,9 +1,5 @@
-install-gui (0.6.57) UNRELEASED; urgency=low
+install-gui (0.6.57) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * um_all bugfix 
 
  -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Oct 2008 22:13:53 +0200
