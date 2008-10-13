@@ -10,8 +10,9 @@ install-gui (0.6.56) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * um_all.sh in callbacks.c added 
+  * um_all* added to debian/install 
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Oct 2008 16:39:57 +0200
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Oct 2008 21:22:33 +0200
 
 install-gui (0.6.55) unstable; urgency=low
 
