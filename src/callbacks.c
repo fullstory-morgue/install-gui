@@ -686,17 +686,19 @@ mount_check(GtkWidget     *button)
                 // user input -> yes, umount
                 rc = system( UM_SCRIPT );
                 if (WIFEXITED(rc)) {
-                    printf ("umount problem, exitcode: %d\n", WEXITSTATUS(rc));
+                    if (WEXITSTATUS(rc) > 0) {
+                        printf ("umount problem, exitcode: %d\n", WEXITSTATUS(rc));
 
-                    // Message Dialog root partition empty
-                    dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                        // Message Dialog root partition empty
+                        dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
                             GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR,
                             GTK_BUTTONS_CLOSE, "%s\n", "device is busy, can't umount :-(");
-                    gtk_dialog_run (GTK_DIALOG (dialog));
-                    gtk_widget_destroy (dialog);
+                        gtk_dialog_run (GTK_DIALOG (dialog));
+                        gtk_widget_destroy (dialog);
 
-                    // skip install
-                    return 0;
+                        // skip install
+                        return 0;
+                    }
                 }
             }
             else 
