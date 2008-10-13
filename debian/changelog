@@ -1,3 +1,9 @@
+install-gui (0.6.59) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 13 Oct 2008 23:31:22 +0200
+
 install-gui (0.6.58) unstable; urgency=low
 
   * fixed handling of swap partitions
