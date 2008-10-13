@@ -1,9 +1,5 @@
-install-gui (0.6.58) UNRELEASED; urgency=low
+install-gui (0.6.58) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * fixed handling of swap partitions
     activate all swap partitions after partition is done
   * disable/enable swaps on the automount popup disabler/enabler
