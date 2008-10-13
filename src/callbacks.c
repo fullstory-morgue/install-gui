@@ -5,12 +5,14 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 #include <errno.h>
 
@@ -39,6 +41,9 @@
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
 #define INSTALL_FIRMWARE_BASH     "/usr/share/install-gui/fw-install"
+
+#define UM_SCRIPT_CHECK "/usr/share/install-gui/um_all.sh check"
+#define UM_SCRIPT "/usr/share/install-gui/um_all.sh"
 
 // Abort message from backend
 #define ABORT_MESSAGE             "Abort:"
@@ -656,6 +661,65 @@ on_hostname_changed                    (GtkEditable     *editable,
 
 
 int
+mount_check(GtkWidget     *button)
+{
+    // x-un-i's mount check ;-)
+    GtkWidget *mainW, *dialog;
+    gint rc, response;
+
+    rc = system (UM_SCRIPT_CHECK);
+    if (WIFEXITED(rc)) {
+
+        if (WEXITSTATUS(rc) == 1) {    // partitions mounted
+            printf ("mount_check exitcode: %d\n", WEXITSTATUS(rc));
+
+            // Message Dialog root partition empty
+            mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+            dialog = gtk_message_dialog_new( GTK_WINDOW( mainW ),
+                    GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION,
+                    GTK_BUTTONS_YES_NO, "umount all partitions?");
+            gtk_window_set_title(GTK_WINDOW(dialog), "Partition mounted");
+            response = gtk_dialog_run (GTK_DIALOG (dialog));
+            gtk_widget_destroy (dialog);
+
+            if (response == GTK_RESPONSE_YES) {
+                // user input -> yes, umount
+                rc = system( UM_SCRIPT );
+                if (WIFEXITED(rc)) {
+                    printf ("umount problem, exitcode: %d\n", WEXITSTATUS(rc));
+
+                    // Message Dialog root partition empty
+                    dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                            GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR,
+                            GTK_BUTTONS_CLOSE, "%s\n", "device is busy, can't umount :-(");
+                    gtk_dialog_run (GTK_DIALOG (dialog));
+                    gtk_widget_destroy (dialog);
+
+                    // skip install
+                    return 0;
+                }
+            }
+            else 
+            {
+                // user input -> no, skip install
+                return 0;
+            }
+        }
+
+        // only swap is mounted
+        if (WIFEXITED(rc) == 2) {
+            // swapoff
+            system( UM_SCRIPT );
+        }
+
+    }
+
+    // start install
+    return 1;
+}
+
+
+int
 password_check(GtkWidget     *button) 
 {
 
@@ -1019,6 +1083,12 @@ on_button_gparted_clicked              (GtkButton       *button,
     //FILE *stream;
     char sh_command[256];
 
+    //start x-un-i mount_check
+    if( mount_check(GTK_WIDGET (button)) < 1 ) {
+            return;
+    }
+
+
    // hide the main window after gparted has done
    //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
    gtk_widget_hide ( GTK_WIDGET (window_main) );
@@ -1345,6 +1415,11 @@ on_button_install_clicked              (GtkButton       *button,
    GtkToggleButton *radiobutton;
    GtkWidget *mainW, *dialog;
 
+   //start x-un-i mount_check
+   if( mount_check(GTK_WIDGET (button)) < 1 ) {
+           return;
+   }
+
    //password_check
    if( password_check(GTK_WIDGET (button)) < 1 ) {
 
@@ -1502,6 +1577,7 @@ void
 on_button_install_now_back_clicked     (GtkButton       *button,
                                         gpointer         user_data)
 {
+
     // close install window and show install-gui window (back button in install_window)
     // hide install window
     gtk_widget_show ( window_main );
@@ -1516,6 +1592,12 @@ void
 on_button_install_now_clicked          (GtkButton       *button,
                                         gpointer         user_data)
 {
+
+    //start x-un-i mount_check
+    if( mount_check(GTK_WIDGET (button)) < 1 ) {
+            return;
+    }
+
     // hide install window
     GtkWidget *install_window = lookup_widget(GTK_WIDGET(button),"install_window");
     gtk_widget_hide ( install_window );

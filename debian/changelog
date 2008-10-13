@@ -4,11 +4,14 @@ install-gui (0.6.56) UNRELEASED; urgency=low
   * NOT RELEASED YET
 
   [ Joaquim Boura ]
-  * enhanced um_all.sh script to list/umount partiitions
+  * enhanced um_all.sh script to list/umount partitions
   * use mount instead of fstab
   * also take care of squashfs and iso9660
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sat, 11 Oct 2008 21:28:49 +0200
+  [ Horst Tritremmel ]
+  * um_all.sh in callbacks.c added 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Oct 2008 16:39:57 +0200
 
 install-gui (0.6.55) unstable; urgency=low
 
