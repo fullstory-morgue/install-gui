@@ -707,13 +707,6 @@ mount_check(GtkWidget     *button)
                 return 0;
             }
         }
-
-        // only swap is mounted
-        if (WIFEXITED(rc) == 2) {
-            // swapoff
-            system( UM_SCRIPT );
-        }
-
     }
 
     // start install
