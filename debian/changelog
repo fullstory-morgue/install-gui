@@ -1,9 +1,5 @@
-install-gui (0.6.59) UNRELEASED; urgency=low
+install-gui (0.6.59) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Horst Tritremmel ]
   * swapoff in mount_check removed
 
  -- Horst Tritremmel <hjt@sidux.com>  Mon, 20 Oct 2008 21:30:07 +0200
