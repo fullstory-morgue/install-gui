@@ -11,3 +11,4 @@ scripts/disk.py			usr/share/install-gui/
 scripts/automount*		usr/share/install-gui/
 scripts/cfdisk*			usr/share/install-gui/
 scripts/um_all*			usr/share/install-gui/
+scripts/check_existing_home.sh	usr/share/install-gui/

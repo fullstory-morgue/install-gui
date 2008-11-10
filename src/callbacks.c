@@ -44,6 +44,7 @@
 
 #define UM_SCRIPT_CHECK "/usr/share/install-gui/um_all.sh check"
 #define UM_SCRIPT "/usr/share/install-gui/um_all.sh"
+#define CHECK_EXISTING_HOME "/usr/share/install-gui/check_existing_home.sh"
 
 // Abort message from backend
 #define ABORT_MESSAGE             "Abort:"
@@ -1440,7 +1441,7 @@ on_button_install_clicked              (GtkButton       *button,
            return;
    }
 
-   // hostname check
+   // username check
    if( username_ok < 1 ) {
 
            // Message Dialog root partition empty
@@ -1479,19 +1480,95 @@ on_button_install_clicked              (GtkButton       *button,
 
     if( strncmp ( hd_choice, "/dev/dm-", 8 ) == 0 ) {
     // check if a lvm device = rootpartition then he must have a boot device selected
-        mainW = lookup_widget (GTK_WIDGET (button), "window_main");
-        dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_INFO,
-                                  GTK_BUTTONS_CLOSE,
-                                  "%s\n%s\n\n%s", "LVM Rootpartition found!",
-                                                  "------------------------------",
-                                                  "INFO: You need a separate /boot (non LVM) partition");
-        gtk_dialog_run (GTK_DIALOG (dialog));
-        gtk_widget_destroy (dialog);
+	    mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+	    dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+				    GTK_DIALOG_DESTROY_WITH_PARENT,
+				    GTK_MESSAGE_INFO,
+				    GTK_BUTTONS_CLOSE,
+				    "%s\n%s\n\n%s", "LVM Rootpartition found!",
+						    "------------------------------",
+						    "INFO: You need a separate /boot (non LVM) partition");
+	    gtk_dialog_run (GTK_DIALOG (dialog));
+	    gtk_widget_destroy (dialog);
     }
+    
+    // check if /home/username already exists on separate /home
+    GtkWidget *treeview1 = lookup_widget (GTK_WIDGET (button), "treeview1");
+    GtkTreeModel *model = gtk_tree_view_get_model (GTK_TREE_VIEW(treeview1));
+    GtkTreeIter iter;
+    GValue mount_point = {0};
+    GValue home_dev = {0};
 
+    gboolean next = gtk_tree_model_get_iter_first(model, &iter);
+    gboolean home_exists = FALSE;
+    while( next ) {
+	    gtk_tree_model_get_value(model, &iter, 2, &mount_point);
+	    if( strcmp("/home", g_value_get_string(&mount_point)) == 0 ) {
+		    gtk_tree_model_get_value(model, &iter, 0, &home_dev);
+		    home_exists = TRUE;
+		    break;
+	    }
+	    next = gtk_tree_model_iter_next(model, &iter);
+    }
+    
+    g_value_unset(&mount_point);
+    
+    if( home_exists ) {
+	    char syscall[BUF_LEN];
+	    char username[BUF_LEN];
+	    GtkWidget* entry = lookup_widget(GTK_WIDGET(window_main), "entry_username");
+	    strncpy(username, gtk_entry_get_text(GTK_ENTRY(entry)), BUF_LEN);
 
+	    strncpy(syscall, CHECK_EXISTING_HOME, BUF_LEN);
+	    strncat(syscall, " ", BUF_LEN);
+	    strncat(syscall, g_value_get_string(&home_dev), BUF_LEN);
+	    strncat(syscall, " ", BUF_LEN);
+	    strncat(syscall, username, BUF_LEN);
+	    
+	    g_value_unset(&home_dev);
+	    
+	    int return_status = system(syscall);
+	    if( ! WIFEXITED(return_status) )
+		    return_status = 1;
+	    else
+		    return_status = WEXITSTATUS( return_status );
+	    
+	    switch( return_status ) {
+		case 0:
+		    break;
+		    
+		case 2:
+		    mainW = lookup_widget(GTK_WIDGET(button), "window_main");
+		    dialog = gtk_message_dialog_new(GTK_WINDOW(mainW),
+					GTK_DIALOG_DESTROY_WITH_PARENT,
+					GTK_MESSAGE_INFO,
+					GTK_BUTTONS_CLOSE,
+					"%s%s%s\n\n%s\n",
+					"There already is a directory named ",
+					username,
+					" on your /home.",
+					"INFO: Mount /home later or choose another username.");
+		    gtk_dialog_run(GTK_DIALOG(dialog));
+		    gtk_widget_destroy(dialog);
+		    return;
+
+		default:
+		    mainW = lookup_widget(GTK_WIDGET(button), "window_main");
+		    dialog = gtk_message_dialog_new(GTK_WINDOW(mainW),
+					GTK_DIALOG_DESTROY_WITH_PARENT,
+					GTK_MESSAGE_INFO,
+					GTK_BUTTONS_CLOSE,
+					"%s",
+					"Error on mounting /home.");
+		    gtk_dialog_run(GTK_DIALOG (dialog));
+		    gtk_widget_destroy(dialog);
+		    return;
+	    } /* switch system(call) */
+	    
+    } /* if (home_exists) */
+    else
+	    g_value_unset(&home_dev);
+    
 
   /* ======================================================== *
    *                   start the install_window               *

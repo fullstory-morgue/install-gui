@@ -1,8 +1,15 @@
 install-gui (0.6.60) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 21 Oct 2008 20:54:20 +0200
+  [ Michael Deelwater ]
+  * install-gui/src/callbacks.c:
+    - If a separate /home is requested, test if there is a directory named
+      username on that partition, which would conflict with the new user.
+    - Add script check_existing_home.sh, which performs the (u)mounting.
+
+ -- Michael Deelwater <michael.deelwater@googlemail.com>  Sat, 08 Nov 2008 18:00:50 +0100
 
 install-gui (0.6.59) unstable; urgency=low
 
