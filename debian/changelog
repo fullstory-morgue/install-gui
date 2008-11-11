@@ -1,9 +1,5 @@
-install-gui (0.6.60) UNRELEASED; urgency=low
+install-gui (0.6.60) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Michael Deelwater ]
   * install-gui/src/callbacks.c:
     - If a separate /home is requested, test if there is a directory named
       username on that partition, which would conflict with the new user.
