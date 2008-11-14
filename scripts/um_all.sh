@@ -40,11 +40,19 @@ function umount_all_drives()
 		case "$typ" in 
 		ext2|ext3|reiserfs|vfat|jfs|xfs|ntfs) 
 			if mount | grep -q "^$device "; then
-				if [ "$do_it" = "check" ]; then 
-					ok=1
+				if [ ! "/fll${device#/dev}" = "$mountpoint" ] ; then
+					if [ "$do_it" = "check" ]; then 
+						ok=1
+					else
+						umount "$mountpoint" 
+						ok=$? 
+					fi
 				else
-					umount "$mountpoint" 
-					ok=$? 
+					ok=0
+					# Caveat: on fromiso we must allow the partition
+					# to remain mounted so user is playing russian
+					# roulette with his partitions
+					#
 				fi
 			fi
 			;;	
@@ -65,7 +73,7 @@ function umount_all_drives()
 			break  # some other errorcode
 		fi
 	done< $TempFile
-	test -e ${TempFile} && rm -f ${TempFile} 
+	[ -e "${TempFile}" ] && rm -f ${TempFile} 
 
 	# now handle aktive swap devices 
 	swapon -s | awk '/^\/dev/{print $1}' > $TempFile
@@ -86,7 +94,7 @@ function umount_all_drives()
 			fi
 		fi
 	fi
-	test -e ${TempFile} && rm -f ${TempFile} 
+	[ -e "${TempFile}" ] && rm -f ${TempFile} 
 	
 	return $ok
 }
