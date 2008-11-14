@@ -1,9 +1,5 @@
-install-gui (0.6.61) UNRELEASED; urgency=low
+install-gui (0.6.61) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * When fromiso is running skip the device where the fromiso is installed.
     This can be dangerous for the user but we don't have other chance -:(
 
