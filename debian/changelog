@@ -1,3 +1,9 @@
+install-gui (0.6.62) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 14 Nov 2008 23:47:48 +0100
+
 install-gui (0.6.61) unstable; urgency=low
 
   * When fromiso is running skip the device where the fromiso is installed.
