@@ -1,3 +1,9 @@
+install-gui (0.6.63) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 15 Nov 2008 17:02:24 +0100
+
 install-gui (0.6.62) unstable; urgency=low
 
   * fix the code concerning fromiso to skip umount e device.
