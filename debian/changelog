@@ -1,3 +1,9 @@
+install-gui (0.6.64) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 18 Nov 2008 23:03:28 +0100
+
 install-gui (0.6.63) unstable; urgency=low
 
   * Do not let sed create backups of files containing password hashes (with sed
