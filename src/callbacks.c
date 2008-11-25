@@ -1508,10 +1508,11 @@ on_button_install_clicked              (GtkButton       *button,
 		    home_exists = TRUE;
 		    break;
 	    }
+	    g_value_unset(&mount_point);
 	    next = gtk_tree_model_iter_next(model, &iter);
     }
     
-    g_value_unset(&mount_point);
+
     
     if( home_exists ) {
 	    char syscall[BUF_LEN];
@@ -1566,9 +1567,7 @@ on_button_install_clicked              (GtkButton       *button,
 	    } /* switch system(call) */
 	    
     } /* if (home_exists) */
-    else
-	    g_value_unset(&home_dev);
-    
+        
 
   /* ======================================================== *
    *                   start the install_window               *
