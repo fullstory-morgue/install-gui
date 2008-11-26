@@ -1,7 +1,4 @@
-install-gui (0.6.64) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.6.64) unstable; urgency=low
 
   [ Michael Deelwater ]
   * callbacks.c:
