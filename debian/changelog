@@ -7,7 +7,10 @@ install-gui (0.6.64) UNRELEASED; urgency=low
   * callbacks.c:
     - Fix gchararray initialization warning.
 
- -- Michael Deelwater <michael.deelwater@googlemail.com>  Tue, 25 Nov 2008 21:27:06 +0100
+  [ Horst Tritremmel ]
+  * - Fix the icon in button_install_now/install_window 
+
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 26 Nov 2008 15:42:23 +0100
 
 install-gui (0.6.63) unstable; urgency=low
 

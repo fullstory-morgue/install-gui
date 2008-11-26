@@ -1642,14 +1642,14 @@ create_install_window (void)
   GtkWidget *hseparator25;
   GtkWidget *image24;
   GtkWidget *button_install_now_back;
+  GtkWidget *button1;
+  GtkWidget *button_edit_configuration;
+  GtkWidget *image25;
   GtkWidget *button_install_now;
   GtkWidget *alignment11;
   GtkWidget *hbox6;
   GtkWidget *image20;
   GtkWidget *label49;
-  GtkWidget *button1;
-  GtkWidget *button_edit_configuration;
-  GtkWidget *image25;
   GtkTooltips *tooltips;
 
   tooltips = gtk_tooltips_new ();
@@ -1694,28 +1694,6 @@ create_install_window (void)
   gtk_tooltips_set_tip (tooltips, button_install_now_back, _("back to installer"), NULL);
   gtk_button_set_focus_on_click (GTK_BUTTON (button_install_now_back), FALSE);
 
-  button_install_now = gtk_button_new ();
-  gtk_widget_show (button_install_now);
-  gtk_fixed_put (GTK_FIXED (fixed17), button_install_now, 80, 96);
-  gtk_widget_set_size_request (button_install_now, 227, 43);
-
-  alignment11 = gtk_alignment_new (0.5, 0.5, 0, 0);
-  gtk_widget_show (alignment11);
-  gtk_container_add (GTK_CONTAINER (button_install_now), alignment11);
-
-  hbox6 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox6);
-  gtk_container_add (GTK_CONTAINER (alignment11), hbox6);
-
-  image20 = create_pixmap (install_window, "install-gui.png");
-  gtk_widget_show (image20);
-  gtk_box_pack_start (GTK_BOX (hbox6), image20, FALSE, FALSE, 0);
-
-  label49 = gtk_label_new_with_mnemonic (_("<big><b>  Begin Installation</b></big>"));
-  gtk_widget_show (label49);
-  gtk_box_pack_start (GTK_BOX (hbox6), label49, FALSE, FALSE, 0);
-  gtk_label_set_use_markup (GTK_LABEL (label49), TRUE);
-
   button1 = gtk_button_new_from_stock ("gtk-quit");
   gtk_widget_show (button1);
   gtk_fixed_put (GTK_FIXED (fixed17), button1, 8, 192);
@@ -1733,17 +1711,39 @@ create_install_window (void)
   gtk_widget_show (image25);
   gtk_container_add (GTK_CONTAINER (button_edit_configuration), image25);
 
+  button_install_now = gtk_button_new ();
+  gtk_widget_show (button_install_now);
+  gtk_fixed_put (GTK_FIXED (fixed17), button_install_now, 80, 96);
+  gtk_widget_set_size_request (button_install_now, 232, 46);
+
+  alignment11 = gtk_alignment_new (0.5, 0.5, 0, 0);
+  gtk_widget_show (alignment11);
+  gtk_container_add (GTK_CONTAINER (button_install_now), alignment11);
+
+  hbox6 = gtk_hbox_new (FALSE, 2);
+  gtk_widget_show (hbox6);
+  gtk_container_add (GTK_CONTAINER (alignment11), hbox6);
+
+  image20 = create_pixmap (install_window, "install-gui.xpm");
+  gtk_widget_show (image20);
+  gtk_box_pack_start (GTK_BOX (hbox6), image20, FALSE, FALSE, 0);
+
+  label49 = gtk_label_new_with_mnemonic (_("<big><b>  Begin Installation</b></big>"));
+  gtk_widget_show (label49);
+  gtk_box_pack_start (GTK_BOX (hbox6), label49, FALSE, FALSE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label49), TRUE);
+
   g_signal_connect ((gpointer) button_install_now_back, "clicked",
                     G_CALLBACK (on_button_install_now_back_clicked),
-                    NULL);
-  g_signal_connect ((gpointer) button_install_now, "clicked",
-                    G_CALLBACK (on_button_install_now_clicked),
                     NULL);
   g_signal_connect ((gpointer) button1, "clicked",
                     G_CALLBACK (gtk_main_quit),
                     NULL);
   g_signal_connect ((gpointer) button_edit_configuration, "clicked",
                     G_CALLBACK (on_button_edit_configuration_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button_install_now, "clicked",
+                    G_CALLBACK (on_button_install_now_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -1753,14 +1753,14 @@ create_install_window (void)
   GLADE_HOOKUP_OBJECT (install_window, hseparator25, "hseparator25");
   GLADE_HOOKUP_OBJECT (install_window, image24, "image24");
   GLADE_HOOKUP_OBJECT (install_window, button_install_now_back, "button_install_now_back");
+  GLADE_HOOKUP_OBJECT (install_window, button1, "button1");
+  GLADE_HOOKUP_OBJECT (install_window, button_edit_configuration, "button_edit_configuration");
+  GLADE_HOOKUP_OBJECT (install_window, image25, "image25");
   GLADE_HOOKUP_OBJECT (install_window, button_install_now, "button_install_now");
   GLADE_HOOKUP_OBJECT (install_window, alignment11, "alignment11");
   GLADE_HOOKUP_OBJECT (install_window, hbox6, "hbox6");
   GLADE_HOOKUP_OBJECT (install_window, image20, "image20");
   GLADE_HOOKUP_OBJECT (install_window, label49, "label49");
-  GLADE_HOOKUP_OBJECT (install_window, button1, "button1");
-  GLADE_HOOKUP_OBJECT (install_window, button_edit_configuration, "button_edit_configuration");
-  GLADE_HOOKUP_OBJECT (install_window, image25, "image25");
   GLADE_HOOKUP_OBJECT_NO_REF (install_window, tooltips, "tooltips");
 
   return install_window;
