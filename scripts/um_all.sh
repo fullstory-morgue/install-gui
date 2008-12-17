@@ -34,7 +34,7 @@ function umount_all_drives()
 	local do_it=$1
 	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
 
-	mount | awk '/^\/dev/{print $1":"$3":"$5}' > $TempFile
+	mount | grep -v "/fll/persist" | awk '/^\/dev/{print $1":"$3":"$5}' > $TempFile
 
 	while IFS=: read device mountpoint typ; do 
 		case "$typ" in 
