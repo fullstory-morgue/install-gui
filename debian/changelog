@@ -1,4 +1,4 @@
-install-gui (0.6.65+nmu1) UNRELEASED; urgency=low
+install-gui (0.6.65) unstable; urgency=low
 
   [ slam ]
   * Non-maintainer upload.
@@ -9,12 +9,6 @@ install-gui (0.6.65+nmu1) UNRELEASED; urgency=low
   * Release notes updated 
 
  -- Horst Tritremmel <hjt@sidux.com>  Wed, 17 Dec 2008 20:41:02 +0100
-
-install-gui (0.6.65) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 26 Nov 2008 19:35:26 +0100
 
 install-gui (0.6.64) unstable; urgency=low
 
