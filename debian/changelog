@@ -1,3 +1,10 @@
+install-gui (0.6.65+nmu1) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * added Greek .po file
+
+ -- slam <slam@sidux.com>  Wed, 17 Dec 2008 14:52:37 +0100
+
 install-gui (0.6.65) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
