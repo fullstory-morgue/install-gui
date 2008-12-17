@@ -1,0 +1,299 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2007-01-18 10:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install-gui.glade:8(property) 
+msgid "sidux HD-Installation"
+msgstr "sidux HD-Εγκατάσταση"
+
+#: install-gui.glade:78(property) 
+msgid "exit"
+msgstr "έξοδος"
+
+#: install-gui.glade:275(property) 
+msgid "Welcome to the sidux HD-Installation"
+msgstr "Καλώς ήλθατε στην sidux HD-Εγκατάσταση"
+
+#: install-gui.glade:425(property) 
+msgid "sidux takes no responsibility for data loss or hardware damage."
+msgstr "το sidux δεν φέρει καμία ευθύνη για απώλεια δεδομένων ή βλάβη υλικού"
+
+#: install-gui.glade:452(property) 
+msgid "This application will install sidux to your harddisk."
+msgstr "Η εφαρμογή αυτή θα εγκαταστήσει το sidux στον δίσκο σας"
+
+#: install-gui.glade:505(property) 
+msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
+"sidux-website: http://sidux.com"
+msgstr "Αν χρειάζεστε βοήθεια με την εγκατάσταση επισκευτείτε την sidux-σελίδα, -Wiki, -Φόρουμ ή -Chat!\n\n"
+"sidux-σελίδα: http://sidux.com"
+
+#: install-gui.glade:537(property) 
+msgid "Welcome"
+msgstr "Καλώς ήλθατε"
+
+#: install-gui.glade:589(property) 
+msgid "options are:\n"
+"========\n"
+"/boot\n"
+"/home\n"
+"/opt\n"
+"/root\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+msgstr "επιλογές:\n"
+"========\n"
+"/boot\n"
+"/home\n"
+"/opt\n"
+"/root\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+
+#: install-gui.glade:624(property) 
+msgid "!!!!!! be careful !!!!!!!\n"
+"Do it, if you don't have a linux partition.\n"
+"Read the Manual before. (see the Manual Button on the Desktop)"
+msgstr "!!!!!! ΠΡΟΣΟΧΗ !!!!!!!\n"
+"Κάντε το αν δεν έχετε μια linux κατάτμηση.\n"
+"Πρώτα διαβάστε το εγχειρίδιο. (δείτε την συντόμευση στο Desktop)"
+
+#: install-gui.glade:672(property) 
+msgid "Start Part.-\n"
+"manager"
+msgstr "Τρέξτε Διαχ.\n"
+"Κατατμήσεων"
+
+#: install-gui.glade:710(property) 
+msgid "Root-Partition"
+msgstr "Root-Κατάτμηση"
+
+#: install-gui.glade:736(property) 
+msgid "Mountpoints of other Partitions"
+msgstr "Σημεία προσάρτησης άλλων Κατατμήσεων"
+
+#: install-gui.glade:762(property) 
+msgid "Example:\n"
+"------------\n"
+"A separate\n"
+"home-partition:\n"
+"/home"
+msgstr "Παράδειγμα:\n"
+"------------\n"
+"Ξεχωριστή\n"
+"home-κατάτμηση:\n"
+"/home"
+
+#: install-gui.glade:810(property) 
+msgid "Set mountpoints of other Partitions\n"
+"(will not be formatted automatically)"
+msgstr "Θέστε σημ. προσάρτησης άλλων Κατατμήσεων"
+"(δεν θα διαμορφωθούν αυτόματα)"
+
+#: install-gui.glade:847(property) 
+msgid "format with"
+msgstr "διάμορφ. σε"
+
+#: install-gui.glade:870(property) 
+msgid "Partitioning"
+msgstr "Κατάτμηση"
+
+#: install-gui.glade:912(property) 
+msgid "create a bootdisk"
+msgstr "δημ. δισκ. εκκίνησης"
+
+#: install-gui.glade:931(property) 
+msgid "Installation-target"
+msgstr "Τόπος-εγκατάστασης"
+
+#: install-gui.glade:957(property) 
+msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
+"Installation-target: MBR (Master Boot Record) or root-partition"
+msgstr "Bootmanager: Ο bootmanager σας επιτρέπει να επιλέξετε το ΛΣ που θέλετε να εκκινήσετε.\n"
+"Τόπος-εγκατάστασης: MBR (Master Boot Record) ή κατάτμηση-root"
+
+#: install-gui.glade:1033(property) 
+msgid "Bootmanager"
+msgstr "Bootmanager"
+
+#: install-gui.glade:1280(property) 
+msgid "Root-password:"
+msgstr "Root-password:"
+
+#: install-gui.glade:1306(property) 
+msgid "Root-password again:"
+msgstr "Root-password ξανά:"
+
+#: install-gui.glade:1332(property) 
+msgid "Realname:"
+msgstr "Όνομα:"
+
+#: install-gui.glade:1358(property) 
+msgid "Password:"
+msgstr "Password:"
+
+#: install-gui.glade:1384(property) 
+msgid "Password again:"
+msgstr "Password ξανά:"
+
+#: install-gui.glade:1410(property) 
+msgid "Username:"
+msgstr "ΌνομαΧρήστη"
+
+#: install-gui.glade:1481(property) 
+msgid "Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
+"Important: All passwords have to be between 6 and 20 characters long!"
+msgstr ""
+
+#: install-gui.glade:1515(property) 
+msgid "User"
+msgstr "Χρήστης"
+
+#: install-gui.glade:1564(property) 
+msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
+msgstr "Hostname: Το hostname πρέπει να αποτελείται μόνο από γράμματα (και αριθμούς) και να μην αρχίζει με αριθμό"
+
+#: install-gui.glade:1680(property) 
+msgid "Network"
+msgstr "Δίκτυο"
+
+#: install-gui.glade:1709(property) 
+msgid "You have provided all the required information for a sidux-install.\n"
+"To check again or change anything press \"<-Back\".\n"
+"If everything is correct for you, press \"Save config & Next\"."
+msgstr "Έχετε παράσχει όλες τις απαραίτητες πληροφορίες για μια sidux-εγκατάσταση.\n"
+"Για να ελέγξετε ξανά ή να αλλάξετε κάτι πατήστε το \"<-Πίσω\".\n"
+"Αν είναι όλα σωστά πατήστε το \"Φύλαξε ρύθμ. & Επόμενο\"."
+
+#: install-gui.glade:1800(property) 
+msgid "Save configuration\n"
+"only (~/.sidconf)"
+msgstr "Μόνο φύλαξε ρυθμί-\n"
+"σεις (~/.sidconf)"
+
+#: install-gui.glade:1821(property) 
+msgid "Start sidux-Installer-Script\n"
+"without configuration\n"
+"(this configuration will be lost)"
+msgstr "Ξεκίνα sidux-Installer-Script\n"
+"χωρίς ρυθμίσεις"
+"(οι ρυθμίσεις αυτές θα χαθούν)"
+
+#: install-gui.glade:1844(property) 
+msgid "Save configuration\n"
+"and start installation"
+msgstr "Φύλαξε ρυθμίσεις\n"
+"και ξεκίνα εγκατάσταση"
+
+#: install-gui.glade:1866(property) 
+msgid "Force Installation\n"
+"(Ignore RAM-/Partition-Check, etc.)"
+msgstr "Εγκατάσταση με τη βία\n"
+"(Αγνόησε έλεγχο RAM/Κατάτμησης, κτλ.)"
+
+#: install-gui.glade:1929(property) 
+msgid "Begin Installation"
+msgstr "Ξεκίνα την Εγκατάσταση"
+
+#: install-gui.glade:1970(property) 
+msgid "Installation"
+msgstr "Εγκατάσταση"
+
+#: install-gui.glade:1980(property) 
+msgid "Next"
+msgstr "Επόμ"
+
+#: install-gui.glade:1990(property) 
+msgid "Prev"
+msgstr "Προηγ"
+
+#: install-gui.glade:1578(property) 
+msgid "Install additional\n"
+"Metapackages"
+msgstr "Εγκαταστήστε πρόσθετα\n"
+"Μετα-πακέτα"
+
+#: install-gui.glade:663(property) 
+msgid "Hostname:"
+msgstr "Hostname:"
+
+#: install-gui.glade:662(property) 
+msgid "mount partitions on boot"
+msgstr "προσάρτησε κατατμήσεις στο boot"
+
+#: install-gui.glade:1517(property) 
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (Secure shell πελάτης και διακομιστής)"
+
+#: install-gui.glade:1537(property) 
+msgid "cups (Printing System)"
+msgstr "cups (Σύστημα Εκτύπωσης)"
+
+#: install-gui.glade:1558(property) 
+msgid "start services"
+msgstr "ξεκίνα υπηρεσίες"
+
+#: install-gui.glade:1559(property) 
+msgid "<big> Timezone </big>"
+msgstr "<big> Ζώνη Ώρας </big>"
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr "Root-Password διαφορετικό"
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr "Root-Password πολύ κοντό!"
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr "Όνομα άδειο!"
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr "Όνομα χρήστη άδειο!"
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr "Password διαφορετικό!"
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr "Password πολύ κοντό!"
+
+#: install-gui.glade:3417(property) 
+msgid "Edit Configuration"
+msgstr "Επεξεργασία ρυθμίσεων"
+
+#: install-gui.glade:3497(property) 
+msgid "not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr "δεν είναι απαραίτητο,\n"
+"<b>προσοχή !!!</b>"
+
+#: install-gui.glade:3455(property) 
+msgid "Installation with progressbar\n"
+"(default)"
+msgstr "Εγκατάσταση με progressbar\n"
+"(προεπιλογή)"
+
+#: install-gui.glade:3476(property) 
+msgid "Installation with terminal\n"
+"(debug modus)"
+msgstr "Εγκατάσταση με τερματικό\n"
+"(debug modus)"
+
+#: install-gui.glade:2108(property) 
+msgid "Save config & Next"
+msgstr "Φύλαξε ρύθμ. & Επόμενο"
+
