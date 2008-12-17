@@ -6,8 +6,9 @@ install-gui (0.6.65+nmu1) UNRELEASED; urgency=low
 
   [ Horst Tritremmel ]
   * do not umount /fll/persist in um_all.sh 
+  * Release notes updated 
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 17 Dec 2008 15:09:07 +0100
+ -- Horst Tritremmel <hjt@sidux.com>  Wed, 17 Dec 2008 20:41:02 +0100
 
 install-gui (0.6.65) UNRELEASED; urgency=low
 
