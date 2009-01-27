@@ -1,8 +1,9 @@
-install-gui (0.6.66) UNRELEASED; urgency=low
+install-gui (0.6.66) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * switch from dh_clean -k to dh_prep, to become compliant with debhelper 7
+    and to make lintian happy.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 18 Dec 2008 00:13:38 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 27 Jan 2009 17:43:22 +0100
 
 install-gui (0.6.65) unstable; urgency=low
 
