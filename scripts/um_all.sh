@@ -32,6 +32,11 @@ function umount_all_drives()
 {
 	local ok=0
 	local do_it=$1
+	
+	# Kill any process using /media/hdinstall. If install-gui is killed,
+	# fll-installer and its rsync processes might still be running.
+	fuser -k /media/hdinstall
+	
 	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
 
 	mount | grep -v "/fll/persist" | awk '/^\/dev/{print $1":"$3":"$5}' > $TempFile
