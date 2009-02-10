@@ -1,9 +1,5 @@
-install-gui (0.6.67) UNRELEASED; urgency=low
+install-gui (0.6.67) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Michael Deelwater ]
   * scripts/um_all.sh:
     - Before umounting, kill processes using /media/hdinstall. fll-installer
       and rsync happen to continue if install-gui crashed.
