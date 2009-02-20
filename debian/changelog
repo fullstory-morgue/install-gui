@@ -1,3 +1,9 @@
+install-gui (0.7.3) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 20 Feb 2009 13:46:53 +0100
+
 install-gui (0.7.2) unstable; urgency=low
 
   * remove obsolete encoding setting in freedesktop .desktop files.
