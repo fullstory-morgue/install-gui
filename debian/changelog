@@ -1,9 +1,5 @@
-install-gui (0.7.1) UNRELEASED; urgency=low
+install-gui (0.7.1) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Michael Deelwater ]
   * src/callbacks.c:
     - Call mkpasswd with SHA-256 for hashing.
 
