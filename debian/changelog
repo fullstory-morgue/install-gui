@@ -1,3 +1,9 @@
+install-gui (0.7.4) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 29 Apr 2009 01:13:55 +0200
+
 install-gui (0.7.3) unstable; urgency=low
 
   * updated greek language file (thks edhunter)
