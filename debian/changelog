@@ -1,9 +1,5 @@
-install-gui (0.7.3) UNRELEASED; urgency=low
+install-gui (0.7.3) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * updated greek language file (thks edhunter)
 
  -- Joaquim Boura <x-un-i@sidux.com>  Tue, 28 Apr 2009 20:39:31 +0200
