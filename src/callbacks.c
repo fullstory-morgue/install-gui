@@ -1362,7 +1362,8 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       * ==================================================================== */
 
       //__userpass_crypt__
-      strcpy(systemcall, "sed -i \"s%__userpass_crypt__%$(mkpasswd --method=sha-256 ");
+      //  strcpy(systemcall, "sed -i \"s%__userpass_crypt__%$(mkpasswd --method=sha-256 ");
+      strcpy(systemcall, "sed -i \"s%__userpass_crypt__%$(echo ");
       
       char *new_pw = (char *) malloc(2 * strlen((char *)pw) * sizeof(char));
       strcat(systemcall, escape_chars(pw, new_pw));
@@ -1374,7 +1375,8 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
       system(systemcall);
 
       //__rootpass_crypt__
-      strcpy(systemcall, "sed -i \"s%__rootpass_crypt__%$(mkpasswd --method=sha-256 ");
+      // strcpy(systemcall, "sed -i \"s%__rootpass_crypt__%$(mkpasswd --method=sha-256 ");
+      strcpy(systemcall, "sed -i \"s%__rootpass_crypt__%$(echo ");
 
       char *new_rootpw = (char *) malloc(2 * strlen((char *)rootpw) * sizeof(char));
       strcat(systemcall, escape_chars(rootpw, new_rootpw));
