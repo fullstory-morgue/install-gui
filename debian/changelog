@@ -5,8 +5,9 @@ install-gui (0.7.4) UNRELEASED; urgency=low
 
   [ Joaquim Boura ]
   * it seems option -e from chpasswd has gone so we cannot crypt the passwords in the gui
+  * reverting previous changes as options are back again
 
- -- Joaquim Boura <x-un-i@sidux.com>  Fri, 22 May 2009 00:30:12 +0200
+ -- Joaquim Boura <x-un-i@sidux.com>  Sun, 24 May 2009 13:02:00 +0200
 
 install-gui (0.7.3) unstable; urgency=low
 
