@@ -3,16 +3,30 @@ Section: admin
 Priority: extra
 Maintainer: Horst Tritremmel <hjt@sidux.com>
 Uploaders: Stefan Lippers-Hollmann <s.l-h@gmx.de>, Joaquim Boura <x-un-i@sidux.com>
-Build-Depends: debhelper (>= 7), autotools-dev, automake1.10, libgtk2.0-dev, libglade2-dev, imagemagick
-Standards-Version: 3.8.0
+Build-Depends: debhelper (>= 7),
+ autotools-dev,
+ automake1.10,
+ libgtk2.0-dev,
+ libglade2-dev,
+ imagemagick
+Standards-Version: 3.8.2
 Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
 Package: install-gui
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, fll-installer (>= 0.2.1), python, sidux-scripts (>= 0.2.6), fll-live-initscripts (>= 2.0.64), python-volumeid
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ fll-installer (>= 0.2.1),
+ python,
+ sidux-scripts (>= 0.2.6),
+ fll-live-initscripts (>= 2.0.64),
+ python-volumeid,
+ ssft
 Conflicts: sidux-xdg
-Recommends: install-usb-gui, menu, gparted
+Recommends: install-usb-gui,
+ menu,
+ gparted
 Description: sidux install-gui for fll-installer
  This is an sidux install-gui who makes it easy to configure the config file
  (~/.sidconf) and start the sidux-installer script.
