@@ -1,3 +1,9 @@
+install-gui (0.7.6) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 22 Jun 2009 14:02:38 +0200
+
 install-gui (0.7.5) unstable; urgency=low
 
   * remove deprecated dh_desktop call.
