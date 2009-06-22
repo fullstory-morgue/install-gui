@@ -9,7 +9,7 @@ if [ -r "$SSFTSH" ]; then
 	# The BIOS used in Intel's D945GCLF2 board requires a bootflag, to
 	# consider a disk bootable
 	if [ "x$(cat /sys/devices/virtual/dmi/id/board_vendor)" = "xIntel Corporation" ] && \
-	   [ "x$(cat /sys/devices/virtual/dmi/id/board_name)" = "xD945GCLF2"]; then
+	   [ "x$(cat /sys/devices/virtual/dmi/id/board_name)" = "xD945GCLF2" ]; then
 		if [ -n "$DISPLAY" ]; then
 			ssft_display_message "ATTENTION" "install-gui has detected an Intel D945GCLF2 mainboard, this mainboard requires a bootflag to consider a harddisk bootable.\n\nPlease make sure to set it for one single partition on your dedicated bootdisk inside your partitioning program."
 		fi
