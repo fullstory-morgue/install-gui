@@ -1,13 +1,13 @@
-install-gui (0.7.7) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.7.7) unstable; urgency=low
 
   [ Joaquim Boura ]
   * udevsettle, udevinfo does not exist anymore
   * changed call of hal-lock to fdisk/cfdisk wrapper as gparted  has it already
 
- -- Joaquim Boura <x-un-i@sidux.com>  Thu, 25 Jun 2009 19:18:47 +0200
+  [ Stefan Lippers-Hollmann ]
+  * add the appropriate versioned dependency on udev 0.141.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 25 Jun 2009 19:23:05 +0200
 
 install-gui (0.7.6) unstable; urgency=low
 

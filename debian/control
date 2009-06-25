@@ -22,7 +22,8 @@ Depends: ${shlibs:Depends},
  sidux-scripts (>= 0.2.6),
  fll-live-initscripts (>= 2.0.64),
  python-volumeid,
- ssft
+ ssft,
+ udev (>= 0.141)
 Conflicts: sidux-xdg
 Recommends: install-usb-gui,
  menu,
