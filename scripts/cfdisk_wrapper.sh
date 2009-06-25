@@ -21,7 +21,8 @@ fdisk -l "$DISK" | grep "^${DISK}" > $PARTITION_BEFORE
 #-------------------------------------------------
 # 2. call partiton program
 #-------------------------------------------------
-${PROG} ${DISK}
+hal-lock --interface org.freedesktop.Hal.Device.Storage --exclusive \
+                --run " ${PROG} ${DISK}"
 #
 #-------------------------------------------------
 # 3. get the new partition save it into after

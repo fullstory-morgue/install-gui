@@ -15,7 +15,7 @@ from subprocess import *
 
 PROC_PARTITIONS = '/proc/partitions'
 SYS_BLOCK       = '/sys/block'
-UDEVINFO_CMD    = 'udevinfo --query=env --name='
+UDEVINFO_CMD    = 'udevadm info --query=env --name='
 LOG_FILE        = '/tmp/install-gui.log'
 
 
