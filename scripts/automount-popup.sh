@@ -55,7 +55,7 @@ EOF
 function reenable()
 {
 	udevadm trigger --subsystem-match=block
-	udevsettle --timeout=30
+	udevadm settle --timeout=30
 	if [ ! -d "${user_kde_config_dir}" ]; then
 		if [ -e "${user_xfce_volmanrc}" ]; then 
 			sed -i -e 's/AutomountDrives=FALSE/AutomountDrives=TRUE/' \

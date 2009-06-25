@@ -1,8 +1,12 @@
 install-gui (0.7.7) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 22 Jun 2009 14:21:16 +0200
+  [ Joaquim Boura ]
+  * udevsettle does not exist anymore
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Thu, 25 Jun 2009 18:45:52 +0200
 
 install-gui (0.7.6) unstable; urgency=low
 
