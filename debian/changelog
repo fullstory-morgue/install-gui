@@ -1,7 +1,4 @@
-install-gui (0.7.8) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.7.8) unstable; urgency=low
 
   [ Bernard Gray ]
   * update art for 2009-02
@@ -10,9 +7,11 @@ install-gui (0.7.8) UNRELEASED; urgency=low
   * update copyright for new art
   * vacuum defs on icon svg
   * vacuum defs on the rest of the icons  
-  * ready for release
 
- -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 21:46:49 +1000
+  [ Stefan Lippers-Hollmann ]
+  * generate binary artwork.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Jul 2009 23:13:56 +0200
 
 install-gui (0.7.7) unstable; urgency=low
 
