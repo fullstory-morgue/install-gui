@@ -9,9 +9,10 @@ install-gui (0.7.8) UNRELEASED; urgency=low
   * convert all bitmaps to new svg art
   * update copyright for new art
   * vacuum defs on icon svg
-  * vacuum defs on the rest of the icons -- do not release 
+  * vacuum defs on the rest of the icons  
+  * ready for release
 
- -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 20:35:20 +1000
+ -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 21:46:49 +1000
 
 install-gui (0.7.7) unstable; urgency=low
 
