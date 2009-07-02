@@ -8,9 +8,10 @@ install-gui (0.7.8) UNRELEASED; urgency=low
   * remove install-gui.svg from debian/install (doesn't render correctly in kde)
   * convert all bitmaps to new svg art
   * update copyright for new art
-  * vacuum defs on icon svg -- do not release 
+  * vacuum defs on icon svg
+  * vacuum defs on the rest of the icons -- do not release 
 
- -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 20:32:35 +1000
+ -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 20:35:20 +1000
 
 install-gui (0.7.7) unstable; urgency=low
 
