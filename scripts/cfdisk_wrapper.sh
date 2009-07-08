@@ -3,8 +3,8 @@ if [ "$DEBUG" = "TRUE" ]; then
 	set -x
 fi
 
-# $1  disk that will partitioned
-# $2  program to use to make the partitions
+# $1  program to use to make the partitions
+# $2  disk that will partitioned
 
 PROG=$1
 DISK=$2
