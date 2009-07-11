@@ -1,3 +1,9 @@
+install-gui (0.7.10) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 11 Jul 2009 14:00:21 +0200
+
 install-gui (0.7.9) unstable; urgency=low
 
   * remove obsolete install-meta remains.
