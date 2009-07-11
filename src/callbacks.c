@@ -987,38 +987,10 @@ on_exit_clicked                        (GtkButton       *button,
    gtk_main_quit();
 }
 
-/*
-void
-start_install_meta()
-
-{
-   char sh_call[BUF_LEN];
-
-   // >>>>>>>>>>>>>>>   installation done   <<<<<<<<<<<<<<<<<<
-   //           start install meta
-   strncpy(sh_call, "source ${HOME}/", BUF_LEN);
-   strncat(sh_call, FILENAME, BUF_LEN);
-   strncat(sh_call, "\nif [ \"$INSTALL_META\" = yes -a -n \"$DISPLAY\" ]\n", BUF_LEN);
-   strncat(sh_call, "then\n", BUF_LEN);
-   strncat(sh_call, "   if [ -x /usr/bin/install-meta ]; then\n", BUF_LEN);
-   strncat(sh_call, "       exec /usr/bin/install-meta --chroot=", BUF_LEN);
-   strncat(sh_call, TARGET_MNT_POINT, BUF_LEN);
-   strncat(sh_call, " &\n   else\n", BUF_LEN);
-   strncat(sh_call, "       echo \"install-meta is not available\" 1>&2\n", BUF_LEN);
-   strncat(sh_call, "  fi\n", BUF_LEN);
-   strncat(sh_call, "fi\n", BUF_LEN);
-
-   system(sh_call);
-}
-*/
-
 void
 on_success_exit_button_clicked         (GtkButton       *button,
                                         gpointer         user_data)
 {
-   // start install-meta
-   //start_install_meta ();
-
    // remove the tempfile
    unlink(scanparttmp);
 
@@ -1034,9 +1006,6 @@ on_dialog_end_delete_event             (GtkWidget       *widget,
                                         GdkEvent        *event,
                                         gpointer         user_data)
 {
-   // start install-meta
-   //start_install_meta ();
-
    // remove the tempfile
    unlink(scanparttmp);
 
