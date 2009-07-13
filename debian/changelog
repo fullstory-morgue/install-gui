@@ -1,3 +1,9 @@
+install-gui (0.7.11) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 13 Jul 2009 18:39:05 +0200
+
 install-gui (0.7.10) unstable; urgency=low
 
   * forgotten udevinfo replaced by udevadm info.( thks edhunter for noticing)
