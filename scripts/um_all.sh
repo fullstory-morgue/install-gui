@@ -45,7 +45,7 @@ function umount_all_drives()
 		case "$typ" in 
 		ext2|ext3|ext4|reiserfs|vfat|jfs|xfs|ntfs) 
 			if mount | grep -q "^$device "; then
-				uuid=$(udevinfo -q env --name $device | \
+				uuid=$(udevadm info -q env --name $device | \
 					awk 'BEGIN{FS="="}/ID_FS_UUID=/{print $2}')
 				if [ ! "/fll${device#/dev}" = "$mountpoint" ];  then
 					if [ "$do_it" = "check" ]; then 
