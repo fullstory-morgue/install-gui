@@ -28,7 +28,29 @@
 #
 #
 #
-exec 2>/dev/null
+# exec 2>/dev/null
+myName=`basename $0`
+#--------------------------------------------------------------
+# functions
+#--------------------------------------------------------------
+usage()
+{
+	echo ""
+	echo "$myName is a temporarly replacement for disk.py"
+	echo "Usage: $myName [-d|--disk]|[-p|--partiton]|[-n|--nousb]|[-u <sdX> | --usb=<sdX>]|[-h|--help]"
+	echo "-d|--disk                           print all disk devices"
+	echo "-p|--partition                      print all partition devices"
+	echo "-n|--nousb                          print all disks without usb"
+	echo "-u|--usb <device>                   print usb device (-u sdX or --usb=sdX)"
+	echo "-h|--help                           print this help"
+	echo ""
+}
+#--------------------------------------------------------------
+error()
+{
+    echo $@
+}
+#--------------------------------------------------------------
 
 partition_or_volume_info()
 {
@@ -41,7 +63,7 @@ partition_or_volume_info()
 		fgrep -v -e "LVM2_member"|fgrep "filesystem"
 
 }
-
+#--------------------------------------------------------------
 parameter_p()
 {
 	disks=`LANG=C fdisk -l | grep "Disk /dev" | cut -d: -f1 | cut -d" " -f2`
@@ -63,7 +85,7 @@ parameter_p()
 			partition_or_volume_info $vol
 		done
 }
-
+#--------------------------------------------------------------
 parameter_d()
 {
 	LANG=C fdisk -l | grep "Disk /dev" | \
@@ -71,7 +93,7 @@ parameter_d()
 		fgrep -v "/dev/dm"
 	ls  /dev/mapper/* | grep -v control
 }
-
+#--------------------------------------------------------------
 parameter_n()
 {
 	disks=`LANG=C fdisk -l | grep "Disk /dev" |\
@@ -81,20 +103,70 @@ parameter_n()
 			grep -q usb || printf "%s\n" ${disk}
 	done
 }
-
+#--------------------------------------------------------------
 parameter_u()
 {
 	local mydisk=$1
 	readlink -f /sys/block/${mydisk}/device | \
 		grep -q usb && printf "/dev/%s\n" ${mydisk}
 }
+#--------------------------------------------------------------
 
+TEMP=$(getopt -o dhnpu: \
+        --long disk,help,nousb,partition,usb: \
+        -n  "$(basename ${0})" -- "${@}")
 
-# parameter_u $1
-echo "Par p"
-parameter_p
-echo "Par d"
-parameter_d
-echo "Par n"
-parameter_n
+if [ "${?}" -ne 0 ]; then
+	error 255 "getopt terminated abnormally"
+	exit 255
+fi
+
+eval set -- "${TEMP}"
+
+while true ; do
+	case "${1}" in
+		-d|--disk)
+			PRINT_DISK=1
+			shift
+			;;
+		-n|--nousb)
+			PRINT_NOUSB=1
+			shift
+			;;
+		-p|--partition)
+			PRINT_PARTITION=1
+			shift
+			;;
+		-u|--usb)
+			PRINT_USB=1
+			IS_USB_DISK="${2}"
+			shift 2
+			;;
+		-h|--help)
+			usage
+			exit 0
+			;;
+		--)
+			shift
+			break
+			;;
+		*)
+			error 255 "getopt internal error"
+			exit 255
+			;;
+	esac
+done
+
+#--------------------------------------------------------------
+if [ -n "${PRINT_DISK}" ]; then
+    parameter_d
+elif [ -n "${PRINT_NOUSB}" ]; then
+    parameter_n
+elif [ -n "${PRINT_PARTITION}" ]; then
+    parameter_p
+elif [ -n "${PRINT_USB}" ]; then
+    parameter_u ${IS_USB_DISK}
+else 
+    usage
+fi
 
