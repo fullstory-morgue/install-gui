@@ -1,3 +1,9 @@
+install-gui (0.7.12) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 11 Oct 2009 18:02:47 +0200
+
 install-gui (0.7.11) unstable; urgency=low
 
   [ Joaquim Boura ]
