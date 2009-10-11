@@ -1,3 +1,9 @@
+install-gui (0.8.2) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 11 Oct 2009 23:24:39 +0200
+
 install-gui (0.8.1) unstable; urgency=low
 
   * mark lines for lvm volumes as lvm not norm on the -p output
