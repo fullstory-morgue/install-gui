@@ -55,10 +55,11 @@ error()
 partition_or_volume_info()
 {
 	local myVar=$1
+	local mypar=$2
 	udevadm info  --query=all --name=$myVar |\
 		fgrep -w -e DEVNAME -e ID_FS_TYPE -e ID_FS_USAGE -e ID_FS_UUID |\
 		sed 's#E: ##' |\
-		awk -F"=" '{printf "%s,", $2}END{printf "norm\n"}'| \
+		awk -F"=" -v var="$mypar" '{printf "%s,", $2}END{print var}'| \
 		awk -F"," '{printf  "%s,%s,%s,%s,%s\n",$1,$3,$4,$2,$5}' |\
 		fgrep -v -e "LVM2_member"|fgrep "filesystem"
 
@@ -75,14 +76,14 @@ parameter_p()
 			grep '^/dev/' | cut -d " " -f1 | cut -d "/" -f 3)
 		for part in $parts
 		do
-			partition_or_volume_info $part
+			partition_or_volume_info $part norm
 		done
 	done
 
 	volumes=`ls /dev/mapper/* | fgrep -v "CONTROL"`
 	for vol in $volumes
 		do
-			partition_or_volume_info $vol
+			partition_or_volume_info $vol lvm
 		done
 }
 #--------------------------------------------------------------
