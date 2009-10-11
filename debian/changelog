@@ -1,8 +1,17 @@
-install-gui (0.7.11) UNRELEASED; urgency=low
+install-gui (0.7.11) unstable; urgency=low
 
-  * NOT RELEASED YET
+  [ Joaquim Boura ]
+  * rewrite scripts/disk.py, depending on python-volumeid which depends on 
+    the no longer existing libvolume-id-dev, in plain POSIX shell and udev/ 
+    blkid.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 13 Jul 2009 18:39:05 +0200
+  [ Stefan Lippers-Hollmann ]
+  * mv scripts/disk.py.ersatz.sh scripts/disk.
+  * use /usr/share/install-gui/disk instead of disk.py.
+  * drop python and python-volumeid from depends.
+  * bump standards version to 3.8.3, no changes necessary.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 11 Oct 2009 17:50:29 +0200
 
 install-gui (0.7.10) unstable; urgency=low
 

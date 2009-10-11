@@ -33,10 +33,10 @@
 //#define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 //#define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
 
-#define HD_SCAN                    "/usr/share/install-gui/disk.py -d  > "
-#define HD_SCAN_NO_USB             "/usr/share/install-gui/disk.py -n  > "    // without usb devices
-#define HD_SCAN_USB                "/usr/share/install-gui/disk.py -u "
-#define SCANPARTITIONS             "/usr/share/install-gui/disk.py -p  > "
+#define HD_SCAN                    "/usr/share/install-gui/disk -d  > "
+#define HD_SCAN_NO_USB             "/usr/share/install-gui/disk -n  > "    // without usb devices
+#define HD_SCAN_USB                "/usr/share/install-gui/disk -u "
+#define SCANPARTITIONS             "/usr/share/install-gui/disk -p  > "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
