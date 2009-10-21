@@ -1,9 +1,5 @@
-install-gui (0.8.2) UNRELEASED; urgency=low
+install-gui (0.8.2) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * um_all.sh uses fuser from psmisc. added to the depends
 
  -- Joaquim Boura <x-un-i@sidux.com>  Sun, 18 Oct 2009 22:48:16 +0200
