@@ -1,9 +1,8 @@
 Source: install-gui
 Section: admin
 Priority: extra
-Maintainer: Horst Tritremmel <hjt@sidux.com>
-Uploaders: Stefan Lippers-Hollmann <s.l-h@gmx.de>,
- Joaquim Boura <x-un-i@sidux.com>
+Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
+Uploaders: Joaquim Boura <x-un-i@sidux.com>
 Build-Depends: debhelper (>= 7),
  autotools-dev,
  automake1.10,

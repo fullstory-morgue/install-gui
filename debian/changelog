@@ -1,8 +1,8 @@
-install-gui (0.8.3) UNRELEASED; urgency=low
+install-gui (0.8.3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * assume interims maintenance.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 21 Oct 2009 14:15:05 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 01 Nov 2009 13:41:21 +0100
 
 install-gui (0.8.2) unstable; urgency=low
 
