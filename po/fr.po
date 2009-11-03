@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2007-01-18 10:07+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-11-03 HO:MI+ZONE\n"
+"Last-Translator: LjanA <isotran@free.fr>\n"
+"Language-Team: French \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property) 
 msgid "sidux HD-Installation"
-msgstr "Installation de sidux sur disque dur"
+msgstr "Installation de sidux sur le disque dur"
 
 #: install-gui.glade:78(property) 
 msgid "exit"
@@ -23,7 +23,7 @@ msgstr "Bienvenue dans l'installation de sidux"
 
 #: install-gui.glade:425(property) 
 msgid "sidux takes no responsibility for data loss or hardware damage."
-msgstr "sidux de ce programme décline toute responsabilité pour d'éventuelles pertes de données ou dommages matériels."
+msgstr "sidux décline toute responsabilité pour toute perte de données ou dommages matériel."
 
 #: install-gui.glade:452(property) 
 msgid "This application will install sidux to your harddisk."
@@ -33,7 +33,7 @@ msgstr "Ce programme installera sidux sur votre disque dur."
 msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
 "sidux-website: http://sidux.com"
 msgstr "Si vous avez besoin d'aide pour l'installation, visitez le site web de sidux, utilisez le forum ou le chat\n\n"
-"Site web sidux: http://sidux.com"
+"Site web de sidux: http://sidux.com"
 
 #: install-gui.glade:537(property) 
 msgid "Welcome"
@@ -64,7 +64,7 @@ msgid "!!!!!! be careful !!!!!!!\n"
 "Do it, if you don't have a linux partition.\n"
 "Read the Manual before. (see the Manual Button on the Desktop)"
 msgstr "Soyez prudents!!!\n"
-"Si vous n'avez pas de partition linux, faites-le.\n"
+"Si vous n'avez pas de partition linux, créez-en.\n"
 "Lisez le manuel! (cliquez sur le bouton Manual du bureau)"
 
 #: install-gui.glade:672(property) 
@@ -75,11 +75,11 @@ msgstr "Lancer l'outil\n"
 
 #: install-gui.glade:710(property) 
 msgid "Root-Partition"
-msgstr "Partition root"
+msgstr "Partition racine"
 
 #: install-gui.glade:736(property) 
 msgid "Mountpoints of other Partitions"
-msgstr "Points de montage (Mountpoints) des autres partitions"
+msgstr "Points de montage des autres partitions"
 
 #: install-gui.glade:762(property) 
 msgid "Example:\n"
@@ -97,7 +97,7 @@ msgstr "Exemple:\n"
 msgid "Set mountpoints of other Partitions\n"
 "(will not be formatted automatically)"
 msgstr "Choisir des points de montage pour d'autres partitions\n"
-"(ne seront pas automatiquement formatées)"
+"(ne seront pas formatées automatiquement)"
 
 #: install-gui.glade:847(property) 
 msgid "format with"
@@ -109,7 +109,7 @@ msgstr "Partionnement"
 
 #: install-gui.glade:912(property) 
 msgid "create a bootdisk"
-msgstr "créer disquette de démarrage"
+msgstr "créer une disquette de démarrage"
 
 #: install-gui.glade:931(property) 
 msgid "Installation-target"
@@ -120,7 +120,7 @@ msgid "Bootmanager: A bootmanager allows you to choose the OS you want to boot a
 "Installation-target: MBR (Master Boot Record) or root-partition"
 msgstr "Chargeur de Boot: Un chargeur de boot vous donne le choix du système\n"
 "d'exploitation que vous voulez démarrer au lancement de l'ordinateur.\n"
-"Cible d'installation: MBR (Master Boot Record) ou partition root"
+"Cible d'installation: MBR (Master Boot Record) ou partition racine"
 
 #: install-gui.glade:1033(property) 
 msgid "Bootmanager"
@@ -156,7 +156,7 @@ msgid "Root-password: This password will be used for the administrator. Do not f
 "Important: All passwords have to be between 6 and 20 characters long!"
 msgstr "Mot de passe root: Ce mot de passe sera utilisé pour l'administrateur. Ne l'oubliez pas!\n"
 "Nom de l'utilisateur: Composé de lettres minuscules et de chiffres seulement.\n"
-"Important: La longueur de tous les mots de passe doit aller de 6 à 20 caractères!"
+"Important: La longueur de tous les mots de passe doit être comprise entre 6 et 20 caractères!"
 
 #: install-gui.glade:1515(property) 
 msgid "User"
@@ -164,7 +164,7 @@ msgstr "Utilisateur"
 
 #: install-gui.glade:1564(property) 
 msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
-msgstr "Nom de la machine: Composé de lettres minuscules et de chiffres seulement. Ne peut pas commencer avec un chiffre."
+msgstr "Nom de la machine: Composé de lettres minuscules et de chiffres seulement. Ne peut pas commencer par un chiffre."
 
 #: install-gui.glade:1680(property) 
 msgid "Network"
@@ -175,7 +175,7 @@ msgid "You have provided all the required information for a sidux-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
 msgstr "Vous avez fourni toutes les informations nécessaires pour pouvoir démarrer l'installation.\n"
-"Vous pouvez contrõler ou modifier ves options en cliquant sur le bouton \"Précédent\".\n"
+"Vous pouvez contrôler ou modifier ves options en cliquant sur le bouton \"Précédent\".\n"
 "Si toutes les informations sont correctes, lancez l'installation en cliquant sur \"Begin Installation\"."
 
 #: install-gui.glade:1800(property) 
@@ -232,7 +232,7 @@ msgstr "Installer des logiciels\n"
 
 #: install-gui.glade:662(property) 
 msgid "mount partitions on boot"
-msgstr "Monter partitions au démarrage"
+msgstr "Monter les partitions au démarrage"
 
 #: install-gui.glade:1517(property) 
 msgid "ssh (Secure shell client and server)"
@@ -240,11 +240,11 @@ msgstr "ssh (Secure shell - communication sécurisée)"
 
 #: install-gui.glade:1537(property) 
 msgid "cups (Printing System)"
-msgstr "cups (système d'imprimantes)"
+msgstr "cups (système d'impression)"
 
 #: install-gui.glade:1558(property) 
 msgid "start services"
-msgstr "scripts de démarrage"
+msgstr "démarrage des services"
 
 #: install-gui.glade:1559(property) 
 msgid "<big> Timezone </big>"
@@ -252,7 +252,7 @@ msgstr "<big> fuseau horaire </big>"
 
 #: callbacks.c:317
 msgid "Root-Password different!"
-msgstr "Mot de passe root différent!"
+msgstr "Mots de passe root différents!"
 
 #: callbacks.c:331
 msgid "Root-Password too short!"
@@ -268,7 +268,7 @@ msgstr "Nom d'utilisateur vide!"
 
 #: callbacks.c:386
 msgid "Password different!"
-msgstr "Mot de passe différent!"
+msgstr "Mots de passe différents!"
 
 #: callbacks.c:399
 msgid "Password too short!"
@@ -276,7 +276,7 @@ msgstr "Mot de passe trop court!"
 
 #: install-gui.glade:3417(property) 
 msgid "Edit Configuration"
-msgstr "éditer la configuration"
+msgstr "Éditer la configuration"
 
 #: install-gui.glade:3497(property) 
 msgid "not necessary,\n"
@@ -287,15 +287,15 @@ msgstr "pas nécessaire,\n"
 #: install-gui.glade:3455(property) 
 msgid "Installation with progressbar\n"
 "(default)"
-msgstr "Installation avec barre de progrès"
+msgstr "Installation avec barre de progression"
 
 #: install-gui.glade:3476(property) 
 msgid "Installation with terminal\n"
 "(debug modus)"
-msgstr "Installation avec terminal"
+msgstr "Installation en mode console"
 "(mode debug)"
 
 #: install-gui.glade:2108(property) 
 msgid "Save config & Next"
-msgstr "Sauvegarder configuration & suivant"
+msgstr "Sauvegarder la configuration & suivant"
 
