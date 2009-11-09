@@ -1,10 +1,6 @@
-install-gui (0.8.4) UNRELEASED; urgency=low
+install-gui (0.8.4) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
-  * updated lang fr (merci, LjanA)
+  * updated lang fr (merci, LjanA).
 
  -- Joaquim Boura <x-un-i@sidux.com>  Tue, 03 Nov 2009 20:33:30 +0100
 
