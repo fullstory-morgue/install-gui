@@ -1,9 +1,5 @@
-install-gui (0.8.5) UNRELEASED; urgency=low
+install-gui (0.8.5) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * enhancements to support listing of encrypted partitions (thks edhunter)
 
  -- Joaquim Boura <x-un-i@sidux.com>  Fri, 13 Nov 2009 18:55:17 +0100
