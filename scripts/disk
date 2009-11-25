@@ -105,7 +105,6 @@ parameter_d()
 	LANG=C fdisk -l | grep "Disk /dev" | \
 		cut -d: -f1 | cut -d" " -f2 | \
 		fgrep -v "/dev/dm"
-	ls  /dev/mapper/* | grep -v control
 }
 #--------------------------------------------------------------
 parameter_n()
