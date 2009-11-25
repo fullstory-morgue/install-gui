@@ -1,10 +1,7 @@
-install-gui (0.8.6) UNRELEASED; urgency=low
+install-gui (0.8.6) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
-  * do not list vg or encrypted partitions as disks ( thks edhunter for noticing)
+  * do not list vg or encrypted partitions as disks
+    (thanks edhunter for noticing).
 
  -- Joaquim Boura <x-un-i@sidux.com>  Wed, 25 Nov 2009 22:41:07 +0100
 
