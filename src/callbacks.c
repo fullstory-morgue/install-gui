@@ -2071,8 +2071,8 @@ on_window_main_realize                 (GtkWidget       *widget,
    * ============================================================= */
 
    GtkWidget *format_combo = lookup_widget (GTK_WIDGET (widget), "format_combo");
-   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext3");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext4");
+   gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext3");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "ext2");
    gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "reiserfs");
    //gtk_combo_box_append_text (GTK_COMBO_BOX (format_combo), "jfs");
