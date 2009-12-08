@@ -1,8 +1,8 @@
-install-gui (0.8.8) UNRELEASED; urgency=low
+install-gui (0.8.8) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * rebuild with gcc-4.4.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 26 Nov 2009 12:28:16 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 08 Dec 2009 18:51:30 +0100
 
 install-gui (0.8.7) unstable; urgency=low
 
