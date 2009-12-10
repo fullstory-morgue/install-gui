@@ -1,8 +1,12 @@
 install-gui (0.8.9) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 08 Dec 2009 18:52:23 +0100
+  [ Bernard Gray ]
+  * fix copyright for all image files (thanks edhunter)
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Fri, 11 Dec 2009 08:47:31 +1100
 
 install-gui (0.8.8) unstable; urgency=low
 

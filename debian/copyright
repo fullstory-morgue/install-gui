@@ -24,7 +24,18 @@ License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
+Files: pixmaps/install-gui-title.png
+       pixmaps/sidux-inst-conf.png
+       pixmaps/sidux-logo.png
+       icons/sidux-inst-conf.svg
+    Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
+               © 2008 David Creedy <djcreedy@iinet.net.au>
+    License: GPLv2 or later
+
+Files: pixmaps/install-usb-gui.png
+       icons/install-usb-gui.svg
+       icons/install-gui.svg
+    Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
            © 2008 David Creedy <djcreedy@iinet.net.au>
            © 2007 David Vignoni <david@icon-king.com>
            © 2007 Johann Ollivier Lapeyre <johann@oxygen-icons.org>
@@ -32,37 +43,37 @@ Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
            © 2007 Nuno Fernades Pinheiro <nf.pinheiro@gmail.com>
            © 2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
            © 2007 David Miller <miller@oxygen-icons.org>
-License: CC-ASA-3.0 | LGPL-2+
-  install-gui.svg also includes elements from The Oxygen Icon Theme.
-  Licensed under the Creative Common Attribution-ShareAlike 3.0
-  license, as found here:
-
-    http://creativecommons.org/licenses/by-sa/3.0/
-
-  or the GNU Library General Public License (with following clarification).
-
-  Clarification:
-  The GNU Lesser General Public License or LGPL is written for
-  software libraries in the first place. We expressly want the LGPL to
-  be valid for this artwork library too.
-
-  KDE Oxygen theme icons is a special kind of software library, it is an
-  artwork library, it's elements can be used in a Graphical User Interface, or
-  GUI.
-
-  Source code, for this library means:
-   - where they exist, SVG;
-   - otherwise, if applicable, the multi-layered formats xcf or psd, or
-  otherwise png.
-
-  The LGPL in some sections obliges you to make the files carry
-  notices. With images this is in some cases impossible or hardly useful.
-
-  With this library a notice is placed at a prominent place in the directory
-  containing the elements. You may follow this practice.
-
-  The exception in section 6 of the GNU Lesser General Public License covers
-  the use of elements of this art library in a GUI.
+    License: CC-ASA-3.0 | LGPL-2+
+      install-gui.svg also includes elements from The Oxygen Icon Theme.
+      Licensed under the Creative Common Attribution-ShareAlike 3.0
+      license, as found here:
+    
+        http://creativecommons.org/licenses/by-sa/3.0/
+    
+      or the GNU Library General Public License (with following clarification).
+    
+      Clarification:
+      The GNU Lesser General Public License or LGPL is written for
+      software libraries in the first place. We expressly want the LGPL to
+      be valid for this artwork library too.
+    
+      KDE Oxygen theme icons is a special kind of software library, it is an
+      artwork library, it's elements can be used in a Graphical User Interface, or
+      GUI.
+    
+      Source code, for this library means:
+       - where they exist, SVG;
+       - otherwise, if applicable, the multi-layered formats xcf or psd, or
+      otherwise png.
+    
+      The LGPL in some sections obliges you to make the files carry
+      notices. With images this is in some cases impossible or hardly useful.
+    
+      With this library a notice is placed at a prominent place in the directory
+      containing the elements. You may follow this practice.
+    
+      The exception in section 6 of the GNU Lesser General Public License covers
+      the use of elements of this art library in a GUI.
 
 The complete text of the GNU General Public License, version 2, can be found at:
     http://www.gnu.org/licenses/gpl-2.0.txt
