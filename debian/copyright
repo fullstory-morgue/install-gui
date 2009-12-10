@@ -44,7 +44,8 @@ Files: pixmaps/install-usb-gui.png
            © 2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
            © 2007 David Miller <miller@oxygen-icons.org>
     License: CC-ASA-3.0 | LGPL-2+
-      install-gui.svg also includes elements from The Oxygen Icon Theme.
+      install-gui.svg and install-usb-gui.* also include elements from 
+      The Oxygen Icon Theme.
       Licensed under the Creative Common Attribution-ShareAlike 3.0
       license, as found here:
     

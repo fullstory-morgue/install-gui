@@ -5,8 +5,9 @@ install-gui (0.8.9) UNRELEASED; urgency=low
 
   [ Bernard Gray ]
   * fix copyright for all image files (thanks edhunter)
+  * include complete list of files containing elements from oxyen theme
 
- -- Bernard Gray <bernard.gray@gmail.com>  Fri, 11 Dec 2009 08:47:31 +1100
+ -- Bernard Gray <bernard.gray@gmail.com>  Fri, 11 Dec 2009 08:54:09 +1100
 
 install-gui (0.8.8) unstable; urgency=low
 
