@@ -24,6 +24,98 @@ License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
+Files: scripts/disk
+Copyright: © 2008,2009 Joaquim Boura <x-un-i@sidux.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+Files: scripts/um_all.sh
+Copyright: © 2008 Joaquim Boura <x-un-i@sidux.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/da.po: 
+Copyright: © 2007,2008 zonker <zonker@greenin.dk>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/de.po: 
+Copyright: © 2007,2008 Horst Tritremmel <hjt@sidux.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/el.po: 
+Copyright: © 2007,2008 Nikolas Poniros <nponiros@yahoo.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/es.po: 
+Copyright: © 2007,2008 Latino <op4latino@gmail.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/fr.po: 
+Copyright: © 2007,2008 LjanA <isotran@free.fr>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/hr.po: 
+Copyright: © 2007,2008 Dinko Sabo <cobra@sidux.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/it.po: 
+Copyright: © 2007,2008 Salvo 'LtWorf' Tomaselli <tiposchi@tiscali.it>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/jp.po: 
+Copyright: © 2007 sach <sachs@infoseek.jp>
+           © 2007,2008 Mutsumu Nomura <muchan.m@gmail.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/nl.po: 
+Copyright: © 2007,2008 phoranix <phoranix@yahoo.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/pl.po: 
+Copyright: © 2007,2008 maslot
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/pt.po: 
+Copyright: © 2007,2008 Joaquim Boura <x-un-i@sidux.com>
+	   © 2007,2008 Rui Umbelino (VaMPiRiC_CRoW)
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/ro.po: 
+Copyright: © 2007,2008 Adriana <bluewater@sidux.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
+File: po/ru.po: 
+Copyright: © 2007,2008 Roland Engert <roen@sidux.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
 Files: pixmaps/install-gui-title.png
        pixmaps/sidux-inst-conf.png
        pixmaps/sidux-logo.png

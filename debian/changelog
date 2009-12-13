@@ -7,7 +7,10 @@ install-gui (0.8.9) UNRELEASED; urgency=low
   * fix copyright for all image files (thanks edhunter)
   * include complete list of files containing elements from oxyen theme
 
- -- Bernard Gray <bernard.gray@gmail.com>  Fri, 11 Dec 2009 08:54:09 +1100
+  [ Joaquim Boura ]
+  * actualized the debian/copyright file with all bits.
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Sun, 13 Dec 2009 22:01:30 +0100
 
 install-gui (0.8.8) unstable; urgency=low
 
