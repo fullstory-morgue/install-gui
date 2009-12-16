@@ -1,7 +1,4 @@
-install-gui (0.8.9) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.8.9) unstable; urgency=low
 
   [ Bernard Gray ]
   * fix copyright for all image files (thanks edhunter)
