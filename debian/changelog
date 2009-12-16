@@ -10,7 +10,10 @@ install-gui (0.8.9) UNRELEASED; urgency=low
   [ Joaquim Boura ]
   * actualized the debian/copyright file with all bits.
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 13 Dec 2009 22:01:30 +0100
+  [ Nikolas Poniros ]
+  * if root partition is lvm check removed. it is not needed with grub2
+
+ -- Nikolas Poniros <edhunter@sidux.com>  Wed, 16 Dec 2009 20:48:21 +0100
 
 install-gui (0.8.8) unstable; urgency=low
 

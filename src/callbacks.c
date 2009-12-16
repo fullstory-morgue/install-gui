@@ -1445,20 +1445,6 @@ on_button_install_clicked              (GtkButton       *button,
 
            return;
     }
-
-    if( strncmp ( hd_choice, "/dev/dm-", 8 ) == 0 ) {
-    // check if a lvm device = rootpartition then he must have a boot device selected
-	    mainW = lookup_widget (GTK_WIDGET (button), "window_main");
-	    dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
-				    GTK_DIALOG_DESTROY_WITH_PARENT,
-				    GTK_MESSAGE_INFO,
-				    GTK_BUTTONS_CLOSE,
-				    "%s\n%s\n\n%s", "LVM Rootpartition found!",
-						    "------------------------------",
-						    "INFO: You need a separate /boot (non LVM) partition");
-	    gtk_dialog_run (GTK_DIALOG (dialog));
-	    gtk_widget_destroy (dialog);
-    }
     
     // check if /home/username already exists on separate /home
     GtkWidget *treeview1 = lookup_widget (GTK_WIDGET (button), "treeview1");
