@@ -1,8 +1,16 @@
 install-gui (0.8.10) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 16 Dec 2009 21:04:26 +0100
+  [ Joaquim Boura ]
+  * split the package so the shell scripts can also be used by other 
+    installer frontends.
+    Renamed some scripts to get them all without extension.
+    Inserted copyright header on all scripts (took from svn check-in log)
+    Set tu-bs as default sidux repository in the nonfree script.
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Sat, 02 Jan 2010 00:06:11 +0100
 
 install-gui (0.8.9) unstable; urgency=low
 

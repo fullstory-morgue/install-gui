@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+# License: GPL-2
+#   The install-gui program is licensed under the GNU General Public License,
+#   version 2.
+#
 
 DEST="/etc/apt/sources.list"
 
@@ -7,12 +13,18 @@ rm -f ${DEST}.d/*
 
 cat >> "${DEST}.d/debian.list" \
 <<EOF
+#
+# you may need to uncomment the deb-src line if you want to get package sources
+#
 deb http://ftp.debian.org/debian/ sid main contrib non-free
 #deb-src http://ftp.debian.org/debian/ sid main contrib non-free
 EOF
 
 cat >> "${DEST}.d/sidux.list" \
 <<EOF
-deb http://sidux.com/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
-#deb-src http://sidux.com/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
+#
+# you may need to uncomment the deb-src line if you want to get package sources
+#
+deb http://debian.tu-bs.de/project/sidux/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
+# deb-src http://debian.tu-bs.de/project/sidux/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
 EOF

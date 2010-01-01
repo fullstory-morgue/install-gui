@@ -3,6 +3,7 @@ Type=Application
 Exec=su-to-root -X -c /usr/bin/install-gui.bash
 Icon=install-gui
 Name=sidux-installer
+Name[ru]=sidux инсталлятор
 GenericName=Install sidux to hd
 GenericName[de]=installiert sidux auf Festplatte
 GenericName[pt]=instala o sidux no disco 

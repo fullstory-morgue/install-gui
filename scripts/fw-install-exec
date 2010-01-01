@@ -1,8 +1,16 @@
 #!/bin/bash
-
+#
+# Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+# License: GPL-2
+#   The install-gui program is licensed under the GNU General Public License,
+#   version 2.
+#
 #add non-free
 printf "add non-free sources ...\n"
-/usr/share/install-gui/nonfree
+
+curDir=$(dirname $0)
+${curDir}/nonfree
+
 apt-get update
 
 # install firmware

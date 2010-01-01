@@ -1,0 +1,6 @@
+install-gui.desktop		usr/share/applications/sidux/
+pixmaps/*.png			usr/share/install-gui/pixmaps/
+icons/hicolor.install-gui/*	usr/share/icons/hicolor/
+icons/pixmaps.install-gui/*	usr/share/install-gui/pixmaps/
+icons/pixmaps.install-gui/*	usr/share/pixmaps/
+scripts/install-gui.bash	usr/bin/

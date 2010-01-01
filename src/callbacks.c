@@ -33,18 +33,18 @@
 //#define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 //#define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
 
-#define HD_SCAN                    "/usr/share/install-gui/disk -d  > "
-#define HD_SCAN_NO_USB             "/usr/share/install-gui/disk -n  > "    // without usb devices
-#define HD_SCAN_USB                "/usr/share/install-gui/disk -u "
-#define SCANPARTITIONS             "/usr/share/install-gui/disk -p  > "
+#define HD_SCAN                    "/usr/share/fll-installer-common/disk -d  > "
+#define HD_SCAN_NO_USB             "/usr/share/fll-installer-common/disk -n  > "    // without usb devices
+#define HD_SCAN_USB                "/usr/share/fll-installer-common/disk -u "
+#define SCANPARTITIONS             "/usr/share/fll-installer-common/disk -p  > "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
-#define INSTALL_FIRMWARE_BASH     "/usr/share/install-gui/fw-install"
+#define INSTALL_FIRMWARE_BASH     "/usr/share/fll-installer-common/fw-install"
 
-#define UM_SCRIPT_CHECK "/usr/share/install-gui/um_all.sh check"
-#define UM_SCRIPT "/usr/share/install-gui/um_all.sh"
-#define CHECK_EXISTING_HOME "/usr/share/install-gui/check_existing_home.sh"
+#define UM_SCRIPT_CHECK "/usr/share/fll-installer-common/um_all check"
+#define UM_SCRIPT "/usr/share/fll-installer-common/um_all"
+#define CHECK_EXISTING_HOME "/usr/share/fll-installer-common/check_existing_home"
 
 // Abort message from backend
 #define ABORT_MESSAGE             "Abort:"
@@ -1059,7 +1059,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    while (gtk_events_pending ())
           gtk_main_iteration ();
 
-   system ("/usr/share/install-gui/automount-popup.sh disable");
+   system ("/usr/share/fll-installer-common/automount-popup disable");
 
    GtkWidget *combobox = lookup_widget (GTK_WIDGET (button), "combobox_hd");
    gchar *hd = gtk_combo_box_get_active_text(GTK_COMBO_BOX (combobox));
@@ -1085,7 +1085,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
        //start cfdisk
        if (hd != NULL) {
-           strncpy(sh_command, "x-terminal-emulator -e /usr/share/install-gui/cfdisk_wrapper.sh cfdisk ", 256);
+           strncpy(sh_command, "x-terminal-emulator -e /usr/share/fll-installer-common/cfdisk_wrapper cfdisk ", 256);
            strncat(sh_command, hd, 256);
 
            system(sh_command);
@@ -1100,7 +1100,7 @@ on_button_gparted_clicked              (GtkButton       *button,
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
        //start fdisk
        if (hd != NULL) {
-           strncpy(sh_command, "x-terminal-emulator -e /usr/share/install-gui/cfdisk_wrapper.sh fdisk ", 256);
+           strncpy(sh_command, "x-terminal-emulator -e /usr/share/fll-installer-common/cfdisk_wrapper fdisk ", 256);
            strncat(sh_command, hd, 256);
 
            system(sh_command);
@@ -1110,7 +1110,7 @@ on_button_gparted_clicked              (GtkButton       *button,
        }
    }
 
-   system ("/usr/share/install-gui/automount-popup.sh enable");
+   system ("/usr/share/fll-installer-common/automount-popup enable");
 
    // has the rootpartcombo changed
    // get combo box

@@ -1,5 +1,10 @@
 #!/bin/bash
-
+#
+# Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+# License: GPL-2
+#   The install-gui program is licensed under the GNU General Public License,
+#   version 2.
+#
 export SSFT_FRONTEND=zenity
 
 INETCONN=$(which inetconn) ||	INETCONN="/usr/bin/inetconn"
@@ -12,4 +17,6 @@ if [ "$connection" -eq 0 ]
 		exit 1
 fi
 
-x-terminal-emulator -e /usr/share/install-gui/fw-install-exec &
+curDir=$(dirname $0)
+
+x-terminal-emulator -e ${curDir}/fw-install-exec &
