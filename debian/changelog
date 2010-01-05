@@ -9,8 +9,9 @@ install-gui (0.8.10) UNRELEASED; urgency=low
     Renamed some scripts to get them all without extension.
     Inserted copyright header on all scripts (took from svn check-in log)
     Set tu-bs as default sidux repository in the nonfree script.
+  * fll-installer-common.install was not checked in
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sat, 02 Jan 2010 00:06:11 +0100
+ -- Joaquim Boura <x-un-i@sidux.com>  Tue, 05 Jan 2010 18:13:37 +0100
 
 install-gui (0.8.9) unstable; urgency=low
 

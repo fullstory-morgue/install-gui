@@ -1,0 +1,11 @@
+
+scripts/automount-popup		usr/share/fll-installer-common
+scripts/cfdisk_wrapper		usr/share/fll-installer-common
+scripts/check_existing_home	usr/share/fll-installer-common
+scripts/disk			usr/share/fll-installer-common
+scripts/fw-install		usr/share/fll-installer-common
+scripts/fw-install-exec		usr/share/fll-installer-common
+scripts/install-gui.bash	usr/share/fll-installer-common
+scripts/nonfree			usr/share/fll-installer-common
+scripts/um_all			usr/share/fll-installer-common
+
