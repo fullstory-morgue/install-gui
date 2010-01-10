@@ -1,9 +1,5 @@
-install-gui (0.8.10) UNRELEASED; urgency=low
+install-gui (0.8.10) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * split the package so the shell scripts can also be used by other 
     installer frontends.
     Renamed some scripts to get them all without extension.
