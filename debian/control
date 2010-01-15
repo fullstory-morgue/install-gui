@@ -41,6 +41,6 @@ Depends: ${shlibs:Depends},
  util-linux (>= 2.16.1),
  distro-defaults
 Conflicts: 
-Recommends: install-usb-gui (>=0.8.10) | cliinstaller (>=0.2.6)
+Recommends: install-gui (>=0.8.10) | cliinstaller (>=0.2.6)
 Description: sidux common scripts used by the installer frontends
  Collection of useful scripts that can be used by the fll-installer frontends. 
