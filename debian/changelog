@@ -1,11 +1,7 @@
-install-gui (0.8.11) UNRELEASED; urgency=low
+install-gui (0.8.11) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Nikolas Poniros ]
-  * fll-installer-common should recommend install-gui not
-    install-usb-gui
+  * fll-installer-common should recommend install-gui, not
+    install-usb-gui.
 
  -- Nikolas Poniros <edhunter@sidux.com>  Fri, 15 Jan 2010 20:38:21 +0100
 
