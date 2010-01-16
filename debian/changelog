@@ -1,3 +1,9 @@
+install-gui (0.8.12) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 16 Jan 2010 01:50:50 +0100
+
 install-gui (0.8.11) unstable; urgency=low
 
   * fll-installer-common should recommend install-gui, not
