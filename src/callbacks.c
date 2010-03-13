@@ -100,7 +100,11 @@ char * escape_chars(char * pwd, char * new_str)
 	   ch == '#'  || ch == '>'   || ch == '<'   || ch == '`' ||
 	   ch == '|'  || ch == ';'   || ch == '-'   || ch == ' '   
          ) {
-         new_str[j++] = '\\';
+	 // we need this to properly escape '-' if its the first char
+	 if ( i == 0 && ch == '-' ){
+	 	new_str[j++] = '\\';
+	 }
+	 new_str[j++] = '\\';
          new_str[j++] = ch;     
       }
       else {
