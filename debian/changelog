@@ -1,9 +1,5 @@
-install-gui (0.8.12) UNRELEASED; urgency=low
+install-gui (0.8.12) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Nikolas Poniros ]
   * if '-' is the first char of a password we need 2 \ to properly
     escape it
 
