@@ -3,13 +3,13 @@ Section: admin
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Joaquim Boura <x-un-i@sidux.com>
-Build-Depends: debhelper (>= 7),
+Build-Depends: debhelper (>= 7.0.50~),
  autotools-dev,
- automake1.10,
+ automake,
  libgtk2.0-dev,
  libglade2-dev,
  imagemagick
-Standards-Version: 3.8.3
+Standards-Version: 3.8.4
 Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
@@ -25,7 +25,6 @@ Depends: ${shlibs:Depends},
  ssft,
  udev (>= 0.146),
  util-linux (>= 2.16.1)
-Conflicts: sidux-xdg
 Recommends: install-usb-gui,
  menu,
  gparted
@@ -37,10 +36,10 @@ Package: fll-installer-common
 Architecture: all
 Depends: ${shlibs:Depends},
  ${misc:Depends},
+ parted,
  udev (>= 0.146),
  util-linux (>= 2.16.1),
  distro-defaults
-Conflicts: 
 Recommends: install-gui (>=0.8.10) | cliinstaller (>=0.2.6)
 Description: sidux common scripts used by the installer frontends
  Collection of useful scripts that can be used by the fll-installer frontends. 
