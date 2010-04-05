@@ -100,10 +100,6 @@ char * escape_chars(char * pwd, char * new_str)
 	   ch == '#'  || ch == '>'   || ch == '<'   || ch == '`' ||
 	   ch == '|'  || ch == ';'   || ch == '-'   || ch == ' '   
          ) {
-	 // we need this to properly escape '-' if its the first char
-	 if ( i == 0 && ch == '-' ){
-	 	new_str[j++] = '\\';
-	 }
 	 new_str[j++] = '\\';
          new_str[j++] = ch;     
       }
@@ -449,7 +445,14 @@ on_entry_rootpw_changed                (GtkEditable     *editable,
        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
    }
    else {
-       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+       // password cant start with '-' . mkpasswd limitation
+	if( rootpw[0] == '-' ) {
+	    gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+	}
+	else {
+	    gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+	}
+//       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
    }
 }
 
@@ -578,7 +581,13 @@ on_entry_pw_changed                    (GtkEditable     *editable,
        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
    }
    else {
-       gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+       	if( rootpw[0] == '-' ) {
+	    gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
+	}
+	else {
+	    gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
+	}
+ //      gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-apply", GTK_ICON_SIZE_BUTTON);
    }
 }
 
@@ -760,6 +769,18 @@ password_check(GtkWidget     *button)
           return 0;
       }
 
+    if( rootpw[0] == '-' ){
+	mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+	dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s", gettext("The root password is not allowed to start with a minus (-) due to some limitations of mkpasswd!"));
+	gtk_dialog_run (GTK_DIALOG (dialog));
+	gtk_widget_destroy (dialog);
+	
+	return 0;
+    }
 
       //  Message Dialog RealName empty
       entry = lookup_widget(GTK_WIDGET(button), "entry_realname");
@@ -828,6 +849,19 @@ password_check(GtkWidget     *button)
           gtk_widget_destroy (dialog);
           return 0;
       }
+      
+    if( pw[0] == '-' ){
+	mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+	dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_ERROR,
+                                  GTK_BUTTONS_CLOSE,
+                                  "%s", gettext("The password is not allowed to start with a minus (-) due to some limitations of mkpasswd!"));
+	gtk_dialog_run (GTK_DIALOG (dialog));
+	gtk_widget_destroy (dialog);
+	
+	return 0;
+    }
 
    return 1;
 }
@@ -1428,6 +1462,21 @@ on_button_install_clicked              (GtkButton       *button,
 
            return;
    }
+   
+    // real name check
+    if( longname_ok < 1 ) {
+       
+	mainW = lookup_widget (GTK_WIDGET (button), "window_main");
+	dialog = gtk_message_dialog_new ( GTK_WINDOW( mainW ),
+					  GTK_DIALOG_DESTROY_WITH_PARENT,
+					  GTK_MESSAGE_ERROR,
+					  GTK_BUTTONS_CLOSE,
+					  "%s\n", "Real name wrong, do not use ^°!\"§$%&/(){}[]=?`+*~#;:=,><|-_\\");
+	gtk_dialog_run (GTK_DIALOG (dialog));
+	gtk_widget_destroy (dialog);
+	
+	return;
+    }
 
    // root partition check
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "rootpartcombo")));
