@@ -36,7 +36,6 @@ Package: fll-installer-common
 Architecture: all
 Depends: ${shlibs:Depends},
  ${misc:Depends},
- parted,
  udev (>= 0.146),
  util-linux (>= 2.16.1),
  distro-defaults

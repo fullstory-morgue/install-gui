@@ -80,16 +80,16 @@ partition_or_volume_info_mapper()
 #--------------------------------------------------------------
 parameter_p()
 {
-	disks=`LANG=C parted -l | grep "Disk /dev" | cut -d: -f1 | cut -d" " -f2`
-	# parts=`parted $disk print | grep "^ [0-9]" | awk '{print $1'}`
+	disks=`LANG=C fdisk -l | grep "Disk /dev" | cut -d: -f1 | cut -d" " -f2`
+	# parts=`fdisk -l $disk | fgrep -v "Extended" | fgrep '^/dev/' | cut -d " " -f1 | cut -d "/" -f 3`
 
 	for disk in ${disks}
 	do
-		parts=$(LANG=C parted $disk print | grep "^ [0-9]" | \
-            awk '{print $1'})
+		parts=$(fdisk -l $disk | grep -v "Extended" | \
+			grep '^/dev/' | cut -d " " -f1 | cut -d "/" -f 3)
 		for part in $parts
 		do
-			partition_or_volume_info $disk$part norm
+			partition_or_volume_info $part norm
 		done
 	done
 
@@ -102,14 +102,14 @@ parameter_p()
 #--------------------------------------------------------------
 parameter_d()
 {
-	LANG=C parted -l | grep "Disk /dev" | \
+	LANG=C fdisk -l | grep "Disk /dev" | \
 		cut -d: -f1 | cut -d" " -f2 | \
 		fgrep -v "/dev/dm"
 }
 #--------------------------------------------------------------
 parameter_n()
 {
-	disks=`LANG=C parted -l | grep "Disk /dev" |\
+	disks=`LANG=C fdisk -l | grep "Disk /dev" |\
 	grep -v "/dev/dm" | cut -d: -f1 | cut -d" " -f2`
 	for disk in ${disks}; do
 		readlink -f /sys/block/${disk##/dev/}/device |\
@@ -172,14 +172,13 @@ done
 
 #--------------------------------------------------------------
 if [ -n "${PRINT_DISK}" ]; then
-    parameter_d
+	parameter_d
 elif [ -n "${PRINT_NOUSB}" ]; then
-    parameter_n
+	parameter_n
 elif [ -n "${PRINT_PARTITION}" ]; then
-    parameter_p
+	parameter_p
 elif [ -n "${PRINT_USB}" ]; then
-    parameter_u ${IS_USB_DISK}
+	parameter_u ${IS_USB_DISK}
 else 
-    usage
+	usage
 fi
-
