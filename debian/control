@@ -27,7 +27,7 @@ Depends: ${shlibs:Depends},
  util-linux (>= 2.16.1)
 Recommends: install-usb-gui,
  menu,
- gparted
+ gparted | partitionmanager
 Description: sidux install-gui for fll-installer
  This is an sidux install-gui who makes it easy to configure the config file
  (~/.sidconf) and start the sidux-installer script.

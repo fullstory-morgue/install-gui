@@ -63,7 +63,7 @@ create_window_main (void)
   GtkWidget *alignment9;
   GtkWidget *fixed12;
   GtkWidget *combobox_hd;
-  GtkWidget *button_gparted;
+  GtkWidget *button_xparted;
   GtkWidget *radiobutton_part3;
   GSList *radiobutton_part3_group = NULL;
   GtkWidget *radiobutton_part2;
@@ -377,11 +377,11 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed12), combobox_hd, 0, 8);
   gtk_widget_set_size_request (combobox_hd, 130, 28);
 
-  button_gparted = gtk_button_new_from_stock ("gtk-execute");
-  gtk_widget_show (button_gparted);
-  gtk_fixed_put (GTK_FIXED (fixed12), button_gparted, 0, 128);
-  gtk_widget_set_size_request (button_gparted, 130, 30);
-  gtk_tooltips_set_tip (tooltips, button_gparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
+  button_xparted = gtk_button_new_from_stock ("gtk-execute");
+  gtk_widget_show (button_xparted);
+  gtk_fixed_put (GTK_FIXED (fixed12), button_xparted, 0, 128);
+  gtk_widget_set_size_request (button_xparted, 130, 30);
+  gtk_tooltips_set_tip (tooltips, button_xparted, _("!!!!!! be careful !!!!!!!\nDo it, if you don't have a linux partition.\nRead the Manual before. (see the Manual Button on the Desktop)"), NULL);
 
   radiobutton_part3 = gtk_radio_button_new_with_mnemonic (NULL, _("fdisk"));
   gtk_widget_show (radiobutton_part3);
@@ -397,7 +397,7 @@ create_window_main (void)
   gtk_radio_button_set_group (GTK_RADIO_BUTTON (radiobutton_part2), radiobutton_part3_group);
   radiobutton_part3_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (radiobutton_part2));
 
-  radiobutton_part1 = gtk_radio_button_new_with_mnemonic (NULL, _("gparted"));
+  radiobutton_part1 = gtk_radio_button_new_with_mnemonic (NULL, _("xparted"));
   gtk_widget_show (radiobutton_part1);
   gtk_fixed_put (GTK_FIXED (fixed12), radiobutton_part1, 0, 48);
   gtk_widget_set_size_request (radiobutton_part1, 136, 24);
@@ -1047,8 +1047,8 @@ create_window_main (void)
   g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_rootpartcombo_changed),
                     NULL);
-  g_signal_connect ((gpointer) button_gparted, "clicked",
-                    G_CALLBACK (on_button_gparted_clicked),
+  g_signal_connect ((gpointer) button_xparted, "clicked",
+                    G_CALLBACK (on_button_xparted_clicked),
                     NULL);
   g_signal_connect ((gpointer) checkbutton_mountpoints, "toggled",
                     G_CALLBACK (on_checkbutton_mountpoints_toggled),
@@ -1130,7 +1130,7 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, alignment9, "alignment9");
   GLADE_HOOKUP_OBJECT (window_main, fixed12, "fixed12");
   GLADE_HOOKUP_OBJECT (window_main, combobox_hd, "combobox_hd");
-  GLADE_HOOKUP_OBJECT (window_main, button_gparted, "button_gparted");
+  GLADE_HOOKUP_OBJECT (window_main, button_xparted, "button_xparted");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton_part3, "radiobutton_part3");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton_part2, "radiobutton_part2");
   GLADE_HOOKUP_OBJECT (window_main, radiobutton_part1, "radiobutton_part1");

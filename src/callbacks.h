@@ -36,19 +36,19 @@ on_exit_clicked                        (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_button_gparted_clicked              (GtkButton       *button,
+on_button_xparted_clicked              (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_button_gparted_clicked              (GtkButton       *button,
+on_button_xparted_clicked              (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_button_gparted_released             (GtkButton       *button,
+on_button_xparted_released             (GtkButton       *button,
                                         gpointer         user_data);
 
 void
-on_button_gparted_pressed              (GtkButton       *button,
+on_button_xparted_pressed              (GtkButton       *button,
                                         gpointer         user_data);
 
 void

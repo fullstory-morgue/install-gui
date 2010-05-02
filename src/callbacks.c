@@ -243,7 +243,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
           // no usb device found
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-          // add values from combobox hd (see gparted) to combobox_installplace
+          // add values from combobox hd (see xparted) to combobox_installplace
           combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
       }
       else {
@@ -420,7 +420,7 @@ void read_partitions(GtkComboBox     *combobox)
      * ============================================================= */
      GtkWidget *combobox_installplace = lookup_widget (GTK_WIDGET (combobox), "combobox_installplace");
      is_the_device_a_usbdevice ( GTK_COMBO_BOX (combobox_installplace));
-     // add values from combobox hd (see gparted) to combobox_installplace
+     // add values from combobox hd (see xparted) to combobox_installplace
      //combobox_hd_set  (GTK_WIDGET (combobox_installplace), "combobox_installplace");
    }
 
@@ -1079,7 +1079,7 @@ rootpart_warning  ( gpointer user_data )
 
 
 void
-on_button_gparted_clicked              (GtkButton       *button,
+on_button_xparted_clicked              (GtkButton       *button,
                                         gpointer         user_data)
 {
     //FILE *stream;
@@ -1091,7 +1091,7 @@ on_button_gparted_clicked              (GtkButton       *button,
     }
 
 
-   // hide the main window after gparted has done
+   // hide the main window after xparted has done
    //GtkWidget *window_main = lookup_widget(GTK_WIDGET(button),"window_main");
    gtk_widget_hide ( GTK_WIDGET (window_main) );
    while (gtk_events_pending ())
@@ -1107,12 +1107,21 @@ on_button_gparted_clicked              (GtkButton       *button,
    GtkToggleButton *radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part1"));
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
 
-       //start gparted
-       if (hd != NULL) {
+       //start xparted
+       if ((hd != NULL) && (access("/usr/bin/partitionmanager", X_OK) == 0)) {
+           strncpy(sh_command, "partitionmanager ", 80);
+           strncat(sh_command, hd, 80);
+
+           system(sh_command);
+       }
+       else if ((hd != NULL) && (access("/usr/sbin/gparted", X_OK) == 0)) {
            strncpy(sh_command, "gparted ", 80);
            strncat(sh_command, hd, 80);
 
            system(sh_command);
+       }
+       else if (access("/usr/bin/partitionmanager", X_OK) == 0) {
+           system("partitionmanager");
        }
        else {
            system("gparted");
@@ -1128,10 +1137,12 @@ on_button_gparted_clicked              (GtkButton       *button,
 
            system(sh_command);
        }
+       else if (access("/usr/bin/partitionmanager", X_OK) == 0) {
+           system("partitionmanager");
+       }
        else {
            system("gparted");
        }
-
    }
 
    radiobutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"radiobutton_part3"));
@@ -1142,6 +1153,9 @@ on_button_gparted_clicked              (GtkButton       *button,
            strncat(sh_command, hd, 256);
 
            system(sh_command);
+       }
+       else if (access("/usr/bin/partitionmanager", X_OK) == 0) {
+           system("partitionmanager");
        }
        else {
            system("gparted");

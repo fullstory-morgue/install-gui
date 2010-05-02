@@ -1,0 +1,5 @@
+sidux install-gui for fll-installer
+This is an sidux install-gui who makes it easy to configure the config file
+(~/.sidconf) and start the sidux-installer script.
+
+Collection of useful scripts that can be used by the fll-installer frontends. 
