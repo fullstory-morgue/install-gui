@@ -1108,20 +1108,14 @@ on_button_xparted_clicked              (GtkButton       *button,
    if( gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(radiobutton)) ) {
 
        //start xparted
-       if ((hd != NULL) && (access("/usr/bin/partitionmanager", X_OK) == 0)) {
-           strncpy(sh_command, "partitionmanager ", 80);
-           strncat(sh_command, hd, 80);
-
-           system(sh_command);
+       if (access("/usr/bin/partitionmanager", X_OK) == 0) {
+           system("partitionmanager");
        }
        else if ((hd != NULL) && (access("/usr/sbin/gparted", X_OK) == 0)) {
            strncpy(sh_command, "gparted ", 80);
            strncat(sh_command, hd, 80);
 
            system(sh_command);
-       }
-       else if (access("/usr/bin/partitionmanager", X_OK) == 0) {
-           system("partitionmanager");
        }
        else {
            system("gparted");

@@ -1,8 +1,12 @@
 install-gui (0.10.1) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 02 May 2010 13:58:23 +0200
+  [ Niall Walsh ]
+  * call partitionmanager with no arguments (it will not accept the disk)
+
+ -- Niall Walsh <niallwalsh@users.berlios.de>  Wed, 26 May 2010 18:30:17 +0100
 
 install-gui (0.10.0) unstable; urgency=low
 
