@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Joaquim Boura <x-un-i@sidux.com>
-Build-Depends: debhelper (>= 7.0.50~),
+Build-Depends: debhelper (>= 7.9.3),
  autotools-dev,
  automake,
  libgtk2.0-dev,
