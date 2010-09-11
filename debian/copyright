@@ -44,81 +44,81 @@ License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/da.po: 
+File: po/da.po:
 Copyright: © 2007,2008 zonker <zonker@greenin.dk>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/de.po: 
+File: po/de.po:
 Copyright: © 2007,2008 Horst Tritremmel <hjt@sidux.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/el.po: 
+File: po/el.po:
 Copyright: © 2007,2008 Nikolas Poniros <nponiros@yahoo.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/es.po: 
+File: po/es.po:
 Copyright: © 2007,2008 Latino <op4latino@gmail.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/fr.po: 
+File: po/fr.po:
 Copyright: © 2007,2008 LjanA <isotran@free.fr>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/hr.po: 
+File: po/hr.po:
 Copyright: © 2007,2008 Dinko Sabo <cobra@sidux.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/it.po: 
+File: po/it.po:
 Copyright: © 2007,2008 Salvo 'LtWorf' Tomaselli <tiposchi@tiscali.it>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/jp.po: 
+File: po/jp.po:
 Copyright: © 2007 sach <sachs@infoseek.jp>
            © 2007,2008 Mutsumu Nomura <muchan.m@gmail.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/nl.po: 
+File: po/nl.po:
 Copyright: © 2007,2008 phoranix <phoranix@yahoo.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/pl.po: 
+File: po/pl.po:
 Copyright: © 2007,2008 maslot
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/pt.po: 
+File: po/pt.po:
 Copyright: © 2007,2008 Joaquim Boura <x-un-i@sidux.com>
 	   © 2007,2008 Rui Umbelino (VaMPiRiC_CRoW)
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/ro.po: 
+File: po/ro.po:
 Copyright: © 2007,2008 Adriana <bluewater@sidux.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
-File: po/ru.po: 
+File: po/ru.po:
 Copyright: © 2007,2008 Roland Engert <roen@sidux.com>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
@@ -144,35 +144,35 @@ Files: pixmaps/install-usb-gui.png
            © 2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
            © 2007 David Miller <miller@oxygen-icons.org>
     License: CC-ASA-3.0 | LGPL-2+
-      install-gui.svg and install-usb-gui.* also include elements from 
+      install-gui.svg and install-usb-gui.* also include elements from
       The Oxygen Icon Theme.
       Licensed under the Creative Common Attribution-ShareAlike 3.0
       license, as found here:
-    
+
         http://creativecommons.org/licenses/by-sa/3.0/
-    
+
       or the GNU Library General Public License (with following clarification).
-    
+
       Clarification:
       The GNU Lesser General Public License or LGPL is written for
       software libraries in the first place. We expressly want the LGPL to
       be valid for this artwork library too.
-    
+
       KDE Oxygen theme icons is a special kind of software library, it is an
       artwork library, it's elements can be used in a Graphical User Interface, or
       GUI.
-    
+
       Source code, for this library means:
        - where they exist, SVG;
        - otherwise, if applicable, the multi-layered formats xcf or psd, or
       otherwise png.
-    
+
       The LGPL in some sections obliges you to make the files carry
       notices. With images this is in some cases impossible or hardly useful.
-    
+
       With this library a notice is placed at a prominent place in the directory
       containing the elements. You may follow this practice.
-    
+
       The exception in section 6 of the GNU Lesser General Public License covers
       the use of elements of this art library in a GUI.
 
