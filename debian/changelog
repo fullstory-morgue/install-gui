@@ -1,3 +1,9 @@
+install-gui (0.10.6) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 29 Aug 2010 04:16:00 +0200
+
 install-gui (0.10.5) unstable; urgency=low
 
   * s/sidux-scripts/aptosid-scripts/g
