@@ -31,6 +31,9 @@ Recommends: install-usb-gui,
 Description: sidux install-gui for fll-installer
  This is an sidux install-gui who makes it easy to configure the config file
  (~/.sidconf) and start the sidux-installer script.
+ .
+ This is a FULLSTORY live-only package and should not be installed to an
+ ordinary system.
 
 Package: fll-installer-common
 Architecture: all
@@ -41,4 +44,7 @@ Depends: ${shlibs:Depends},
  distro-defaults
 Recommends: install-gui (>=0.8.10) | cliinstaller (>=0.2.6)
 Description: sidux common scripts used by the installer frontends
- Collection of useful scripts that can be used by the fll-installer frontends. 
+ Collection of useful scripts that can be used by the fll-installer frontends.
+ .
+ This is a FULLSTORY live-only package and should not be installed to an
+ ordinary system.

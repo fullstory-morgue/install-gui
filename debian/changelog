@@ -1,3 +1,9 @@
+install-gui (0.10.3) unstable; urgency=low
+
+  * elaborate long description a bit further, to make lintian happy.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 03 Aug 2010 21:06:26 +0200
+
 install-gui (0.10.2) unstable; urgency=low
 
   * bump standards version to 3.9.1, no changes necessary.
