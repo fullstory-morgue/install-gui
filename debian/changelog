@@ -1,3 +1,9 @@
+install-gui (0.10.4) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 03 Aug 2010 21:09:26 +0200
+
 install-gui (0.10.3) unstable; urgency=low
 
   * elaborate long description a bit further, to make lintian happy.
