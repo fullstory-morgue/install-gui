@@ -1,7 +1,7 @@
 /* XPM */
 static char *install_gui[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 186 2",
+"32 32 186 2 ",
 "   c #2C2E2A",
 ".  c #3C2C2D",
 "X  c #2E302C",
