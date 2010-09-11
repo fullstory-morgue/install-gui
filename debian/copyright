@@ -125,9 +125,9 @@ License: GPL-2
   Public License, version 2.
 
 Files: pixmaps/install-gui-title.png
-       pixmaps/sidux-inst-conf.png
-       pixmaps/sidux-logo.png
-       icons/sidux-inst-conf.svg
+       pixmaps/aptosid-inst-conf.png
+       pixmaps/aptosid-logo.png
+       icons/aptosid-inst-conf.svg
     Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
                © 2008 David Creedy <djcreedy@iinet.net.au>
     License: GPLv2 or later

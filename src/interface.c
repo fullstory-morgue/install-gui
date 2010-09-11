@@ -188,7 +188,7 @@ create_window_main (void)
   tooltips = gtk_tooltips_new ();
 
   window_main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (window_main), _("sidux HD-Installation"));
+  gtk_window_set_title (GTK_WINDOW (window_main), _("aptosid HD-Installation"));
   gtk_window_set_position (GTK_WINDOW (window_main), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (window_main), FALSE);
   window_main_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
@@ -204,7 +204,7 @@ create_window_main (void)
   gtk_container_add (GTK_CONTAINER (window_main), fixed1);
   gtk_container_set_border_width (GTK_CONTAINER (fixed1), 10);
 
-  label_wellcome = gtk_label_new (_("Welcome to the sidux HD-Installation"));
+  label_wellcome = gtk_label_new (_("Welcome to the aptosid HD-Installation"));
   gtk_fixed_put (GTK_FIXED (fixed1), label_wellcome, 32, 8);
   gtk_widget_set_size_request (label_wellcome, 369, 41);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome), 0, 0.3);
@@ -269,7 +269,7 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), vseparator2, 640, 24);
   gtk_widget_set_size_request (vseparator2, 16, 328);
 
-  label_wellcome_install = gtk_label_new (_("This application will install sidux to your harddisk."));
+  label_wellcome_install = gtk_label_new (_("This application will install aptosid to your harddisk."));
   gtk_widget_show (label_wellcome_install);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_install, 32, 32);
   gtk_widget_set_size_request (label_wellcome_install, 608, 48);
@@ -297,7 +297,7 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), image19, 167, 288);
   gtk_widget_set_size_request (image19, 64, 56);
 
-  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\nsidux-website: http://sidux.com"));
+  label_wellcome_2 = gtk_label_new (_("If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\naptosid-website: http://aptosid.com"));
   gtk_widget_show (label_wellcome_2);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_2, 32, 200);
   gtk_widget_set_size_request (label_wellcome_2, 608, 80);
@@ -305,7 +305,7 @@ create_window_main (void)
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_2), 0, 0);
 
-  label_wellcome_red = gtk_label_new (_("sidux takes no responsibility for data loss or hardware damage."));
+  label_wellcome_red = gtk_label_new (_("aptosid takes no responsibility for data loss or hardware damage."));
   gtk_widget_show (label_wellcome_red);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_red, 72, 96);
   gtk_widget_set_size_request (label_wellcome_red, 568, 80);
@@ -317,7 +317,7 @@ create_window_main (void)
   gtk_widget_show (button_usb);
   gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 240, 296);
   gtk_widget_set_size_request (button_usb, 240, 36);
-  gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled sidux_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg sidux)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
+  gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled aptosid_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg aptosid)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -761,7 +761,7 @@ create_window_main (void)
   gtk_widget_show (hostname);
   gtk_fixed_put (GTK_FIXED (fixed_network), hostname, 264, 152);
   gtk_widget_set_size_request (hostname, 232, 24);
-  gtk_entry_set_text (GTK_ENTRY (hostname), _("siduxbox"));
+  gtk_entry_set_text (GTK_ENTRY (hostname), _("aptosidbox"));
 
   label32 = gtk_label_new (_("Hostname:"));
   gtk_widget_show (label32);
@@ -1011,7 +1011,7 @@ create_window_main (void)
   gtk_widget_set_size_request (label_rootpart_warning, 271, 32);
   gtk_misc_set_alignment (GTK_MISC (label_rootpart_warning), 0, 0.4);
 
-  label33 = gtk_label_new (_("You have provided all the required information for a sidux-install.\nTo check again or change anything press \"<-Back\".\nIf everything is correct for you, press \"Save config & Next\"."));
+  label33 = gtk_label_new (_("You have provided all the required information for a aptosid-install.\nTo check again or change anything press \"<-Back\".\nIf everything is correct for you, press \"Save config & Next\"."));
   gtk_widget_show (label33);
   gtk_fixed_put (GTK_FIXED (fixed7), label33, 16, 8);
   gtk_widget_set_size_request (label33, 640, 88);
@@ -1286,7 +1286,7 @@ create_dialog_no_root (void)
   gtk_box_pack_start (GTK_BOX (dialog_vbox1), fixed9, TRUE, TRUE, 0);
   gtk_container_set_border_width (GTK_CONTAINER (fixed9), 5);
 
-  label36 = gtk_label_new (_("Only root can start the installer:\nThe Installer is started from the Kmenu>sidux>sidux-installer"));
+  label36 = gtk_label_new (_("Only root can start the installer:\nThe Installer is started from the Kmenu>aptosid>aptosid-installer"));
   gtk_widget_show (label36);
   gtk_fixed_put (GTK_FIXED (fixed9), label36, 8, 8);
   gtk_widget_set_size_request (label36, 432, 48);
@@ -1343,7 +1343,7 @@ create_install_progressbar (void)
   GtkWidget *label_generally2;
 
   install_progressbar = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (install_progressbar), _("sidux Installer"));
+  gtk_window_set_title (GTK_WINDOW (install_progressbar), _("aptosid Installer"));
   gtk_window_set_position (GTK_WINDOW (install_progressbar), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_progressbar), FALSE);
   install_progressbar_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
@@ -1391,7 +1391,7 @@ create_install_progressbar (void)
   gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label2), 0, 0);
 
-  label_fifo = gtk_label_new (_("<b>sidux-installer started</b>"));
+  label_fifo = gtk_label_new (_("<b>aptosid-installer started</b>"));
   gtk_widget_show (label_fifo);
   gtk_fixed_put (GTK_FIXED (fixed5), label_fifo, 104, 312);
   gtk_widget_set_size_request (label_fifo, 494, 41);
@@ -1426,7 +1426,7 @@ create_install_progressbar (void)
   gtk_widget_show (viewport5);
   gtk_container_add (GTK_CONTAINER (scrolledwindow5), viewport5);
 
-  label_generally2 = gtk_label_new (_("<span font_desc=\"11\"><b>sidux</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.</span>\n\n\n<span font_desc=\"10\"><b><u>Hints for hardware with non-free needs:</u></b>\n\nsidux contains <b>only dfsg free software</b>,  so you may want to add <b>contrib/ non-free </b>to your <b>/etc/apt/sources.list.d/debian.list</b> (see manual) and ensure internet access.\n\n\n<b><u>firmware</u></b>\n\nThe required firmware can be determined with the following device/ firmware enumeration or by using the newly developed fw-detect script (packaged in configure-networkcard).\n\n<b>Atari DSP56k support:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/dsp56k/. \n\n<b>Atmel AT76c50x 11 MBit/s wlan:</b>\napt-get install atmel-firmware\n\n<b>Broadcom, b43/ b43legacy wlan:</b>\napt-get install b43-fwcutter\n\n<b>Broadcom Blutonium Bluetooth chipset (BCM2033):</b>\napt-get install bluez-firmware\n\n<b>cameras based on Vision's CPiA2:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/cpia2/.\n\n<b>Computone IntelliPort Plus serial device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/.\n\n<b>Digital Audio Broadcasting (DAB) Receiver for USB and Linux:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/dabusb/. \n\n<b>Eagle USB ADSL modem:</b>\nfetch the firmware from http://eagle-usb.org/ueagle-atm/non-free/ and place it under /lib/firmware/.\n\n<b>EMI 2|6 USB Audio interface:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/emi26/.\n\n<b>EMI 6|2m USB Audio interface:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/emi62/.\n\n<b>ESS Allegro Maestro3 audio device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/ess/. \n\n<b>DVB firmware for various full featured DVB TV cards (most budget cards won't need this):</b>\nfetch the needed firmware (check dmesg) from http://www.linuxtv.org/downloads/firmware/ and place it under /lib/firmware/.\n\n<b>IVTV firmware:</b>\nfetch the firmware from http://dl.ivtvdriver.org/ivtv/firmware/ and place it under /lib/firmware/.\n\n<b>Intel ipw2100 (11 MBit/s) and Intel ipw2200 (54 MBit/s) wlan:</b>\napt-get install firmware-ipw2x00\nplease remove ipw2100-firmware and ipw2200-firmware, if already installed.\n\n<b>Intel ipw3945/ iwlwifi, 54 Mbit/s wlan:</b>\napt-get install firmware-iwlwifi\n\n<b>Intel ipw4965/ iwlwifi, draft-n wlan:</b>\napt-get install firmware-iwlwifi\n\n<b>Intersil prism54 (p54pci/ p54usb), 54 MBit/s wlan:</b>\nfetch the firmware from http://jbnote.free.fr/prism54usb/ and place it under /lib/firmware/.\n\n<b>Korg 1212 IO audio device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/korg/. \n\n<b>nVidia graphics:</b>\n3d acceleration isn't possible with free drivers yet.\n\n<b>RaLink rt61 and rt73 54 MBit/s wlan:</b>\napt-get install firmware-ralink\n\n<b>SMC ISA/MCA Token Ring adapter:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/.\n\n<b>Sound Blaster 16/AWE CSP support:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/sb16/.\n\n<b>SUN Cassini:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/sun/.\n\n<b>Technotrend/Hauppauge Nova-USB devices:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/ttusb-budget/. \n\n<b>Texas Instruments ACX100 (22 Mbit/s)/ ACX111 (54 MBit/s) wlan:</b>\nm-a a-i acx100\nand fetch the firmware from http://www.kazer.org/acx-firmware-20060207.tar.bz2 and place it under /lib/firmware/.\n\n<b>USB 3com HomeConnect (aka vicam):</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/vicam/.\n\n<b>USB ConnectTech WhiteHEAT serial device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/.\n\n<b>USB Inside Out Edgeport Serial Driver:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/edgeport/.\n\n<b>USB Keyspan USA-xxx serial device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/keyspan/.\n\n<b>USB Keyspan PDA single-port serial device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/keyspan_pda/.\n\n<b>USB KLSI KL5USB101-based Ethernet device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/kaweth/.\n\n<b>USB TI 3410/5052 serial device:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/.\n\n<b>Yamaha YMF724/740/744/754 audio devices:</b>\nfetch the firmware from http://git.kernel.org/?p=linux/kernel/git/dwmw2/linux-firmware-from-kernel.git and place it under /lib/firmware/yamaha/. \n\n<b>ZyDAS zd1201 11 MBit/s wlan:</b>\nfetch the firmware from http://surfnet.dl.sourceforge.net/sourceforge/linux-lc100020/zd1201-0.14-fw.tar.gz and place it under /lib/firmware/.\n\n<b>ZyDAS zd1211 54 MBit/s wlan:</b>\napt-get install zd1211-firmware \n\n\nWe try to provide packages for legally redistributable firmware from our non-free repositories, but not all vendors allow this. \n\n\n<b><u>Disclaimer:</u></b>\n\nThis is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.\n\n\n<b><u>How to get involved:</u></b>\nGetting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. \nWe will gladly discuss any dfsg-free patches and contributions, especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations. \n\n\n<b><u>Special thanks go to the entire sidux development team:</u></b>\n\n<b>Developers:</b>\nJoaquim Boura (x-un-i)\nMichael Deelwater (ModestUser)\nBernard Gray (cleary)\nAedan Kelly (etorix)\nStefan Lippers-Hollmann (slh)\nKel Modderman (kelmo)\nHorst Tritremmel (hjt)\nNiall Walsh (bfree)\nAndreas Weber (webera)\nFabian Wuertz (xadras)\n\n<b>Documentation and Manuals:</b>\nJose Tadeu Barros (ceti)\nAlpha Mohamed Diakite (alphad)\nStefan R. Eissens (eislon)\nRoland Engert (RoEn)\nGregory Gretri (grigris)\nHarzG\nRichard Holt (Richard)\nMarkus Huber (hubi)\nPhilippe Masson (LjanA)\nMarkus M\303\274ller (moto)\nMutsumu Nomura (muchan)\nGabriel Palade (ladepa)\nNicolas Poniros (edhunter)\nDinko Sabo (cobra)\nspeedygeo\nTrevor Walkley (bluewater)\nzenren\nzerby\nzonker\nzulu9 \n\n<b>Art Team:</b>\nDavid Creedy (klaymen)\nBernard Gray (cleary)\nDaniel-S-P\n\n<b>vital Support:</b>\nAlessio Giustini (alessiog75)\nChris Hildebrandt (slam)\nRalph Hokanson Jr. (piper)\nLatino\nGerald Prock (raider700)\nFerdi Thommes (devil)\nFlorian Schneider (hathe)\nTorsten Wohlfarth (towo|)\nsidux e.V.\n\nThanks to Hetzner Online AG for sponsoring sidux.com.\n\n\nOn behalf of the sidux team:\n     Stefan Lippers-Hollmann (slh) \n</span>"));
+  label_generally2 = gtk_label_new (_("<span font_desc=\"11\"><b>aptosid</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with aptosid' own packages and scripts.\n\nThanks to Hetzner Online AG for sponsoring aptosid.com.\n\n\nOn behalf of the aptosid team:\n     Stefan Lippers-Hollmann (slh) \n</span>"));
   gtk_widget_show (label_generally2);
   gtk_container_add (GTK_CONTAINER (viewport5), label_generally2);
   gtk_label_set_use_markup (GTK_LABEL (label_generally2), TRUE);
@@ -1497,7 +1497,7 @@ create_dialog_end (void)
   gtk_widget_show (fixed13);
   gtk_box_pack_start (GTK_BOX (dialog_vbox2), fixed13, TRUE, TRUE, 0);
 
-  label45 = gtk_label_new (_("<big><b>http://sidux.com</b></big>"));
+  label45 = gtk_label_new (_("<big><b>http://aptosid.com</b></big>"));
   gtk_widget_show (label45);
   gtk_fixed_put (GTK_FIXED (fixed13), label45, 8, 176);
   gtk_widget_set_size_request (label45, 496, 24);
@@ -1521,7 +1521,7 @@ create_dialog_end (void)
   gtk_label_set_justify (GTK_LABEL (label46), GTK_JUSTIFY_CENTER);
   gtk_misc_set_alignment (GTK_MISC (label46), 0.5, 0);
 
-  image17 = create_pixmap (dialog_end, "sidux-logo.png");
+  image17 = create_pixmap (dialog_end, "aptosid-logo.png");
   gtk_widget_show (image17);
   gtk_fixed_put (GTK_FIXED (fixed13), image17, 8, 8);
   gtk_widget_set_size_request (image17, 488, 168);
@@ -1655,7 +1655,7 @@ create_install_window (void)
   tooltips = gtk_tooltips_new ();
 
   install_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (install_window), _("sidux HD-Installation"));
+  gtk_window_set_title (GTK_WINDOW (install_window), _("aptosid HD-Installation"));
   gtk_window_set_position (GTK_WINDOW (install_window), GTK_WIN_POS_CENTER);
   gtk_window_set_resizable (GTK_WINDOW (install_window), FALSE);
   install_window_icon_pixbuf = create_pixbuf ("install-gui-16.xpm");
@@ -1808,12 +1808,12 @@ create_dialog_no_bash (void)
   gtk_label_set_justify (GTK_LABEL (label55), GTK_JUSTIFY_CENTER);
   gtk_misc_set_alignment (GTK_MISC (label55), 0.5, 0);
 
-  image23 = create_pixmap (dialog_no_bash, "sidux-logo.png");
+  image23 = create_pixmap (dialog_no_bash, "aptosid-logo.png");
   gtk_widget_show (image23);
   gtk_fixed_put (GTK_FIXED (fixed18), image23, 8, 8);
   gtk_widget_set_size_request (image23, 488, 168);
 
-  label53 = gtk_label_new (_("<big><b>http://sidux.com</b></big>"));
+  label53 = gtk_label_new (_("<big><b>http://aptosid.com</b></big>"));
   gtk_widget_show (label53);
   gtk_fixed_put (GTK_FIXED (fixed18), label53, 8, 176);
   gtk_widget_set_size_request (label53, 496, 24);

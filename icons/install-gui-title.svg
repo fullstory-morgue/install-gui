@@ -14,11 +14,11 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg4021"
    sodipodi:version="0.32"
-   inkscape:version="0.46+devel"
+   inkscape:version="0.47 r22583"
    width="160"
    height="51"
    version="1.0"
-   sodipodi:docname="liveusb-creator-header.svg"
+   sodipodi:docname="install-gui-title.png"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/home/bernie/svn/noc.sidux.com/liveusb-creator/trunk/data/pixmaps/liveusb-creator-header.png"
    inkscape:export-xdpi="90"
@@ -6075,12 +6075,13 @@
      id="namedview4023"
      showgrid="false"
      borderlayer="true"
-     inkscape:zoom="1.5616279"
-     inkscape:cx="153.64916"
-     inkscape:cy="-59.033852"
-     inkscape:window-x="-5"
-     inkscape:window-y="-3"
-     inkscape:current-layer="svg4021">
+     inkscape:zoom="4.4169507"
+     inkscape:cx="119.03012"
+     inkscape:cy="-4.741773"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:current-layer="svg4021"
+     inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
        id="grid16100"
@@ -6249,17 +6250,17 @@
      id="rect16254" />
   <text
      xml:space="preserve"
-     style="font-size:38.2286644px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.24249281;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Dustismo;-inkscape-font-specification:Dustismo"
-     x="78.42173"
-     y="36.238884"
+     style="font-size:31.58026123px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.20032053;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Dustismo;-inkscape-font-specification:Dustismo"
+     x="95.72686"
+     y="29.907551"
      id="text16140"
-     sodipodi:linespacing="125%"><tspan
+     sodipodi:linespacing="125%"
+     transform="scale(0.82502705,1.2120815)"><tspan
        sodipodi:role="line"
        id="tspan16142"
-       x="78.42173"
-       y="36.238884"
-       dx="0 -1.4640131 0.73200655 -1.0980098 -1.4640131"
-       style="stroke-width:0.24249281">sidux</tspan></text>
+       x="95.72686"
+       y="29.907551"
+       style="stroke-width:0.20032053">aptosid</tspan></text>
   <image
      y="-56.351452"
      x="145.36113"

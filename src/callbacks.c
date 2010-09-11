@@ -1270,7 +1270,7 @@ save_config            (GtkButton       *button)
         gchar *hd_fstyp = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "format_combo")));
         fprintf( stream, "%s'\n%s\n%s\n%s", 
 hd_fstyp,
-"\n# Here the sidux-System will be installed",
+"\n# Here the aptosid-System will be installed",
 "# This value will be checked by function module_hd_check",
 "HD_CHOICE='");
 
@@ -1280,7 +1280,7 @@ hd_choice,
 
         fprintf( stream, "%s\n%s\n%s\n%s\n%s", 
 mountpoints_config,
-"\n# If set to yes, the program will NOT check if there is enough space to install sidux on the selected partition(s). Use at your own risk! Useful for example with HD_MAP if you only have a small root partition.",
+"\n# If set to yes, the program will NOT check if there is enough space to install aptosid on the selected partition(s). Use at your own risk! Useful for example with HD_MAP if you only have a small root partition.",
 "# Possible are: yes|no",
 "# Default value is: no",
 "HD_IGNORECHECK='");
@@ -1303,7 +1303,7 @@ mountpoints_config,
 "# Default value is: yes",
 "SWAP_AUTODETECT='yes'",
 
-"\n# The swap partitions to be used by the installed sidux.",
+"\n# The swap partitions to be used by the installed aptosid.",
 "# This value will be checked by function module_swap_check",
 "SWAP_CHOICES='__swapchoices__'",
 "NAME_MODULE='configured'",

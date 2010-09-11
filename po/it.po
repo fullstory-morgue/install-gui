@@ -14,30 +14,30 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: install-gui.glade:8(property)
-msgid "sidux HD-Installation"
-msgstr "Installazione su HD di sidux"
+msgid "aptosid HD-Installation"
+msgstr "Installazione su HD di aptosid"
 
 #: install-gui.glade:78(property)
 msgid "exit"
 msgstr "Esci"
 
 #: install-gui.glade:275(property)
-msgid "Welcome to the sidux HD-Installation"
-msgstr "Benvenuto all'installazione su HD di sidux"
+msgid "Welcome to the aptosid HD-Installation"
+msgstr "Benvenuto all'installazione su HD di aptosid"
 
 #: install-gui.glade:425(property)
-msgid "sidux takes no responsibility for data loss or hardware damage."
-msgstr "sidux non si assume alcuna responsabilità per eventuale perdita di dati o danneggiamento dell'hardware."
+msgid "aptosid takes no responsibility for data loss or hardware damage."
+msgstr "aptosid non si assume alcuna responsabilità per eventuale perdita di dati o danneggiamento dell'hardware."
 
 #: install-gui.glade:452(property)
-msgid "This application will install sidux to your harddisk."
-msgstr "Questo programma installerà sidux sul tuo hard disk."
+msgid "This application will install aptosid to your harddisk."
+msgstr "Questo programma installerà aptosid sul tuo hard disk."
 
 #: install-gui.glade:505(property)
-msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-website: http://sidux.com"
-msgstr "Se hai bisogno di aiuto per l'installazione, visita il sito web, il wiki, il forum o la chat di sidux!\n\n"
-"Sito web di sidux: http://sidux.com"
+msgid "If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
+"aptosid-website: http://aptosid.com"
+msgstr "Se hai bisogno di aiuto per l'installazione, visita il sito web, il wiki, il forum o la chat di aptosid!\n\n"
+"Sito web di aptosid: http://aptosid.com"
 
 #: install-gui.glade:537(property)
 msgid "Welcome"
@@ -174,10 +174,10 @@ msgid "Network"
 msgstr "Rete"
 
 #: install-gui.glade:1709(property)
-msgid "You have provided all the required information for a sidux-install.\n"
+msgid "You have provided all the required information for a aptosid-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
-msgstr "Hai fornito tutte le informazioni necessarie per cominciare l'installazione di sidux.\n"
+msgstr "Hai fornito tutte le informazioni necessarie per cominciare l'installazione di aptosid.\n"
 "Puoi controllare o cambiare le opzioni ancora una volta premendo il bottone \"Indietro\"."
 "Se per te tutto è impostato correttamente, comincia l'installazione premendo \"Avvia installazione\"."
 
@@ -188,10 +188,10 @@ msgstr "Salva la configurazione\n"
 "solo (~/.sidconf)"
 
 #: install-gui.glade:1821(property)
-msgid "Start sidux-Installer-Script\n"
+msgid "Start aptosid-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "Avvia lo script di installazione di sidux\n"
+msgstr "Avvia lo script di installazione di aptosid\n"
 "senza configurazione\n"
 "(questa configurazione verrà persa)"
 

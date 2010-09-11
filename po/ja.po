@@ -10,30 +10,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property) 
-msgid "sidux HD-Installation"
-msgstr "sidux HD-Installation"
+msgid "aptosid HD-Installation"
+msgstr "aptosid HD-Installation"
 
 #: install-gui.glade:78(property) 
 msgid "exit"
 msgstr "終了"
 
 #: install-gui.glade:275(property) 
-msgid "Welcome to the sidux HD-Installation"
-msgstr "sidux HDインストールへようこそ"
+msgid "Welcome to the aptosid HD-Installation"
+msgstr "aptosid HDインストールへようこそ"
 
 #: install-gui.glade:425(property) 
-msgid "sidux takes no responsibility for data loss or hardware damage."
-msgstr "siduxはデータ損失やハードウア障害に責任を負いません."
+msgid "aptosid takes no responsibility for data loss or hardware damage."
+msgstr "aptosidはデータ損失やハードウア障害に責任を負いません."
 
 #: install-gui.glade:452(property)
-msgid "This application will install sidux to your harddisk."
-msgstr "このアプリケーションはハードディスクへsiduxをインストールします."
+msgid "This application will install aptosid to your harddisk."
+msgstr "このアプリケーションはハードディスクへaptosidをインストールします."
 
 #: install-gui.glade:505(property) 
-msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-website: http://sidux.com"
-msgstr "インストールに関して困った時は、siduxのウェブサイト、Wiki、フォーラムやチャットを訪れてください!\n\n"
-"sidux-ウェブサイト: http://sidux.com"
+msgid "If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
+"aptosid-website: http://aptosid.com"
+msgstr "インストールに関して困った時は、aptosidのウェブサイト、Wiki、フォーラムやチャットを訪れてください!\n\n"
+"aptosid-ウェブサイト: http://aptosid.com"
 
 #: install-gui.glade:537(property) 
 msgid "Welcome"
@@ -168,10 +168,10 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #: install-gui.glade:1709(property) 
-msgid "You have provided all the required information for a sidux-install.\n"
+msgid "You have provided all the required information for a aptosid-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
-msgstr "siduxのインストールを始めるのに必要な情報はすべて入力されました。\n"
+msgstr "aptosidのインストールを始めるのに必要な情報はすべて入力されました。\n"
 "\"戻る\" ボタンを押せば、オプションをもう一度チェックしたり変更したりできます.\n"
 "すべて正しければ、 \"設定を保存して次へ\" を押してください."
 
@@ -182,10 +182,10 @@ msgstr "設定を保存\n"
 "only (~/.sidconf)"
 
 #: install-gui.glade:1821(property) 
-msgid "Start sidux-Installer-Script\n"
+msgid "Start aptosid-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "siduxのインストールスクリプトを\n"
+msgstr "aptosidのインストールスクリプトを\n"
 "設定なしで開始\n"
 "(この設定は失われます)"
 

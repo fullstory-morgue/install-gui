@@ -5,7 +5,7 @@
 
 <widget class="GtkWindow" id="window_main">
   <property name="visible">True</property>
-  <property name="title" translatable="yes">sidux HD-Installation</property>
+  <property name="title" translatable="yes">aptosid HD-Installation</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>
@@ -31,7 +31,7 @@
 	<widget class="GtkLabel" id="label_wellcome">
 	  <property name="width_request">369</property>
 	  <property name="height_request">41</property>
-	  <property name="label" translatable="yes">Welcome to the sidux HD-Installation</property>
+	  <property name="label" translatable="yes">Welcome to the aptosid HD-Installation</property>
 	  <property name="use_underline">False</property>
 	  <property name="use_markup">False</property>
 	  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -202,7 +202,7 @@
 		  <property name="width_request">608</property>
 		  <property name="height_request">48</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">This application will install sidux to your harddisk.</property>
+		  <property name="label" translatable="yes">This application will install aptosid to your harddisk.</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -287,9 +287,9 @@
 		  <property name="width_request">608</property>
 		  <property name="height_request">80</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!
+		  <property name="label" translatable="yes">If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!
 
-sidux-website: http://sidux.com</property>
+aptosid-website: http://aptosid.com</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -315,7 +315,7 @@ sidux-website: http://sidux.com</property>
 		  <property name="width_request">568</property>
 		  <property name="height_request">80</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">sidux takes no responsibility for data loss or hardware damage.</property>
+		  <property name="label" translatable="yes">aptosid takes no responsibility for data loss or hardware damage.</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -343,10 +343,10 @@ sidux-website: http://sidux.com</property>
 		  <property name="visible">True</property>
 		  <property name="tooltip" translatable="yes">* we create one  partiton on the usb-device (all data will be lost)
 * make it bootable
-* format it with ext3 (labeled sidux_from_usb)
+* format it with ext3 (labeled aptosid_from_usb)
 * install grub into it
 * copy the message file into the grub dirs
-* create directory for iso, kernel, initrd (eg sidux)
+* create directory for iso, kernel, initrd (eg aptosid)
 * copy the files (iso, kernel, initrd) into there.
 * create the menu.lst file on it
 
@@ -1819,7 +1819,7 @@ Important: All passwords have to be between 6 and 20 characters long!</property>
 		  <property name="editable">True</property>
 		  <property name="visibility">True</property>
 		  <property name="max_length">0</property>
-		  <property name="text" translatable="yes">siduxbox</property>
+		  <property name="text" translatable="yes">aptosidbox</property>
 		  <property name="has_frame">True</property>
 		  <property name="invisible_char">*</property>
 		  <property name="activates_default">False</property>
@@ -2632,7 +2632,7 @@ Metapackages</property>
 		  <property name="width_request">640</property>
 		  <property name="height_request">88</property>
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">You have provided all the required information for a sidux-install.
+		  <property name="label" translatable="yes">You have provided all the required information for a aptosid-install.
 To check again or change anything press &quot;&lt;-Back&quot;.
 If everything is correct for you, press &quot;Save config &amp; Next&quot;.</property>
 		  <property name="use_underline">False</property>
@@ -2755,7 +2755,7 @@ If everything is correct for you, press &quot;Save config &amp; Next&quot;.</pro
 	      <property name="height_request">48</property>
 	      <property name="visible">True</property>
 	      <property name="label" translatable="yes">Only root can start the installer:
-The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
+The Installer is started from the Kmenu&gt;aptosid&gt;aptosid-installer</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">False</property>
 	      <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -2805,7 +2805,7 @@ The Installer is started from the Kmenu&gt;sidux&gt;sidux-installer</property>
 
 <widget class="GtkWindow" id="install_progressbar">
   <property name="visible">True</property>
-  <property name="title" translatable="yes">sidux Installer</property>
+  <property name="title" translatable="yes">aptosid Installer</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>
@@ -2944,7 +2944,7 @@ Operation:</property>
 	  <property name="width_request">494</property>
 	  <property name="height_request">41</property>
 	  <property name="visible">True</property>
-	  <property name="label" translatable="yes">&lt;b&gt;sidux-installer started&lt;/b&gt;</property>
+	  <property name="label" translatable="yes">&lt;b&gt;aptosid-installer started&lt;/b&gt;</property>
 	  <property name="use_underline">False</property>
 	  <property name="use_markup">True</property>
 	  <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -3026,13 +3026,13 @@ Operation:</property>
 	      <child>
 		<widget class="GtkLabel" id="label_generally2">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span font_desc=&quot;11&quot;&gt;&lt;b&gt;sidux&lt;/b&gt; is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.
-The ISO is completely based on Debian Sid, enriched and stabilized with sidux' own packages and scripts.&lt;/span&gt;
+		  <property name="label" translatable="yes">&lt;span font_desc=&quot;11&quot;&gt;&lt;b&gt;aptosid&lt;/b&gt; is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.
+The ISO is completely based on Debian Sid, enriched and stabilized with aptosid' own packages and scripts.&lt;/span&gt;
 
 
 &lt;span font_desc=&quot;10&quot;&gt;&lt;b&gt;&lt;u&gt;Hints for hardware with non-free needs:&lt;/u&gt;&lt;/b&gt;
 
-sidux contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list.d/debian.list&lt;/b&gt; (see manual) and ensure internet access.
+aptosid contains &lt;b&gt;only dfsg free software&lt;/b&gt;,  so you may want to add &lt;b&gt;contrib/ non-free &lt;/b&gt;to your &lt;b&gt;/etc/apt/sources.list.d/debian.list&lt;/b&gt; (see manual) and ensure internet access.
 
 
 &lt;b&gt;&lt;u&gt;firmware&lt;/u&gt;&lt;/b&gt;
@@ -3152,15 +3152,15 @@ We try to provide packages for legally redistributable firmware from our non-fre
 
 &lt;b&gt;&lt;u&gt;Disclaimer:&lt;/u&gt;&lt;/b&gt;
 
-This is experimental software. Use at your own risk. The sidux project, its developers and team members (all represented by the sidux e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.
+This is experimental software. Use at your own risk. The aptosid project, its developers and team members (all represented by the aptosid e.V.) cannot be held liable under any circumstances for damage to hardware or software, lost data, or other direct or indirect damage resulting from the use of this software. If you do not agree to these terms and conditions, you are not permitted to use or further distribute this software.
 
 
 &lt;b&gt;&lt;u&gt;How to get involved:&lt;/u&gt;&lt;/b&gt;
-Getting involved in sidux is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #sidux) and discuss your patches/ proposals or additions. 
+Getting involved in aptosid is easy, just join us at our Forum or even better on IRC (irc.oftc.net, port 6667, channel #aptosid) and discuss your patches/ proposals or additions. 
 We will gladly discuss any dfsg-free patches and contributions, especially regarding alternative window managers (gnome, xfce), mobile network connectivity (GPRS/ UMTS, Bluetooth, but also ISDN, PPP, PPPoE) or general janitorial tasks or translations/ localisations. 
 
 
-&lt;b&gt;&lt;u&gt;Special thanks go to the entire sidux development team:&lt;/u&gt;&lt;/b&gt;
+&lt;b&gt;&lt;u&gt;Special thanks go to the entire aptosid development team:&lt;/u&gt;&lt;/b&gt;
 
 &lt;b&gt;Developers:&lt;/b&gt;
 Joaquim Boura (x-un-i)
@@ -3210,12 +3210,12 @@ Gerald Prock (raider700)
 Ferdi Thommes (devil)
 Florian Schneider (hathe)
 Torsten Wohlfarth (towo|)
-sidux e.V.
+aptosid e.V.
 
-Thanks to Hetzner Online AG for sponsoring sidux.com.
+Thanks to Hetzner Online AG for sponsoring aptosid.com.
 
 
-On behalf of the sidux team:
+On behalf of the aptosid team:
      Stefan Lippers-Hollmann (slh) 
 &lt;/span&gt;</property>
 		  <property name="use_underline">False</property>
@@ -3306,7 +3306,7 @@ On behalf of the sidux team:
 	      <property name="width_request">496</property>
 	      <property name="height_request">24</property>
 	      <property name="visible">True</property>
-	      <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;http://sidux.com&lt;/b&gt;&lt;/big&gt;</property>
+	      <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;http://aptosid.com&lt;/b&gt;&lt;/big&gt;</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">True</property>
 	      <property name="justify">GTK_JUSTIFY_CENTER</property>
@@ -3384,7 +3384,7 @@ On behalf of the sidux team:
 	      <property name="width_request">488</property>
 	      <property name="height_request">168</property>
 	      <property name="visible">True</property>
-	      <property name="pixbuf">sidux-logo.png</property>
+	      <property name="pixbuf">aptosid-logo.png</property>
 	      <property name="xalign">0.5</property>
 	      <property name="yalign">0.5</property>
 	      <property name="xpad">0</property>
@@ -3545,7 +3545,7 @@ You might have problems typing your password!&lt;/span&gt;</property>
 
 <widget class="GtkWindow" id="install_window">
   <property name="visible">True</property>
-  <property name="title" translatable="yes">sidux HD-Installation</property>
+  <property name="title" translatable="yes">aptosid HD-Installation</property>
   <property name="type">GTK_WINDOW_TOPLEVEL</property>
   <property name="window_position">GTK_WIN_POS_CENTER</property>
   <property name="modal">False</property>
@@ -3841,7 +3841,7 @@ Not necessary, be careful !!!</property>
 	      <property name="width_request">488</property>
 	      <property name="height_request">168</property>
 	      <property name="visible">True</property>
-	      <property name="pixbuf">sidux-logo.png</property>
+	      <property name="pixbuf">aptosid-logo.png</property>
 	      <property name="xalign">0.5</property>
 	      <property name="yalign">0.5</property>
 	      <property name="xpad">0</property>
@@ -3858,7 +3858,7 @@ Not necessary, be careful !!!</property>
 	      <property name="width_request">496</property>
 	      <property name="height_request">24</property>
 	      <property name="visible">True</property>
-	      <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;http://sidux.com&lt;/b&gt;&lt;/big&gt;</property>
+	      <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;http://aptosid.com&lt;/b&gt;&lt;/big&gt;</property>
 	      <property name="use_underline">False</property>
 	      <property name="use_markup">True</property>
 	      <property name="justify">GTK_JUSTIFY_CENTER</property>

@@ -10,30 +10,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property)
-msgid "sidux HD-Installation"
-msgstr "sidux-Instalarea pe Hard Disc"
+msgid "aptosid HD-Installation"
+msgstr "aptosid-Instalarea pe Hard Disc"
 
 #: install-gui.glade:78(property)
 msgid "exit"
 msgstr "iesire"
 
 #: install-gui.glade:275(property)
-msgid "Welcome to the sidux HD-Installation"
-msgstr "Bine ati venit la Instalarea sidux pe Hard Disc"
+msgid "Welcome to the aptosid HD-Installation"
+msgstr "Bine ati venit la Instalarea aptosid pe Hard Disc"
 
 #: install-gui.glade:425(property)
-msgid "sidux takes no responsibility for data loss or hardware damage."
-msgstr "sidux nu-si asuma nici o responsabilitate in legatura cu pierderea de date sau distrugerea de hardware ."
+msgid "aptosid takes no responsibility for data loss or hardware damage."
+msgstr "aptosid nu-si asuma nici o responsabilitate in legatura cu pierderea de date sau distrugerea de hardware ."
 
 #: install-gui.glade:452(property)
-msgid "This application will install sidux to your harddisk."
-msgstr "Aceasta aplicatie va instala sidux pe Hard Discul calculatorului dumneavoastra."
+msgid "This application will install aptosid to your harddisk."
+msgstr "Aceasta aplicatie va instala aptosid pe Hard Discul calculatorului dumneavoastra."
 
 #: install-gui.glade:505(property)
-msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-website: http://sidux.com "
-msgstr "Pentru orice ajutor in legatura cu aceasta instalare vizitati pagina web sidux, -Wiki, -Forum sau -Chat!\n\n"
-"pagina sidux: http://sidux.com"
+msgid "If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
+"aptosid-website: http://aptosid.com "
+msgstr "Pentru orice ajutor in legatura cu aceasta instalare vizitati pagina web aptosid, -Wiki, -Forum sau -Chat!\n\n"
+"pagina aptosid: http://aptosid.com"
 
 #: install-gui.glade:537(property)
 msgid "Welcome"
@@ -169,7 +169,7 @@ msgid "Network"
 msgstr "Retea"
 
 #: install-gui.glade:1709(property)
-msgid "You have provided all the required information for a sidux-install.\n"
+msgid "You have provided all the required information for a aptosid-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
 msgstr "Ati furnizat toate informatiile necesare pentru inceperea instalarii.\n"
@@ -183,10 +183,10 @@ msgstr "Salveaza configuratia\n"
 "doar (~/.sidconf)"
 
 #: install-gui.glade:1821(property)
-msgid "Start sidux-Installer-Script\n"
+msgid "Start aptosid-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "Porneste scriptul de instalare sidux\n"
+msgstr "Porneste scriptul de instalare aptosid\n"
 "fara configuratie\n"
 "(aceasta configuratie va fi pierduta)"
 

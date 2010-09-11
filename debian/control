@@ -18,7 +18,7 @@ Architecture: any
 Depends: ${shlibs:Depends},
  ${misc:Depends},
  fll-installer-common (>= 0.8.10),
- fll-installer (>= 0.2.1),
+ fll-installer (>= 0.7.0),
  aptosid-scripts (>= 0.2.6),
  fll-live-initscripts (>= 2.0.64),
  psmisc,
@@ -28,9 +28,9 @@ Depends: ${shlibs:Depends},
 Recommends: install-usb-gui,
  menu,
  gparted | partitionmanager
-Description: sidux install-gui for fll-installer
- This is an sidux install-gui who makes it easy to configure the config file
- (~/.sidconf) and start the sidux-installer script.
+Description: aptosid install-gui for fll-installer
+ This is an aptosid install-gui who makes it easy to configure the config file
+ (~/.sidconf) and start the aptosid-installer script.
  .
  This is a FULLSTORY live-only package and should not be installed to an
  ordinary system.
@@ -43,7 +43,7 @@ Depends: ${shlibs:Depends},
  util-linux (>= 2.16.1),
  distro-defaults
 Recommends: install-gui (>=0.8.10) | cliinstaller (>=0.2.6)
-Description: sidux common scripts used by the installer frontends
+Description: aptosid common scripts used by the installer frontends
  Collection of useful scripts that can be used by the fll-installer frontends.
  .
  This is a FULLSTORY live-only package and should not be installed to an

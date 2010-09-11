@@ -19,12 +19,3 @@ cat >> "${DEST}.d/debian.list" \
 deb http://ftp.debian.org/debian/ sid main contrib non-free
 #deb-src http://ftp.debian.org/debian/ sid main contrib non-free
 EOF
-
-cat >> "${DEST}.d/sidux.list" \
-<<EOF
-#
-# you may need to uncomment the deb-src line if you want to get package sources
-#
-deb http://debian.tu-bs.de/project/sidux/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
-# deb-src http://debian.tu-bs.de/project/sidux/debian/ sid main contrib non-free fix.main fix.contrib fix.non-free
-EOF

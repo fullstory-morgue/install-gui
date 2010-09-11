@@ -10,30 +10,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property) 
-msgid "sidux HD-Installation"
-msgstr "sidux 硬盘安装程序"
+msgid "aptosid HD-Installation"
+msgstr "aptosid 硬盘安装程序"
 
 #: install-gui.glade:78(property) 
 msgid "exit"
 msgstr "退出"
 
 #: install-gui.glade:275(property) 
-msgid "Welcome to the sidux HD-Installation"
-msgstr "欢迎使用 sidux 的硬盘安装程序"
+msgid "Welcome to the aptosid HD-Installation"
+msgstr "欢迎使用 aptosid 的硬盘安装程序"
 
 #: install-gui.glade:425(property) 
-msgid "sidux takes no responsibility for data loss or hardware damage."
+msgid "aptosid takes no responsibility for data loss or hardware damage."
 msgstr "作者不对可能造成的数据丢失和硬件损坏负责！"
 
 #: install-gui.glade:452(property) 
-msgid "This application will install sidux to your harddisk."
-msgstr "该程序将安装 sidux 到您的硬盘."
+msgid "This application will install aptosid to your harddisk."
+msgstr "该程序将安装 aptosid 到您的硬盘."
 
 #: install-gui.glade:505(property) 
-msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-website: http://sidux.com"
-msgstr "如您需要关于安装的帮助请访问 sidux的网站、维基、论坛或者聊天室！\n\n"
-"sidux 的网站: http://sidux.com"
+msgid "If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
+"aptosid-website: http://aptosid.com"
+msgstr "如您需要关于安装的帮助请访问 aptosid的网站、维基、论坛或者聊天室！\n\n"
+"aptosid 的网站: http://aptosid.com"
 
 #: install-gui.glade:537(property) 
 msgid "Welcome"
@@ -170,10 +170,10 @@ msgid "Network"
 msgstr "网络"
 
 #: install-gui.glade:1709(property) 
-msgid "You have provided all the required information for a sidux-install.\n"
+msgid "You have provided all the required information for a aptosid-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
-msgstr "您需要提供必要的信息以开始 sidux 的安装程序.\n"
+msgstr "您需要提供必要的信息以开始 aptosid 的安装程序.\n"
 "您可以通过按\"上一步\"的改变您的选择.\n"
 "如果一切正常，您可以按下\"开始安装\"来开始安装."
 
@@ -184,10 +184,10 @@ msgstr "保存设置\n"
 "仅仅是 (~/.sidconf)"
 
 #: install-gui.glade:1821(property) 
-msgid "Start sidux-Installer-Script\n"
+msgid "Start aptosid-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "开始 sidux 的安装脚本\n"
+msgstr "开始 aptosid 的安装脚本\n"
 "不要设置\n"
 "(该设置将丢弃)"
 

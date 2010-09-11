@@ -10,30 +10,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: install-gui.glade:8(property) 
-msgid "sidux HD-Installation"
-msgstr "sidux HD-Installation"
+msgid "aptosid HD-Installation"
+msgstr "aptosid HD-Installation"
 
 #: install-gui.glade:78(property) 
 msgid "exit"
 msgstr "afslut"
 
 #: install-gui.glade:275(property) 
-msgid "Welcome to the sidux HD-Installation"
-msgstr "Velkommen til sidux HD-Installation"
+msgid "Welcome to the aptosid HD-Installation"
+msgstr "Velkommen til aptosid HD-Installation"
 
 #: install-gui.glade:425(property) 
-msgid "sidux takes no responsibility for data loss or hardware damage."
+msgid "aptosid takes no responsibility for data loss or hardware damage."
 msgstr "Producenten påtager sig intet ansvar for data tab eller hardware skader opstået som følge af brug af dette produkt."
 
 #: install-gui.glade:452(property) 
-msgid "This application will install sidux to your harddisk."
-msgstr "Dette program installerer sidux til din harddisk."
+msgid "This application will install aptosid to your harddisk."
+msgstr "Dette program installerer aptosid til din harddisk."
 
 #: install-gui.glade:505(property) 
-msgid "If you need any help with the installation, visit the sidux-website, -Wiki, -Forum or -Chat!\n\n"
-"sidux-website: http://sidux.com"
-msgstr "Hvis du har brug for hjælp med installationen så besøg sidux-hjemmesiden, -Wiki, -Forum eller -Chat\n\n"
-"sidux-Hjemmeside: http://sidux.com"
+msgid "If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
+"aptosid-website: http://aptosid.com"
+msgstr "Hvis du har brug for hjælp med installationen så besøg aptosid-hjemmesiden, -Wiki, -Forum eller -Chat\n\n"
+"aptosid-Hjemmeside: http://aptosid.com"
 
 #: install-gui.glade:537(property) 
 msgid "Welcome"
@@ -170,10 +170,10 @@ msgid "Network"
 msgstr "Netværk"
 
 #: install-gui.glade:1709(property) 
-msgid "You have provided all the required information for a sidux-install.\n"
+msgid "You have provided all the required information for a aptosid-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
-msgstr "Du har indtastet alt den nødvendige information og kan nu starte sidux installationen.\n"
+msgstr "Du har indtastet alt den nødvendige information og kan nu starte aptosid installationen.\n"
 "Du kan kontrollere eller ændre dine indstillinger igen ved at trykke \"Forrige\" knappen.\n"
 "Hvis alt er som du ønsker, start da installationen ved at trykke på \"Begynd installation\"."
 
@@ -184,10 +184,10 @@ msgstr "Gem configuration\n"
 "kun (~/.sidconf)"
 
 #: install-gui.glade:1821(property) 
-msgid "Start sidux-Installer-Script\n"
+msgid "Start aptosid-Installer-Script\n"
 "without configuration\n"
 "(this configuration will be lost)"
-msgstr "Start sidux-Installer-Script\n"
+msgstr "Start aptosid-Installer-Script\n"
 "uden configuration\n"
 "(denne konfiguration vil blive tabt)"
 
