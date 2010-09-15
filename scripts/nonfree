@@ -1,21 +1,16 @@
 #!/bin/bash
 #
 # Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+# Copyright: © 2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
 # License: GPL-2
 #   The install-gui program is licensed under the GNU General Public License,
 #   version 2.
 #
 
-DEST="/etc/apt/sources.list"
-
-# populate sources.list.d
-rm -f ${DEST}.d/*
-
-cat >> "${DEST}.d/debian.list" \
-<<EOF
+cat > "/etc/apt/sources.list.d/debian.list" <<EOF
 #
 # you may need to uncomment the deb-src line if you want to get package sources
 #
-deb http://ftp.debian.org/debian/ sid main contrib non-free
-#deb-src http://ftp.debian.org/debian/ sid main contrib non-free
+deb http://cdn.debian.net/debian/ sid main contrib non-free
+#deb-src http://cdn.debian.net/debian/ sid main contrib non-free
 EOF
