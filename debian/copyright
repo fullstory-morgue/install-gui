@@ -1,12 +1,12 @@
-This package was debianized by Horst Tritremmel <peter_weber69@gmx.at> on
+This package was debianized by Horst Tritremmel <hjt@users.berlios.de> on
 Thu, 18 Jan 2007 09:36:48 +0000.
 
-Upstream Author: Horst Tritremmel <peter_weber69@gmx.at>
+Upstream Author: Horst Tritremmel <hjt@users.berlios.de>
 
 It was downloaded from http://developer.berlios.de/projects/fullstory/
 
 Files: *
-Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
 Copyright: © 2007-2010 Joaquim Boura  <x-un-i@berlios.de>
 Copyright: © 2007-2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Copyright: © 2009-2010 Nikolas Poniros <nponiros@yahoo.com>
@@ -15,7 +15,7 @@ License: GPL-2
   version 2.
 
 Files: debian/*
-Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
 Copyright: © 2007-2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Copyright: © 2010      Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
@@ -39,7 +39,7 @@ License: GPL-2
 Files: scripts/fw-install,
        scripts/fw-install-exec,
        scripts/nonfree
-Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
+Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
@@ -51,7 +51,7 @@ License: GPL-2
   Public License, version 2.
 
 File: po/de.po:
-Copyright: © 2007,2008 Horst Tritremmel <hjt@sidux.com>
+Copyright: © 2007,2008 Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
