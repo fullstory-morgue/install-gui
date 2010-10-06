@@ -1,8 +1,14 @@
-install-gui (0.11.4) UNRELEASED; urgency=low
+install-gui (0.11.5) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix hjt's mail address.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 15 Sep 2010 18:51:24 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 06 Oct 2010 16:47:17 +0200
+
+install-gui (0.11.4) unstable; urgency=low
+
+  * fix x-un-i's mail address.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 06 Oct 2010 14:53:47 +0200
 
 install-gui (0.11.3) unstable; urgency=medium
 
@@ -124,7 +130,7 @@ install-gui (0.8.10) unstable; urgency=low
     Set tu-bs as default sidux repository in the nonfree script.
   * fll-installer-common.install was not checked in
 
- -- Joaquim Boura <x-un-i@sidux.com>  Tue, 05 Jan 2010 18:13:37 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Tue, 05 Jan 2010 18:13:37 +0100
 
 install-gui (0.8.9) unstable; urgency=low
 
@@ -157,19 +163,19 @@ install-gui (0.8.6) unstable; urgency=low
   * do not list vg or encrypted partitions as disks
     (thanks edhunter for noticing).
 
- -- Joaquim Boura <x-un-i@sidux.com>  Wed, 25 Nov 2009 22:41:07 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Wed, 25 Nov 2009 22:41:07 +0100
 
 install-gui (0.8.5) unstable; urgency=low
 
   * enhancements to support listing of encrypted partitions (thks edhunter)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Fri, 13 Nov 2009 18:55:17 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Fri, 13 Nov 2009 18:55:17 +0100
 
 install-gui (0.8.4) unstable; urgency=low
 
   * updated lang fr (merci, LjanA).
 
- -- Joaquim Boura <x-un-i@sidux.com>  Tue, 03 Nov 2009 20:33:30 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Tue, 03 Nov 2009 20:33:30 +0100
 
 install-gui (0.8.3) unstable; urgency=low
 
@@ -181,13 +187,13 @@ install-gui (0.8.2) unstable; urgency=low
 
   * um_all.sh uses fuser from psmisc. added to the depends
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 18 Oct 2009 22:48:16 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 18 Oct 2009 22:48:16 +0200
 
 install-gui (0.8.1) unstable; urgency=low
 
   * mark lines for lvm volumes as lvm not norm on the -p output
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 11 Oct 2009 20:37:02 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 11 Oct 2009 20:37:02 +0200
 
 install-gui (0.8.0) unstable; urgency=low
 
@@ -209,7 +215,7 @@ install-gui (0.7.10) unstable; urgency=low
   * forgotten udevinfo replaced by udevadm info.( thks edhunter for noticing)
     hal-lock is not launching fdisk. use plain calls (thks Steve for noticing)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 13 Jul 2009 18:28:25 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Mon, 13 Jul 2009 18:28:25 +0200
 
 install-gui (0.7.9) unstable; urgency=low
 
@@ -267,7 +273,7 @@ install-gui (0.7.3) unstable; urgency=low
 
   * updated greek language file (thks edhunter)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Tue, 28 Apr 2009 20:39:31 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Tue, 28 Apr 2009 20:39:31 +0200
 
 install-gui (0.7.2) unstable; urgency=low
 
@@ -313,7 +319,7 @@ install-gui (0.6.65) unstable; urgency=low
   * do not umount /fll/persist in um_all.sh
   * Release notes updated
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 17 Dec 2008 20:41:02 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 17 Dec 2008 20:41:02 +0100
 
 install-gui (0.6.64) unstable; urgency=low
 
@@ -324,7 +330,7 @@ install-gui (0.6.64) unstable; urgency=low
   [ Horst Tritremmel ]
   * - Fix the icon in button_install_now/install_window
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 26 Nov 2008 15:42:23 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 26 Nov 2008 15:42:23 +0100
 
 install-gui (0.6.63) unstable; urgency=low
 
@@ -337,14 +343,14 @@ install-gui (0.6.62) unstable; urgency=low
 
   * fix the code concerning fromiso to skip umount e device.
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sat, 15 Nov 2008 14:28:14 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Sat, 15 Nov 2008 14:28:14 +0100
 
 install-gui (0.6.61) unstable; urgency=low
 
   * When fromiso is running skip the device where the fromiso is installed.
     This can be dangerous for the user but we don't have other chance -:(
 
- -- Joaquim Boura <x-un-i@sidux.com>  Fri, 14 Nov 2008 20:33:35 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Fri, 14 Nov 2008 20:33:35 +0100
 
 install-gui (0.6.60) unstable; urgency=low
 
@@ -359,7 +365,7 @@ install-gui (0.6.59) unstable; urgency=low
 
   * swapoff in mount_check removed
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 20 Oct 2008 21:30:07 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 20 Oct 2008 21:30:07 +0200
 
 install-gui (0.6.58) unstable; urgency=low
 
@@ -367,13 +373,13 @@ install-gui (0.6.58) unstable; urgency=low
     activate all swap partitions after partition is done
   * disable/enable swaps on the automount popup disabler/enabler
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 13 Oct 2008 23:22:11 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Mon, 13 Oct 2008 23:22:11 +0200
 
 install-gui (0.6.57) unstable; urgency=low
 
   * um_all bugfix
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Oct 2008 22:13:53 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 13 Oct 2008 22:13:53 +0200
 
 install-gui (0.6.56) unstable; urgency=low
 
@@ -386,19 +392,19 @@ install-gui (0.6.56) unstable; urgency=low
   * um_all.sh in callbacks.c added
   * um_all* added to debian/install
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Oct 2008 21:22:33 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 13 Oct 2008 21:22:33 +0200
 
 install-gui (0.6.55) unstable; urgency=low
 
   * added script to umount all partitions before installing
 
- -- Joaquim Boura <x-un-i@sidux.com>  Wed, 08 Oct 2008 00:07:38 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Wed, 08 Oct 2008 00:07:38 +0200
 
 install-gui (0.6.54) unstable; urgency=low
 
   * enhanced list of forbidden chracters in longname
 
- -- Joaquim Boura <x-un-i@sidux.com>  Tue, 07 Oct 2008 18:19:46 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Tue, 07 Oct 2008 18:19:46 +0200
 
 install-gui (0.6.53) unstable; urgency=low
 
@@ -406,26 +412,26 @@ install-gui (0.6.53) unstable; urgency=low
     variable NAME_NAME must be written without any quotes!!
   * dropped last quote from NAME_NAME
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 06 Oct 2008 21:29:08 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Mon, 06 Oct 2008 21:29:08 +0200
 
 install-gui (0.6.52) unstable; urgency=low
 
   * function to escape special shell chars in passwords
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 28 Sep 2008 19:21:41 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 28 Sep 2008 19:21:41 +0200
 
 install-gui (0.6.51) unstable; urgency=low
 
   * small text fix
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 22 Sep 2008 19:22:42 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 22 Sep 2008 19:22:42 +0200
 
 install-gui (0.6.50) unstable; urgency=low
 
   * on the final page, installation text changed
   * Release notes updated
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 22 Sep 2008 18:55:43 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 22 Sep 2008 18:55:43 +0200
 
 install-gui (0.6.49) unstable; urgency=low
 
@@ -443,7 +449,7 @@ install-gui (0.6.47) unstable; urgency=low
 
   * larger size for some widgets
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 17 Sep 2008 20:12:38 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 17 Sep 2008 20:12:38 +0200
 
 install-gui (0.6.46) unstable; urgency=low
 
@@ -464,13 +470,13 @@ install-gui (0.6.45) unstable; urgency=low
 
   * mv icons/pixmaps.install-gui/* to usr/share/install-gui/pixmaps/
 
- -- Horst Tritremmel <hjt@sidux.com>  Sun, 14 Sep 2008 21:26:31 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Sun, 14 Sep 2008 21:26:31 +0200
 
 install-gui (0.6.44) unstable; urgency=low
 
   * udevtrigger doesnot exist anymore
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 14 Sep 2008 11:28:40 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 14 Sep 2008 11:28:40 +0200
 
 install-gui (0.6.43) unstable; urgency=low
 
@@ -482,13 +488,13 @@ install-gui (0.6.42) unstable; urgency=low
 
   * A-Z not allowed in username
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 08 Aug 2008 08:16:53 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 08 Aug 2008 08:16:53 +0200
 
 install-gui (0.6.41) unstable; urgency=low
 
   * allow only A-Za-z0-9.- in username
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 06 Aug 2008 10:21:15 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 06 Aug 2008 10:21:15 +0200
 
 install-gui (0.6.40) unstable; urgency=low
 
@@ -504,7 +510,7 @@ install-gui (0.6.39) unstable; urgency=low
 
   * gui improvements, thx to cleary
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 13 Jun 2008 11:23:57 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 13 Jun 2008 11:23:57 +0200
 
 install-gui (0.6.38) unstable; urgency=low
 
@@ -519,25 +525,25 @@ install-gui (0.6.37) unstable; urgency=low
   * use a wrapper to call cfdisk/fdisk so we call mkfs.ext3 or mkswap on the
     newly created partitions
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 02 Jun 2008 00:19:00 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Mon, 02 Jun 2008 00:19:00 +0200
 
 install-gui (0.6.36) unstable; urgency=low
 
   * use long names for lvm (/dev/mapper/...)
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 28 May 2008 11:18:23 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 28 May 2008 11:18:23 +0200
 
 install-gui (0.6.35) unstable; urgency=low
 
   * added logging module to disk.py
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 27 May 2008 12:43:04 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 27 May 2008 12:43:04 +0200
 
 install-gui (0.6.34) unstable; urgency=low
 
   * s/install fromiso into USB/live-usbstick installer/
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 27 May 2008 09:28:29 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 27 May 2008 09:28:29 +0200
 
 install-gui (0.6.33) unstable; urgency=low
 
@@ -556,7 +562,7 @@ install-gui (0.6.33) unstable; urgency=low
   * allow lvm partitions added, pls test
   * Abort message added for backend, thx to x-un-i
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 26 May 2008 16:35:22 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 26 May 2008 16:35:22 +0200
 
 install-gui (0.6.32) unstable; urgency=low
 
@@ -570,7 +576,7 @@ install-gui (0.6.31) unstable; urgency=low
   * don't show /dev/loop0
   * disk.py bug fix
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 15 May 2008 10:35:52 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 15 May 2008 10:35:52 +0200
 
 install-gui (0.6.30) unstable; urgency=low
 
@@ -580,7 +586,7 @@ install-gui (0.6.30) unstable; urgency=low
   [ Horst Tritremmel ]
   * another /sys/block/..../device call found and changed
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 14 May 2008 16:26:18 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 14 May 2008 16:26:18 +0200
 
 install-gui (0.6.29) unstable; urgency=low
 
@@ -588,25 +594,25 @@ install-gui (0.6.29) unstable; urgency=low
   * disk.py added
   * udevinfo instead of /sys/block/..../device
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 14 May 2008 15:49:48 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 14 May 2008 15:49:48 +0200
 
 install-gui (0.6.28) unstable; urgency=low
 
   * bad fr translation fixed
 
- -- Joaquim Boura <x-un-i@sidux.com>  Wed, 30 Apr 2008 19:23:59 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Wed, 30 Apr 2008 19:23:59 +0200
 
 install-gui (0.6.27) unstable; urgency=low
 
   * get-sidux-binary-gfx text removed from progressbar window
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 04 Apr 2008 21:58:51 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 04 Apr 2008 21:58:51 +0200
 
 install-gui (0.6.26) unstable; urgency=low
 
   * some fixes in the pt language file. Thanks to Rui Umbelino (VaMPiRiC_CRoW)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 31 Mar 2008 00:48:31 +0200
+ -- Joaquim Boura <x-un-i@berlios.de>  Mon, 31 Mar 2008 00:48:31 +0200
 
 install-gui (0.6.25) unstable; urgency=low
 
@@ -620,14 +626,14 @@ install-gui (0.6.24) unstable; urgency=low
 
   * corrected the pt language files. Thanks to Rui Umbelino (VaMPiRiC_CRoW)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 09 Mar 2008 17:25:10 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 09 Mar 2008 17:25:10 +0100
 
 install-gui (0.6.23) unstable; urgency=low
 
   * remove INSTALL_META from config file
   * HD_AUTO added to REGISTERED in config file
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 04 Mar 2008 20:41:52 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 04 Mar 2008 20:41:52 +0100
 
 install-gui (0.6.22) unstable; urgency=low
 
@@ -641,7 +647,7 @@ install-gui (0.6.22) unstable; urgency=low
   * progressbar_info.png, terminal_info.png removed
   * rm medianotifierrc fixed
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 03 Mar 2008 12:17:21 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 03 Mar 2008 12:17:21 +0100
 
 install-gui (0.6.21) unstable; urgency=low
 
@@ -662,7 +668,7 @@ install-gui (0.6.19) unstable; urgency=low
     changed to plain english (muchan)
   * some more fixes in ja language file. (muchan)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Wed, 27 Feb 2008 07:07:17 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Wed, 27 Feb 2008 07:07:17 +0100
 
 install-gui (0.6.18) unstable; urgency=low
 
@@ -700,7 +706,7 @@ install-gui (0.6.14) unstable; urgency=low
 
   * s/install-gui/install-gui.bash in install-gui.menu
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 19 Feb 2008 20:14:36 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 19 Feb 2008 20:14:36 +0100
 
 install-gui (0.6.13) unstable; urgency=low
 
@@ -722,7 +728,7 @@ install-gui (0.6.11) unstable; urgency=low
 
   * firmware install button added
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 06 Feb 2008 12:36:57 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 06 Feb 2008 12:36:57 +0100
 
 install-gui (0.6.10) unstable; urgency=low
 
@@ -790,7 +796,7 @@ install-gui (0.6.3) unstable; urgency=low
 
   * Hostname check added
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 09 Jan 2008 20:28:12 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 09 Jan 2008 20:28:12 +0100
 
 install-gui (0.6.2) unstable; urgency=low
 
@@ -818,25 +824,25 @@ install-gui (0.5.5) unstable; urgency=low
   * show only partiton entry in Installation-target combobox if a usb-device
     is selcted in root-partiton combobox
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 27 Dec 2007 10:29:38 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 27 Dec 2007 10:29:38 +0100
 
 install-gui (0.5.4) unstable; urgency=low
 
   * fixing cut+paste typo in .desktop localisation.
 
- -- Joaquim Boura <x-un-i@sidux.com>  Wed, 26 Dec 2007 17:18:59 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Wed, 26 Dec 2007 17:18:59 +0100
 
 install-gui (0.5.3) unstable; urgency=low
 
   * search in treeview1 (mountpoints of other partitions) disabled
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 19 Dec 2007 20:46:20 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 19 Dec 2007 20:46:20 +0100
 
 install-gui (0.5.2) unstable; urgency=low
 
   * Translation thanks to RoEn
 
- -- Joaquim Boura <x-un-i@sidux.com>  Tue, 18 Dec 2007 13:23:12 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Tue, 18 Dec 2007 13:23:12 +0100
 
 install-gui (0.5.1) unstable; urgency=low
 
@@ -847,7 +853,7 @@ install-gui (0.5.1) unstable; urgency=low
   * fixed missing quotes in glade-file
   * dont allow jfs format
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 07 Dec 2007 21:19:09 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 07 Dec 2007 21:19:09 +0100
 
 install-gui (0.5.0) unstable; urgency=low
 
@@ -873,26 +879,26 @@ install-gui (0.4.2) unstable; urgency=low
   [ Horst Tritremmel ]
   * fontsize reworked
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 03 Dec 2007 16:01:59 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 03 Dec 2007 16:01:59 +0100
 
 install-gui (0.4.1) unstable; urgency=low
 
   * well same code spreaded over different places ...
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 25 Nov 2007 21:39:44 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 25 Nov 2007 21:39:44 +0100
 
 install-gui (0.4.0) unstable; urgency=low
 
   * changed separator into "," in the output of fll_fshelper --install-gui so
     lvm can be handled smoothly.
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sat, 24 Nov 2007 09:35:18 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Sat, 24 Nov 2007 09:35:18 +0100
 
 install-gui (0.3.21) unstable; urgency=low
 
   * release notes updated
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 20 Nov 2007 17:21:39 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 20 Nov 2007 17:21:39 +0100
 
 install-gui (0.3.20) unstable; urgency=low
 
@@ -909,7 +915,7 @@ install-gui (0.3.19) unstable; urgency=low
   [ Horst Tritremmel ]
   * "successful" typo.
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 05 Nov 2007 12:04:18 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 05 Nov 2007 12:04:18 +0100
 
 install-gui (0.3.18) unstable; urgency=low
 
@@ -926,7 +932,7 @@ install-gui (0.3.17) unstable; urgency=low
 
   * po files updated
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 16 Oct 2007 09:54:27 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 16 Oct 2007 09:54:27 +0200
 
 install-gui (0.3.16) unstable; urgency=low
 
@@ -943,13 +949,13 @@ install-gui (0.3.15) unstable; urgency=low
   * changed some text colors
   * changed some info text
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 11 Oct 2007 10:21:12 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 11 Oct 2007 10:21:12 +0200
 
 install-gui (0.3.14) unstable; urgency=low
 
   * hide radiobutton for terminal install
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 04 Oct 2007 20:31:46 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 04 Oct 2007 20:31:46 +0200
 
 install-gui (0.3.13) unstable; urgency=low
 
@@ -957,26 +963,26 @@ install-gui (0.3.13) unstable; urgency=low
   * code for edit config file rewritten
   * language files uodated
 
- -- Horst Tritremmel <hjt@sidux.com>  Sun, 30 Sep 2007 14:42:24 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Sun, 30 Sep 2007 14:42:24 +0200
 
 install-gui (0.3.12) unstable; urgency=low
 
   * xfce mousepad editor added to configuration editor var
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 19 Sep 2007 10:18:50 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 19 Sep 2007 10:18:50 +0200
 
 install-gui (0.3.11) unstable; urgency=low
 
   * real-time password length checker added
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 14 Sep 2007 10:59:35 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 14 Sep 2007 10:59:35 +0200
 
 install-gui (0.3.10) unstable; urgency=low
 
   * language files updated
   * install fromiso into USB button name changed
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 13 Sep 2007 21:43:13 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 13 Sep 2007 21:43:13 +0200
 
 install-gui (0.3.9) unstable; urgency=low
 
@@ -998,46 +1004,46 @@ install-gui (0.3.8) unstable; urgency=low
   * install-usb-gui button added
   * install-usb-icon added
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 10 Sep 2007 21:56:06 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 10 Sep 2007 21:56:06 +0200
 
 install-gui (0.3.7) unstable; urgency=low
 
   * depends fll-live-initscripts (>= 1.2.8)
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 07 Sep 2007 11:29:29 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 07 Sep 2007 11:29:29 +0200
 
 install-gui (0.3.6) unstable; urgency=low
 
   * bugfix for empty rootpart if install button is pressed
   * enable hoover follow in treeview
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 06 Sep 2007 21:45:02 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 06 Sep 2007 21:45:02 +0200
 
 install-gui (0.3.5) unstable; urgency=high
 
   * very important bugfix for last commit
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 05 Sep 2007 09:54:49 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 05 Sep 2007 09:54:49 +0200
 
 install-gui (0.3.4) unstable; urgency=low
 
   * Set mountpoint of other partitions now selectable with combobox in
     treeview
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 04 Sep 2007 15:18:05 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 04 Sep 2007 15:18:05 +0200
 
 install-gui (0.3.3) unstable; urgency=low
 
   * udevtrigger added, update disk name/symlinks after partitioning/
     reformatting.
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 31 Aug 2007 12:24:18 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 31 Aug 2007 12:24:18 +0200
 
 install-gui (0.3.2) unstable; urgency=low
 
   * hardcoded /home/sidux changed to $HOME
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 28 Aug 2007 10:21:41 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 28 Aug 2007 10:21:41 +0200
 
 install-gui (0.3.1) unstable; urgency=low
 
@@ -1066,19 +1072,19 @@ install-gui (0.2.23) unstable; urgency=low
   * Harddisc scan bugfix for Start Partitionmanger
   * start sequence between install success window and install-meta changed
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 13 Aug 2007 10:21:28 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 13 Aug 2007 10:21:28 +0200
 
 install-gui (0.2.22) unstable; urgency=low
 
   * second change of progressbar info text
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 30 Jul 2007 10:36:55 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 30 Jul 2007 10:36:55 +0200
 
 install-gui (0.2.21) unstable; urgency=low
 
   * progressbar infotext changed
 
- -- Horst Tritremmel <hjt@sidux.com>  Fri, 27 Jul 2007 12:47:44 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 27 Jul 2007 12:47:44 +0200
 
 install-gui (0.2.20) unstable; urgency=low
 
@@ -1090,13 +1096,13 @@ install-gui (0.2.19) unstable; urgency=low
 
   * timezonetext color changed
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 05 Jul 2007 12:12:48 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 05 Jul 2007 12:12:48 +0200
 
 install-gui (0.2.18) unstable; urgency=low
 
   * switch buttons back to standard gtk2 widgets
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 04 Jul 2007 11:21:20 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 04 Jul 2007 11:21:20 +0200
 
 install-gui (0.2.17) unstable; urgency=low
 
@@ -1106,7 +1112,7 @@ install-gui (0.2.17) unstable; urgency=low
   [ Horst Tritremmel ]
   * change progressbar color for gaia, using #A4A58B
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 03 Jul 2007 10:41:44 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 03 Jul 2007 10:41:44 +0200
 
 install-gui (0.2.16) unstable; urgency=low
 
@@ -1121,38 +1127,38 @@ install-gui (0.2.15) unstable; urgency=low
   * show the installation time in end dialog
   * xfs removed, backend does not support it
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 02 Jul 2007 10:23:12 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 02 Jul 2007 10:23:12 +0200
 
 install-gui (0.2.14) unstable; urgency=low
 
   * hide the "Start sidux-Installer-Script without configuration" radiobutton
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 26 Jun 2007 16:43:24 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 26 Jun 2007 16:43:24 +0200
 
 install-gui (0.2.13) unstable; urgency=low
 
   * hide the language section
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 25 Jun 2007 15:54:54 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 25 Jun 2007 15:54:54 +0200
 
 install-gui (0.2.12) unstable; urgency=low
 
   * reactivate bootdisc checkbox
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 21 Jun 2007 14:42:12 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 21 Jun 2007 14:42:12 +0200
 
 install-gui (0.2.11) unstable; urgency=low
 
   * new fll-locales scan
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 21 Jun 2007 14:40:31 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 21 Jun 2007 14:40:31 +0200
 
 install-gui (0.2.10) unstable; urgency=low
 
   * add language selection
   * add HD_LANG_COUNTRY
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 20 Jun 2007 07:19:53 +1000
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 20 Jun 2007 07:19:53 +1000
 
 install-gui (0.2.9) unstable; urgency=low
 
@@ -1170,7 +1176,7 @@ install-gui (0.2.7) unstable; urgency=low
 
   * Set mountpoint of other partitions bugfix
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 14 Jun 2007 22:26:50 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 14 Jun 2007 22:26:50 +0200
 
 install-gui (0.2.6) unstable; urgency=low
 
@@ -1189,26 +1195,26 @@ install-gui (0.2.5) unstable; urgency=low
   * add harddisk combobox for partition manager
   * change progressbar color
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 14 Jun 2007 10:31:08 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 14 Jun 2007 10:31:08 +0200
 
 install-gui (0.2.4) unstable; urgency=low
 
   * check box for partition tool, gparted or cfdisk selectable
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 12 Jun 2007 15:00:41 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 12 Jun 2007 15:00:41 +0200
 
 install-gui (0.2.3) unstable; urgency=low
 
   * another bugfix for readable comboboxes
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 12 Jun 2007 13:45:14 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 12 Jun 2007 13:45:14 +0200
 
 install-gui (0.2.2) unstable; urgency=low
 
   * revert back to only readable comboboxes
   * hopefully fixed the usb_device scan
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 11 Jun 2007 15:30:23 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 11 Jun 2007 15:30:23 +0200
 
 install-gui (0.2.1) unstable; urgency=low
 
@@ -1227,25 +1233,25 @@ install-gui (0.2.0) unstable; urgency=low
 
   * changed knx-installer to fll-installer.
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 07 Jun 2007 21:31:51 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 07 Jun 2007 21:31:51 +0200
 
 install-gui (0.1.8) unstable; urgency=low
 
   * comboboxes not editable
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 30 May 2007 10:19:06 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 30 May 2007 10:19:06 +0200
 
 install-gui (0.1.7) unstable; urgency=low
 
   * root partition combobox bug fix
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 28 May 2007 21:24:05 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 28 May 2007 21:24:05 +0200
 
 install-gui (0.1.6) unstable; urgency=low
 
   * install-progressbar now included in install-gui
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 24 May 2007 10:08:23 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 24 May 2007 10:08:23 +0200
 
 install-gui (0.1.5) unstable; urgency=low
 
@@ -1262,7 +1268,7 @@ install-gui (0.1.4) unstable; urgency=low
   * new timezone feature
   * update language files
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 08 May 2007 22:17:57 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 08 May 2007 22:17:57 +0200
 
 install-gui (0.1.3) unstable; urgency=low
 
@@ -1288,7 +1294,7 @@ install-gui (0.1.1) unstable; urgency=low
 
   * update ru.po and hr.po
 
- -- Horst Tritremmel <hjt@sidux.com>  Sun, 06 May 2007 20:49:57 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Sun, 06 May 2007 20:49:57 +0200
 
 install-gui (0.1.0) unstable; urgency=low
 
@@ -1305,20 +1311,20 @@ install-gui (0.0.53) unstable; urgency=low
 
   * add checkbox to start cupsys and ssh service
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 19 Apr 2007 17:21:49 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 19 Apr 2007 17:21:49 +0200
 
 install-gui (0.0.52) unstable; urgency=low
 
   * resize sidux-inst-conf.png to 48x48
 
- -- Horst Tritremmel <hjt@sidux.com>  Tue, 10 Apr 2007 16:15:16 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 10 Apr 2007 16:15:16 +0200
 
 install-gui (0.0.51) unstable; urgency=low
 
   * sidux icon smaller
   * new it.po file
 
- -- Horst Tritremmel <hjt@sidux.com>  Mon, 09 Apr 2007 22:23:42 +0200
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 09 Apr 2007 22:23:42 +0200
 
 install-gui (0.0.50) unstable; urgency=low
 
@@ -1351,7 +1357,7 @@ install-gui (0.0.48) unstable; urgency=low
   * disable KDE Autostart for gparted start
   * update rebuildfstab call
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 22 Mar 2007 17:35:29 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 22 Mar 2007 17:35:29 +0100
 
 install-gui (0.0.47) unstable; urgency=low
 
@@ -1364,43 +1370,43 @@ install-gui (0.0.46) unstable; urgency=low
   * add ro.po language file
   * ro.po bugfix
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed,  7 Mar 2007 21:20:17 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed,  7 Mar 2007 21:20:17 +0100
 
 install-gui (0.0.45) unstable; urgency=low
 
   * hr.po fix
 
- -- Horst Tritremmel <hjt@sidux.com>  Wed, 21 Feb 2007 10:17:53 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 21 Feb 2007 10:17:53 +0100
 
 install-gui (0.0.43) unstable; urgency=low
 
   * add the metapackage message to po files
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Tue, 20 Feb 2007 21:30:56 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 20 Feb 2007 21:30:56 +0100
 
 install-gui (0.0.42) unstable; urgency=low
 
   * new hr.po file, thx to cobra
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Tue, 20 Feb 2007 09:00:14 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue, 20 Feb 2007 09:00:14 +0100
 
 install-gui (0.0.40) unstable; urgency=low
 
   * search for usbdevices bugfix
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 16 Feb 2007 23:49:59 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 16 Feb 2007 23:49:59 +0100
 
 install-gui (0.0.38) unstable; urgency=low
 
   * add label_rootpart_warning
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 16 Feb 2007 21:06:48 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 16 Feb 2007 21:06:48 +0100
 
 install-gui (0.0.37) unstable; urgency=low
 
   * add cathbard button
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 16 Feb 2007 10:58:39 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 16 Feb 2007 10:58:39 +0100
 
 install-gui (0.0.35) unstable; urgency=low
 
@@ -1408,7 +1414,7 @@ install-gui (0.0.35) unstable; urgency=low
   * put install-gui.desktop to desktop.
   * start gparted with on_gparted_clicked instead of released.
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu, 15 Feb 2007 09:16:08 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 15 Feb 2007 09:16:08 +0100
 
 install-gui (0.0.33) unstable; urgency=low
 
@@ -1419,19 +1425,19 @@ install-gui (0.0.33) unstable; urgency=low
   [ Horst Tritremmel ]
   * changed config file name
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu,  8 Feb 2007 20:43:24 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu,  8 Feb 2007 20:43:24 +0100
 
 install-gui (0.0.32) unstable; urgency=low
 
   * add a dialog window for no root check
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu,  8 Feb 2007 11:22:25 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu,  8 Feb 2007 11:22:25 +0100
 
 install-gui (0.0.31) unstable; urgency=low
 
   * root user check added
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu,  8 Feb 2007 09:57:36 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu,  8 Feb 2007 09:57:36 +0100
 
 install-gui (0.0.29) unstable; urgency=low
 
@@ -1443,43 +1449,43 @@ install-gui (0.0.28) unstable; urgency=low
 
   * non root bug fix
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Tue,  6 Feb 2007 23:06:49 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Tue,  6 Feb 2007 23:06:49 +0100
 
 install-gui (0.0.26) unstable; urgency=low
 
   * add install metapackages
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Mon,  5 Feb 2007 22:04:41 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon,  5 Feb 2007 22:04:41 +0100
 
 install-gui (0.0.25) unstable; urgency=low
 
   * add usb device check, grub only in partition
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Sun,  4 Feb 2007 22:04:53 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Sun,  4 Feb 2007 22:04:53 +0100
 
 install-gui (0.0.23) unstable; urgency=low
 
   * po/sp.po to po/es.sp changed
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu,  1 Feb 2007 14:29:43 +0000
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu,  1 Feb 2007 14:29:43 +0000
 
 install-gui (0.0.21) unstable; urgency=low
 
   * desktop symbol changed
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Wed, 31 Jan 2007 21:23:15 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Wed, 31 Jan 2007 21:23:15 +0100
 
 install-gui (0.0.19) unstable; urgency=low
 
   * use good name instead of a bad one ;)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sat, 27 Jan 2007 23:09:37 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Sat, 27 Jan 2007 23:09:37 +0100
 
 install-gui (0.0.18) unstable; urgency=low
 
   * add live mode check
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Thu, 25 Jan 2007 22:45:56 +0000
+ -- Horst Tritremmel <hjt@users.berlios.de>  Thu, 25 Jan 2007 22:45:56 +0000
 
 install-gui (0.0.16) unstable; urgency=low
 
@@ -1498,49 +1504,49 @@ install-gui (0.0.14) unstable; urgency=low
 
   * add small sidux-logo
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Mon, 22 Jan 2007 22:15:13 +0000
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 22 Jan 2007 22:15:13 +0000
 
 install-gui (0.0.13) unstable; urgency=low
 
   * sidux logo changed
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Mon, 22 Jan 2007 22:08:57 +0000
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 22 Jan 2007 22:08:57 +0000
 
 install-gui (0.0.12) unstable; urgency=low
 
   * add password check after left the password page
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Mon, 22 Jan 2007 16:11:24 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 22 Jan 2007 16:11:24 +0100
 
 install-gui (0.0.10) unstable; urgency=low
 
   * add po-files.
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Mon, 22 Jan 2007 10:01:48 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Mon, 22 Jan 2007 10:01:48 +0100
 
 install-gui (0.0.8) unstable; urgency=low
 
   * changed and add po language files
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Sat, 20 Jan 2007 23:44:16 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Sat, 20 Jan 2007 23:44:16 +0100
 
 install-gui (0.0.6) unstable; urgency=low
 
   * change knx-installer option nonInteractive to installer
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 19 Jan 2007 23:17:25 +0000
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 19 Jan 2007 23:17:25 +0000
 
 install-gui (0.0.4) unstable; urgency=low
 
   * uncomment printf call
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 19 Jan 2007 13:15:08 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 19 Jan 2007 13:15:08 +0100
 
 install-gui (0.0.3) unstable; urgency=low
 
   * hopefully fixed the passwort crypt problem
 
- -- Horst Tritremmel <peter_weber69@gmx.at>  Fri, 19 Jan 2007 13:08:17 +0100
+ -- Horst Tritremmel <hjt@users.berlios.de>  Fri, 19 Jan 2007 13:08:17 +0100
 
 install-gui (0.0.1) unstable; urgency=low
 
