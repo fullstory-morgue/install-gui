@@ -7,7 +7,7 @@ It was downloaded from http://developer.berlios.de/projects/fullstory/
 
 Files: *
 Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
-Copyright: © 2007-2010 Joaquim Boura  <x-un-i@sidux.com>
+Copyright: © 2007-2010 Joaquim Boura  <x-un-i@berlios.de>
 Copyright: © 2007-2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Copyright: © 2009-2010 Nikolas Poniros <nponiros@yahoo.com>
 License: GPL-2
@@ -17,7 +17,7 @@ License: GPL-2
 Files: debian/*
 Copyright: © 2007-2008 Horst Tritremmel <peter_weber69@gmx.at>
 Copyright: © 2007-2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Copyright: © 2010      Joaquim Boura  <x-un-i@sidux.com>
+Copyright: © 2010      Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
@@ -31,7 +31,7 @@ License: GPL-2
 Files: scripts/disk
        scripts/automount-popup,
        scripts/um_all
-Copyright: © 2008-2010 Joaquim Boura <x-un-i@sidux.com>
+Copyright: © 2008-2010 Joaquim Boura <x-un-i@berlios.de>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
@@ -106,7 +106,7 @@ License: GPL-2
   Public License, version 2.
 
 File: po/pt.po:
-Copyright: © 2007,2008 Joaquim Boura <x-un-i@sidux.com>
+Copyright: © 2007,2008 Joaquim Boura <x-un-i@berlios.de>
 	   © 2007,2008 Rui Umbelino (VaMPiRiC_CRoW)
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
