@@ -1,8 +1,12 @@
 install-gui (0.11.6) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 06 Oct 2010 16:47:41 +0200
+  [ Niall Walsh ]
+  * make um_all ignore the FLL_MOUNTPOINT device
+
+ -- Niall Walsh <niallwalsh@users.berlios.de>  Wed, 20 Oct 2010 17:50:53 +0100
 
 install-gui (0.11.5) unstable; urgency=low
 
