@@ -60,7 +60,7 @@ partition_or_volume_info()
 		fgrep -w -e DEVNAME -e ID_FS_TYPE -e ID_FS_USAGE -e ID_FS_UUID |\
 		sed 's#E: ##' |\
 		awk -F"=" -v var="$mypar" '{printf "%s,", $2}END{print var}'| \
-		awk -F"," '{printf  "/dev/%s,%s,%s,%s,%s\n",$1,$3,$4,$2,$5}' |\
+		awk -F"," '{printf  "%s,%s,%s,%s,%s\n",$1,$3,$4,$2,$5}' |\
 		fgrep -v -e "LVM2_member"|fgrep "filesystem"
 
 }
@@ -93,7 +93,7 @@ parameter_p()
 		done
 	done
 
-	volumes=`ls /dev/mapper/* | fgrep -v "CONTROL"`
+	volumes=`ls /dev/mapper/* | egrep -v "CONTROL|${FLL_DISTRO_NAME}-live"`
 	for vol in $volumes
 		do
 			partition_or_volume_info_mapper $vol
@@ -171,6 +171,9 @@ while true ; do
 done
 
 #--------------------------------------------------------------
+# read distro defaults
+. /etc/default/distro
+
 if [ -n "${PRINT_DISK}" ]; then
 	parameter_d
 elif [ -n "${PRINT_NOUSB}" ]; then
