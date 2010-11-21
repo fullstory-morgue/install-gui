@@ -1426,7 +1426,7 @@ create_install_progressbar (void)
   gtk_widget_show (viewport5);
   gtk_container_add (GTK_CONTAINER (scrolledwindow5), viewport5);
 
-  label_generally2 = gtk_label_new (_("<span font_desc=\"11\"><b>aptosid</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hard- and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilized with aptosid' own packages and scripts.\n\nThanks to Hetzner Online AG for sponsoring aptosid.com.\n\n\nOn behalf of the aptosid team:\n     Stefan Lippers-Hollmann (slh) \n</span>"));
+  label_generally2 = gtk_label_new (_("<span font_desc=\"11\"><b>aptosid</b> is a full featured Debian Sid based live CD with a special focus on hard disk installations, a clean upgrade path within Sid and additional hardware and software support.\nThe ISO is completely based on Debian Sid, enriched and stabilised with aptosid's own packages and scripts.\n\nThanks to Hetzner Online AG for sponsoring aptosid.com.\n\n\nOn behalf of the aptosid team:\n     Stefan Lippers-Hollmann (slh) \n</span>"));
   gtk_widget_show (label_generally2);
   gtk_container_add (GTK_CONTAINER (viewport5), label_generally2);
   gtk_label_set_use_markup (GTK_LABEL (label_generally2), TRUE);

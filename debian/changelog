@@ -1,8 +1,9 @@
 install-gui (0.11.8) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * Fixed three typos on the displayed text. Thks to tjtag
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 20 Nov 2010 14:18:59 +0100
+ -- Joaquim Boura <x-un-i@sidux.com>  Sun, 21 Nov 2010 16:33:01 +0100
 
 install-gui (0.11.7) unstable; urgency=low
 
