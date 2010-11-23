@@ -1,6 +1,5 @@
-install-gui (0.11.8) UNRELEASED; urgency=low
+install-gui (0.11.8) unstable; urgency=low
 
-  * NOT RELEASED YET
   * Fixed three typos on the displayed text. Thks to tjtag
 
  -- Joaquim Boura <x-un-i@sidux.com>  Sun, 21 Nov 2010 16:33:01 +0100
