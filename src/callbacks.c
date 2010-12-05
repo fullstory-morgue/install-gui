@@ -1097,8 +1097,6 @@ on_button_xparted_clicked              (GtkButton       *button,
    while (gtk_events_pending ())
           gtk_main_iteration ();
 
-   system ("/usr/share/fll-installer-common/automount-popup disable");
-
    GtkWidget *combobox = lookup_widget (GTK_WIDGET (button), "combobox_hd");
    gchar *hd = gtk_combo_box_get_active_text(GTK_COMBO_BOX (combobox));
 
@@ -1155,8 +1153,6 @@ on_button_xparted_clicked              (GtkButton       *button,
            system("gparted");
        }
    }
-
-   system ("/usr/share/fll-installer-common/automount-popup enable");
 
    // has the rootpartcombo changed
    // get combo box

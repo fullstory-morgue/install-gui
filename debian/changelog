@@ -1,8 +1,14 @@
 install-gui (0.11.9) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 23 Nov 2010 13:30:17 +0100
+  [ Joaquim Boura ]
+  * automount vodoo is not needed if we use /mnt/hdinstall when we are going
+    to install.xfce/kde/gnome only react to mounts under /media.
+    Suggestion from convbsd aka Angelescu Ovidiu <mrhsaacdoh@gmail.com>
+
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 05 Dec 2010 17:24:34 +0100
 
 install-gui (0.11.8) unstable; urgency=low
 

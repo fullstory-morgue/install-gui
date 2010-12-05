@@ -1,5 +1,4 @@
 
-scripts/automount-popup		usr/share/fll-installer-common
 scripts/cfdisk_wrapper		usr/share/fll-installer-common
 scripts/check_existing_home	usr/share/fll-installer-common
 scripts/disk			usr/share/fll-installer-common
