@@ -33,9 +33,9 @@ function umount_all_drives()
 	local ok=0
 	local do_it=$1
 	
-	# Kill any process using /media/hdinstall. If install-gui is killed,
+	# Kill any process using /fll/hdinstall. If install-gui is killed,
 	# fll-installer and its rsync processes might still be running.
-	fuser -k /media/hdinstall
+	fuser -k /fll/hdinstall
 	
 	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
 	# find the device with the FLL_MOUNTPOINT to exclude it

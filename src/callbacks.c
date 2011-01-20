@@ -28,7 +28,7 @@
 #define BUF_LEN    1024
 
 #define FILENAME ".sidconf"
-#define TARGET_MNT_POINT "/media/hdinstall"
+#define TARGET_MNT_POINT "/fll/hdinstall"
 
 //#define HD_SCAN                   "LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2 > "
 //#define HD_SCAN_NO_USB            "for hd in $( LANG=C fdisk -l | grep \"Disk /dev\" | cut -d: -f1 | cut -d\" \" -f2) ; do drive=$(echo $hd|cut -d / -f3); if readlink -f /sys/block/$drive/device |grep -q -v usb; then echo $hd; fi; done > "  // without usb devices
