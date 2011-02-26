@@ -1,3 +1,9 @@
+install-gui (0.11.11) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 26 Feb 2011 18:13:38 +0100
+
 install-gui (0.11.10) unstable; urgency=low
 
   * update sponsor credits.
