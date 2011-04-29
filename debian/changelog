@@ -1,8 +1,9 @@
-install-gui (0.11.11) UNRELEASED; urgency=low
+install-gui (0.11.11) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * bump standards version to 3.9.2, no changes necessary.
+  * update eMail addresses.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 26 Feb 2011 18:13:38 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 29 Apr 2011 04:45:33 +0200
 
 install-gui (0.11.10) unstable; urgency=low
 
@@ -27,13 +28,13 @@ install-gui (0.11.8) unstable; urgency=low
 
   * Fixed three typos on the displayed text. Thks to tjtag
 
- -- Joaquim Boura <x-un-i@sidux.com>  Sun, 21 Nov 2010 16:33:01 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Sun, 21 Nov 2010 16:33:01 +0100
 
 install-gui (0.11.7) unstable; urgency=low
 
   * ignore the dev/mapper partition where the live is
 
- -- Joaquim Boura <x-un-i@sidux.com>  Fri, 19 Nov 2010 17:49:54 +0100
+ -- Joaquim Boura <x-un-i@berlios.de>  Fri, 19 Nov 2010 17:49:54 +0100
 
 install-gui (0.11.6) unstable; urgency=low
 
@@ -155,14 +156,14 @@ install-gui (0.8.12) unstable; urgency=low
   * if '-' is the first char of a password we need 2 \ to properly
     escape it
 
- -- Nikolas Poniros <edhunter@sidux.com>  Sat, 13 Mar 2010 14:06:14 +0100
+ -- Nikolas Poniros <edhunter@users.berlios.de>  Sat, 13 Mar 2010 14:06:14 +0100
 
 install-gui (0.8.11) unstable; urgency=low
 
   * fll-installer-common should recommend install-gui, not
     install-usb-gui.
 
- -- Nikolas Poniros <edhunter@sidux.com>  Fri, 15 Jan 2010 20:38:21 +0100
+ -- Nikolas Poniros <edhunter@users.berlios.de>  Fri, 15 Jan 2010 20:38:21 +0100
 
 install-gui (0.8.10) unstable; urgency=low
 
@@ -187,7 +188,7 @@ install-gui (0.8.9) unstable; urgency=low
   [ Nikolas Poniros ]
   * if root partition is lvm check removed. it is not needed with grub2
 
- -- Nikolas Poniros <edhunter@sidux.com>  Wed, 16 Dec 2009 20:48:21 +0100
+ -- Nikolas Poniros <edhunter@users.berlios.de>  Wed, 16 Dec 2009 20:48:21 +0100
 
 install-gui (0.8.8) unstable; urgency=low
 
