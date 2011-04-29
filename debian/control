@@ -3,13 +3,13 @@ Section: admin
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Joaquim Boura <x-un-i@berlios.de>
-Build-Depends: debhelper (>= 7.9.3),
+Build-Depends: debhelper (>= 8),
  autotools-dev,
  automake,
  libgtk2.0-dev,
  libglade2-dev,
  imagemagick
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
