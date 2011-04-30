@@ -1,8 +1,8 @@
-install-gui (0.11.12) UNRELEASED; urgency=low
+install-gui (0.11.12) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * rebuild with gcc-4.6.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 29 Apr 2011 04:45:51 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 01 May 2011 00:37:30 +0200
 
 install-gui (0.11.11) unstable; urgency=low
 
