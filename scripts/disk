@@ -87,12 +87,14 @@ parameter_p()
 	do
 		parts=$(fdisk -l $disk | grep -v "Extended" | \
 			grep '^/dev/' | cut -d " " -f1 | cut -d "/" -f 3)
+
 		# GPT disks appear in fdisk as a single partition of System GPT
 		if [ "/dev/${parts}" = "${disk}1" ] && \
 		   [ -n "$(fdisk -l $disk | awk '/^\/dev\//{if($6 == "GPT"){print "GPT"}}')" ] ; then
 			# Extract partition numbers from gdisk
 			parts=$(gdisk -l ${disk} | awk '/^ +[[:digit:]]/{print "'${disk#/dev/}'"$1}')
 		fi
+
 		for part in $parts
 		do
 			partition_or_volume_info $part norm

@@ -1,10 +1,6 @@
-install-gui (0.11.13) UNRELEASED; urgency=low
+install-gui (0.11.13) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Niall Walsh ]
-  * Make scripts/disk use gdisk to find GPT partitions (add gdisk to depends)
+  * Make scripts/disk use gdisk to find GPT partitions (add gdisk to depends).
 
  -- Niall Walsh <niallwalsh@users.berlios.de>  Sun, 12 Jun 2011 18:17:50 +0100
 
