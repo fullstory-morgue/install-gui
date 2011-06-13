@@ -1,4 +1,4 @@
-install-gui (0.11.13) unstable; urgency=low
+install-gui (0.12.0) unstable; urgency=low
 
   * Make scripts/disk use gdisk to find GPT partitions (add gdisk to depends).
 
