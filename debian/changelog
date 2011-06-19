@@ -1,11 +1,7 @@
-install-gui (0.12.1) UNRELEASED; urgency=low
+install-gui (0.12.1) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Niall Walsh ]
-  * um_all: fix FllMount and FllDev handling (thanks x-un-i for spotting it)
-  * um_all: only do fuser -k on /fll/hdinstall if it exists (thanks x-un-i)
+  * um_all: fix FllMount and FllDev handling (thanks x-un-i for spotting it).
+  * um_all: only do fuser -k on /fll/hdinstall if it exists (thanks x-un-i).
 
  -- Niall Walsh <niallwalsh@users.berlios.de>  Sun, 19 Jun 2011 11:22:06 +0100
 
