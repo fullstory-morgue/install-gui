@@ -35,13 +35,13 @@ function umount_all_drives()
 	
 	# Kill any process using /fll/hdinstall. If install-gui is killed,
 	# fll-installer and its rsync processes might still be running.
-	fuser -k /fll/hdinstall
+	[ -d /fll/hdinstall ] && fuser -k /fll/hdinstall
 	
 	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
 	# find the device with the FLL_MOUNTPOINT to exclude it
 	local FllMount=`grep ^FLL_MOUNTPOINT /etc/default/distro | \
-			awk 'BEGIN{FS="="}/^FLL_MOUNTPOINT=/{print $2}'`
-	local FllDev=`mount | awk '/^\/dev/{if($3=="'${FllMount}'"){print $1}'`
+			awk -F= '/^FLL_MOUNTPOINT=/{print $2}' | tr -d \"`
+	local FllDev=`mount | awk '/^\/dev/{if($3=="'${FllMount}'"){print $1}}'`
 	# Will break if there is no FllDev as it will exclude everything
 	# There must always be an FLL_MOUNTPOINT to copy from though
 	# Could it sanely disagree with /etc/default/distro ?
