@@ -1,13 +1,10 @@
-install-gui (0.12.2) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.12.2) unstable; urgency=low
 
   [ Joaquim Boura ]
-  * when booted in efi mode grub goes to efi
+  * when booted in efi mode grub goes to efi.
 
   [ Niall Walsh ]
-  * efi when not usb (still needs to check for efi sys partition)
+  * efi when not usb (still needs to check for efi sys partition).
 
  -- Niall Walsh <niallwalsh@users.berlios.de>  Fri, 23 Sep 2011 17:59:36 +0100
 
