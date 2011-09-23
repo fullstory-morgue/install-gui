@@ -1,8 +1,12 @@
 install-gui (0.12.2) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 19 Jun 2011 15:12:06 +0200
+  [ Joaquim Boura ]
+  * when booted in efi mode grub goes to efi
+
+ -- Joaquim Boura <x-un-i@berlios.de>  Fri, 23 Sep 2011 17:52:32 +0200
 
 install-gui (0.12.1) unstable; urgency=low
 

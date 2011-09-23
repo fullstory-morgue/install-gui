@@ -236,18 +236,24 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
       GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combobox));
       gtk_list_store_clear(GTK_LIST_STORE(model));
 
-
       len = lseek(fd, 0, SEEK_END);
 
-      if( len == 0 ) {
-          // no usb device found
-          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
-          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-          // add values from combobox hd (see xparted) to combobox_installplace
-          combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
+      struct stat st;
+      if(stat("/sys/firmware/efi",&st)==0) {
+	  // efi dir present => efi install
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
       }
       else {
-          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+          if( len == 0 ) {
+              // no usb device found
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+              // add values from combobox hd (see xparted) to combobox_installplace
+              combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
+          }
+          else {
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+          }
       }
       gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
       close(fd);
