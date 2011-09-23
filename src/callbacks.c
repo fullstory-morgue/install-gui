@@ -238,22 +238,23 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
       len = lseek(fd, 0, SEEK_END);
 
-      struct stat st;
-      if(stat("/sys/firmware/efi",&st)==0) {
-	  // efi dir present => efi install
-          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
-      }
-      else {
-          if( len == 0 ) {
-              // no usb device found
+      if( len == 0 ) {
+          // no usb device found
+          struct stat st;
+          // this needs to check efisysdir present also
+          if(stat("/sys/firmware/efi",&st)==0) {
+              // efi dir present => efi install
+              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
+          }
+          else {
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
               // add values from combobox hd (see xparted) to combobox_installplace
               combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
           }
-          else {
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-          }
+      }
+      else {
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
       }
       gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
       close(fd);
