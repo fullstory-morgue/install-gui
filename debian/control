@@ -2,7 +2,7 @@ Source: install-gui
 Section: admin
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Uploaders: Joaquim Boura <x-un-i@berlios.de>
+Uploaders: Joaquim Boura <x-un-i@sapo.pt>
 Build-Depends: debhelper (>= 8),
  autotools-dev,
  automake,
