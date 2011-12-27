@@ -1,0 +1,341 @@
+# translation of ua.po to
+# Pavlo Libovych <polosravros@googlemail.com>, 2011.
+# polix <polosravros@googlemail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: ru\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2008-09-21 16:56+0200\n"
+"Last-Translator: polix <polosravros@googlemail.com>\n"
+"Language-Team:  <de@li.org>\n"
+"Pavlo Libovych <polosravros@googlemail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: install-gui.glade:8(property)
+msgid "aptosid HD-Installation"
+msgstr "Установка aptosid на жорсткий диск"
+
+#: install-gui.glade:78(property)
+msgid "exit"
+msgstr "Выхід"
+
+#: install-gui.glade:275(property)
+msgid "Welcome to the aptosid HD-Installation"
+msgstr "Ласкаво просимо в менеджер установки aptosid на жорсткий диск"
+
+#: install-gui.glade:425(property)
+msgid "aptosid takes no responsibility for data loss or hardware damage."
+msgstr "aptosid знімає з себе всяку відповідальність за втрату даних або пошкодження апаратних засобів."
+
+#: install-gui.glade:452(property)
+msgid "This application will install aptosid to your harddisk."
+msgstr "Ця програма встановлює aptosid на жорсткий диск."
+
+#: install-gui.glade:505(property)
+msgid ""
+"If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
+"aptosid-website: http://aptosid.com"
+msgstr ""
+"Якщо Вам потрібна допомога, відвідайте aptosid-вебсторінку,-вікі,-форум або-чат!\n\n"
+"aptosid-веб-сторінка http://aptosid.com"
+
+#: install-gui.glade:537(property)
+msgid "Welcome"
+msgstr "Ласкаво просимо"
+
+#: install-gui.glade:589(property)
+msgid ""
+"options are:\n"
+"========\n"
+"/boot\n"
+"/home\n"
+"/opt\n"
+"/root\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+msgstr ""
+"Можливі точки монтування:\n"
+"========\n"
+"/boot\n"
+"/home\n"
+"/opt\n"
+"/root\n"
+"/tmp\n"
+"/usr\n"
+"/var"
+
+#: install-gui.glade:624(property)
+msgid ""
+"!!!!!! be careful !!!!!!!\n"
+"Do it, if you don't have a linux partition.\n"
+"Read the Manual before. (see the Manual Button on the Desktop)"
+msgstr ""
+"!!!!!! Обережно !!!!!!!\n"
+"Робіть це, якщо немає ніякого розділу Linux на жорсткому диску.\n"
+"Необхідно заздалегідь прочитати керівництво. (Див. кнопку керівництва на робочому столі)"
+
+#: install-gui.glade:672(property)
+msgid ""
+"Start Part.-\n"
+"manager"
+msgstr ""
+"Запустити менеджер\n"
+"разділу"
+
+#: install-gui.glade:710(property)
+msgid "Root-Partition"
+msgstr "Кореневий розділ"
+
+#: install-gui.glade:736(property)
+msgid "Mountpoints of other Partitions"
+msgstr "Точки монтування інших розділів"
+
+#: install-gui.glade:762(property)
+msgid ""
+"Example:\n"
+"------------\n"
+"A separate\n"
+"home-partition:\n"
+"/home"
+msgstr ""
+"Наприклад:\n"
+"------------\n"
+"одиночний\n"
+"розділ користувача:\n"
+"/home"
+
+#: install-gui.glade:810(property)
+msgid ""
+"Set mountpoints of other Partitions\n"
+"(will not be formatted automatically)"
+msgstr ""
+"Вказати точки монтування інших розділів\n"
+"(не форматувати автоматично),"
+
+#: install-gui.glade:847(property)
+msgid "format with"
+msgstr "форматувати зі"
+
+#: install-gui.glade:870(property)
+msgid "Partitioning"
+msgstr "Створення розділів"
+
+#: install-gui.glade:912(property)
+msgid "create a bootdisk"
+msgstr "Створити завантажувальну дискету"
+
+#: install-gui.glade:931(property)
+msgid "Installation-target"
+msgstr "Місце інсталяції"
+
+#: install-gui.glade:957(property)
+msgid ""
+"Bootmanager: A bootmanager allows you to choose the OS you want to boot at startup.\n"
+"Installation-target: MBR (Master Boot Record) or root-partition"
+msgstr ""
+"Менеджер завантажувача: менеджер завантажувача дозволяє вибирати ту основну операційну систему, яку Ви хочете завантажити при запуску комп'ютера.\n"
+"Інсталяційне місце: MBR (головний запис завантаження) або кореневий розділ"
+
+#: install-gui.glade:1033(property)
+msgid "Bootmanager"
+msgstr "Менеджер завантажувача"
+
+#: install-gui.glade:1280(property)
+msgid "Root-password:"
+msgstr "Пароль root:"
+
+#: install-gui.glade:1306(property)
+msgid "Root-password again:"
+msgstr "Повторення паролю root :"
+
+#: install-gui.glade:1332(property)
+msgid "Realname:"
+msgstr "Ваше справжнє і'мя:"
+
+#: install-gui.glade:1358(property)
+msgid "Password:"
+msgstr "Ваш пароль:"
+
+#: install-gui.glade:1384(property)
+msgid "Password again:"
+msgstr "Повторення пароля:"
+
+#: install-gui.glade:1410(property)
+msgid "Username:"
+msgstr "Ім'я користувача:"
+
+#: install-gui.glade:1481(property)
+msgid ""
+"Root-password: This password will be used for the administrator. Do not forget it!\n"
+"Username: The username should consist of lower case letters (and numbers) only.\n"
+"Important: All passwords have to be between 6 and 20 characters long!"
+msgstr ""
+"Пароль root: Цей пароль використовується для адміністратора.Не забудьте його!\n"
+"Ім'я користувача: Ім'я користувача має складатися лише з малих літер (і чисел).\n"
+"Важливо: Довжина всіх паролів повинна бути між 6 і 20 знаків!"
+
+#: install-gui.glade:1515(property)
+msgid "User"
+msgstr "Користувач"
+
+#: install-gui.glade:1564(property)
+msgid "Hostname: The hostname should consist of letters (and numbers) only and it must not begin with a number."
+msgstr "Ім'я хоста: ім'я хоста має складатися з букв (і чисел) і не повинно починатися з числом."
+
+#: install-gui.glade:1680(property)
+msgid "Network"
+msgstr "Локальна мережа"
+
+#: install-gui.glade:1709(property)
+msgid "You have provided all the required information for a aptosid-install.\n"
+"To check again or change anything press \"<-Back\".\n"
+"If everything is correct for you, press \"Save config & Next\"."
+msgstr ""
+"Всі необхідні дані в системі є, можна запустити установку aptosid.\n"
+"Щоб перевірити дані або змінити опції ще раз, натисніть кнопку \"назад \".\n"
+"Якщо все правильно, почніть інсталяцію натиснувши кнопку\"Запуск установки \"."
+
+#: install-gui.glade:1800(property)
+msgid ""
+"Save configuration\n"
+"only (~/.sidconf)"
+msgstr ""
+"Записати конфігурацію\n"
+"тількі (/.sidconf)"
+
+#: install-gui.glade:1821(property)
+msgid ""
+"Start aptosid-Installer-Script\n"
+"without configuration\n"
+"(this configuration will be lost)"
+msgstr ""
+"Запустити скрипт інсталяції\n"
+"без конфигурації\n"
+"(конфігурація не буде записуватися)"
+
+#: install-gui.glade:1844(property)
+msgid ""
+"Save configuration\n"
+"and start installation"
+msgstr ""
+"Записати конфігурацію\n"
+"та запустити установку"
+
+#: install-gui.glade:1866(property)
+msgid ""
+"Force Installation\n"
+"(Ignore RAM-/Partition-Check, etc.)"
+msgstr ""
+"Форсувати установку\n"
+"(ігнорувати перевірку оперативної пам'яті і розділень і т.д.)"
+
+#: install-gui.glade:1929(property)
+msgid "Begin Installation"
+msgstr "Почати установку"
+
+#: install-gui.glade:1970(property)
+msgid "Installation"
+msgstr "Установка"
+
+#: install-gui.glade:1980(property)
+msgid "Next"
+msgstr "Вперед"
+
+#: install-gui.glade:1990(property)
+msgid "Prev"
+msgstr "Назад"
+
+#: install-gui.glade:663(property)
+msgid "Hostname:"
+msgstr "Ім'я хоста:"
+
+#: install-gui.glade:1578(property)
+msgid ""
+"Install additional\n"
+"Metapackages"
+msgstr ""
+"Встановлення додаткових пакетів\n"
+"програмного забезпечення"
+
+#: install-gui.glade:662(property)
+msgid "mount partitions on boot"
+msgstr "Автоматичне приєднання розділів після системної за"
+
+#: install-gui.glade:1517(property)
+msgid "ssh (Secure shell client and server)"
+msgstr "ssh (клієнти і сервери протоколу ssh)"
+
+#: install-gui.glade:1537(property)
+msgid "cups (Printing System)"
+msgstr "cups (Система видачі на друк)"
+
+#: install-gui.glade:1558(property)
+msgid "start services"
+msgstr "Запуск служб"
+
+#: install-gui.glade:1559(property)
+msgid "<big> Timezone </big>"
+msgstr "<big> Часовий пояс </big>"
+
+#: callbacks.c:317
+msgid "Root-Password different!"
+msgstr "Пароль root не збігається!"
+
+#: callbacks.c:331
+msgid "Root-Password too short!"
+msgstr "Пароль root занадто короткий!"
+
+#: callbacks.c:348
+msgid "Realname empty!"
+msgstr "Не вказано справжнє ім'я !"
+
+#: callbacks.c:365
+msgid "Username empty!"
+msgstr "Не вказано ім'я користувача!"
+
+#: callbacks.c:386
+msgid "Password different!"
+msgstr "Пароль не збігається!"
+
+#: callbacks.c:399
+msgid "Password too short!"
+msgstr "Пароль надто короткий!"
+
+#: install-gui.glade:3417(property)
+msgid "Edit Configuration"
+msgstr "Редагування конфігурації"
+
+#: install-gui.glade:3497(property)
+msgid ""
+"not necessary,\n"
+"<b>be careful !!!</b>"
+msgstr ""
+"Не є необхідним,\n"
+"<b>Будьте уважним!</b>"
+
+#: install-gui.glade:3455(property)
+msgid ""
+"Installation with progressbar\n"
+"(default)"
+msgstr ""
+"Інсталяція з індикатором виконання\n"
+"(за замовчуванням)"
+
+#: install-gui.glade:3476(property)
+msgid ""
+"Installation with terminal\n"
+"(debug modus)"
+msgstr "Інсталяція в терміналі\n (режим отладки)"
+
+#: install-gui.glade:2108(property)
+msgid "Save config & Next"
+msgstr "Конфігурація збережена & далі"
+
