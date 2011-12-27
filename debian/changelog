@@ -6,8 +6,9 @@ install-gui (0.12.4) UNRELEASED; urgency=low
   [ Joaquim Boura ]
   * added ukrainian language file thks to Roen/polix
   * po file was not added.
+  * fixing ru language. thks polix
 
- -- Joaquim Boura <x-un-i@sapo.pt>  Tue, 27 Dec 2011 13:36:19 +0100
+ -- Joaquim Boura <x-un-i@sapo.pt>  Tue, 27 Dec 2011 14:06:20 +0100
 
 install-gui (0.12.3) unstable; urgency=low
 
