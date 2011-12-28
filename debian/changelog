@@ -1,3 +1,9 @@
+install-gui (0.12.5) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 28 Dec 2011 08:54:53 +0100
+
 install-gui (0.12.4) unstable; urgency=low
 
   * added ukrainian language file thks to Roen/polix
