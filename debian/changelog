@@ -1,9 +1,5 @@
-install-gui (0.12.4) UNRELEASED; urgency=low
+install-gui (0.12.4) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * added ukrainian language file thks to Roen/polix
   * po file was not added.
   * fixing ru language. thks polix
