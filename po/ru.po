@@ -238,8 +238,8 @@ msgstr ""
 "(игнорировать проверку оперативной памяти и разделений и т.д.)"
 
 #: install-gui.glade:1929(property)
-msgid "Begin Installation"
-msgstr "Начать установку"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Начать установку</b></big>"
 
 #: install-gui.glade:1970(property)
 msgid "Installation"

@@ -230,8 +230,8 @@ msgstr ""
 "(Negeer RAM-/Partitiecontrole, enz.)"
 
 #: install-gui.glade:1929(property)
-msgid "Begin Installation"
-msgstr "Begin de installatie"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Begin de installatie</b></big>"
 
 #: install-gui.glade:1970(property)
 msgid "Installation"

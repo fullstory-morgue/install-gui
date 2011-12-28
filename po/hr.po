@@ -204,8 +204,8 @@ msgstr "Prisilite Instalaciju\n"
 "(ignoriraj RAM-/Particija-Check, etc.)"
 
 #: install-gui.glade:1929(property)
-msgid "Begin Installation"
-msgstr "Startuj Instalaciju"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Startuj Instalaciju</b></big>"
 
 #: install-gui.glade:1970(property)
 msgid "Installation"

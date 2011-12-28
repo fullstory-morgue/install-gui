@@ -203,8 +203,8 @@ msgstr "Forteaza Instalarea\n"
 "(Ignora verificarea RAM-/Partitii, etc.)"
 
 #: install-gui.glade:1929(property)
-msgid "Begin Installation"
-msgstr "Incepe Instalarea"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Incepe Instalarea</b></big>"
 
 #: install-gui.glade:1970(property)
 msgid "Installation"

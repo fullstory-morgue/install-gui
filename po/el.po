@@ -204,8 +204,8 @@ msgstr "Εγκατάσταση με τη βία\n"
 "(Αγνόησε έλεγχο RAM/Κατάτμησης, κτλ.)"
 
 #: install-gui.glade:1929(property) 
-msgid "Begin Installation"
-msgstr "Ξεκίνα την Εγκατάσταση"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Ξεκίνα την Εγκατάσταση</b></big>"
 
 #: install-gui.glade:1970(property) 
 msgid "Installation"

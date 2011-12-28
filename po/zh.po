@@ -204,8 +204,8 @@ msgstr "强制安装\n"
 "(忽略内存和分区检测等)"
 
 #: install-gui.glade:1929(property) 
-msgid "Begin Installation"
-msgstr "开始安装"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>开始安装</b></big>"
 
 #: install-gui.glade:1970(property) 
 msgid "Installation"

@@ -209,8 +209,8 @@ msgstr "Wymuś instalację\n"
 "(Ignoruj sprawdzenie RAM-u, partycji itp.)"
 
 #: install-gui.glade:1929(property)
-msgid "Begin Installation"
-msgstr "Rozpocznij instalację"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Rozpocznij instalację</b></big>"
 
 #: install-gui.glade:1970(property)
 msgid "Installation"

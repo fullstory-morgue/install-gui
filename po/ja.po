@@ -202,8 +202,8 @@ msgstr "強制インストール\n"
 "(RAM,パーティションなどのチェックを無視)"
 
 #: install-gui.glade:1929(property) 
-msgid "Begin Installation"
-msgstr "インストール開始"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>インストール開始</b></big>"
 
 #: install-gui.glade:1970(property) 
 msgid "Installation"

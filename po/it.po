@@ -208,8 +208,8 @@ msgstr "Forza Installazione\n"
 "(ignora controllo RAM/partizione, etc.)"
 
 #: install-gui.glade:1929(property)
-msgid "Begin Installation"
-msgstr "Avvia installazione"
+msgid "<big><b>  Begin Installation</b></big>"
+msgstr "<big><b>Avvia installazione</b></big>"
 
 #: install-gui.glade:1970(property)
 msgid "Installation"
