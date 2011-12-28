@@ -334,3 +334,16 @@ msgstr ""
 msgid "Save config & Next"
 msgstr "Guardar Configuração & Seguinte"
 
+#: install-gui.glade:3067(property)
+msgid "Installation successful"
+msgstr "Instalação terminada con êxito"
+
+#: interface.c:1529
+msgid "<big><b>Installation successful</b></big>"
+msgstr "<big><b>Instalação terminada con êxito</b></big>"
+
+#: install-gui.glade:3152(property)
+msgid "The installation took"
+msgstr "A instalação durou"
+
+
