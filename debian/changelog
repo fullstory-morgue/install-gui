@@ -1,9 +1,5 @@
-install-gui (0.12.5) UNRELEASED; urgency=low
+install-gui (0.12.5) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * fixed string - it was showing always in en...
 
  -- Joaquim Boura <x-un-i@sapo.pt>  Wed, 28 Dec 2011 13:53:18 +0100
