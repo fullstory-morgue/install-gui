@@ -1,9 +1,5 @@
-install-gui (0.12.6) UNRELEASED; urgency=low
+install-gui (0.12.6) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * more strings not present on the translated file -:(
 
  -- Joaquim Boura <x-un-i@sapo.pt>  Wed, 28 Dec 2011 17:08:36 +0100
