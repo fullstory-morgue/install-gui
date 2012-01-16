@@ -1,3 +1,9 @@
+install-gui (0.12.8) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 16 Jan 2012 01:40:20 +0100
+
 install-gui (0.12.7) unstable; urgency=low
 
   * switch to compat level 9.
