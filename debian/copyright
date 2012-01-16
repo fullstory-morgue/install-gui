@@ -8,7 +8,7 @@ It was downloaded from http://developer.berlios.de/projects/fullstory/
 Files: *
 Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
 Copyright: © 2007-2010 Joaquim Boura  <x-un-i@berlios.de>
-Copyright: © 2007-2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
+Copyright: © 2007-2012 Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Copyright: © 2009-2010 Nikolas Poniros <nponiros@yahoo.com>
 License: GPL-2
   The install-gui program is licensed under the GNU General Public License,
@@ -16,7 +16,7 @@ License: GPL-2
 
 Files: debian/*
 Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
-Copyright: © 2007-2010 Stefan Lippers-Hollmann <s.l-h@gmx.de>
+Copyright: © 2007-2012 Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Copyright: © 2010      Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
   The Debian packaging information is licensed under the GNU General
