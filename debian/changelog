@@ -1,7 +1,5 @@
-install-gui (0.12.9) UNRELEASED; urgency=low
+install-gui (0.13.0) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
   * switch from vol_id/ udev compatibility mode to native blkid invocations,
     as these are deprecated in util-linux >= 2.21.
 
