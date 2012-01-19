@@ -1,10 +1,14 @@
 install-gui (0.12.9) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
   * switch from vol_id/ udev compatibility mode to native blkid invocations,
     as these are deprecated in util-linux >= 2.21.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 19 Jan 2012 14:51:02 +0100
+  [ Niall Walsh ]
+  * fixup scripts/disk to report lvm and norm partitions with the same format
+
+ -- Niall Walsh <niallwalsh@users.berlios.de>  Thu, 19 Jan 2012 20:37:54 +0000
 
 install-gui (0.12.8) unstable; urgency=low
 
