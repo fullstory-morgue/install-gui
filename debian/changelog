@@ -1,9 +1,5 @@
-install-gui (0.13.1) UNRELEASED; urgency=low
+install-gui (0.13.1) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Niall Walsh ]
   * more scripts/disk changes, allow any /dev device name from fdisk
 
  -- Niall Walsh <niallwalsh@users.berlios.de>  Tue, 21 Feb 2012 22:18:16 +0000
