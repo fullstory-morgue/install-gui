@@ -1,8 +1,16 @@
 install-gui (0.13.3) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 23 Feb 2012 16:43:19 +0100
+  [ Joaquim Boura ]
+  * when GPT is present the partition list only got the endname and the
+    install-gui could not do anything with it (the whole partition name
+    is used there).
+    stderr messages from fdisk and gdisk send to /dev/null to make it 
+    easier to read the output when testing.
+
+ -- Joaquim Boura <x-un-i@sapo.pt>  Sun, 26 Feb 2012 14:28:57 +0100
 
 install-gui (0.13.2) unstable; urgency=low
 

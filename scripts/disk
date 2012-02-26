@@ -74,19 +74,19 @@ partition_or_volume_info()
 #--------------------------------------------------------------
 parameter_p()
 {
-	disks=`LANG=C fdisk -l | grep "Disk /dev" | cut -d: -f1 | cut -d" " -f2`
-	# parts=`fdisk -l $disk | fgrep -v "Extended" | fgrep '^/dev/' | cut -d " " -f1 | cut -d "/" -f 3`
+	disks=`LANG=C fdisk -l  2>/dev/null | grep "Disk /dev" | cut -d: -f1 | cut -d" " -f2`
+	# parts=`gdisk -l $disk | fgrep -v "Extended" | fgrep '^/dev/' | cut -d " " -f1 | cut -d "/" -f 3`
 
 	for disk in ${disks}
 	do
-		parts=$(fdisk -l $disk | grep -v "Extended" | \
+		parts=$(fdisk -l $disk 2>/dev/null | grep -v "Extended" | \
 			grep '^/dev/' | cut -d " " -f1)
 
 		# GPT disks appear in fdisk as a single partition of System GPT
 		if [ "${parts}" = "${disk}1" ] && \
-		   [ -n "$(fdisk -l $disk | awk '/^\/dev\//{if($6 == "GPT"){print "GPT"}}')" ] ; then
+		   [ -n "$(fdisk -l $disk 2>/dev/null | awk '/^\/dev\//{if($6 == "GPT"){print "GPT"}}')" ] ; then
 			# Extract partition numbers from gdisk
-			parts=$(gdisk -l ${disk} | awk '/^ +[[:digit:]]/{print "'${disk#/dev/}'"$1}')
+			parts=$(gdisk -l ${disk} 2>/dev/null | awk '/^ +[[:digit:]]/{print "'${disk}'"$1}')
 		fi
 
 		for part in $parts
@@ -103,14 +103,14 @@ parameter_p()
 #--------------------------------------------------------------
 parameter_d()
 {
-	LANG=C fdisk -l | grep "Disk /dev" | \
+	LANG=C fdisk -l 2>/dev/null | grep "Disk /dev" | \
 		cut -d: -f1 | cut -d" " -f2 | \
 		fgrep -v "/dev/dm"
 }
 #--------------------------------------------------------------
 parameter_n()
 {
-	disks=`LANG=C fdisk -l | grep "Disk /dev" |\
+	disks=`LANG=C fdisk -l 2>/dev/null | grep "Disk /dev" |\
 	grep -v "/dev/dm" | cut -d: -f1 | cut -d" " -f2`
 	for disk in ${disks}; do
 		readlink -f /sys/block/${disk##/dev/}/device |\
