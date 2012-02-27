@@ -1,9 +1,5 @@
-install-gui (0.13.3) UNRELEASED; urgency=low
+install-gui (0.13.3) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * when GPT is present the partition list only got the endname and the
     install-gui could not do anything with it (the whole partition name
     is used there).
