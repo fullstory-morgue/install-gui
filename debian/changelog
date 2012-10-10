@@ -1,9 +1,9 @@
-install-gui (0.13.5) UNRELEASED; urgency=low
+install-gui (0.13.5) unstable; urgency=low
 
-  * NOT RELEASED YET
   * add ukrainian translation.
+  * update debian/copyright to dep-5.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 08 May 2012 00:14:46 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 10 Oct 2012 03:30:23 +0200
 
 install-gui (0.13.4) unstable; urgency=low
 
