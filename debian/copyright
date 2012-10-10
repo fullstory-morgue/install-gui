@@ -16,7 +16,7 @@ Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
            2010, Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
 
-File: scripts/check_existing_home
+Files: scripts/check_existing_home
 Copyright: 2008, Michael Deelwater <michael.deelwater@googlemail.com>
 License: GPL-2
 
@@ -32,61 +32,61 @@ Files: scripts/fw-install,
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
 
-File: po/da.po:
+Files: po/da.po:
 Copyright: 2007-2008, zonker <zonker@greenin.dk>
 License: GPL-2
 
-File: po/de.po:
+Files: po/de.po:
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
 
-File: po/el.po:
+Files: po/el.po:
 Copyright: 2007-2008, Nikolas Poniros <nponiros@yahoo.com>
 License: GPL-2
 
-File: po/es.po:
+Files: po/es.po:
 Copyright: 2007-2008, Latino <op4latino@gmail.com>
 License: GPL-2
 
-File: po/fr.po:
+Files: po/fr.po:
 Copyright: 2007-2008, LjanA <isotran@free.fr>
 License: GPL-2
 
-File: po/hr.po:
+Files: po/hr.po:
 Copyright: 2007-2008, Dinko Sabo <cobrasbyte@gmx.de>
 License: GPL-2
 
-File: po/it.po:
+Files: po/it.po:
 Copyright: 2007-2008, Salvo 'LtWorf' Tomaselli <tiposchi@tiscali.it>
 License: GPL-2
 
-File: po/jp.po:
+Files: po/jp.po:
 Copyright: 2007 sach <sachs@infoseek.jp>
            2007-2008, Mutsumu Nomura <muchan.m@gmail.com>
 License: GPL-2
 
-File: po/nl.po:
+Files: po/nl.po:
 Copyright: 2007-2008, phoranix <phoranix@yahoo.com>
 License: GPL-2
 
-File: po/pl.po:
+Files: po/pl.po:
 Copyright: 2007-2008, maslot
 License: GPL-2
 
-File: po/pt.po:
+Files: po/pt.po:
 Copyright: 2007-2008, Joaquim Boura <x-un-i@berlios.de>
 	   2007-2008, Rui Umbelino (VaMPiRiC_CRoW)
 License: GPL-2
 
-File: po/ro.po:
+Files: po/ro.po:
 Copyright: 2007-2008, Adriana <trevor_walkley@aptenodytes.org>
 License: GPL-2
 
-File: po/ru.po:
+Files: po/ru.po:
 Copyright: 2007-2008, Roland Engert <Roland.Engert@web.de>
 License: GPL-2
 
-File: po/uk.po:
+Files: po/uk.po:
 Copyright: 2012, Pavlo Libovych <polosravros@googlemail.com>
 License: GPL-2
 
