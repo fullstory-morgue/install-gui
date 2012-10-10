@@ -1,14 +1,14 @@
 # translation of ua.po to
 # Pavlo Libovych <polosravros@googlemail.com>, 2011.
-# polix <polosravros@googlemail.com>, 2008.
+# focus <polosravros@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2008-09-21 16:56+0200\n"
-"Last-Translator: polix <polosravros@googlemail.com>\n"
+"Last-Translator: focus <polosravros@gmail.com>\n"
 "Language-Team:  <de@li.org>\n"
-"Pavlo Libovych <polosravros@googlemail.com>\n"
+"Pavlo Libovych <polosravros@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr "Установка aptosid на жорсткий диск"
 
 #: install-gui.glade:78(property)
 msgid "exit"
-msgstr "Выхід"
+msgstr "Вихід"
 
 #: install-gui.glade:275(property)
 msgid "Welcome to the aptosid HD-Installation"
@@ -36,14 +36,14 @@ msgstr "aptosid знімає з себе всяку відповідальніс
 
 #: install-gui.glade:452(property)
 msgid "This application will install aptosid to your harddisk."
-msgstr "Ця програма встановлює aptosid на жорсткий диск."
+msgstr "Ця програма встановлює aptosid на Ваш жорсткий диск."
 
 #: install-gui.glade:505(property)
 msgid ""
 "If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\n"
 "aptosid-website: http://aptosid.com"
 msgstr ""
-"Якщо Вам потрібна допомога, відвідайте aptosid-вебсторінку,-вікі,-форум або-чат!\n\n"
+"Якщо Вам потрібна допомога, відвідайте aptosid-вебсторінку,aptosid-вікі,-форум або-чат!\n\n"
 "aptosid-веб-сторінка http://aptosid.com"
 
 #: install-gui.glade:537(property)
@@ -79,8 +79,8 @@ msgid ""
 "Read the Manual before. (see the Manual Button on the Desktop)"
 msgstr ""
 "!!!!!! Обережно !!!!!!!\n"
-"Робіть це, якщо немає ніякого розділу Linux на жорсткому диску.\n"
-"Необхідно заздалегідь прочитати керівництво. (Див. кнопку керівництва на робочому столі)"
+"Робіть це, якщо у Вас немає ніякого розділу Linux на жорсткому диску.\n"
+"Необхідно заздалегідь прочитати керівництво. (Див. кнопку aptosid manual на робочому столі)"
 
 #: install-gui.glade:672(property)
 msgid ""
@@ -106,9 +106,9 @@ msgid ""
 "home-partition:\n"
 "/home"
 msgstr ""
-"Наприклад:\n"
+"Приклад:\n"
 "------------\n"
-"одиночний\n"
+"Одиночний\n"
 "розділ користувача:\n"
 "/home"
 
@@ -118,7 +118,7 @@ msgid ""
 "(will not be formatted automatically)"
 msgstr ""
 "Вказати точки монтування інших розділів\n"
-"(не форматувати автоматично),"
+"(не буде відформатовано автоматично),"
 
 #: install-gui.glade:847(property)
 msgid "format with"
@@ -166,7 +166,7 @@ msgstr "Ваш пароль:"
 
 #: install-gui.glade:1384(property)
 msgid "Password again:"
-msgstr "Повторення пароля:"
+msgstr "Повторіть пароль:"
 
 #: install-gui.glade:1410(property)
 msgid "Username:"
@@ -199,8 +199,8 @@ msgid "You have provided all the required information for a aptosid-install.\n"
 "To check again or change anything press \"<-Back\".\n"
 "If everything is correct for you, press \"Save config & Next\"."
 msgstr ""
-"Всі необхідні дані в системі є, можна запустити установку aptosid.\n"
-"Щоб перевірити дані або змінити опції ще раз, натисніть кнопку \"назад \".\n"
+"Всі необхідні дані є в системі, можна запустити установку aptosid.\n"
+"Щоб перевірити дані або змінити опції ще раз, натисніть кнопку \"Назад \".\n"
 "Якщо все правильно, почніть інсталяцію натиснувши кнопку\"Запуск установки \"."
 
 #: install-gui.glade:1800(property)
@@ -219,7 +219,7 @@ msgid ""
 msgstr ""
 "Запустити скрипт інсталяції\n"
 "без конфигурації\n"
-"(конфігурація не буде записуватися)"
+"(ця конфігурація не буде записуватися)"
 
 #: install-gui.glade:1844(property)
 msgid ""
@@ -235,7 +235,7 @@ msgid ""
 "(Ignore RAM-/Partition-Check, etc.)"
 msgstr ""
 "Форсувати установку\n"
-"(ігнорувати перевірку оперативної пам'яті і розділень і т.д.)"
+"(Ігнорувати перевірку оперативної пам'яті і розділень і т.д.)"
 
 #: install-gui.glade:1929(property)
 msgid "<big><b>  Begin Installation</b></big>"
@@ -337,5 +337,4 @@ msgstr "Інсталяція в терміналі\n (режим отладки)
 
 #: install-gui.glade:2108(property)
 msgid "Save config & Next"
-msgstr "Конфігурація збережена & далі"
-
+msgstr "Конфігурація збережена & далі" 

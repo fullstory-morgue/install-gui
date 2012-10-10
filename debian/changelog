@@ -1,6 +1,7 @@
 install-gui (0.13.5) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * add ukrainian translation.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 08 May 2012 00:14:46 +0200
 

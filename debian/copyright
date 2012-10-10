@@ -124,6 +124,12 @@ License: GPL-2
   The Debian packaging information is licensed under the GNU General
   Public License, version 2.
 
+File: po/uk.po:
+Copyright: © 2012, Pavlo Libovych <polosravros@googlemail.com>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
+
 Files: pixmaps/install-gui-title.png
        pixmaps/aptosid-inst-conf.png
        pixmaps/aptosid-logo.png
