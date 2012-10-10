@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: install-gui
 Upstream-Contact: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Source: http://aptosid.com/debian/pool/main/i/install-gui/
+Source: http://svn.berlios.de/svnroot/repos/fullstory/install-gui/trunk/
 
 Files: *
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>

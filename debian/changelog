@@ -1,3 +1,9 @@
+install-gui (0.13.6) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 10 Oct 2012 03:30:47 +0200
+
 install-gui (0.13.5) unstable; urgency=low
 
   * add ukrainian translation.
