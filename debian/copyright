@@ -1,196 +1,177 @@
-This package was debianized by Horst Tritremmel <hjt@users.berlios.de> on
-Thu, 18 Jan 2007 09:36:48 +0000.
-
-Upstream Author: Horst Tritremmel <hjt@users.berlios.de>
-
-It was downloaded from http://developer.berlios.de/projects/fullstory/
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: install-gui
+Upstream-Contact: Stefan Lippers-Hollmann <s.l-h@gmx.de>
+Source: http://aptosid.com/debian/pool/main/i/install-gui/
 
 Files: *
-Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
-Copyright: © 2007-2010 Joaquim Boura  <x-un-i@berlios.de>
-Copyright: © 2007-2012 Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Copyright: © 2009-2010 Nikolas Poniros <nponiros@yahoo.com>
+Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
+           2007-2010, Joaquim Boura  <x-un-i@berlios.de>
+           2007-2012, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2009-2010, Nikolas Poniros <nponiros@yahoo.com>
 License: GPL-2
-  The install-gui program is licensed under the GNU General Public License,
-  version 2.
 
 Files: debian/*
-Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
-Copyright: © 2007-2012 Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Copyright: © 2010      Joaquim Boura  <x-un-i@berlios.de>
+Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
+           2007-2012, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2010, Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: scripts/check_existing_home
-Copyright: © 2008 Michael Deelwater <michael.deelwater@googlemail.com>
+Copyright: 2008, Michael Deelwater <michael.deelwater@googlemail.com>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 Files: scripts/disk
        scripts/automount-popup,
        scripts/um_all
-Copyright: © 2008-2010 Joaquim Boura <x-un-i@berlios.de>
+Copyright: 2008-2012, Joaquim Boura <x-un-i@berlios.de>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 Files: scripts/fw-install,
        scripts/fw-install-exec,
        scripts/nonfree
-Copyright: © 2007-2008 Horst Tritremmel <hjt@users.berlios.de>
+Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/da.po:
-Copyright: © 2007,2008 zonker <zonker@greenin.dk>
+Copyright: 2007-2008, zonker <zonker@greenin.dk>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/de.po:
-Copyright: © 2007,2008 Horst Tritremmel <hjt@users.berlios.de>
+Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/el.po:
-Copyright: © 2007,2008 Nikolas Poniros <nponiros@yahoo.com>
+Copyright: 2007-2008, Nikolas Poniros <nponiros@yahoo.com>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/es.po:
-Copyright: © 2007,2008 Latino <op4latino@gmail.com>
+Copyright: 2007-2008, Latino <op4latino@gmail.com>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/fr.po:
-Copyright: © 2007,2008 LjanA <isotran@free.fr>
+Copyright: 2007-2008, LjanA <isotran@free.fr>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/hr.po:
-Copyright: © 2007,2008 Dinko Sabo <cobrasbyte@gmx.de>
+Copyright: 2007-2008, Dinko Sabo <cobrasbyte@gmx.de>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/it.po:
-Copyright: © 2007,2008 Salvo 'LtWorf' Tomaselli <tiposchi@tiscali.it>
+Copyright: 2007-2008, Salvo 'LtWorf' Tomaselli <tiposchi@tiscali.it>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/jp.po:
-Copyright: © 2007 sach <sachs@infoseek.jp>
-           © 2007,2008 Mutsumu Nomura <muchan.m@gmail.com>
+Copyright: 2007 sach <sachs@infoseek.jp>
+           2007-2008, Mutsumu Nomura <muchan.m@gmail.com>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/nl.po:
-Copyright: © 2007,2008 phoranix <phoranix@yahoo.com>
+Copyright: 2007-2008, phoranix <phoranix@yahoo.com>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/pl.po:
-Copyright: © 2007,2008 maslot
+Copyright: 2007-2008, maslot
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/pt.po:
-Copyright: © 2007,2008 Joaquim Boura <x-un-i@berlios.de>
-	   © 2007,2008 Rui Umbelino (VaMPiRiC_CRoW)
+Copyright: 2007-2008, Joaquim Boura <x-un-i@berlios.de>
+	   2007-2008, Rui Umbelino (VaMPiRiC_CRoW)
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/ro.po:
-Copyright: © 2007,2008 Adriana <trevor_walkley@aptenodytes.org>
+Copyright: 2007-2008, Adriana <trevor_walkley@aptenodytes.org>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/ru.po:
-Copyright: © 2007,2008 Roland Engert <Roland.Engert@web.de>
+Copyright: 2007-2008, Roland Engert <Roland.Engert@web.de>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 File: po/uk.po:
-Copyright: © 2012, Pavlo Libovych <polosravros@googlemail.com>
+Copyright: 2012, Pavlo Libovych <polosravros@googlemail.com>
 License: GPL-2
-  The Debian packaging information is licensed under the GNU General
-  Public License, version 2.
 
 Files: pixmaps/install-gui-title.png
        pixmaps/aptosid-inst-conf.png
        pixmaps/aptosid-logo.png
        icons/aptosid-inst-conf.svg
-    Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
-               © 2008 David Creedy <djcreedy@iinet.net.au>
-    License: GPLv2 or later
+Copyright: 2008 Bernard Gray <bernard.gray@gmail.com>
+           2008 David Creedy <djcreedy@iinet.net.au>
+License: GPL-2+
 
 Files: pixmaps/install-usb-gui.png
        icons/install-usb-gui.svg
        icons/install-gui.svg
-    Copyright: © 2008 Bernard Gray <bernard.gray@gmail.com>
-           © 2008 David Creedy <djcreedy@iinet.net.au>
-           © 2007 David Vignoni <david@icon-king.com>
-           © 2007 Johann Ollivier Lapeyre <johann@oxygen-icons.org>
-           © 2007 Kenneth Wimer <kwwii@bootsplash.org>
-           © 2007 Nuno Fernades Pinheiro <nf.pinheiro@gmail.com>
-           © 2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
-           © 2007 David Miller <miller@oxygen-icons.org>
-    License: CC-ASA-3.0 | LGPL-2+
-      install-gui.svg and install-usb-gui.* also include elements from
-      The Oxygen Icon Theme.
-      Licensed under the Creative Common Attribution-ShareAlike 3.0
-      license, as found here:
+Copyright: 2008 Bernard Gray <bernard.gray@gmail.com>
+           2008 David Creedy <djcreedy@iinet.net.au>
+           2007 David Vignoni <david@icon-king.com>
+           2007 Johann Ollivier Lapeyre <johann@oxygen-icons.org>
+           2007 Kenneth Wimer <kwwii@bootsplash.org>
+           2007 Nuno Fernades Pinheiro <nf.pinheiro@gmail.com>
+           2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
+           2007 David Miller <miller@oxygen-icons.org>
+License: CC-ASA-3.0 | LGPL-2+
+  install-gui.svg and install-usb-gui.* also include elements from
+  The Oxygen Icon Theme.
+  Licensed under the Creative Common Attribution-ShareAlike 3.0
+  license, as found here:
+  .
+    http://creativecommons.org/licenses/by-sa/3.0/
+  .
+  or the GNU Library General Public License (with following clarification).
+  .
+  Clarification:
+  The GNU Lesser General Public License or LGPL is written for
+  software libraries in the first place. We expressly want the LGPL to
+  be valid for this artwork library too.
+  .
+  KDE Oxygen theme icons is a special kind of software library, it is an
+  artwork library, it's elements can be used in a Graphical User Interface, or
+  GUI.
+  .
+  Source code, for this library means:
+   - where they exist, SVG;
+   - otherwise, if applicable, the multi-layered formats xcf or psd, or
+  otherwise png.
+  .
+  The LGPL in some sections obliges you to make the files carry
+  notices. With images this is in some cases impossible or hardly useful.
+  .
+  With this library a notice is placed at a prominent place in the directory
+  containing the elements. You may follow this practice.
+  .
+  The exception in section 6 of the GNU Lesser General Public License covers
+  the use of elements of this art library in a GUI.
 
-        http://creativecommons.org/licenses/by-sa/3.0/
+License: GPL-2
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 2 as
+ published by the Free Software Foundation.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in '/usr/share/common-licenses/GPL-2'.
 
-      or the GNU Library General Public License (with following clarification).
-
-      Clarification:
-      The GNU Lesser General Public License or LGPL is written for
-      software libraries in the first place. We expressly want the LGPL to
-      be valid for this artwork library too.
-
-      KDE Oxygen theme icons is a special kind of software library, it is an
-      artwork library, it's elements can be used in a Graphical User Interface, or
-      GUI.
-
-      Source code, for this library means:
-       - where they exist, SVG;
-       - otherwise, if applicable, the multi-layered formats xcf or psd, or
-      otherwise png.
-
-      The LGPL in some sections obliges you to make the files carry
-      notices. With images this is in some cases impossible or hardly useful.
-
-      With this library a notice is placed at a prominent place in the directory
-      containing the elements. You may follow this practice.
-
-      The exception in section 6 of the GNU Lesser General Public License covers
-      the use of elements of this art library in a GUI.
-
-The complete text of the GNU General Public License, version 2, can be found at:
-    http://www.gnu.org/licenses/gpl-2.0.txt
-
-The complete text of the GNU Library General Public License, can be found at:
-    http://www.gnu.org/licenses/old-licenses/library.html
-
-On Debian systems, the complete text of the GNU General Public License,
-version 2, can be found in `/usr/share/common-licenses/GPL-2'.
-
-On Debian systems, the complete text of the GNU Lesser General Public License,
-version 2, can be found in `/usr/share/common-licenses/LGPL-2'.
-
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
