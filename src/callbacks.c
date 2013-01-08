@@ -1348,7 +1348,7 @@ gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button),
 
        fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n\n", 
 "\n# Where the Boot-Loader will be installed",
-"# Possible are: mbr|partition",
+"# Possible are: mbr|partition|efi",
 "# Default value is: mbr",
 "BOOT_WHERE='",
 gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_installplace"))),
