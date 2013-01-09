@@ -1,10 +1,10 @@
-install-gui (0.13.6) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+install-gui (0.13.6) unstable; urgency=low
 
   [ Niall Walsh ]
-  * Mention efi as possible value for BOOT_WHERE in .sidconf (thanks DonKult)
+  * Mention efi as possible value for BOOT_WHERE in .sidconf (thanks DonKult).
+
+  [ Stefan Lippers-Hollmann ]
+  * update copyrights and uploaders.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 10 Oct 2012 03:30:47 +0200
 

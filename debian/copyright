@@ -6,13 +6,14 @@ Source: http://svn.berlios.de/svnroot/repos/fullstory/install-gui/trunk/
 Files: *
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
            2007-2010, Joaquim Boura  <x-un-i@berlios.de>
-           2007-2012, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2007-2013, Stefan Lippers-Hollmann <s.l-h@gmx.de>
            2009-2010, Nikolas Poniros <nponiros@yahoo.com>
+           2010-2013, Niall Walsh <niallwalsh@users.berlios.de>
 License: GPL-2
 
 Files: debian/*
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
-           2007-2012, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2007-2013, Stefan Lippers-Hollmann <s.l-h@gmx.de>
            2010, Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
 
