@@ -21,15 +21,11 @@ Files: scripts/check_existing_home
 Copyright: 2008, Michael Deelwater <michael.deelwater@googlemail.com>
 License: GPL-2
 
-Files: scripts/disk
-       scripts/automount-popup,
-       scripts/um_all
+Files: scripts/disk scripts/automount-popup scripts/um_all
 Copyright: 2008-2012, Joaquim Boura <x-un-i@berlios.de>
 License: GPL-2
 
-Files: scripts/fw-install,
-       scripts/fw-install-exec,
-       scripts/nonfree
+Files: scripts/fw-install scripts/fw-install-exec scripts/nonfree
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
 
@@ -91,17 +87,12 @@ Files: po/uk.po:
 Copyright: 2012, Pavlo Libovych <polosravros@googlemail.com>
 License: GPL-2
 
-Files: pixmaps/install-gui-title.png
-       pixmaps/aptosid-inst-conf.png
-       pixmaps/aptosid-logo.png
-       icons/aptosid-inst-conf.svg
+Files: pixmaps/install-gui-title.png pixmaps/aptosid-inst-conf.png pixmaps/aptosid-logo.png icons/aptosid-inst-conf.svg
 Copyright: 2008 Bernard Gray <bernard.gray@gmail.com>
            2008 David Creedy <djcreedy@iinet.net.au>
 License: GPL-2+
 
-Files: pixmaps/install-usb-gui.png
-       icons/install-usb-gui.svg
-       icons/install-gui.svg
+Files: pixmaps/install-usb-gui.png icons/install-usb-gui.svg icons/install-gui.svg
 Copyright: 2008 Bernard Gray <bernard.gray@gmail.com>
            2008 David Creedy <djcreedy@iinet.net.au>
            2007 David Vignoni <david@icon-king.com>
