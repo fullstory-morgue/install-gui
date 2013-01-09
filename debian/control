@@ -2,10 +2,12 @@ Source: install-gui
 Section: admin
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Uploaders: Joaquim Boura <x-un-i@sapo.pt>
+Uploaders: Joaquim Boura <x-un-i@sapo.pt>,
+ Niall Walsh <niallwalsh@users.berlios.de>
 Build-Depends: debhelper (>= 9.20120115),
  autotools-dev,
  automake,
+ dpkg-dev (>= 1.16.1~),
  libgtk2.0-dev,
  libglade2-dev,
  imagemagick
