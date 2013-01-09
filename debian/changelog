@@ -1,3 +1,9 @@
+install-gui (0.13.8) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 09 Jan 2013 17:45:26 +0100
+
 install-gui (0.13.7) unstable; urgency=low
 
   * appease lintian, a bit more:
