@@ -1,8 +1,9 @@
-install-gui (0.13.8) UNRELEASED; urgency=low
+install-gui (0.13.8) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * bump standards version to 3.9.4, no changes necessary.
+  * update FSF postal address to be URLs.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 09 Jan 2013 17:45:26 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 12 Jan 2013 03:08:55 +0100
 
 install-gui (0.13.7) unstable; urgency=low
 

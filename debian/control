@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 9.20120115),
  libgtk2.0-dev,
  libglade2-dev,
  imagemagick
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
 
