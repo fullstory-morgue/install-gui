@@ -6,13 +6,14 @@ Source: http://svn.berlios.de/svnroot/repos/fullstory/install-gui/trunk/
 Files: *
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
            2007-2010, Joaquim Boura  <x-un-i@berlios.de>
-           2007-2012, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2007-2013, Stefan Lippers-Hollmann <s.l-h@gmx.de>
            2009-2010, Nikolas Poniros <nponiros@yahoo.com>
+           2010-2013, Niall Walsh <niallwalsh@users.berlios.de>
 License: GPL-2
 
 Files: debian/*
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
-           2007-2012, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2007-2013, Stefan Lippers-Hollmann <s.l-h@gmx.de>
            2010, Joaquim Boura  <x-un-i@berlios.de>
 License: GPL-2
 
@@ -20,15 +21,11 @@ Files: scripts/check_existing_home
 Copyright: 2008, Michael Deelwater <michael.deelwater@googlemail.com>
 License: GPL-2
 
-Files: scripts/disk
-       scripts/automount-popup,
-       scripts/um_all
+Files: scripts/disk scripts/automount-popup scripts/um_all
 Copyright: 2008-2012, Joaquim Boura <x-un-i@berlios.de>
 License: GPL-2
 
-Files: scripts/fw-install,
-       scripts/fw-install-exec,
-       scripts/nonfree
+Files: scripts/fw-install scripts/fw-install-exec scripts/nonfree
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
 License: GPL-2
 
@@ -90,17 +87,12 @@ Files: po/uk.po:
 Copyright: 2012, Pavlo Libovych <polosravros@googlemail.com>
 License: GPL-2
 
-Files: pixmaps/install-gui-title.png
-       pixmaps/aptosid-inst-conf.png
-       pixmaps/aptosid-logo.png
-       icons/aptosid-inst-conf.svg
+Files: pixmaps/install-gui-title.png pixmaps/aptosid-inst-conf.png pixmaps/aptosid-logo.png icons/aptosid-inst-conf.svg
 Copyright: 2008 Bernard Gray <bernard.gray@gmail.com>
            2008 David Creedy <djcreedy@iinet.net.au>
 License: GPL-2+
 
-Files: pixmaps/install-usb-gui.png
-       icons/install-usb-gui.svg
-       icons/install-gui.svg
+Files: pixmaps/install-usb-gui.png icons/install-usb-gui.svg icons/install-gui.svg
 Copyright: 2008 Bernard Gray <bernard.gray@gmail.com>
            2008 David Creedy <djcreedy@iinet.net.au>
            2007 David Vignoni <david@icon-king.com>
@@ -153,8 +145,7 @@ License: GPL-2
  GNU General Public License for more details.
  .
  You should have received a copy of the GNU General Public License
- along with this package; if not, write to the Free Software
- Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ along with this package; if not, see <http://www.gnu.org/licenses>
  .
  On Debian systems, the complete text of the GNU General
  Public License can be found in '/usr/share/common-licenses/GPL-2'.

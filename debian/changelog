@@ -1,10 +1,25 @@
-install-gui (0.13.6) UNRELEASED; urgency=low
+install-gui (0.13.8) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+  * bump standards version to 3.9.4, no changes necessary.
+  * update FSF postal address to be URLs.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 12 Jan 2013 03:08:55 +0100
+
+install-gui (0.13.7) unstable; urgency=low
+
+  * appease lintian, a bit more:
+    - W: hardening-no-relro usr/bin/install-gui
+    - W: comma-separated-files-in-dep5-copyright paragraph at line 24
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 09 Jan 2013 17:40:27 +0100
+
+install-gui (0.13.6) unstable; urgency=low
 
   [ Niall Walsh ]
-  * Mention efi as possible value for BOOT_WHERE in .sidconf (thanks DonKult)
+  * Mention efi as possible value for BOOT_WHERE in .sidconf (thanks DonKult).
+
+  [ Stefan Lippers-Hollmann ]
+  * update copyrights and uploaders.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 10 Oct 2012 03:30:47 +0200
 
