@@ -1,8 +1,10 @@
-install-gui (0.13.11) UNRELEASED; urgency=low
+install-gui (0.13.11) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * remove /dev/hdXY nomenclature from examples.
+  * signify that ext4 is default for a while.
+  * drop experimental label from HD_MAP, it's in use for ages.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 16 Jan 2013 22:58:39 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 03 May 2013 00:31:31 +0200
 
 install-gui (0.13.10) unstable; urgency=low
 
