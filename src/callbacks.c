@@ -404,8 +404,8 @@ void read_partitions(GtkComboBox     *combobox)
           //printf("%s %s\n", "combobox setzen, partition");
 
           // example of partition  /dev/dm-0,ext3
-          // example of partition  /dev/hda1,ext3
-          ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
+          // example of partition  /dev/sda1,ext3
+          ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/sda1
           ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), ptr_dev);
@@ -949,8 +949,8 @@ on_checkbutton_mountpoints_toggled     (GtkToggleButton *togglebutton,
                 // Append a row and fill in some data
                 gtk_list_store_append ( GTK_LIST_STORE (model), &iter_tb);
 
-                // example of partition  /dev/hda1-ext3
-                ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/hda1
+                // example of partition  /dev/sda1-ext3
+                ptr_dev = strtok(partition, ",");  // ptr_dev is /dev/sda1
                 ptr_fs = strtok(NULL, ",");        // ptr_fs is ext3
 
                 if( hd_choice == NULL ) {
@@ -1266,8 +1266,8 @@ save_config            (GtkButton       *button)
 
          fprintf( stream, "\n%s\n%s\n%s\n%s", 
 "# Sets the Filesystem type.",
-"# Possible are: ext3|ext4|ext2|reiserfs|jfs",
-"# Default value is: reiserfs",
+"# Possible are: ext4|ext3|ext2|reiserfs|jfs",
+"# Default value is: ext4",
 "HD_FSTYPE='");
  
         gchar *hd_fstyp = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "format_combo")));
@@ -1279,7 +1279,7 @@ hd_fstyp,
 
         fprintf( stream, "%s'\n%s\n", 
 hd_choice,
-"\n# Here you can give additional mappings. (Experimental) You need to have the partitions formatted yourself and give the correct mappings like: \"/dev/hda4:/boot /dev/hda5:/var /dev/hda6:/tmp\"");
+"\n# Here you can give additional mappings. You need to have the partitions formatted yourself and give the correct mappings like: \"/dev/sda4:/boot /dev/sda5:/var /dev/sda6:/tmp\"");
 
         fprintf( stream, "%s\n%s\n%s\n%s\n%s", 
 mountpoints_config,
