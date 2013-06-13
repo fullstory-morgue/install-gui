@@ -1,8 +1,8 @@
-install-gui (0.13.12) UNRELEASED; urgency=low
+install-gui (0.13.12) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * rebuild with gcc-4.8.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 03 May 2013 00:40:40 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 13 Jun 2013 19:15:11 +0200
 
 install-gui (0.13.11) unstable; urgency=low
 
