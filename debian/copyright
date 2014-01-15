@@ -6,7 +6,7 @@ Source: http://svn.berlios.de/svnroot/repos/fullstory/install-gui/trunk/
 Files: *
 Copyright: 2007-2008, Horst Tritremmel <hjt@users.berlios.de>
            2007-2010, Joaquim Boura  <x-un-i@berlios.de>
-           2007-2013, Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           2007-2014, Stefan Lippers-Hollmann <s.l-h@gmx.de>
            2009-2010, Nikolas Poniros <nponiros@yahoo.com>
            2010-2013, Niall Walsh <niallwalsh@users.berlios.de>
 License: GPL-2
@@ -80,7 +80,7 @@ Copyright: 2007-2008, Adriana <trevor_walkley@aptenodytes.org>
 License: GPL-2
 
 Files: po/ru.po:
-Copyright: 2007-2008, Roland Engert <Roland.Engert@web.de>
+Copyright: 2007-2014, Roland Engert <Roland.Engert@web.de>
 License: GPL-2
 
 Files: po/uk.po:
