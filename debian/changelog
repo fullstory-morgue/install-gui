@@ -1,8 +1,14 @@
-install-gui (0.13.13) UNRELEASED; urgency=low
+install-gui (0.13.13) unstable; urgency=low
 
-  * NOT RELEASED YET
+  [ Roland Engert ]
+  * update russian translation.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 13 Jun 2013 19:15:31 +0200
+  [ Stefan Lippers-Hollmann ]
+  * bump standards version to 3.9.5, no changes necessary.
+  * make lintian a little happier by adding keywords to the XDG desktop files
+    (desktop-entry-lacks-keywords-entry).
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 15 Jan 2014 03:07:06 +0100
 
 install-gui (0.13.12) unstable; urgency=low
 
