@@ -1,6 +1,10 @@
 install-gui (0.13.14) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
+
+  [ Roland Engert ]
+  * improve the russian translation 
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 15 Jan 2014 03:08:05 +0100
 
