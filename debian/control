@@ -12,8 +12,8 @@ Build-Depends: debhelper (>= 9.20120115),
  libglade2-dev,
  imagemagick
 Standards-Version: 3.9.5
-Vcs-Svn: svn://svn.berlios.de/fullstory/install-gui/trunk
-Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/install-gui/trunk/
+Vcs-git: git://github.com/fullstory/install-gui.git
+Vcs-Browser: https://github.com/fullstory/install-gui
 
 Package: install-gui
 Architecture: any
