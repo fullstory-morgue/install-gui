@@ -28,8 +28,7 @@ Depends: ${shlibs:Depends},
  ssft,
  udev (>= 0.146),
  util-linux (>= 2.16.1)
-Recommends: install-usb-gui,
- menu,
+Recommends: menu,
  gparted | partitionmanager
 Description: aptosid install-gui for fll-installer
  This is an aptosid install-gui who makes it easy to configure the config file
