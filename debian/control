@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Joaquim Boura <x-un-i@sapo.pt>,
- Niall Walsh <niallwalsh@users.berlios.de>
+ Niall Walsh <niallwalsh@celtux.org>
 Build-Depends: debhelper (>= 9.20120115),
  autotools-dev,
  automake,

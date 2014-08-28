@@ -1,3 +1,9 @@
+install-gui (0.13.19) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 29 Aug 2014 00:39:52 +0200
+
 install-gui (0.13.18) unstable; urgency=medium
 
   * drop the install-usb-gui button and image from the first tab.
