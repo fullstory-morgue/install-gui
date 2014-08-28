@@ -1986,14 +1986,6 @@ on_okbutton2_clicked                   (GtkButton       *button,
 
 
 void
-on_button_usb_clicked                  (GtkButton       *button,
-                                        gpointer         user_data)
-{
-	system("USBGUI=$(which install-usb-gui.bash); $USBGUI &");
-}
-
-
-void
 on_button_installfw_clicked            (GtkButton       *button,
                                         gpointer         user_data)
 {

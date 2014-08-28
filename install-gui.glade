@@ -266,23 +266,6 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkImage" id="image19">
-		  <property name="width_request">64</property>
-		  <property name="height_request">56</property>
-		  <property name="visible">True</property>
-		  <property name="pixbuf">install-usb-gui.png</property>
-		  <property name="xalign">0.5</property>
-		  <property name="yalign">0.5</property>
-		  <property name="xpad">0</property>
-		  <property name="ypad">0</property>
-		</widget>
-		<packing>
-		  <property name="x">167</property>
-		  <property name="y">288</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkLabel" id="label_wellcome_2">
 		  <property name="width_request">608</property>
 		  <property name="height_request">80</property>
@@ -336,33 +319,6 @@ aptosid-website: http://aptosid.com</property>
 		</packing>
 	      </child>
 
-	      <child>
-		<widget class="GtkButton" id="button_usb">
-		  <property name="width_request">240</property>
-		  <property name="height_request">36</property>
-		  <property name="visible">True</property>
-		  <property name="tooltip" translatable="yes">* we create one  partiton on the usb-device (all data will be lost)
-* make it bootable
-* format it with ext3 (labeled aptosid_from_usb)
-* install grub into it
-* copy the message file into the grub dirs
-* create directory for iso, kernel, initrd (eg aptosid)
-* copy the files (iso, kernel, initrd) into there.
-* create the menu.lst file on it
-
-* enable the &quot;persist checkbox&quot;, if you want save your changes</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">live-usbstick installer</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <signal name="clicked" handler="on_button_usb_clicked" last_modification_time="Mon, 03 Mar 2008 09:58:39 GMT"/>
-		</widget>
-		<packing>
-		  <property name="x">240</property>
-		  <property name="y">296</property>
-		</packing>
-	      </child>
 	    </widget>
 	    <packing>
 	      <property name="tab_expand">False</property>

@@ -48,10 +48,8 @@ create_window_main (void)
   GtkWidget *image2;
   GtkWidget *hseparator3;
   GtkWidget *hseparator20;
-  GtkWidget *image19;
   GtkWidget *label_wellcome_2;
   GtkWidget *label_wellcome_red;
-  GtkWidget *button_usb;
   GtkWidget *label1;
   GtkWidget *fixed3;
   GtkWidget *rootpartcombo;
@@ -292,11 +290,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed2), hseparator20, 24, 272);
   gtk_widget_set_size_request (hseparator20, 624, 16);
 
-  image19 = create_pixmap (window_main, "install-usb-gui.png");
-  gtk_widget_show (image19);
-  gtk_fixed_put (GTK_FIXED (fixed2), image19, 167, 288);
-  gtk_widget_set_size_request (image19, 64, 56);
-
   label_wellcome_2 = gtk_label_new (_("If you need any help with the installation, visit the aptosid-website, -Wiki, -Forum or -Chat!\n\naptosid-website: http://aptosid.com"));
   gtk_widget_show (label_wellcome_2);
   gtk_fixed_put (GTK_FIXED (fixed2), label_wellcome_2, 32, 200);
@@ -312,12 +305,6 @@ create_window_main (void)
   gtk_label_set_justify (GTK_LABEL (label_wellcome_red), GTK_JUSTIFY_CENTER);
   gtk_label_set_line_wrap (GTK_LABEL (label_wellcome_red), TRUE);
   gtk_misc_set_alignment (GTK_MISC (label_wellcome_red), 0, 0.35);
-
-  button_usb = gtk_button_new_with_mnemonic (_("live-usbstick installer"));
-  gtk_widget_show (button_usb);
-  gtk_fixed_put (GTK_FIXED (fixed2), button_usb, 240, 296);
-  gtk_widget_set_size_request (button_usb, 240, 36);
-  gtk_tooltips_set_tip (tooltips, button_usb, _("* we create one  partiton on the usb-device (all data will be lost)\n* make it bootable\n* format it with ext3 (labeled aptosid_from_usb)\n* install grub into it\n* copy the message file into the grub dirs\n* create directory for iso, kernel, initrd (eg aptosid)\n* copy the files (iso, kernel, initrd) into there.\n* create the menu.lst file on it\n\n* enable the \"persist checkbox\", if you want save your changes"), NULL);
 
   label1 = gtk_label_new (_("Welcome"));
   gtk_widget_show (label1);
@@ -1041,9 +1028,6 @@ create_window_main (void)
   g_signal_connect_after ((gpointer) notebook1, "switch_page",
                           G_CALLBACK (on_notebook1_switch_page),
                           NULL);
-  g_signal_connect ((gpointer) button_usb, "clicked",
-                    G_CALLBACK (on_button_usb_clicked),
-                    NULL);
   g_signal_connect ((gpointer) rootpartcombo, "changed",
                     G_CALLBACK (on_rootpartcombo_changed),
                     NULL);
@@ -1115,10 +1099,8 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, image2, "image2");
   GLADE_HOOKUP_OBJECT (window_main, hseparator3, "hseparator3");
   GLADE_HOOKUP_OBJECT (window_main, hseparator20, "hseparator20");
-  GLADE_HOOKUP_OBJECT (window_main, image19, "image19");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_2, "label_wellcome_2");
   GLADE_HOOKUP_OBJECT (window_main, label_wellcome_red, "label_wellcome_red");
-  GLADE_HOOKUP_OBJECT (window_main, button_usb, "button_usb");
   GLADE_HOOKUP_OBJECT (window_main, label1, "label1");
   GLADE_HOOKUP_OBJECT (window_main, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (window_main, rootpartcombo, "rootpartcombo");
