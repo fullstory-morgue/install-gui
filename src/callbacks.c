@@ -259,25 +259,25 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
           }
       }
 
-          struct stat st;
-          // this needs to check efisysdir present also
-          if(stat("/sys/firmware/efi",&st)==0) {
-              // efi dir present => efi install
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
-          }
-          else {
-              if (len == 0) {
-                gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
-              }
-              else if (strlen(drive) >=6) {
-                gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), drive);
-              }
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-              // add values from combobox hd (see xparted) to combobox_installplace
-              if (len == 0) {
-                combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
-              }
-          }
+      struct stat st;
+      // this needs to check efisysdir present also
+      if(stat("/sys/firmware/efi",&st)==0) {
+        // efi dir present => efi install
+        gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
+      }
+      else {
+        if (len == 0) {
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
+        }
+        else if (strlen(drive) >=6) {
+          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), drive);
+        }
+        gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+        // add values from combobox hd (see xparted) to combobox_installplace
+        if (len == 0) {
+          combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
+        }
+      }
       gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
 
    }
