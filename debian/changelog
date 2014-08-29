@@ -1,11 +1,7 @@
-install-gui (0.13.19) UNRELEASED; urgency=medium
+install-gui (0.13.19) unstable; urgency=medium
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Niall Walsh ]
-  * add -i option to script/disk to give the one disk a device is on
-  * default usb installs to it's own disk NOT partition
+  * add -i option to script/disk to give the one disk a device is on.
+  * default usb installs to it's own disk NOT partition.
 
  -- Niall Walsh <niallwalsh@celtux.org>  Fri, 29 Aug 2014 20:52:19 +0100
 
