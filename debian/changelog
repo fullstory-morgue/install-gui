@@ -1,3 +1,9 @@
+install-gui (0.13.20) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 29 Aug 2014 23:43:18 +0200
+
 install-gui (0.13.19) unstable; urgency=medium
 
   * add -i option to script/disk to give the one disk a device is on.
