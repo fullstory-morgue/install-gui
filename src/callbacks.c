@@ -37,6 +37,7 @@
 #define HD_SCAN_NO_USB             "/usr/share/fll-installer-common/disk -n  > "    // without usb devices
 #define HD_SCAN_USB                "/usr/share/fll-installer-common/disk -u "
 #define SCANPARTITIONS             "/usr/share/fll-installer-common/disk -p  > "
+#define HD_IN_DISK                 "/usr/share/fll-installer-common/disk -i "
 
 #define INSTALL_SH                ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && fll-installer installer"
 #define INSTALL_SH_WITH_TERMINAL  ". /etc/default/distro; [ \"$FLL_DISTRO_MODE\" = live ] && x-terminal-emulator --noclose -e fll-installer installer &"
@@ -198,11 +199,11 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
  
  if ( partitions_counter > 0 ) {
 
-  // is the selected install device a usb device, then only grub to partition
-   char device[BUF_LEN], usbdevicetmp[BUF_LEN];
+  // is the selected install device a usb device, then limit grub to that full disk or partition
+   char device[BUF_LEN], usbdevicetmp[BUF_LEN], drive[BUF_LEN];
    char *entry1, *entry2 = "";
    int fd, len;
-
+   FILE* fp;
 
    gchar *hd_choice = gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (combobox), "rootpartcombo")));
    if( hd_choice == NULL ) {
@@ -210,7 +211,8 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
    }
 
    if( strlen(hd_choice) > 5 ) { 
-
+      // stash hd_choice before strtok mangles it as we want it again
+      strcpy(drive, hd_choice);
       entry1 = strtok(hd_choice, "/");
       entry2 = strtok(NULL, "/");
 
@@ -237,9 +239,26 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
       gtk_list_store_clear(GTK_LIST_STORE(model));
 
       len = lseek(fd, 0, SEEK_END);
+      close(fd);
+      /* remove the tempfile */
+      unlink(usbdevicetmp);
 
-      if( len == 0 ) {
-          // no usb device found
+      if ( len >= 1 ) {
+          fd = mkstemp(usbdevicetmp);
+          strcpy(device, HD_IN_DISK);
+          strcat(device, drive);
+          strcat(device, " > ");
+          strcat(device, usbdevicetmp);
+          system(device);
+          close(fd);
+          fp=fopen(usbdevicetmp, "r");
+          if (fp != NULL) {
+            fscanf(fp, "%s", drive);
+            fclose(fp);
+            unlink(usbdevicetmp);
+          }
+      }
+
           struct stat st;
           // this needs to check efisysdir present also
           if(stat("/sys/firmware/efi",&st)==0) {
@@ -247,20 +266,20 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
           }
           else {
-              gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
+              if (len == 0) {
+                gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
+              }
+              else if (strlen(drive) >=6) {
+                gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), drive);
+              }
               gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
               // add values from combobox hd (see xparted) to combobox_installplace
-              combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
+              if (len == 0) {
+                combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
+              }
           }
-      }
-      else {
-          gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
-      }
       gtk_combo_box_set_active( GTK_COMBO_BOX(combobox),0);
-      close(fd);
 
-      /* remove the tempfile */
-      unlink(usbdevicetmp);
    }
  }
 

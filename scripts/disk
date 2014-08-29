@@ -35,8 +35,9 @@ usage()
 {
 	echo ""
 	echo "$myName is a temporarly replacement for disk.py"
-	echo "Usage: $myName [-d|--disk]|[-p|--partiton]|[-n|--nousb]|[-u <sdX> | --usb=<sdX>]|[-h|--help]"
+	echo "Usage: $myName [-d|--disk]|[-i </dev/sdX>|--in=</dev/sdX>]|[-p|--partiton]|[-n|--nousb]|[-u <sdX> | --usb=<sdX>]|[-h|--help]"
 	echo "-d|--disk                           print all disk devices"
+	echo "-i|--in <device>                    print only disk device is in (-i /dev/sdX1)"
 	echo "-p|--partition                      print all partition devices"
 	echo "-n|--nousb                          print all disks without usb"
 	echo "-u|--usb <device>                   print usb device (-u sdX or --usb=sdX)"
@@ -123,9 +124,28 @@ parameter_u()
 		grep -q usb && printf "/dev/%s\n" ${mydisk}
 }
 #--------------------------------------------------------------
+parameter_i()
+{
+	local mydisk="$1"
+	[ -b "${mydisk}" ] || exit
+	if [ "$(grub-probe -d "${mydisk}" -t abstraction)" = "lvm" ]; then
+		# lvm device so discover pv device(s)
+		local lvd="$(lvs --noheadings -o devices ${mydisk})"
+		[ -n "${lvd}" ] || exit
+		# check it is on only one device
+		set -- $lvd
+		[ $# -gt 1 ] && exit
+		# strip the trailing (12345) sector of disk
+		mydisk="${1%\(*}"
+	fi
+	local gp="$(grub-probe -d "${mydisk}" -t disk)"
+	# using set to strip whitespace
+	[ -n "${gp}" ] && set -- ${gp} && printf "%s\n" "${1}"
+}
+#--------------------------------------------------------------
 
-TEMP=$(getopt -o dhnpu: \
-        --long disk,help,nousb,partition,usb: \
+TEMP=$(getopt -o dhi:npu: \
+        --long disk,help,in,nousb,partition,usb: \
         -n  "$(basename ${0})" -- "${@}")
 
 if [ "${?}" -ne 0 ]; then
@@ -140,6 +160,11 @@ while true ; do
 		-d|--disk)
 			PRINT_DISK=1
 			shift
+			;;
+		-i|--in)
+			PRINT_IN=1
+			GET_IN_DISK="${2}"
+			shift 2
 			;;
 		-n|--nousb)
 			PRINT_NOUSB=1
@@ -180,7 +205,9 @@ elif [ -n "${PRINT_NOUSB}" ]; then
 elif [ -n "${PRINT_PARTITION}" ]; then
 	parameter_p
 elif [ -n "${PRINT_USB}" ]; then
-	parameter_u ${IS_USB_DISK}
+	parameter_u "${IS_USB_DISK}"
+elif [ -n "${PRINT_IN}" ]; then
+	parameter_i "${GET_IN_DISK}"
 else 
 	usage
 fi
