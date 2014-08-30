@@ -261,19 +261,23 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
       struct stat st;
       // this needs to check efisysdir present also
-      if(stat("/sys/firmware/efi",&st)==0) {
+      // note usb installs remain bios installs
+      if ((stat("/sys/firmware/efi",&st)==0) && (len==0)) {
         // efi dir present => efi install
         gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
       }
       else {
+        // do not allow "mbr" as option on usb installs
         if (len == 0) {
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
         }
+        // instead make the first (default) option the full usb disk
         else if (strlen(drive) >=6) {
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), drive);
         }
         gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
         // add values from combobox hd (see xparted) to combobox_installplace
+        // again do not populate this for usb installs
         if (len == 0) {
           combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
         }

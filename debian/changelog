@@ -1,8 +1,12 @@
 install-gui (0.13.20) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 29 Aug 2014 23:43:18 +0200
+  [ Niall Walsh ]
+  * do not let usb installs be efi
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Sat, 30 Aug 2014 22:20:35 +0100
 
 install-gui (0.13.19) unstable; urgency=medium
 
