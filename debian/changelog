@@ -1,3 +1,9 @@
+install-gui (0.13.21) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 31 Aug 2014 00:23:02 +0200
+
 install-gui (0.13.20) unstable; urgency=medium
 
   * do not let usb installs be efi.
