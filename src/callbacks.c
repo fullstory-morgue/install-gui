@@ -517,7 +517,7 @@ on_entry_realname_changed              (GtkEditable     *editable,
    GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_realname");
    GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_realname");
 
-   strcpy(rootpw, gtk_entry_get_text(GTK_ENTRY(entry)));
+   strcpy(nname, gtk_entry_get_text(GTK_ENTRY(entry)));
 
    /*   if( strlen( rootpw ) < 1 ) {
        gtk_image_set_from_stock ( GTK_IMAGE(image), "gtk-cancel", GTK_ICON_SIZE_BUTTON);
