@@ -57,7 +57,8 @@
 #define HOSTNAME_ALLOWED_CHAR_0      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #define HOSTNAME_ALLOWED_CHAR_OTHERS "0123456789-."
 #define USERNAME_ALLOWED_CHAR        "abcdefghijklmnopqrstuvwxyz0123456789-."
-#define NAME_NAME_NOT_ALLOWED_CHARS  "^°!\"§$%&/(){}[]=?`+*~#;:=,><|-_\\"
+#define NAME_NAME_NOT_ALLOWED_CHAR0  "-"
+#define NAME_NAME_NOT_ALLOWED_CHARS  "^°!\"§$%&/(){}[]=?`+*~#;:=,><|_\\"
 
 
 char scanparttmp[80], hd_tmp[80];
@@ -512,7 +513,7 @@ void
 on_entry_realname_changed              (GtkEditable     *editable,
                                         gpointer         user_data)
 {
-   char longname[BUF_LEN];
+   char longname[BUF_LEN], longname_first_char[2];
 
    GtkWidget* entry = lookup_widget ( GTK_WIDGET (window_main), "entry_realname");
    GtkWidget* image = lookup_widget ( GTK_WIDGET (window_main), "image_realname");
@@ -532,11 +533,17 @@ on_entry_realname_changed              (GtkEditable     *editable,
        longname_ok = 0;
    }
    else {
-       if (strpbrk(longname,NAME_NAME_NOT_ALLOWED_CHARS) == NULL) {
-	 longname_ok = 1;
+       // The real name mustn't start with a dash
+       strncpy(longname_first_char, longname, 1);
+       longname_first_char[2] = '\0';
+       if (strpbrk(longname_first_char, NAME_NAME_NOT_ALLOWED_CHAR0) != NULL) {
+         longname_ok = 0;
+       } else {
+         if (strpbrk(longname, NAME_NAME_NOT_ALLOWED_CHARS) == NULL)
+           longname_ok = 1;
+         else
+           longname_ok = 0;
        }
-       else 
-	 longname_ok = 0;
    }
 
    if( longname_ok < 1) {
