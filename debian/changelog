@@ -1,8 +1,12 @@
 install-gui (0.13.22) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 01 Sep 2014 05:31:32 +0200
+  [ Niall Walsh ]
+  * remove the bootdisk checkbox and BOOT_DISK from install file
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Fri, 05 Sep 2014 02:27:07 +0100
 
 install-gui (0.13.21) unstable; urgency=medium
 

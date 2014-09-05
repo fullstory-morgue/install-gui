@@ -1276,7 +1276,7 @@ save_config            (GtkButton       *button)
       else
       {
          fprintf( stream, "%s\n\n%s\n%s\n%s\n%s\n%s\n%s", 
-"REGISTERED=' SYSTEM_MODULE HD_MODULE HD_FORMAT HD_FSTYPE HD_CHOICE HD_MAP HD_IGNORECHECK SWAP_MODULE SWAP_AUTODETECT SWAP_CHOICES NAME_MODULE NAME_NAME USER_MODULE USER_NAME USERPASS_MODULE USERPASS_CRYPT ROOTPASS_MODULE ROOTPASS_CRYPT HOST_MODULE HOST_NAME SERVICES_MODULE SERVICES_START BOOT_MODULE BOOT_LOADER BOOT_DISK BOOT_WHERE AUTOLOGIN_MODULE INSTALL_READY HD_AUTO'", 
+"REGISTERED=' SYSTEM_MODULE HD_MODULE HD_FORMAT HD_FSTYPE HD_CHOICE HD_MAP HD_IGNORECHECK SWAP_MODULE SWAP_AUTODETECT SWAP_CHOICES NAME_MODULE NAME_NAME USER_MODULE USER_NAME USERPASS_MODULE USERPASS_CRYPT ROOTPASS_MODULE ROOTPASS_CRYPT HOST_MODULE HOST_NAME SERVICES_MODULE SERVICES_START BOOT_MODULE BOOT_LOADER BOOT_WHERE AUTOLOGIN_MODULE INSTALL_READY HD_AUTO'", 
 
 "SYSTEM_MODULE='configured'",
 "HD_MODULE='configured'",
@@ -1328,7 +1328,7 @@ mountpoints_config,
       char * new_nname = (char *) malloc(2 * strlen((char *)nname) * sizeof(char));	 
       fprintf( stream, 
 "\n%s\n%s\n%s\n%s\n%s\n%s\n\%s\n%s\n\n%s\n%s%s\n\n%s\n%s%s'\n\n%s\n%s\n\n%s\n%s\n\n\
-%s\n%s%s'\n\n%s\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n%s%s'\n%s\n%s\n%s\n%s", 
+%s\n%s%s'\n\n%s\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n%s%s'\n", 
 
 "SWAP_MODULE='configured'",
 "# If set to yes, the swap partitions will be autodetected.",
@@ -1362,19 +1362,8 @@ services,
 "# Possible are: grub",
 "# Default value is: grub",
 "BOOT_LOADER='",
-gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_bootmanager"))),
-"\n# If set to 'yes' a boot disk will be created!",
-"# Possible are: yes|no",
-"# Default value is: yes",
-"BOOT_DISK='");
+gtk_combo_box_get_active_text(GTK_COMBO_BOX (lookup_widget (GTK_WIDGET (button), "combobox_bootmanager"))));
       free (new_nname);
-         checkbutton = GTK_TOGGLE_BUTTON(lookup_widget( GTK_WIDGET(button),"checkbutton_bootdisk"));
-         if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON( checkbutton )) == TRUE ) {
-             fprintf( stream, "yes'\n");
-         }
-         else {
-             fprintf( stream, "no'\n");
-         }
 
        fprintf( stream, "%s\n%s\n%s\n%s%s'\n\n%s\n%s\n\n", 
 "\n# Where the Boot-Loader will be installed",

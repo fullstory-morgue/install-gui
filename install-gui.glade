@@ -927,26 +927,6 @@ manager</property>
 	      </child>
 
 	      <child>
-		<widget class="GtkCheckButton" id="checkbutton_bootdisk">
-		  <property name="width_request">184</property>
-		  <property name="height_request">32</property>
-		  <property name="visible">True</property>
-		  <property name="can_focus">True</property>
-		  <property name="label" translatable="yes">create a bootdisk</property>
-		  <property name="use_underline">True</property>
-		  <property name="relief">GTK_RELIEF_NORMAL</property>
-		  <property name="focus_on_click">True</property>
-		  <property name="active">False</property>
-		  <property name="inconsistent">False</property>
-		  <property name="draw_indicator">True</property>
-		</widget>
-		<packing>
-		  <property name="x">352</property>
-		  <property name="y">200</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkFrame" id="frame5">
 		  <property name="width_request">320</property>
 		  <property name="height_request">104</property>

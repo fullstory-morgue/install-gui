@@ -85,7 +85,6 @@ create_window_main (void)
   GtkWidget *combobox_bootmanager;
   GtkWidget *combobox_installplace;
   GtkWidget *label15;
-  GtkWidget *checkbutton_bootdisk;
   GtkWidget *frame5;
   GtkWidget *alignment10;
   GtkWidget *fixed14;
@@ -495,11 +494,6 @@ create_window_main (void)
   gtk_fixed_put (GTK_FIXED (fixed4), label15, 96, 168);
   gtk_widget_set_size_request (label15, 256, 28);
   gtk_misc_set_alignment (GTK_MISC (label15), 0, 0.5);
-
-  checkbutton_bootdisk = gtk_check_button_new_with_mnemonic (_("create a bootdisk"));
-  gtk_widget_show (checkbutton_bootdisk);
-  gtk_fixed_put (GTK_FIXED (fixed4), checkbutton_bootdisk, 352, 200);
-  gtk_widget_set_size_request (checkbutton_bootdisk, 184, 32);
 
   frame5 = gtk_frame_new (NULL);
   gtk_fixed_put (GTK_FIXED (fixed4), frame5, 352, 264);
@@ -1135,7 +1129,6 @@ create_window_main (void)
   GLADE_HOOKUP_OBJECT (window_main, combobox_bootmanager, "combobox_bootmanager");
   GLADE_HOOKUP_OBJECT (window_main, combobox_installplace, "combobox_installplace");
   GLADE_HOOKUP_OBJECT (window_main, label15, "label15");
-  GLADE_HOOKUP_OBJECT (window_main, checkbutton_bootdisk, "checkbutton_bootdisk");
   GLADE_HOOKUP_OBJECT (window_main, frame5, "frame5");
   GLADE_HOOKUP_OBJECT (window_main, alignment10, "alignment10");
   GLADE_HOOKUP_OBJECT (window_main, fixed14, "fixed14");
