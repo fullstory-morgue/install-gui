@@ -1,3 +1,9 @@
+install-gui (0.13.23) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 05 Sep 2014 18:27:39 +0200
+
 install-gui (0.13.22) unstable; urgency=medium
 
   * remove the bootdisk checkbox and BOOT_DISK from install file.
