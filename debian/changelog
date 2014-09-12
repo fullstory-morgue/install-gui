@@ -1,8 +1,12 @@
 install-gui (0.13.23) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 05 Sep 2014 18:27:39 +0200
+  [ Niall Walsh ]
+  * have script/disk use the fll-installers disk.bm for device lookup
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Fri, 12 Sep 2014 21:30:17 +0100
 
 install-gui (0.13.22) unstable; urgency=medium
 

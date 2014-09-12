@@ -126,21 +126,8 @@ parameter_u()
 #--------------------------------------------------------------
 parameter_i()
 {
-	local mydisk="$1"
-	[ -b "${mydisk}" ] || exit
-	if [ "$(grub-probe -d "${mydisk}" -t abstraction)" = "lvm" ]; then
-		# lvm device so discover pv device(s)
-		local lvd="$(lvs --noheadings -o devices ${mydisk})"
-		[ -n "${lvd}" ] || exit
-		# check it is on only one device
-		set -- $lvd
-		[ $# -gt 1 ] && exit
-		# strip the trailing (12345) sector of disk
-		mydisk="${1%\(*}"
-	fi
-	local gp="$(grub-probe -d "${mydisk}" -t disk)"
-	# using set to strip whitespace
-	[ -n "${gp}" ] && set -- ${gp} && printf "%s\n" "${1}"
+	set -- $(fll_disk_device $1)
+	[ $@ -eq 1 ] && printf "%s\n" "${1}"
 }
 #--------------------------------------------------------------
 
@@ -197,6 +184,7 @@ done
 #--------------------------------------------------------------
 # read distro defaults
 . /etc/default/distro
+. /usr/share/fll-installer/modules/common/disk.bm
 
 if [ -n "${PRINT_DISK}" ]; then
 	parameter_d
