@@ -1,3 +1,9 @@
+install-gui (0.13.24) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 12 Sep 2014 22:45:41 +0200
+
 install-gui (0.13.23) unstable; urgency=medium
 
   * have script/disk use the fll-installers disk.bm for device lookup.
