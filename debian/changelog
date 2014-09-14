@@ -1,8 +1,12 @@
 install-gui (0.13.24) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 12 Sep 2014 22:45:41 +0200
+  [ Niall Walsh ]
+  * re-write the tz button callback shell to block so wideget updates
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Sun, 14 Sep 2014 13:29:50 +0100
 
 install-gui (0.13.23) unstable; urgency=medium
 
