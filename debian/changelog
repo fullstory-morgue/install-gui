@@ -1,3 +1,9 @@
+install-gui (0.13.25) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 14 Sep 2014 15:49:14 +0200
+
 install-gui (0.13.24) unstable; urgency=medium
 
   * re-write the tz button callback shell to block so wideget updates.
