@@ -200,7 +200,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
  
  if ( partitions_counter > 0 ) {
 
-  // is the selected install device a usb device, then limit grub to that full disk or partition
+  // is the selected install device a usb device, then limit grub to that full disk
    char device[BUF_LEN], usbdevicetmp[BUF_LEN], drive[BUF_LEN];
    char *entry1, *entry2 = "";
    int fd, len;
@@ -213,19 +213,22 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
    if( strlen(hd_choice) > 5 ) { 
       // stash hd_choice before strtok mangles it as we want it again
-      strcpy(drive, hd_choice);
-      entry1 = strtok(hd_choice, "/");
-      entry2 = strtok(NULL, "/");
+//       strcpy(drive, hd_choice);
+//       entry1 = strtok(hd_choice, "/");
+//       entry2 = strtok(NULL, "/");
 
       strcpy(usbdevicetmp, "/tmp/usbdevice.XXXXXX");
       fd = mkstemp(usbdevicetmp);  // make a tempfile
 
       if( fd ) {
                // create the shell system command (scanpartitions)
-              strcpy(device, HD_SCAN_USB);
-              strncat(device, entry2, 3);
-              strcat(device, " > ");
-              strcat(device, usbdevicetmp);
+              // get the one usb disk hd_choice maps to (if it does)
+              strcpy(device, HD_IN_DISK);
+              strncat(device, "\"$(", 3);
+              strncat(device, HD_SCAN_USB, BUF_LEN);
+              strncat(device, hd_choice, BUF_LEN);
+              strncat(device, ")\" > ", 4);
+              strncat(device, usbdevicetmp, BUF_LEN);
 
               system(device);
 
@@ -241,24 +244,15 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 
       len = lseek(fd, 0, SEEK_END);
       close(fd);
-      /* remove the tempfile */
-      unlink(usbdevicetmp);
 
       if ( len >= 1 ) {
-          fd = mkstemp(usbdevicetmp);
-          strcpy(device, HD_IN_DISK);
-          strcat(device, drive);
-          strcat(device, " > ");
-          strcat(device, usbdevicetmp);
-          system(device);
-          close(fd);
           fp=fopen(usbdevicetmp, "r");
           if (fp != NULL) {
             fscanf(fp, "%s", drive);
             fclose(fp);
-            unlink(usbdevicetmp);
           }
       }
+      unlink(usbdevicetmp);
 
       struct stat st;
       // this needs to check efisysdir present also
@@ -268,7 +262,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
         gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "efi");
       }
       else {
-        // do not allow "mbr" as option on usb installs
+        // do not allow "mbr" as option on single usb disk installs
         if (len == 0) {
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "mbr");
         }
@@ -276,9 +270,10 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
         else if (strlen(drive) >=6) {
           gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), drive);
         }
-        gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
+        // partition installs are crazy highly unrecommended rubbish with grub2
+        //gtk_combo_box_append_text (GTK_COMBO_BOX (combobox), "partition");
         // add values from combobox hd (see xparted) to combobox_installplace
-        // again do not populate this for usb installs
+        // again do not populate this for single usb disk installs
         if (len == 0) {
           combobox_hd_set  (GTK_WIDGET (combobox), "combobox_installplace");
         }

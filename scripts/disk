@@ -112,22 +112,23 @@ parameter_n()
 	disks=`LANG=C fdisk -l 2>/dev/null | grep "Disk /dev" |\
 	grep -v "/dev/dm" | cut -d: -f1 | cut -d" " -f2`
 	for disk in ${disks}; do
-		readlink -f /sys/block/${disk##/dev/}/device |\
-			grep -q usb || printf "%s\n" ${disk}
+		[ -n "$(fll_disk_isusb $disk)" ] || printf "%s\n" ${disk}
 	done
 }
 #--------------------------------------------------------------
 parameter_u()
 {
-	local mydisk=$1
-	readlink -f /sys/block/${mydisk}/device | \
-		grep -q usb && printf "/dev/%s\n" ${mydisk}
+	local mydisk
+	mydisk="$1"
+	# preserve old bahviour of accepting e.g. sda rather then /dev/sda
+	[ "x${mydisk}" = "x${mydisk#/dev/}" ] && mydisk="/dev/${mydisk}"
+	fll_disk_usb "$mydisk"
 }
 #--------------------------------------------------------------
 parameter_i()
 {
 	set -- $(fll_disk_device $1)
-	[ $@ -eq 1 ] && printf "%s\n" "${1}"
+	[ $# -eq 1 ] && printf "%s\n" "${1}"
 }
 #--------------------------------------------------------------
 

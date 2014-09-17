@@ -1,8 +1,14 @@
 install-gui (0.13.25) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 14 Sep 2014 15:49:14 +0200
+  [ Niall Walsh ]
+  * fix bug in final test of parameter_i
+  * use new fll_disk_usb and fll_disk_isusb
+  * drop partition as an option for boot, grub2 detests it
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Wed, 17 Sep 2014 22:54:59 +0100
 
 install-gui (0.13.24) unstable; urgency=medium
 
