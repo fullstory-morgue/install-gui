@@ -1,9 +1,5 @@
-install-gui (0.13.25) UNRELEASED; urgency=medium
+install-gui (0.13.25) unstable; urgency=medium
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Niall Walsh ]
   * fix bug in final test of parameter_i
   * use new fll_disk_usb and fll_disk_isusb
   * drop partition as an option for boot, grub2 detests it
