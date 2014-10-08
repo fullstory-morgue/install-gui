@@ -78,12 +78,8 @@ parameter_p()
 
 	for disk in ${disks}
 	do
-		parts=$(fdisk -l $disk 2>/dev/null | grep -v "Extended" | \
-			grep '^/dev/' | cut -d " " -f1)
-
-		# GPT disks appear in fdisk as a single partition of System GPT
-		if [ "${parts}" = "${disk}1" ] && \
-		   [ -n "$(fdisk -l $disk 2>/dev/null | awk '/^\/dev\//{if($6 == "GPT"){print "GPT"}}')" ] ; then
+		if LANG=C fdisk -l ${disk} | grep -q 'Disklabel type: gpt'
+		then
 			# Extract partition numbers from gdisk
 			parts=$(gdisk -l ${disk} 2>/dev/null | awk '/^ +[[:digit:]]/{print "'${disk}'"$1}')
 		fi
