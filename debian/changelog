@@ -1,3 +1,9 @@
+install-gui (0.13.27) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 08 Oct 2014 20:51:21 +0200
+
 install-gui (0.13.26) unstable; urgency=medium
 
   * fdisk output for gpt disks has changed so update scripts/disk.
