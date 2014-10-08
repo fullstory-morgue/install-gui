@@ -78,6 +78,9 @@ parameter_p()
 
 	for disk in ${disks}
 	do
+		parts=$(fdisk -l $disk 2>/dev/null | grep -v "Extended" | \
+			grep '^/dev/' | cut -d " " -f1)
+
 		if LANG=C fdisk -l ${disk} | grep -q 'Disklabel type: gpt'
 		then
 			# Extract partition numbers from gdisk

@@ -1,8 +1,12 @@
 install-gui (0.13.27) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 08 Oct 2014 20:51:21 +0200
+  [ Niall Walsh ]
+  * bring back parts setting from fdisk in scripts/disk -p as needed
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Wed, 08 Oct 2014 21:58:50 +0100
 
 install-gui (0.13.26) unstable; urgency=medium
 
