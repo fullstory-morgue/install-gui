@@ -35,7 +35,7 @@ function umount_all_drives()
 	# fll-installer and its rsync processes might still be running.
 	[ -d /fll/hdinstall ] && fuser -k /fll/hdinstall
 	
-	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
+	local TempFile=`mktemp -p /run/install-gui .XXXXXXXXXX`
 	# find the device with the FLL_MOUNTPOINT to exclude it
 	local FllMount=`grep ^FLL_MOUNTPOINT /etc/default/distro | \
 			awk -F= '/^FLL_MOUNTPOINT=/{print $2}' | tr -d \"`

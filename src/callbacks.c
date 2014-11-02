@@ -123,7 +123,7 @@ combobox_hd_read (GtkWidget       *widget,
 
    printf("--> in combobox_hd_read\n");
 
-   strcpy(hd_tmp, "/tmp/harddisk.XXXXXX");
+   strcpy(hd_tmp, "/run/install-gui/harddisk.XXXXXX");
    fd = mkstemp(hd_tmp);  // make a tempfile
 
    if( fd ) {
@@ -217,7 +217,7 @@ is_the_device_a_usbdevice (GtkComboBox     *combobox)
 //       entry1 = strtok(hd_choice, "/");
 //       entry2 = strtok(NULL, "/");
 
-      strcpy(usbdevicetmp, "/tmp/usbdevice.XXXXXX");
+      strcpy(usbdevicetmp, "/run/install-gui/usbdevice.XXXXXX");
       fd = mkstemp(usbdevicetmp);  // make a tempfile
 
       if( fd ) {
@@ -382,7 +382,7 @@ void read_partitions(GtkComboBox     *combobox)
 
    //printf("--> in read_partitions\n");
 
-   strcpy(scanparttmp, "/tmp/scanpartitions-gui.XXXXXX");
+   strcpy(scanparttmp, "/run/install-gui/scanpartitions-gui.XXXXXX");
    fd = mkstemp(scanparttmp);  // make a tempfile
 
    if( fd ) {
@@ -1901,7 +1901,7 @@ void read_language(GtkComboBox     *combobox)
    int fd, z = 0, l = 0;
 
 
-   strcpy(langtmp, "/tmp/languagetmp.XXXXXX");
+   strcpy(langtmp, "/run/install-gui/languagetmp.XXXXXX");
    fd = mkstemp(langtmp);  // make a tempfile
 
    if( fd ) {
@@ -2377,7 +2377,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
 
 
    //  inotify tem file for fll-installer
-   strcpy( install_call_tmp, "/tmp/INSTALL_INOTIFY.XXXXXX");
+   strcpy( install_call_tmp, "/run/install-gui/INSTALL_INOTIFY.XXXXXX");
    fd = mkstemp( install_call_tmp );  // make a tempfile
    strncpy(FILE_NAME, install_call_tmp, 80);
 
@@ -2385,7 +2385,7 @@ on_install_progressbar_realize         (GtkWidget       *widget,
          close ( fd );
    }
    else {
-         strncpy( install_call_tmp, "/tmp/fifo_inst", 80 );
+         strncpy( install_call_tmp, "/run/install-gui/fifo_inst", 80 );
          perror("mkstemp INSTALL_INOTIFY,");
    }
 

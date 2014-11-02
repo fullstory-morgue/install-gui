@@ -18,6 +18,10 @@ if [ -r "$SSFTSH" ]; then
 	fi
 fi
 
+# create /run/install-gui/, remove stale directoris created in previous runs
+rm -rf /run/install-gui/
+mkdir -p --mode=0700 /run/install-gui
+
 # check: Detected driver that requires firmware to operate
 export SSFT_FRONTEND="text"
 export FLL_FIRMWARE=$(fw-detect <<< $'\n' | grep -v "ENTER")

@@ -30,9 +30,9 @@ fi
 PROG=$1
 DISK=$2
 
-PARTITION_BEFORE="$(mktemp -p /tmp/ .partition_before.XXXXXXXXXX)"
+PARTITION_BEFORE="$(mktemp -p /run/install-gui .partition_before.XXXXXXXXXX)"
 
-PARTITION_AFTER="$(mktemp -p /tmp/ .partition_after.XXXXXXXXXX)"
+PARTITION_AFTER="$(mktemp -p /run/install-gui .partition_after.XXXXXXXXXX)"
 
 #-------------------------------------------------
 # 1. save old partition table into file b4

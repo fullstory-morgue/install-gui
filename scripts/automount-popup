@@ -36,7 +36,7 @@ user_xfce_volmanrc="${user_home}/.config/Thunar/volmanrc"
 # disable all swaps
 function disable_all_swaps()
 {
-	local TempFile=`mktemp -p /tmp/ .XXXXXXXXXX`
+	local TempFile=`mktemp -p /run/install-gui .XXXXXXXXXX`
 
 	swapon -s | awk '/^\/dev/{print $1}' > $TempFile
 	if [ -s "$TempFile" ]; then
