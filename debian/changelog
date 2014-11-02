@@ -1,3 +1,9 @@
+install-gui (0.13.29) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Nov 2014 00:39:37 +0100
+
 install-gui (0.13.28) unstable; urgency=medium
 
   * move temporary files used by the installer to /run/install-gui/.
