@@ -11,6 +11,6 @@ cat > "/etc/apt/sources.list.d/debian.list" <<EOF
 #
 # you may need to uncomment the deb-src line if you want to get package sources
 #
-deb http://cdn.debian.net/debian/ sid main contrib non-free
-#deb-src http://cdn.debian.net/debian/ sid main contrib non-free
+deb http://http.debian.net/debian/ sid main contrib non-free
+#deb-src http://http.debian.net/debian/ sid main contrib non-free
 EOF
