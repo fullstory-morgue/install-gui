@@ -86,9 +86,7 @@ Copyright: 2012, Pavlo Libovych <polosravros@googlemail.com>
 License: GPL-2.0
 
 Files: pixmaps/install-gui-title.png
-       pixmaps/aptosid-inst-conf.png
        pixmaps/aptosid-logo.png
-       icons/aptosid-inst-conf.svg
 Copyright: 2008, Bernard Gray <bernard.gray@gmail.com>
            2008, David Creedy <djcreedy@iinet.net.au>
 License: GPL-2.0
