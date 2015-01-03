@@ -1,9 +1,8 @@
-install-gui (0.13.30) UNRELEASED; urgency=medium
+install-gui (0.13.30) unstable; urgency=medium
 
-  * NOT RELEASED YET
   * import inetconn into fll-installer-common, adapt the packaging accordingly.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 25 Dec 2014 23:55:05 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 03 Jan 2015 04:42:17 +0100
 
 install-gui (0.13.29) unstable; urgency=medium
 
