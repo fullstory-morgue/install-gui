@@ -1,0 +1,65 @@
+#!/bin/bash
+
+export TEXTDOMAIN="inetconn"
+export TEXTDOMAINDIR=/usr/share/locale
+#export SSFT_FRONTEND=$(ssft_choose_frontend)
+
+# we need gettext (is loaded in ssft.sh or cloned...)
+if [ -f /usr/bin/gettext.sh ]; then
+	. /usr/bin/gettext.sh || exit 1
+else
+	exit 1
+fi
+
+# determine system status
+SSFTSH="$(which ssft.sh)"       || SSFTSH="/usr/bin/ssft.sh"
+
+# initialize ssft
+. "$SSFTSH"
+
+TIT="$(gettext "Internet connection")"
+
+exec 3>&1 # 3. open outputchannel (for STDOUT)
+exec 4>&1 # 4. open outputchannel (for Exitcodes)
+eval ` # >-- Backtick open!
+{
+	for x in $(seq 25 25 100); do
+		echo "$x"
+
+		case $x in
+			25)
+				echo "$(gettext "Testing internet connection, test 1 ...")"
+				wget -T 5 -t 1 -q --spider http://www.google.com/ && connection=1 || connection=0
+				sleep 1
+				echo "connection=$connection" >&4
+				[ "$connection" -eq 0 ] || break
+				;;
+
+			50)
+				echo "$(gettext "test 1 failed, trying test 2....")"
+				wget -T 10 -t 1 -q --spider http://www.google.com/ && connection=1 || connection=0
+				echo "connection=$connection" >&4
+				[ "$connection" -eq 0 ] || break
+				;;
+
+			75)
+				echo "$(gettext "test 2 failed, trying test 3....")"
+				wget -T 10 -t 1 -q --spider http://www.ebay.com/ && connection=1 || connection=0
+				echo "connection=$connection" >&4
+				[ "$connection" -eq 0 ] || break
+				;;
+		esac
+	done |  ssft_progress_bar "$TIT"
+} 4>&1 >&3
+` # >-- Backtick close!
+exec 3>&-  # close
+exec 4>&-  # close
+
+if [ "$connection" -eq 0 ]
+	then
+		ssft_display_message "No connection found" "No connection to the internet seems to be available."
+	else
+		echo "Internet connection is present and working."
+fi
+
+export connection

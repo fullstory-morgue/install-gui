@@ -7,7 +7,7 @@
 #
 export SSFT_FRONTEND=zenity
 
-INETCONN=$(which inetconn) ||	INETCONN="/usr/bin/inetconn"
+INETCONN="/usr/share/fll-installer-common/inetconn"
 
 # connection test
 printf "Internet connection test ...\n"
