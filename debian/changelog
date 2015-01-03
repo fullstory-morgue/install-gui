@@ -1,11 +1,11 @@
-install-gui (0.13.31) UNRELEASED; urgency=medium
+install-gui (0.13.31) unstable; urgency=medium
 
-  * NOT RELEASED YET
   * bump standards version to 3.9.6, no changes necessary.
   * debian/copyright: fix syntax.
   * remove icons for install-usb-gui.
+  * add a simple manpage.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 03 Jan 2015 04:42:35 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 03 Jan 2015 23:41:35 +0100
 
 install-gui (0.13.30) unstable; urgency=medium
 
