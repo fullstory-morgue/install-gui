@@ -1,8 +1,8 @@
-install-gui (0.13.32) UNRELEASED; urgency=medium
+install-gui (0.13.32) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * update debian/copyright.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 03 Jan 2015 23:45:10 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 03 Jan 2015 23:50:41 +0100
 
 install-gui (0.13.31) unstable; urgency=medium
 
