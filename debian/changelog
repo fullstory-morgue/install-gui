@@ -3,6 +3,7 @@ install-gui (0.13.31) UNRELEASED; urgency=medium
   * NOT RELEASED YET
   * bump standards version to 3.9.6, no changes necessary.
   * debian/copyright: fix syntax.
+  * remove icons for install-usb-gui.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 03 Jan 2015 04:42:35 +0100
 

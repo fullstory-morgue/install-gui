@@ -93,9 +93,7 @@ Copyright: 2008, Bernard Gray <bernard.gray@gmail.com>
            2008, David Creedy <djcreedy@iinet.net.au>
 License: GPL-2.0
 
-Files: pixmaps/install-usb-gui.png
-       icons/install-usb-gui.svg
-       icons/install-gui.svg
+Files: icons/install-gui.svg
 Copyright: 2008, Bernard Gray <bernard.gray@gmail.com>
            2008, David Creedy <djcreedy@iinet.net.au>
            2007, David Vignoni <david@icon-king.com>
