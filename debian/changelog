@@ -1,8 +1,8 @@
-install-gui (0.13.34) UNRELEASED; urgency=medium
+install-gui (0.13.34) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * move install-gui manpage into section 8.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 04 Jan 2015 01:41:05 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 04 Jan 2015 01:48:33 +0100
 
 install-gui (0.13.33) unstable; urgency=medium
 
