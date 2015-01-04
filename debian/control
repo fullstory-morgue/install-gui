@@ -1,9 +1,9 @@
 Source: install-gui
-Section: admin
-Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Uploaders: Joaquim Boura <x-un-i@sapo.pt>,
  Niall Walsh <niallwalsh@celtux.org>
+Section: admin
+Priority: extra
 Build-Depends: debhelper (>= 9.20120115),
  autotools-dev,
  automake,
@@ -12,8 +12,8 @@ Build-Depends: debhelper (>= 9.20120115),
  libglade2-dev,
  imagemagick
 Standards-Version: 3.9.6
-Vcs-git: git://github.com/fullstory/install-gui.git
 Vcs-Browser: https://github.com/fullstory/install-gui
+Vcs-Git: git://github.com/fullstory/install-gui.git
 
 Package: install-gui
 Architecture: any
@@ -25,8 +25,7 @@ Depends: ${shlibs:Depends},
  gdisk,
  psmisc,
  ssft,
- udev (>= 0.146),
- util-linux (>= 2.16.1)
+ udev
 Recommends: menu,
  gparted | partitionmanager
 Description: aptosid install-gui for fll-installer
@@ -40,10 +39,9 @@ Package: fll-installer-common
 Architecture: all
 Depends: ${shlibs:Depends},
  ${misc:Depends},
- udev (>= 0.146),
- util-linux (>= 2.16.1),
+ udev,
  distro-defaults
-Recommends: install-gui (>=0.8.10) | cliinstaller (>=0.2.6)
+Recommends: install-gui (>= 0.8.10) | cliinstaller (>= 0.2.6)
 Description: aptosid common scripts used by the installer frontends
  Collection of useful scripts that can be used by the fll-installer frontends.
  .
