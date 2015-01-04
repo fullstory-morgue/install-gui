@@ -1,3 +1,9 @@
+install-gui (0.13.34) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 04 Jan 2015 01:41:05 +0100
+
 install-gui (0.13.33) unstable; urgency=medium
 
   * drop versioned dependencies on udev and util-linux, they're met by stable.
