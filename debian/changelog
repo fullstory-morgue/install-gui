@@ -1,8 +1,9 @@
-install-gui (0.13.35) UNRELEASED; urgency=medium
+install-gui (0.13.35) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * remote empty line in credits section, this might be able to avoid
+    scrolling.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 04 Jan 2015 01:49:19 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 04 Jan 2015 03:31:55 +0100
 
 install-gui (0.13.34) unstable; urgency=medium
 
