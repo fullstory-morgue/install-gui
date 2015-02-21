@@ -318,7 +318,6 @@ void cell_edit_cb(GtkCellRendererText *cell,
         strcmp(new_text, "/opt") == 0  ||
         strcmp(new_text, "/root") == 0 ||
         strcmp(new_text, "/tmp") == 0  ||
-        strcmp(new_text, "/usr") == 0  ||
         strcmp(new_text, "/var") == 0 )
       )
    {
@@ -2072,8 +2071,6 @@ on_window_main_realize                 (GtkWidget       *widget,
    gtk_list_store_set (comboList, &iter, 0, "/root", -1);
    gtk_list_store_append (comboList, &iter);
    gtk_list_store_set (comboList, &iter, 0, "/tmp", -1);
-   gtk_list_store_append (comboList, &iter);
-   gtk_list_store_set (comboList, &iter, 0, "/usr", -1);
    gtk_list_store_append (comboList, &iter);
    gtk_list_store_set (comboList, &iter, 0, "/var", -1);
 

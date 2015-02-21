@@ -1,8 +1,8 @@
-install-gui (0.13.36) UNRELEASED; urgency=medium
+install-gui (0.13.36) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * don't offer /usr/ as separate partition, it's broken for ages.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 04 Jan 2015 03:32:32 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 21 Feb 2015 20:32:51 +0100
 
 install-gui (0.13.35) unstable; urgency=medium
 
