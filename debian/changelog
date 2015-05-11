@@ -1,8 +1,8 @@
-install-gui (0.13.37) UNRELEASED; urgency=medium
+install-gui (0.13.37) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * switch to httpredir.debian.org as official GeoMirror.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 21 Feb 2015 20:34:02 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 11 May 2015 23:19:30 +0200
 
 install-gui (0.13.36) unstable; urgency=medium
 
