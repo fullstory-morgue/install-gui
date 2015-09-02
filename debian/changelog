@@ -1,3 +1,9 @@
+install-gui (0.13.40) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 02 Sep 2015 20:31:27 +0200
+
 install-gui (0.13.39) unstable; urgency=medium
 
   * use parallel building.
