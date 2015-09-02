@@ -1,8 +1,10 @@
-install-gui (0.13.39) UNRELEASED; urgency=medium
+install-gui (0.13.39) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * use parallel building.
+  * apply the CTTE decision and remove support for the obsolete "Debian Menu
+    System" (#741573).
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 31 Jul 2015 23:45:59 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 02 Sep 2015 20:24:56 +0200
 
 install-gui (0.13.38) unstable; urgency=medium
 
