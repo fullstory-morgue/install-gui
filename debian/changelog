@@ -1,8 +1,12 @@
 install-gui (0.13.40) UNRELEASED; urgency=medium
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 02 Sep 2015 20:31:27 +0200
+  [ Niall Walsh ]
+  * use /usr/share/fll-live-initscipts/fll_locales intead of old initscript
+
+ -- Niall Walsh <niallwalsh@celtux.org>  Fri, 29 Jul 2016 18:55:38 +0100
 
 install-gui (0.13.39) unstable; urgency=medium
 

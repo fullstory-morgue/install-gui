@@ -50,7 +50,7 @@
 // Abort message from backend
 #define ABORT_MESSAGE             "Abort:"
 
-#define LANG_SH "/etc/init.d/fll-locales list | sed 's|\t|, |' > "
+#define LANG_SH "/usr/share/fll-live-initscripts/fll_locales list | sed 's|\t|, |' > "
 //${LANG} is set in /etc/default/fll-locales
 //#define LANG_CUR ". /etc/default/fll-locales; printf \"DEFAULT_LANG:${LANG}\n\";sed -ie \"s/^${LANG},/DEFAULT_${LANG},/\" "
 
@@ -1888,10 +1888,10 @@ res=$($wrap dpkg-reconfigure tzdata)\n", 512);
 
 void read_language(GtkComboBox     *combobox) 
 {
-  /* ======================================================= *
-   * read the language codes from /etc/init.d/fll-locales    *
-   * and put it in the combo box                             *
-   * ======================================================= */
+  /* =========================================================================== *
+   * read the language codes from /usr/share/fll-live-initscripts/fll_locales    *
+   * and put it in the combo box                                                 *
+   * =========================================================================== */
 
 /*
    FILE* fp;
