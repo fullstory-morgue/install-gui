@@ -1,8 +1,8 @@
-install-gui (0.13.41) UNRELEASED; urgency=medium
+install-gui (0.13.41) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * explicitly depend on fdisk.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 29 Jul 2016 21:24:51 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 04 Nov 2023 05:36:48 +0100
 
 install-gui (0.13.40) unstable; urgency=medium
 

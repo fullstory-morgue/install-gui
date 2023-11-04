@@ -19,6 +19,7 @@ Package: install-gui
 Architecture: any
 Depends: ${shlibs:Depends},
  ${misc:Depends},
+ fdisk,
  fll-installer-common (>= 0.13.30),
  fll-installer (>= 0.8.6),
  fll-live-initscripts (>= 2.0.64),
@@ -40,7 +41,8 @@ Architecture: all
 Depends: ${shlibs:Depends},
  ${misc:Depends},
  udev,
- distro-defaults
+ distro-defaults,
+ fdisk
 Recommends: install-gui (>= 0.8.10) | cliinstaller (>= 0.2.6)
 Description: aptosid common scripts used by the installer frontends
  Collection of useful scripts that can be used by the fll-installer frontends.
