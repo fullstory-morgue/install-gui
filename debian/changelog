@@ -1,6 +1,8 @@
 install-gui (0.13.43) UNRELEASED; urgency=medium
 
   * NOT RELEASED YET
+  * WIP: start working on NVMe support, not working yet
+    - ESP not mounted into hdinstall, contents written into /boot/.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 28 Oct 2024 21:31:30 +0100
 

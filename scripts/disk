@@ -84,7 +84,14 @@ parameter_p()
 		if LANG=C fdisk -l ${disk} | grep -q 'Disklabel type: gpt'
 		then
 			# Extract partition numbers from gdisk
-			parts=$(gdisk -l ${disk} 2>/dev/null | awk '/^ +[[:digit:]]/{print "'${disk}'"$1}')
+			case "${disk}" in
+				/dev/nvme*)
+					parts=$(gdisk -l ${disk} 2>/dev/null | awk '/^ +[[:digit:]]/{print "'${disk}'p"$1}')
+					;;
+				*)
+					parts=$(gdisk -l ${disk} 2>/dev/null | awk '/^ +[[:digit:]]/{print "'${disk}'"$1}')
+					;;
+			esac
 		fi
 
 		for part in $parts
