@@ -1,8 +1,8 @@
-install-gui (0.13.42) UNRELEASED; urgency=medium
+install-gui (0.13.42) unstable; urgency=medium
 
-  * NOT RELEASED YET
+  * bin-NMU, it's been a while.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 04 Nov 2023 05:37:08 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 28 Oct 2024 21:31:06 +0100
 
 install-gui (0.13.41) unstable; urgency=medium
 
