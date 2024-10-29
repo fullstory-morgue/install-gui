@@ -14,7 +14,7 @@ Build-Depends: debhelper-compat (= 13),
  imagemagick
 Standards-Version: 3.9.6
 Vcs-Browser: https://github.com/fullstory/install-gui
-Vcs-Git: git://github.com/fullstory/install-gui.git
+Vcs-Git: https://github.com/fullstory/install-gui.git
 
 Package: install-gui
 Architecture: any
