@@ -10,6 +10,7 @@ install-gui (0.13.43) UNRELEASED; urgency=medium
     - priority-extra-is-replaced-by-priority-optional
     - vcs-field-uses-insecure-uri
     - insecure-copyright-format-uri
+    - tab-in-license-text
   * bump standards version to 4.7.0, no changes necessary.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 28 Oct 2024 21:31:30 +0100
