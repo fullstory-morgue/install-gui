@@ -35,15 +35,19 @@ create-icons:
 		[ -r  $(CURDIR)/icons/$${f}.svg ] || false ; \
 		for i in 16 22 32 48 64 128; do \
 			mkdir -p "icons/hicolor.$${f}/$${i}x$${i}/apps" ; \
-			inkscape --export-width=$${i} \
+			inkscape \
+				 --export-width=$${i} \
 				 --export-height=$${i} \
-				 --export-png="$(CURDIR)/icons/hicolor.$${f}/$${i}x$${i}/apps/$${f}.png" \
+				 --export-type="png" \
+				 --export-filename="$(CURDIR)/icons/hicolor.$${f}/$${i}x$${i}/apps/$${f}.png" \
 					$(CURDIR)/icons/$${f}.svg ; \
 		done ; \
 	done
 	for f in install-gui-title aptosid-logo; do \
 		mkdir -p "$(CURDIR)/pixmaps" ; \
 		[ -r  $(CURDIR)/icons/$${f}.svg ] || false ; \
-		inkscape --export-png="$(CURDIR)/pixmaps/$${f}.png" \
+		inkscape \
+			--export-type="png" \
+			 --export-filename="$(CURDIR)/pixmaps/$${f}.png" \
 				$(CURDIR)/icons/$${f}.svg ; \
 	done
