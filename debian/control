@@ -12,7 +12,7 @@ Build-Depends: debhelper-compat (= 9),
  libgtk2.0-dev,
  libglade2-dev,
  imagemagick
-Standards-Version: 3.9.6
+Standards-Version: 4.7.0
 Vcs-Browser: https://github.com/fullstory/install-gui
 Vcs-Git: https://github.com/fullstory/install-gui.git
 
