@@ -1,4 +1,3 @@
-usr/bin/install-gui
 install-gui.desktop		usr/share/applications/aptosid/
 icons/hicolor.install-gui/*	usr/share/icons/hicolor/
 scripts/install-gui.bash	usr/bin/
