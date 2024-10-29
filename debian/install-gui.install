@@ -1,7 +1,4 @@
 usr/bin/install-gui
 install-gui.desktop		usr/share/applications/aptosid/
-pixmaps/aptosid-logo.png	usr/share/install-gui/pixmaps/
-pixmaps/install-gui-title.png	usr/share/install-gui/pixmaps/
-pixmaps/install-no-root.png	usr/share/install-gui/pixmaps/
 icons/hicolor.install-gui/*	usr/share/icons/hicolor/
 scripts/install-gui.bash	usr/bin/
