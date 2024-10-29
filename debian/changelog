@@ -5,6 +5,8 @@ install-gui (0.13.43) UNRELEASED; urgency=medium
     - ESP not mounted into hdinstall, contents written into /boot/.
   * update inkscape calls to new expectations.
   * switch to debhelper 13 (and use its package dependency).
+  * make lintian a little happier:
+    - priority-extra-is-replaced-by-priority-optional
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 28 Oct 2024 21:31:30 +0100
 
