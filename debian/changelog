@@ -13,6 +13,7 @@ install-gui (0.13.43) UNRELEASED; urgency=medium
     - tab-in-license-text
     - trailing-whitespace in debian/changelog
   * bump standards version to 4.7.0, no changes necessary.
+  * refresh SVG graphics, shut up inkscape's migration from old versions.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 28 Oct 2024 21:31:30 +0100
 
